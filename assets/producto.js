@@ -96,21 +96,43 @@
 
   /* ── las OTAs giran alrededor de la uva ───────────────────── */
   const escena = $('#escenaUva');
-  const otas = [...document.querySelectorAll('#orbita .ota')];
+  const orbitaEl = $('#orbita');
+  const otas = orbitaEl ? [...orbitaEl.children] : [];
+  const constelacion = orbitaEl && orbitaEl.dataset.modo === 'constelacion';
   const racimoFondo = $('#racimoFondo');
   let ang = 0, heroVisible = true;
+  let reloj0 = 0;
+  function flotar(dt, salida) {
+    // constelación: cada objeto en su lugar, flota apenas y se abre con el scroll según su profundidad
+    const w = escena.clientWidth;
+    reloj0 += reduce ? 0 : dt;
+    otas.forEach((el, i) => {
+      // en el celular la constelación se cierra para no salirse de la pantalla ni tapar el texto
+      const fx = innerWidth < 700 ? .86 : 1, fy = innerWidth < 700 ? .74 : 1;
+      const x = parseFloat(el.dataset.x) * w * fx, y = parseFloat(el.dataset.y) * w * fy, z = parseFloat(el.dataset.z || .5);
+      const bob = Math.sin(reloj0 * (.55 + z * .25) + i * 1.7) * (5 + z * 6);
+      const abre = 1 + salida * (.25 + z * .35);
+      el.style.transform = `translate(-50%,-50%) translate3d(${x * abre}px, ${y * abre + bob - salida * z * 60}px, 0) scale(${.86 + z * .18})`;
+      el.style.opacity = String(1 - salida * .95);
+      el.style.zIndex = z > .55 && innerWidth >= 700 ? '3' : '1';   // en el celular, el nombre de la uva siempre adelante
+    });
+  }
   function orbitar(dt, salida) {
     if (!escena) return;
+    if (constelacion) return flotar(dt, salida);
     const w = escena.clientWidth;
-    const rx = w * (.47 + salida * .12), ry = w * (.3 + salida * .06);
-    otas.forEach((el, i) => {
-      const a = ang + (i / otas.length) * Math.PI * 2;
+    const ancho = otas[0] && otas[0].classList.contains('obj') ? .38 : .47;   // las tarjetas de texto, más cerca de la uva
+    const chico = ancho < .4 && innerWidth < 700;
+    const rx = w * (ancho * (chico ? .82 : 1) + salida * .12), ry = w * ((chico ? .24 : .3) + salida * .06);
+    const vis = otas.filter(el => el.offsetParent !== null);
+    vis.forEach((el, i) => {
+      const a = ang + (i / vis.length) * Math.PI * 2;
       const z = Math.sin(a);                       // -1 atrás, 1 adelante
       const k = (z + 1) / 2;
       const s = .74 + .3 * k;
       el.style.transform = `translate(-50%,-50%) translate3d(${Math.cos(a) * rx}px, ${z * ry}px, 0) scale(${s})`;
       el.style.opacity = String((.42 + .58 * k) * (1 - salida * .9));
-      el.style.zIndex = z > 0 ? '3' : '1';
+      el.style.zIndex = z > 0 && !chico ? '3' : '1';
     });
     if (!reduce) ang += dt * .16;
   }
@@ -136,6 +158,13 @@
     // la línea de scroll: abrir la uva, después el video con sus pausas de lectura
     segs = [];
     let t = 0, u = abrir;
+    // si la página no trae pausas, se frena al final de cada escena (más en la placa del titular)
+    if (!cfg.pausas) {
+      let acc = 0; cfg.pausas = [];
+      cfg.escenas.forEach(s => { acc += s.dur; cfg.pausas.push([+(acc - .25).toFixed(2), s.name === 'Titulo' ? .8 : .5]); });
+      cfg.fin = cfg.pausas[cfg.pausas.length - 1][0];
+      cfg.pasosPorSegundo = cfg.pantallasPorSegundo = cfg.pantallasPorSegundo || .22;
+    }
     const pausas = cfg.pausas.slice().sort((a, b) => a[0] - b[0]);
     for (const [tp, quieto] of pausas) {
       if (tp > t) { const d = (tp - t) * cfg.pantallasPorSegundo; segs.push({ u0: u, u1: u + d, t0: t, t1: tp }); u += d; t = tp; }
@@ -150,7 +179,7 @@
     vertical = v;
     if (video) video.unmount();
     lienzo.replaceChildren();
-    video = window.RacimoVideo.mount(lienzo, { scenes: cfg.escenas, tweaks: cfg.ajustes, vertical: v });
+    video = window.RacimoVideo.mount(lienzo, { scenes: cfg.escenas, tweaks: cfg.ajustes, vertical: v, pieza: cfg.pieza });
     medir();
     video.set(tActual);
   }
@@ -242,6 +271,29 @@
     up?.addEventListener('click', () => { uv.controls = true; uv.play(); up.remove(); });
   }
 
+  /* ── piezas que avanzan con el scroll (el día, el chat, la noche, la perilla, la foto) ── */
+  const piezas = [...document.querySelectorAll('[data-progreso]')];
+  function progresoDe(el) {
+    const r = el.getBoundingClientRect();
+    return clamp((VH * .82 - r.top) / (r.height * .9 + VH * .25), 0, 1);
+  }
+  function pintarPiezas() {
+    for (const el of piezas) {
+      const r = el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > VH + 200) continue;
+      const p = reduce ? 1 : progresoDe(el);
+      const tipo = el.dataset.progreso;
+      if (tipo === 'foto') { const img = el.querySelector('img'); if (img && !reduce) img.style.transform = `translate3d(0, ${(r.top / VH) * -60}px, 0)`; continue; }
+      const hijos = [...el.querySelectorAll(':scope > [data-paso], :scope [data-paso]')];
+      const n = hijos.length;
+      if (tipo === 'dia') el.style.setProperty('--avance', p.toFixed(3));
+      hijos.forEach((h, i) => {
+        const on = tipo === 'dial' ? (i === Math.min(n - 1, Math.floor(p * n * .999))) : p >= (i + .4) / n;
+        h.classList.toggle('on', on);
+      });
+    }
+  }
+
   window.__racimo = { t: () => tActual };
 
   /* ── un solo bucle para todo ──────────────────────────────── */
@@ -271,6 +323,7 @@
     }
     historia(dt);
     reloj(dt);
+    pintarPiezas();
     requestAnimationFrame(frame);
   }
 

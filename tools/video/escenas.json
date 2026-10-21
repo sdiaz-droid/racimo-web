@@ -1,0 +1,317 @@
+{
+ "motor": {
+  "pieza": "RC_MOTOR",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.6,
+    "desc": "Se marcan las fechas en un calendario que aterriza en el buscador"
+   },
+   {
+    "name": "A",
+    "dur": 4.6,
+    "desc": "Web del hotel: el huésped elige la suite y confirma"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.2,
+    "desc": "La reserva directa entra en Reservas de Racimo"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y Motor de Reservas"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Más reservas directas, |sin comisiones.",
+   "bajada": "Sumalo a tu propuesta."
+  }
+ },
+ "web": {
+  "pieza": "RC_WEB",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.6,
+    "desc": "El boceto de la página se arma bloque por bloque"
+   },
+   {
+    "name": "A",
+    "dur": 4.6,
+    "desc": "Editor: se arrastra el bloque de opiniones y se publica"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.4,
+    "desc": "El sitio publicado en desktop y mobile"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y Sitio Web"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "El sitio del hotel, |listo en minutos.",
+   "bajada": "Sumalo a tu propuesta."
+  }
+ },
+ "pms": {
+  "pieza": "RC_PMS",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.8,
+    "desc": "La tarjeta de arribos y salidas del día entra sobre negro"
+   },
+   {
+    "name": "Panel",
+    "dur": 3.2,
+    "desc": "La tarjeta vuela al Panel de bienvenida y la cámara se abre a toda la interfaz"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "Plano",
+    "dur": 5.6,
+    "desc": "Plano de ocupación: las reservas se dibujan, el cursor arrastra una nueva y la confirma"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y PMS"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Toda la operación, |en una sola grilla.",
+   "bajada": "Sumalo a tu propuesta."
+  }
+ },
+ "ads": {
+  "pieza": "RC_ADS",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.6,
+    "desc": "Se tipea la búsqueda y aparecen los precios"
+   },
+   {
+    "name": "A",
+    "dur": 4.6,
+    "desc": "Resultado con comparación de precios: el sitio oficial gana"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.4,
+    "desc": "Racimo Ads: resultados de las campañas"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y Google Ads para hoteles"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Que te encuentren |y te reserven directo.",
+   "bajada": "Sumalo a tu propuesta."
+  }
+ },
+ "crm": {
+  "pieza": "RC_CRM",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.8,
+    "desc": "Mensajes de WhatsApp, email, Instagram y Booking convergen"
+   },
+   {
+    "name": "A",
+    "dur": 4.6,
+    "desc": "Bandeja unificada: respuesta con plantilla"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.4,
+    "desc": "Automatización del viaje del huésped"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y CRM"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Todos los canales, |una sola bandeja.",
+   "bajada": "Sumalo a tu propuesta."
+  }
+ },
+ "marketing": {
+  "pieza": "RC_MKT",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "Los tres capítulos: redes, MyLinks y email"
+   },
+   {
+    "name": "A",
+    "dur": 4.4,
+    "desc": "01 Redes sociales: se programa una publicación"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 6.0,
+    "desc": "02 MyLinks y 03 Email marketing"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y Marketing Digital"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Redes, links y email, |desde un solo lugar.",
+   "bajada": "Sumalo a tu propuesta."
+  }
+ },
+ "pos": {
+  "pieza": "RC_POS",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.8,
+    "desc": "La comanda de room service se imprime"
+   },
+   {
+    "name": "A",
+    "dur": 4.6,
+    "desc": "Room service: el pedido pasa de Nuevos a En cocina y En camino"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.4,
+    "desc": "Inventario: el stock se descuenta con la venta"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y POS"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Del pedido a la habitación, |sin papeles.",
+   "bajada": "Sumalo a tu propuesta."
+  }
+ },
+ "guestapp": {
+  "pieza": "RC_HUESPED",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "Ícono de la app y notificación al huésped"
+   },
+   {
+    "name": "A",
+    "dur": 5.0,
+    "desc": "En el teléfono: check-in online y llave digital"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.2,
+    "desc": "En Racimo: el arribo queda con check-in completo y llave enviada"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y Huésped+"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "El hotel entero, |en el teléfono del huésped.",
+   "bajada": "Sumalo a tu propuesta."
+  }
+ },
+ "agentes": {
+  "pieza": "RC_IA",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.6,
+    "desc": "El agente se presenta"
+   },
+   {
+    "name": "A",
+    "dur": 4.8,
+    "desc": "El agente atiende una consulta por WhatsApp y cierra la reserva solo"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.4,
+    "desc": "Panel de agentes activos"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y Agentes de IA"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Responde, cotiza |y reserva solo.",
+   "bajada": "Sumalo a tu propuesta."
+  }
+ }
+}
