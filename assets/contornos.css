@@ -1,0 +1,151 @@
+/* 02 Contornos redondos: circular fruit, grape leaf, stalk, green linework. */
+.hero-contornos h1{font-size:clamp(40px,4.5vw,66px)}
+.hero-contornos .deck{max-width:46ch;font-size:clamp(18px,1.32vw,20px);line-height:1.5;margin-top:24px}
+.brand-promise{font-family:var(--display);font-size:21px;line-height:1.4;font-weight:500;margin-top:18px;color:var(--white)}
+.brand-promise span{white-space:nowrap;color:var(--green)}
+.hero-contornos .selector{margin-top:28px;max-width:600px}
+.hero-contornos .chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.hero-contornos .chip{min-height:44px;padding:8px;font-size:14px;white-space:nowrap}
+.hero-contornos .chip{transition:background-color 180ms var(--ease-out),border-color 180ms var(--ease-out),color 180ms var(--ease-out);-webkit-tap-highlight-color:transparent}
+.hero-contornos .chip:active{transform:none}
+.hero-grid{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
+.hero-grid .ret-l{fill:none;stroke:rgba(0,240,104,.075);stroke-width:1}
+.hero-grid .ret-c{fill:none;stroke:rgba(108,99,255,.13);stroke-width:1}
+.hero-grid .grid-signal{fill:none;stroke:var(--green);stroke-width:1;opacity:0;animation:brand-signal 5.4s linear infinite}
+.hero-contornos[data-motion="paused"] .grid-signal{animation-play-state:paused}
+@keyframes brand-signal{0%,14%,100%{opacity:0}4%{opacity:.42}}
+.hero-grid-veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(18,18,18,.94) 0%,rgba(18,18,18,.74) 32%,rgba(18,18,18,0) 55%)}
+.hero-contornos .hero-body{align-items:center;gap:18px;z-index:2}
+.hero-contornos .hero-stage{width:100%;margin:0}
+.contour-art{position:relative;width:100%;height:clamp(420px,calc(100svh - 232px),780px)}
+.contour-stage{display:block;width:100%;height:100%;overflow:visible}
+/* Stable screen-space strokes, even when the figure is scaled on mobile. */
+.grape-stem,.grape-leaf{pointer-events:none}
+.grape-stem .stem-body{fill:var(--green);stroke:none}
+.grape-leaf-solid .leaf-fill{fill:var(--green);stroke:none}
+.grape-leaf-solid .leaf-rib{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;opacity:.9}
+.grape-leaf-line .leaf-edge{fill:var(--ink);stroke:var(--green);stroke-width:1.8;stroke-linejoin:round}
+.grape-leaf-line .leaf-vein{fill:none;stroke:var(--green);stroke-width:1.4;stroke-linecap:round;opacity:.7}
+.contour-grape{color:var(--green)}
+.grape-body{fill:var(--ink);stroke:currentColor;stroke-width:1.65;vector-effect:non-scaling-stroke;transition:fill 260ms var(--ease-out),stroke 260ms var(--ease-out)}
+.grape-label{fill:var(--white);font-family:var(--body);font-size:18px;font-weight:400;letter-spacing:-.02em;text-anchor:middle;dominant-baseline:central;pointer-events:none;transition:fill 260ms var(--ease-out)}
+.grape-signal{fill:none;stroke:var(--violet);stroke-width:2;opacity:0;transform-origin:center;transform-box:fill-box;pointer-events:none}
+.contour-grape{-webkit-tap-highlight-color:transparent}
+.contour-grape .focus-ring{stroke-width:1.5;stroke:var(--white);vector-effect:non-scaling-stroke}
+.contour-grape:focus,.contour-grape:focus-visible,
+.contour-stage:focus,.contour-stage:focus-visible,
+.contour-art:focus,.contour-art:focus-visible{outline:none}
+.contour-grape:focus-visible .focus-ring{opacity:1}
+.contour-grape[data-own="true"]{color:var(--violet)}
+.contour-grape[data-own="true"] .grape-body{fill:var(--violet)}
+.contour-grape[data-own="true"] .grape-label{fill:var(--ink)}
+.contour-grape:focus-visible .grape-body,.contour-grape:focus-visible .grape-label,.hero-contornos .chip:focus-visible{transition:none}
+.hero-contornos[data-input="keyboard"] .grape-body,.hero-contornos[data-input="keyboard"] .grape-label,.hero-contornos[data-input="keyboard"] .chip{transition:none}
+@media(hover:hover) and (pointer:fine){
+  .contour-grape:hover .grape-body{stroke:var(--white)}
+}
+.reseller-grape{color:var(--violet);pointer-events:none}
+.reseller-grape .grape-body{fill:var(--violet);stroke:currentColor}
+.reseller-label{fill:var(--ink);font-family:var(--body);font-size:25px;font-weight:500;letter-spacing:-.025em;text-anchor:middle;dominant-baseline:central}
+.hero-contornos .art-legend{margin:12px 0 18px}
+.grid-motion-toggle{margin-left:2px;flex-shrink:0}
+.price-readout{min-height:62px;text-align:center;margin:14px auto 0;max-width:440px;padding-inline:12px}
+.price-name{display:block;font-size:15px;font-weight:400;line-height:1.5;color:rgba(255,255,255,.76)}
+.price-value{display:block;margin-top:5px;min-height:24px;color:var(--green);font-size:16px;font-weight:500;line-height:1.5;font-variant-numeric:tabular-nums}
+.price-value small{font-size:12px;font-weight:400;color:rgba(255,255,255,.68);margin-left:6px}
+@media(min-width:901px) and (max-height:780px){
+  .contour-art{height:calc(100svh - 196px)}
+}
+@media(max-width:1150px) and (min-width:901px){
+  .contour-art{height:calc(100svh - 232px)}
+  .hero-contornos .chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .brand-promise{font-size:19px}
+}
+@media(max-width:900px){
+  .hero-grid-veil{background:linear-gradient(180deg,rgba(18,18,18,.85) 0%,rgba(18,18,18,.75) 35%,rgba(18,18,18,.2) 65%,rgba(18,18,18,.5) 100%)}
+  .hero-contornos h1{font-size:clamp(46px,7.8vw,64px)}
+  .hero-contornos .hero-body{gap:28px}
+  .contour-art{height:clamp(440px,86vw,620px)}
+}
+@media(max-width:600px){
+  .hero-contornos h1{font-size:clamp(40px,10.6vw,58px)}
+  .hero-contornos .hero-body{gap:24px}
+  .hero-contornos .hero-stage{width:calc(100% + 2*var(--gut));margin-inline:calc(-1*var(--gut))}
+  .hero-contornos .chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-contornos .deck{font-size:17px;margin-top:22px}
+  .brand-promise{font-size:19px;margin-top:16px}
+  .contour-art{height:clamp(380px,96vw,520px)}
+  .hero-contornos .art-legend{margin:16px 0}
+  .grape-label{font-size:26px}
+  .reseller-label{font-size:26px}
+}
+@media(prefers-reduced-motion:reduce){.grape-body{transition:none}}
+
+/* Copy del doc 01, pedida por Sofi el 19-sep. La bajada se parte en dos bloques
+   para que no quede un muro de texto: es el mismo texto, sólo compuesto distinto. */
+.hero-contornos .volanta{font-size:14.5px;line-height:1.5;font-weight:400;
+  color:rgba(255,255,255,.60);margin-bottom:22px}
+.hero-contornos .deck{max-width:33ch;margin-top:22px}
+.hero-contornos .deck-2{font-size:16px;line-height:1.56;max-width:46ch;margin-top:12px;
+  color:rgba(255,255,255,.62)}
+@media(max-width:900px){
+  .hero-contornos .deck{max-width:34ch}
+  .hero-contornos .deck-2{max-width:none}
+}
+
+/* ── Menos carga, pedido de Sofi el 20-sep ───────────────────────────────
+   No se saca nada: se baja el peso tipográfico del selector y de lo que rodea
+   al racimo, para que el titular y el racimo manden y el resto acompañe. */
+.hero-contornos .selector{margin-top:34px}
+.hero-contornos .ask{font-size:15px;font-weight:400;color:rgba(255,255,255,.58);margin-bottom:13px}
+.hero-contornos .chips{gap:7px}
+.hero-contornos .chip{min-height:34px;padding:5px 13px;font-size:13.5px;
+  border-color:rgba(255,255,255,.13);color:rgba(255,255,255,.66);background:transparent}
+.hero-contornos .chip[aria-pressed="true"]{border-color:var(--violet);color:#000}
+.hero-contornos .selection-status{font-size:13px;color:rgba(255,255,255,.46);
+  min-height:20px;margin-top:12px}
+@media(hover:hover) and (pointer:fine){
+  .hero-contornos .chip:not([aria-pressed="true"]):hover{
+    border-color:rgba(255,255,255,.4);color:var(--white)}
+}
+/* lo que rodea al racimo deja de competir con él */
+.hero-contornos .art-legend{font-size:11.5px;gap:18px;color:rgba(255,255,255,.44);margin-bottom:14px}
+.hero-contornos .art-legend i{width:6px;height:6px}
+.hero-contornos .motion-toggle{width:26px;height:26px;border-color:rgba(255,255,255,.12);
+  color:rgba(255,255,255,.5)}
+.hero-contornos .motion-toggle svg{width:10px;height:10px}
+.hero-contornos .price-name{font-size:14.5px;color:rgba(255,255,255,.58)}
+
+/* ── Correcciones del 20-sep (Jam 8d73121b) ──────────────────────────────── */
+/* BUG mío de la vuelta anterior: al quitarle el fondo al chip, el chip marcado
+   quedaba con texto negro sobre fondo oscuro y "desaparecía". Vuelve el fondo. */
+.hero-contornos .chip[aria-pressed="true"]{
+  background:var(--violet);border-color:var(--violet);color:#000;font-weight:500}
+/* la línea de estado sigue existiendo para lectores de pantalla, pero no se ve */
+.hero-contornos .selection-status{position:absolute;width:1px;height:1px;margin:-1px;
+  padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;min-height:0}
+/* el CTA, que era lo que faltaba para convertir */
+.hero-contornos .hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.hero-contornos .hero-cta .btn{height:48px;padding:0 24px;font-size:15px}
+@media(max-width:560px){.hero-contornos .hero-cta .btn{flex:1 1 100%}}
+
+
+/* ── Vuelta del 21-sep: el racimo, la volanta y el CTA ────────────────────
+   El racimo era un bollo porque las uvas se superponian 34 unidades y la
+   silueta 3/4/3/1 es un diamante. Ahora son 10 uvas tangentes con 8 de aire,
+   en 4/3/2/1: ancho arriba y punta abajo, que es lo unico que se lee como
+   racimo. Y ocupa el alto real del hero, no 540 px. */
+.hero-contornos .volanta{display:inline-flex;align-items:center;gap:11px;
+  font-size:12.5px;font-weight:500;letter-spacing:.145em;text-transform:uppercase;
+  color:rgba(255,255,255,.66);margin-bottom:28px}
+.hero-contornos .volanta i{width:7px;height:7px;border-radius:50%;background:var(--green);flex:none}
+
+/* un solo CTA, y con el peso de un CTA */
+.hero-contornos .hero-cta{margin-top:30px}
+.hero-contornos .hero-cta .btn{height:54px;padding:0 30px;font-size:16px;gap:11px}
+.hero-contornos .hero-cta .btn svg{width:15px;height:15px;flex:none;
+  transition:transform .22s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){
+  .hero-contornos .hero-cta .btn:hover svg{transform:translateX(3px)}
+}
+@media(max-width:560px){.hero-contornos .hero-cta .btn{flex:0 1 auto}}
