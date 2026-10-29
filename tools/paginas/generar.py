@@ -311,7 +311,7 @@ def combina(p):
     <div>
       <h2 data-entra>{p['combina_h2']}</h2>
       <p class="bajada" data-entra>{p['combina_txt']}</p>
-      <a class="btn btn-ghost todo" href="/#catalogo" data-entra>Ver todo el catálogo</a>
+      <a class="btn btn-ghost todo" href="/#racimo" data-entra>Ver todo el catálogo</a>
     </div>
     <div class="racimito" id="racimito">
       <svg viewBox="0 0 100 87" preserveAspectRatio="none" aria-hidden="true"><path d="M50 44 L22 22 M50 44 L78 22 M50 44 L22 68 M50 44 L78 68"/></svg>
@@ -400,7 +400,7 @@ def pagina(p):
   <div class="shell">
     <a href="/" aria-label="Racimo tech, inicio" style="display:block">{WORDMARK}</a>
     <nav class="navlinks" aria-label="Principal">
-      <a href="/#catalogo">Catálogo</a><a href="#historia">Cómo funciona</a>
+      <a href="/#racimo">Catálogo</a><a href="#historia">Cómo funciona</a>
       <a href="#s1">Qué vendés</a><a href="/#modelos">Cómo trabajamos</a>
     </nav>
     <a class="btn" href="#consulta">Consultá el precio</a>
