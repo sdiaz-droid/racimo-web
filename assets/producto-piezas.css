@@ -11,7 +11,8 @@
 .tarj .ok::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
 .tarj.oscura{background:#1b1b1b;color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 22px 50px -18px rgba(0,0,0,.8)}
 .tarj.oscura small{color:rgba(255,255,255,.5)}
-.tarj.verde{background:var(--green)} .tarj.verde small{color:rgba(18,18,18,.6)}
+/* junto a la uva, el verde va en el borde y no en el fondo: el único verde lleno es la uva */
+.tarj.verde{background:var(--ink);color:#fff;box-shadow:0 0 0 1px rgba(0,240,104,.6),0 22px 50px -18px rgba(0,0,0,.8)} .tarj.verde small{color:var(--green)}
 .tarj.violeta{background:var(--violet);color:#fff} .tarj.violeta small{color:rgba(255,255,255,.7)}
 .tarj.foto{padding:0;overflow:hidden;width:200px;min-width:0}
 .tarj.foto img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
@@ -173,4 +174,19 @@ html[data-anim] .noche .relato p.on{color:#fff}
   .orbita .obj:nth-child(n+4){display:none}
   body:not([data-producto="channel"]) .uva,body:not([data-producto="channel"]) .uva-brillo{width:44%}
   .tarj{max-width:136px}
+  /* el nombre de la uva siempre se lee: la uva va adelante de las tarjetas */
+  body:not([data-producto="channel"]) .uva{z-index:2}
 }
+
+/* plataformas donde se hace la publicidad, en el encabezado: logos en blanco, el mismo modo */
+.plataformas{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center}
+.plataformas li{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:500;font-size:17px;letter-spacing:-.01em;color:var(--white)}
+.plataformas img{height:22px;width:auto;display:block}
+@media(max-width:600px){.plataformas{margin-top:18px;gap:8px 20px}.plataformas li{font-size:15.5px}.plataformas img{height:19px}}
+
+/* celular: nada por debajo de 12 px en las tarjetas del hero y del chat */
+@media(max-width:600px){.tarj small,.tarj .canal,.chat .m .canal{font-size:12px;letter-spacing:.08em}}
+
+/* celular: las tarjetas del hero se abren al bajar; el hero las recorta para que la página no se corra de costado */
+.p-hero{overflow-x:clip}
+@media(max-width:600px){.tarj{font-size:12.5px}}

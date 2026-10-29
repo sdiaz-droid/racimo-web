@@ -20,3 +20,5 @@ a.seq-pz:hover{border-bottom-color:var(--violet)}
 /* cierre con formulario */
 .cierre.cierre-form{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:start;position:relative;z-index:1}
 @media(max-width:900px){.cierre.cierre-form{grid-template-columns:1fr}}
+/* celular: los nombres cortos de la lista (PMS, POS) también se tocan cómodos con el dedo */
+.seq-li a{display:inline-block;padding:10px 0;margin:-10px 0;min-width:44px}

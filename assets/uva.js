@@ -34,7 +34,7 @@
     const cubre = 2.2 * Math.hypot(Math.max(cx, innerWidth - cx), Math.max(cy, innerHeight - cy));
     const c = document.createElement('div');
     Object.assign(c.style, { position: 'fixed', zIndex: 90, left: 0, top: 0, width: r.width + 'px', height: r.width + 'px',
-      borderRadius: '50%', background: '#00f068', pointerEvents: 'none', transform: `translate(${cx - r.width / 2}px,${cy - r.width / 2}px)` });
+      borderRadius: '50%', background: 'radial-gradient(circle closest-side,#121212 0%,#121212 84%,rgba(0,240,104,.35) 95%,#00f068 99%,rgba(0,240,104,0) 100%)', pointerEvents: 'none', transform: `translate(${cx - r.width / 2}px,${cy - r.width / 2}px)` });
     document.body.appendChild(c);
     grains.forEach(o => { if (o !== g) o.animate([{ opacity: 1 }, { opacity: .15 }], { duration: 500, fill: 'forwards' }); });
     try { sessionStorage.setItem('racimo-uva', '1'); } catch (err) {}

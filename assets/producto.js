@@ -267,7 +267,7 @@
   /* ── UGC: la sección aparece sólo si el video existe ──────── */
   const ugc = $('#ugc'), uv = $('#ugcVideo'), up = $('#ugcPlay');
   if (ugc && uv) {
-    fetch(uv.querySelector('source').src, { method: 'HEAD' }).then(r => { if (r.ok) ugc.hidden = false; }).catch(() => {});
+    fetch(uv.querySelector('source').src, { method: 'HEAD' }).then(r => { if (r.ok) { uv.poster = uv.dataset.poster || ''; ugc.hidden = false; } }).catch(() => {});
     up?.addEventListener('click', () => { uv.controls = true; uv.play(); up.remove(); });
   }
 

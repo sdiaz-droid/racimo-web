@@ -11,7 +11,7 @@
   // [nombre en pantalla, valor del formulario]
   const catalog = {
     channel: ['Channel Manager','Channel Manager'], motor: ['Motor de Reservas','Motor de reservas'],
-    web: ['Sitio Web para Hoteles','Sitio web'], ads: ['Google Ads','Google Ads'],
+    web: ['Sitio Web para Hoteles','Sitio web'], ads: ['Publicidad digital','Publicidad digital'],
     crm: ['CRM','CRM'], pms: ['PMS','PMS'], pos: ['POS','POS'],
     marketing: ['Marketing Digital','Marketing Digital'], agentes: ['Agentes de IA','Agentes de IA'],
     guestapp: ['GuestApp','GuestApp']

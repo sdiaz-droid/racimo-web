@@ -24,7 +24,7 @@ CATALOGO = {
     'pms': ('PMS', '/pms/', 'PMS'),
     'crm': ('CRM', '/crm/', 'CRM'),
     'marketing': ('Marketing Digital', '/marketing-digital/', 'Marketing Digital'),
-    'ads': ('Google Ads', '/google-ads/', 'Google Ads'),
+    'ads': ('Publicidad digital', '/publicidad-digital/', 'Publicidad digital'),
     'pos': ('POS', '/pos/', 'POS'),
     'guestapp': ('GuestApp', '/guestapp/', 'GuestApp'),
     'agentes': ('Agentes de IA', '/agentes-de-ia/', 'Agentes de IA'),
@@ -42,6 +42,13 @@ def tarj(html_, x, y, z=.5, cls=''):
     return f'<div class="obj" data-x="{x}" data-y="{y}" data-z="{z}"><div class="tarj {cls}">{html_}</div></div>'
 
 
+def plataformas(p):
+    # logos de dónde se hace la publicidad, en el encabezado: todos en blanco, el mismo modo
+    if not p.get('plataformas'): return ''
+    li = ''.join(f'<li><img src="/assets/logos/{f}" alt="" width="{w}" height="22">{n}</li>' for n, f, w in p['plataformas'])
+    return f'      <ul class="plataformas" data-entra aria-label="Plataformas: {", ".join(n for n, _, _ in p["plataformas"])}">{li}</ul>'
+
+
 def hero(p):
     k = p['k']
     circ = ''.join(f'<circle class="{"vacio" if kk == k else "g"}" cx="{x}" cy="{y}" r="78"/>' for kk, x, y in RACIMO)
@@ -53,6 +60,7 @@ def hero(p):
     <div class="copy">
       <p class="volanta" data-entra><i></i>{p['volanta']}</p>
       <h1 data-entra{' class="largo"' if len(re.sub('<[^>]+>', '', p['h1'])) > 34 else ''}>{p['h1']}</h1>
+{plataformas(p)}
       <p class="deck" data-entra>{p['deck']}</p>
       <div class="acciones" data-entra>
         <a class="btn" href="#consulta">Consultá el precio y ponele tu markup{FLECHA}</a>
@@ -269,6 +277,9 @@ def como(h2='Lo vendés como propio'):
 
 
 def ugc(p):
+    # la sección UGC entra sólo si el video ya está en la carpeta (si no, el navegador pedía archivos que no existen)
+    if not (RAIZ / 'video' / p['video'] / 'ugc.mp4').exists():
+        return ''
     return f'''<section class="banda ugc" id="ugc" hidden>
   <div class="shell">
     <div>
@@ -276,7 +287,7 @@ def ugc(p):
       <p class="bajada" data-entra>Qué gana un reseller cuando suma {e(CATALOGO[p['k']][0])} a su cartera.</p>
     </div>
     <div class="ugc-video" data-entra>
-      <video id="ugcVideo" preload="none" playsinline poster="/video/{p['video']}/ugc-portada.webp"><source src="/video/{p['video']}/ugc.mp4" type="video/mp4"></video>
+      <video id="ugcVideo" preload="none" playsinline data-poster="/video/{p['video']}/ugc-portada.webp"><source src="/video/{p['video']}/ugc.mp4" type="video/mp4"></video>
       <button type="button" id="ugcPlay" aria-label="Reproducir el video con sonido"><span class="play"><i><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg></i>Ver con sonido</span></button>
     </div>
   </div>
@@ -565,17 +576,19 @@ PRODUCTOS.append(dict(
 
 # GOOGLE ADS — ganarle la búsqueda a la OTA
 PRODUCTOS.append(dict(
-    k='ads', video='ads', title='Google Ads para hoteles en marca blanca',
-    description='Campañas en Google y Meta hechas por especialistas en hotelería, para que tus hoteles le ganen la búsqueda de su propio nombre a las OTAs.',
-    volanta='Google Ads · con tu marca',
+    k='ads', video='ads', title='Publicidad digital para hoteles en marca blanca',
+    description='Publicidad en Google, Meta y ChatGPT hecha por especialistas en hotelería: una estrategia integral de publicidad y posicionamiento de marca para vender más habitaciones, spa y restaurante.',
+    volanta='Publicidad digital · con tu marca',
+    plataformas=[('Google', 'google-blanco.svg', 22), ('Meta', 'meta-blanco.png', 33), ('ChatGPT', 'chatgpt-blanco.svg', 22)],
     h1='<span class="ln">Que te encuentren</span><span class="ln"><span class="hl">y te reserven directo.</span></span>',
-    deck='Campañas en Google y Meta hechas por especialistas en hotelería, para que los hoteles de tu cartera le ganen la búsqueda de su propio nombre a las OTAs.',
+    deck='Una estrategia integral de publicidad y posicionamiento de marca, hecha por especialistas en hotelería, para que los hoteles de tu cartera vendan más habitaciones, spa y restaurante sin depender de las OTAs.',
     confianza=['0 % de comisión por reserva', 'Especialistas certificados por Google y Meta'],
     objetos=[
         tarj('<small>Anuncio · Sitio oficial</small><b>Hotel Las Moras</b><span class="ok">Reservá directo</span>', -.46, -.26, .9),
         tarj('<small>Hotel Ads</small><b>Directo, al lado de la OTA</b>', .48, -.22, .7, 'verde'),
         tarj('<small>Búsqueda de marca</small><b>Primero, el hotel</b>', .5, .3, .6, 'oscura'),
         tarj('<small>Meta</small><b>Consultas por WhatsApp</b>', -.47, .32, .5, 'violeta'),
+        tarj('<small>ChatGPT</small><b>El hotel, en la conversación</b>', .46, .04, .4, 'oscura'),
         tarj('<b>Reservas reales, no clics</b>', .0, .55, .8, 'chip'),
     ],
     historia_h2='Así se ve la búsqueda',
@@ -586,10 +599,12 @@ PRODUCTOS.append(dict(
               ('El hotel pierde su propia búsqueda', ['La OTA aparece arriba, con el nombre del hotel', 'El huésped reserva ahí y el hotel paga comisión', 'Cambiar precios en la OTA tarda días']),
               ('El hotel aparece primero', ['Anuncio del sitio oficial, arriba de la OTA', 'La tarifa directa al lado de la OTA en Google', 'Los cambios de precio se activan al instante'])),
         manifiesto('m1', 'Fee fijo y <em>0 % de comisión</em> por reserva.', 'La inversión en publicidad la define el hotel, y el resultado se mide contra reservas reales.'),
-        lista('vendes', 'Lo que le vendés a cada hotel', 'Un equipo <b>sólo de hotelería</b> que arma, mide y optimiza las campañas.', [
+        lista('vendes', 'Lo que le vendés a cada hotel', 'Un equipo <b>sólo de hotelería</b> que arma, mide y optimiza las campañas en Google, Meta y ChatGPT.', [
             ('Búsqueda de marca y genérica', 'Para que el hotel aparezca cuando lo buscan y cuando buscan dónde dormir en su destino.'),
             ('Hotel Ads', 'La tarifa directa del hotel al lado de la de la OTA, en Google.'),
             ('Meta, para crear demanda', 'Campañas que generan interés nuevo y consultas por WhatsApp.'),
+            ('ChatGPT, donde se planifica el viaje', 'Anuncios del hotel en las conversaciones de ChatGPT, cuando el viajero busca dónde quedarse.'),
+            ('Habitaciones, spa y restaurante', 'Campañas para todo lo que vende el hotel, no sólo las noches.'),
             ('Se mide contra reservas', 'Reservas y búsquedas reales atribuidas, no clics, con un reporte mensual.'),
             ('Tres planes, según la inversión', 'Cada plan suma canales: del buscador a Performance Max, Meta y remarketing.', planes([
                 ('Starter', ['Google Search de marca y genérico', 'Hotel Ads y enlaces gratuitos de reserva']),
@@ -679,7 +694,7 @@ PRODUCTOS.append(dict(
         lista('vendes', 'Cómo lo armás para cada hotel', 'Se arma según lo que necesita cada cliente de tu cartera.', [
             ('Con el sitio web', 'La página de links y las gráficas para redes vienen con los planes del sitio web.'),
             ('Con el CRM', 'El email marketing y las automatizaciones salen de la base de huéspedes del CRM.'),
-            ('Con la publicidad', 'Para sumar alcance pago en Google y Meta, se combina con Google Ads.'),
+            ('Con la publicidad', 'Para sumar alcance pago en Google, Meta y ChatGPT, se combina con Publicidad digital.'),
         ], extra='<p class="aviso" data-entra>No incluye community management ni gestión de redes orgánicas.</p>'),
         como(),
     ],
