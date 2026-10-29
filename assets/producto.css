@@ -100,9 +100,10 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .racimo-fondo .g{fill:var(--ink);stroke:rgba(0,240,104,.34);stroke-width:2}
 .racimo-fondo .vacio{fill:none;stroke:rgba(0,240,104,.6);stroke-width:2.4;stroke-dasharray:7 9}
 .uva{position:absolute;left:44%;top:57%;width:54%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);
-  background:var(--green);
-  box-shadow:0 0 0 1px rgba(0,240,104,.4),0 34px 100px -40px rgba(0,240,104,.28);
-  display:grid;place-items:center;text-align:center;color:var(--ink)}
+  /* uva de contorno, como las de la home: interior grafito, borde verde y la luz que entra desde el borde */
+  background:radial-gradient(circle closest-side,var(--ink) 0%,var(--ink) 62%,rgba(0,240,104,.10) 84%,rgba(0,240,104,.28) 97%,rgba(0,240,104,.4) 100%);
+  box-shadow:0 0 0 2px var(--green),0 0 46px -6px rgba(0,240,104,.45),0 34px 100px -40px rgba(0,240,104,.3);
+  display:grid;place-items:center;text-align:center;color:var(--white)}
 .uva .nombre{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.3vw,36px);letter-spacing:-.03em;line-height:1.05}
 .uva .nombre small{display:block;font-family:var(--body);font-size:.42em;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;opacity:.6;font-weight:500}
 .uva-brillo{position:absolute;left:44%;top:57%;width:54%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);
