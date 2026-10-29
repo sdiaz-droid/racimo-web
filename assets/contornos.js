@@ -7,12 +7,14 @@
   const status = document.getElementById('selectionStatus');
   const name = document.getElementById('capN');
   const price = document.getElementById('capP');
+  // sin precios a la vista (los ve el reseller cuando consulta): cada uva lleva a la consulta
+  // [nombre en pantalla, valor del formulario]
   const catalog = {
-    channel: ['Channel Manager',39], motor: ['Motor de Reservas',40],
-    web: ['Sitio Web para Hoteles',35], ads: ['Google Ads',30],
-    crm: ['CRM',60], pms: ['PMS',125], pos: ['POS',13],
-    marketing: ['Marketing Digital',null], agentes: ['Agentes de IA',null],
-    guestapp: ['GuestApp',null], consultoria: ['Consultorías',null]
+    channel: ['Channel Manager','Channel Manager'], motor: ['Motor de Reservas','Motor de reservas'],
+    web: ['Sitio Web para Hoteles','Sitio web'], ads: ['Publicidad digital','Publicidad digital'],
+    crm: ['CRM','CRM'], pms: ['PMS','PMS'], pos: ['POS','POS'],
+    marketing: ['Marketing Digital','Marketing Digital'], agentes: ['Agentes de IA','Agentes de IA'],
+    guestapp: ['GuestApp','GuestApp']
   };
   const products = new Set(grains.map(grain => grain.dataset.k));
   const byKey = new Map(grains.map(grain => [grain.dataset.k, grain]));
@@ -30,15 +32,24 @@
       return;
     }
     if (!catalog[key]) {
-      name.textContent = 'Tocá una uva para ver su precio.';
+      name.textContent = 'Tocá una uva para ver el producto.';
       price.replaceChildren();
       return;
     }
     name.textContent = catalog[key][0];
-    if (catalog[key][1] === null) { price.textContent = 'Precio a confirmar'; return; }
-    const unit = document.createElement('small');
-    unit.textContent = '/ mes por hotel';
-    price.replaceChildren('Desde USD ' + catalog[key][1], unit);
+    const cta = document.createElement('a');
+    cta.className = 'price-cta';
+    cta.href = '#contacto';
+    cta.dataset.consulta = catalog[key][1];
+    cta.textContent = 'Consultá el precio y ponele tu markup →';
+    const items = [cta];
+    const pagina = byKey.get(key)?.dataset.pagina ? byKey.get(key).getAttribute('href') : null;
+    if (pagina) {
+      const ver = document.createElement('a');
+      ver.className = 'price-ver'; ver.href = pagina; ver.textContent = 'Ver el producto';
+      items.push(ver);
+    }
+    price.replaceChildren(...items);
   }
 
   // Same finite feedback as the original site: only the thin ring expands.
@@ -90,20 +101,30 @@
       else showProduct(pinned);
     }
   }));
+  // tocar una uva = ver ese producto y su consulta (si tiene página, uva.js la abre con la transición).
+  // Marcar lo que ya vendés queda en los chips de arriba.
+  function pinProduct(key, pointerInitiated) {
+    hero.dataset.input = pointerInitiated ? 'pointer' : 'keyboard';
+    pinned = key;
+    showProduct(key);
+    ping(key, pointerInitiated);
+  }
   grains.forEach(grain => {
-    grain.setAttribute('role', 'button');
+    if (!grain.dataset.pagina) grain.setAttribute('role', 'button');
     grain.addEventListener('click', event => {
+      if (grain.dataset.pagina) return;
       event.preventDefault();
-      toggleProduct(grain.dataset.k, event.detail > 0);
+      pinProduct(grain.dataset.k, event.detail > 0);
     });
     grain.addEventListener('pointerenter', event => {
-      if (event.pointerType !== 'touch' && matchMedia('(hover: hover) and (pointer: fine)').matches) showProduct(grain.dataset.k);
+      // la última uva que se miró queda en el texto de abajo, así se puede ir a tocar su consulta
+      if (event.pointerType !== 'touch' && matchMedia('(hover: hover) and (pointer: fine)').matches) { pinned = grain.dataset.k; showProduct(pinned); }
     });
     grain.addEventListener('focus', () => showProduct(grain.dataset.k));
     grain.addEventListener('keydown', event => {
-      if (event.key === ' ') {
+      if (event.key === ' ' && !grain.dataset.pagina) {
         event.preventDefault();
-        if (!event.repeat) toggleProduct(grain.dataset.k);
+        if (!event.repeat) pinProduct(grain.dataset.k);
       }
     });
   });

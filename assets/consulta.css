@@ -1,0 +1,31 @@
+/* Formulario de consulta de precio (home y páginas de producto) → resellers@racimo.tech */
+form.f{background:var(--ink);border-radius:24px;padding:clamp(22px,2.6vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:16px 16px;align-content:start}
+.f .campo{display:grid;gap:7px}
+.f .ancho{grid-column:1/-1}
+.f label,.f legend{font-size:13.5px;color:var(--fg-2)}
+.f input,.f select,.f textarea{width:100%;min-height:50px;border-radius:14px;border:1px solid var(--line);background:#181818;color:var(--white);
+  padding:12px 15px;font:inherit;font-size:16px;transition:border-color .2s,background-color .2s;appearance:none;-webkit-appearance:none}
+.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff99' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px}
+.f textarea{min-height:96px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--green);background:#1b1b1b}
+.f input::placeholder,.f textarea::placeholder{color:rgba(255,255,255,.3)}
+.f fieldset{border:0;margin:0;padding:0}
+.prod{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
+.prod label{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);
+  color:rgba(255,255,255,.8);font-size:14px;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.prod input{position:absolute;opacity:0;width:1px;height:1px;min-height:0}
+.prod label:has(input:checked){background:var(--green);border-color:var(--green);color:var(--ink)}
+.prod label:has(input:focus-visible){outline:2px solid var(--green);outline-offset:3px}
+.f .enviar{grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+.f .enviar small{color:var(--fg-3);font-size:13px;max-width:36ch}
+.f .miel{position:absolute;left:-9999px}
+.f[data-estado="enviando"] .btn{opacity:.7;pointer-events:none}
+.gracias{display:none;grid-column:1/-1;padding:10px 0}
+.gracias h3{font-size:28px}
+.gracias p{color:var(--fg-2);margin-top:10px}
+.f[data-estado="ok"] > :not(.gracias){display:none}
+.f[data-estado="ok"] .gracias{display:block}
+.f .error{grid-column:1/-1;color:#ffb4b4;font-size:14px;display:none}
+.f[data-estado="error"] .error{display:block}
+@media(max-width:900px){form.f{grid-template-columns:1fr}}

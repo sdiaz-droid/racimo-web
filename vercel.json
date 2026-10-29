@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/google-ads", "destination": "/publicidad-digital/", "permanent": true },
+    { "source": "/google-ads/:path*", "destination": "/publicidad-digital/", "permanent": true }
+  ]
+}
