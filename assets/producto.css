@@ -217,7 +217,7 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .racimito{position:relative;width:100%;max-width:560px;aspect-ratio:1.15/1;justify-self:center}
 .racimito a,.racimito .yo{position:absolute;width:27%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;
   font-size:clamp(13px,1.1vw,16px);line-height:1.2;padding:8px;text-decoration:none;transform:translate(-50%,-50%)}
-.racimito .yo{background:var(--green);color:var(--ink);font-family:var(--display);font-weight:500;font-size:clamp(15px,1.3vw,19px);z-index:2}
+.racimito .yo{background:var(--ink);color:var(--white);box-shadow:0 0 0 2px var(--green),0 0 30px -6px rgba(0,240,104,.4);font-family:var(--display);font-weight:500;font-size:clamp(15px,1.3vw,19px);z-index:2}
 .racimito a{border:1.5px solid var(--green);color:var(--white);background:var(--ink);
   transition:background-color .35s var(--ease-out),color .35s var(--ease-out),transform .5s var(--ease-out)}
 .racimito a:hover,.racimito a:focus-visible{background:var(--green);color:var(--ink);transform:translate(-50%,-50%) scale(1.06)}
@@ -229,7 +229,7 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .consulta{padding-block:clamp(60px,8vw,120px)}
 .consulta .caja{position:relative;overflow:hidden;border-radius:clamp(22px,2.4vw,36px);background:var(--violet);
   display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,4vw,72px);padding:clamp(28px,5vw,80px)}
-.consulta .caja::after{content:"";position:absolute;right:-12%;top:-30%;width:46%;aspect-ratio:1;border-radius:50%;background:var(--green);pointer-events:none;z-index:0}
+.consulta .caja::after{content:"";position:absolute;right:-12%;top:-30%;width:46%;aspect-ratio:1;border-radius:50%;border:2px solid var(--green);pointer-events:none;z-index:0}
 .consulta .caja>*{position:relative;z-index:1}
 .consulta h2{font-size:clamp(34px,3.6vw,56px)}
 .consulta .bajada{color:rgba(255,255,255,.86)}

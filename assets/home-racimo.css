@@ -22,3 +22,5 @@ a.seq-pz:hover{border-bottom-color:var(--violet)}
 @media(max-width:900px){.cierre.cierre-form{grid-template-columns:1fr}}
 /* celular: los nombres cortos de la lista (PMS, POS) también se tocan cómodos con el dedo */
 .seq-li a{display:inline-block;padding:10px 0;margin:-10px 0;min-width:44px}
+/* verde sutil (devolución de Sofi, 29/10): los círculos grandes sangrados, de contorno en vez de verde lleno */
+.bleed-g{background:none;border:2px solid var(--green)}
