@@ -56,6 +56,8 @@
   } else entran.forEach(el => el.classList.add('is-in'));
 
   /* ── la uva llega desde la home ───────────────────────────── */
+  addEventListener('pageshow', () => document.documentElement.classList.remove('desde-uva'));
+  if (!(document.querySelector('#uva')) || reduce) document.documentElement.classList.remove('desde-uva');
   const uva = $('#uva');
   const heroEntra = () => document.querySelectorAll('.p-hero [data-entra]').forEach(el => el.classList.add('is-in'));
   let desde = null;
@@ -63,18 +65,19 @@
   if (desde && !reduce && uva) {
     const r = uva.getBoundingClientRect();
     const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-    const cubre = 2.2 * Math.hypot(Math.max(cx, innerWidth - cx), Math.max(cy, innerHeight - cy));
+    const cubre = 2.5 * Math.hypot(Math.max(cx, innerWidth - cx), Math.max(cy, innerHeight - cy));
     const c = document.createElement('div');
     c.className = 'cortina-uva';
     c.style.width = c.style.height = r.width + 'px';
     c.style.transform = `translate(${cx - r.width / 2}px, ${cy - r.height / 2}px) scale(${cubre / r.width})`;
     document.body.appendChild(c);
+    document.documentElement.classList.remove('desde-uva');
     document.querySelectorAll('.p-hero [data-entra]').forEach(el => { el.style.transitionDelay = (0.45 + parseFloat(el.style.transitionDelay || 0)) + 's'; });
     requestAnimationFrame(() => {
       c.animate([
         { transform: `translate(${cx - r.width / 2}px, ${cy - r.height / 2}px) scale(${cubre / r.width})` },
         { transform: `translate(${cx - r.width / 2}px, ${cy - r.height / 2}px) scale(1)` }
-      ], { duration: 1050, easing: 'cubic-bezier(.65,0,.2,1)', fill: 'forwards' }).onfinish = () => {
+      ], { duration: 1000, easing: 'cubic-bezier(.15,.65,.25,1)', fill: 'forwards' }).onfinish = () => {
         c.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, fill: 'forwards' }).onfinish = () => c.remove();
       };
       heroEntra();

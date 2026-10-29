@@ -375,6 +375,7 @@ def pagina(p):
 <html lang="es-AR">
 <head>
 <meta charset="utf-8">
+<script>try{{if(sessionStorage.getItem("racimo-uva"))document.documentElement.classList.add("desde-uva")}}catch(e){{}}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{e(p['title'])} · Racimo.tech</title>
 <meta name="description" content="{e(p['description'])}">
@@ -382,8 +383,8 @@ def pagina(p):
 <link rel="preload" href="/assets/fonts/Outfit-Medium.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
-<link rel="stylesheet" href="/assets/producto.css?v=20261021b">
-<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261021b">
+<link rel="stylesheet" href="/assets/producto.css?v=20261029">
+<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261029">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
 </head>
 <body data-producto="{k}">
@@ -434,7 +435,7 @@ def pagina(p):
 <script src="/assets/vendor/react-dom.production.min.js" defer></script>
 <script src="/video/{p['video']}/video.js" defer></script>
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
-<script src="/assets/producto.js?v=20261021b" defer></script>
+<script src="/assets/producto.js?v=20261029" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
 </body>
 </html>

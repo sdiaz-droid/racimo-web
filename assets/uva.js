@@ -31,7 +31,7 @@
     e.preventDefault();
     const r = g.querySelector('.grape-body').getBoundingClientRect();
     const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-    const cubre = 2.2 * Math.hypot(Math.max(cx, innerWidth - cx), Math.max(cy, innerHeight - cy));
+    const cubre = 2.5 * Math.hypot(Math.max(cx, innerWidth - cx), Math.max(cy, innerHeight - cy));
     const c = document.createElement('div');
     Object.assign(c.style, { position: 'fixed', zIndex: 90, left: 0, top: 0, width: r.width + 'px', height: r.width + 'px',
       borderRadius: '50%', background: 'radial-gradient(circle closest-side,#121212 0%,#121212 84%,rgba(0,240,104,.35) 95%,#00f068 99%,rgba(0,240,104,0) 100%)', pointerEvents: 'none', transform: `translate(${cx - r.width / 2}px,${cy - r.width / 2}px)` });
@@ -41,7 +41,7 @@
     c.animate([
       { transform: `translate(${cx - r.width / 2}px,${cy - r.width / 2}px) scale(1)` },
       { transform: `translate(${cx - r.width / 2}px,${cy - r.width / 2}px) scale(${cubre / r.width})` }
-    ], { duration: 820, easing: 'cubic-bezier(.65,0,.2,1)', fill: 'forwards' }).onfinish = () => { location.href = href; };
+    ], { duration: 760, easing: 'cubic-bezier(.55,0,.85,.35)', fill: 'forwards' }).onfinish = () => { location.href = href; };
   }));
   // al volver con «atrás», la página puede venir de la caché con la cortina puesta
   addEventListener('pageshow', e => { if (e.persisted) location.reload(); });

@@ -249,6 +249,8 @@ html[data-anim] [data-entra].is-in{opacity:1;transform:none}
 
 /* transición desde la home: la uva cubre la pantalla y se achica a su lugar */
 /* la uva se acerca como en la home: borde verde y adentro grafito, para que la pantalla nunca quede verde */
+/* si se llega tocando una uva, la página arranca tapada en grafito hasta que la cortina toma el control: sin destellos */
+html.desde-uva::after{content:"";position:fixed;inset:0;z-index:79;background:var(--ink);pointer-events:none}
 .cortina-uva{position:fixed;z-index:80;border-radius:50%;pointer-events:none;left:0;top:0;will-change:transform;
   background:radial-gradient(circle closest-side,var(--ink) 0%,var(--ink) 84%,rgba(0,240,104,.35) 95%,#00f068 99%,rgba(0,240,104,0) 100%)}
 
