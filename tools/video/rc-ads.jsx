@@ -116,7 +116,7 @@ function Piece(P) {
       </div>
     );
   };
-  return <Std {...P} keys={keys} active="Marketing" scope={SCOPE} label="PUBLICIDAD PARA HOTELES" producto="Publicidad para hoteles" bareA A={<Busqueda T={T} C={C} />} B={<Ads T={T} C={C} />} intro={intro}
+  return <Std {...P} keys={keys} active="Marketing" scope={SCOPE} label="PUBLICIDAD PARA HOTELES" producto="Publicidad digital" bareA A={<Busqueda T={T} C={C} />} B={<Ads T={T} C={C} />} intro={intro}
     cursor={{ vis: [C.A + 1.5, C.A + 3.0], path: [[C.A + 1.5, { x: 1000, y: 900 }], [C.A + 2.25, offBtn], [C.A + 3.2, { txt: 'Sitio oficial', dx: 70, dy: 90 }]], clicks: [C.A + 2.4] }}
     captions={[[C.A + 0.3, C.Titulo, 'HOTEL ADS', 'El sitio oficial, primero'], [C.B + 0.2, C.Cierre, 'EN RACIMO', 'Racimo Ads']]} />;
 }
