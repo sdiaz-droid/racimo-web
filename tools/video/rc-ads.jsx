@@ -1,4 +1,4 @@
-// Racimo · Google Ads para hoteles (Hotel Ads + Racimo Ads). Twist: todo arranca con una búsqueda tipeada.
+// Racimo · Publicidad para hoteles (Hotel Ads + Racimo Ads). Twist: todo arranca con una búsqueda tipeada.
 (function () {
 const { VERDE, VIOLETA, NEGRO, VERDE_TX, VIOLETA_TX, VERDE_T, VIOLETA_T, GRIS, MOTION, tw, Ic, BtnVerde, BtnLinea, toStage, camAt, Video, enter, num, LCard, Tag, Stat, Head, Std, Browser, Img } = window.RC;
 const SCOPE = [['bank', 'RESELLER', 'Reseller Marketing'], ['grid', 'ESTABLECIMIENTO', 'Hotel Las Moras'], ['card', 'PUNTO DE VENTA', 'Las Moras · Marketing']];
@@ -116,7 +116,7 @@ function Piece(P) {
       </div>
     );
   };
-  return <Std {...P} keys={keys} active="Marketing" scope={SCOPE} label="GOOGLE ADS PARA HOTELES" producto="Google Ads para hoteles" bareA A={<Busqueda T={T} C={C} />} B={<Ads T={T} C={C} />} intro={intro}
+  return <Std {...P} keys={keys} active="Marketing" scope={SCOPE} label="PUBLICIDAD PARA HOTELES" producto="Publicidad para hoteles" bareA A={<Busqueda T={T} C={C} />} B={<Ads T={T} C={C} />} intro={intro}
     cursor={{ vis: [C.A + 1.5, C.A + 3.0], path: [[C.A + 1.5, { x: 1000, y: 900 }], [C.A + 2.25, offBtn], [C.A + 3.2, { txt: 'Sitio oficial', dx: 70, dy: 90 }]], clicks: [C.A + 2.4] }}
     captions={[[C.A + 0.3, C.Titulo, 'HOTEL ADS', 'El sitio oficial, primero'], [C.B + 0.2, C.Cierre, 'EN RACIMO', 'Racimo Ads']]} />;
 }
