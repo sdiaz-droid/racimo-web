@@ -42,10 +42,11 @@ def tarj(html_, x, y, z=.5, cls=''):
     return f'<div class="obj" data-x="{x}" data-y="{y}" data-z="{z}"><div class="tarj {cls}">{html_}</div></div>'
 
 
-def globo(img, nombre, x, y, z=.6):
+def globo(img, nombre, x, y, z=.6, nuevo=False):
     # globito con el logo oficial de la plataforma, flotando junto a la uva
     x = min(max(x, -.36), .42)
-    return f'<div class="obj" data-x="{x}" data-y="{y}" data-z="{z}"><div class="globo"><img src="/assets/logos/{img}" alt="{nombre}"></div></div>'
+    marca = '<span class="nuevo">Nuevo</span>' if nuevo else ''
+    return f'<div class="obj" data-x="{x}" data-y="{y}" data-z="{z}"><div class="globo{" destacado" if nuevo else ""}"><img src="/assets/logos/{img}" alt="{nombre}">{marca}</div></div>'
 
 
 def plataformas(p):
@@ -591,9 +592,9 @@ PRODUCTOS.append(dict(
     confianza=['0 % de comisión por reserva', 'Especialistas certificados por Google y Meta'],
     objetos=[
         # primero los logos: en el celular se ven sólo los tres primeros objetos
-        globo('google-color.svg', 'Google', -.12, -.47, .75),
+        globo('chatgpt-negro.svg', 'ChatGPT', -.12, -.47, .95, nuevo=True),
         globo('meta-color.png', 'Meta', -.4, .06, .65),
-        globo('chatgpt-negro.svg', 'ChatGPT', .3, .44, .7),
+        globo('google-color.svg', 'Google', .3, .44, .7),
         tarj('<small>Anuncio · Sitio oficial</small><b>Hotel Las Moras</b><span class="ok">Reservá directo</span>', -.46, -.26, .9),
         tarj('<small>Hotel Ads</small><b>Directo, al lado de la OTA</b>', .48, -.22, .7, 'verde'),
         tarj('<small>Búsqueda de marca</small><b>Primero, el hotel</b>', .5, .3, .6, 'oscura'),

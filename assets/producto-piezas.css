@@ -196,3 +196,9 @@ html[data-anim] .noche .relato p.on{color:#fff}
   box-shadow:0 0 0 1px rgba(255,255,255,.6),0 18px 40px -14px rgba(0,0,0,.85)}
 .globo img{width:48%;height:48%;object-fit:contain;display:block}
 @media(max-width:600px){.globo{width:52px}}
+/* ChatGPT, lo nuevo: un globito más grande con la etiqueta «Nuevo» en el violeta del manual */
+.globo{position:relative}
+.globo.destacado{width:clamp(70px,6.4vw,92px)}
+.globo .nuevo{position:absolute;top:-6px;right:-22px;background:var(--violet);color:#fff;font-family:var(--body);font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;box-shadow:0 8px 20px -8px rgba(108,99,255,.8);white-space:nowrap}
+@media(max-width:600px){.globo.destacado{width:62px}.globo .nuevo{font-size:12px;padding:3px 8px;right:-26px}}
