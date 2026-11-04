@@ -465,7 +465,7 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Más reservas directas,</span><span class="ln"><span class="hl">sin comisiones.</span></span>',
     deck='Súmale a los hoteles de tu cartera un motor de reservas en su propia web: el huésped reserva directo y el hotel deja de pagarle comisión a la OTA.',
     confianza=['Prueba gratis en cuentas nuevas', 'Pensado para el celular'],
-    objetos=recortes('motor', 4) + [tarj('<small>✦ Racimo IA</small><b>Asistido por agente de IA</b>', 0, 0, .7, 'violeta')] + recortes('motor', 5)[4:],
+    objetos=recortes('motor', 4) + [tarj('<small>✦ Racimo IA</small><b>Asistido por agente de IA</b>', 0, 0, .7, 'violeta')],
     historia_h2='Así reserva el huésped',
     pasos=pasos_de('motor', ['El dato', 'Reserva directa', 'Sin comisión', 'Editor y promos', 'Listo']),
     video_alt='Video: el huésped elige fechas y una suite en la web del hotel, confirma la reserva y la reserva directa entra en el listado de reservas.',
