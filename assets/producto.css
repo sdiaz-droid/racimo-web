@@ -1,11 +1,11 @@
 /* Página de producto de Racimo: cada producto es una uva del racimo de la home.
    Comparte tokens, navegación y rejilla con la home; la composición es de cada producto. */
-@font-face{font-family:Outfit;src:url('/assets/fonts/Outfit-Regular.ttf') format('truetype');font-weight:300 400;font-display:swap}
-@font-face{font-family:Outfit;src:url('/assets/fonts/Outfit-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
-@font-face{font-family:Outfit;src:url('/assets/fonts/Outfit-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
-@font-face{font-family:Inter;src:url('/assets/fonts/Inter-Regular.ttf') format('truetype');font-weight:300 400;font-display:swap}
-@font-face{font-family:Inter;src:url('/assets/fonts/Inter-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
-@font-face{font-family:Inter;src:url('/assets/fonts/Inter-SemiBold.ttf') format('truetype');font-weight:600 700;font-display:swap}
+@font-face{font-family:Outfit;src:url('/assets/fonts/Outfit-Regular.ttf?v=20261104') format('truetype');font-weight:300 400;font-display:swap}
+@font-face{font-family:Outfit;src:url('/assets/fonts/Outfit-Medium.ttf?v=20261104') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:Outfit;src:url('/assets/fonts/Outfit-SemiBold.ttf?v=20261104') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:Inter;src:url('/assets/fonts/Inter-Regular.ttf?v=20261104') format('truetype');font-weight:300 400;font-display:swap}
+@font-face{font-family:Inter;src:url('/assets/fonts/Inter-Medium.ttf?v=20261104') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:Inter;src:url('/assets/fonts/Inter-SemiBold.ttf?v=20261104') format('truetype');font-weight:600 700;font-display:swap}
 
 :root{
   --ink:#121212; --white:#ffffff; --green:#00f068; --violet:#6c63ff;

@@ -385,8 +385,8 @@ def pagina(p):
 <title>{e(p['title'])} · Racimo.tech</title>
 <meta name="description" content="{e(p['description'])}">
 <meta name="theme-color" content="#121212">
-<link rel="preload" href="/assets/fonts/Outfit-Medium.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="preload" href="/assets/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/Outfit-Medium.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-Regular.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
 <link rel="stylesheet" href="/assets/producto.css?v=20261104">
 <link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104">
