@@ -187,6 +187,23 @@ def ota_c(f, nombre):
     return f'<div class="obj"><div class="globo grande de-ota"><img src="/assets/ota/{f}" alt="{nombre}"></div></div>'
 
 
+
+def motor_mini():
+    """el motor de reservas completo, en chico y de diseño: fechas, huéspedes, cupón y Buscar"""
+    cal = ICO['cal']; per = ICO['equipo']; tag = ICO['tag']; lupa = ICO['buscar']
+    sv = lambda p: f'<svg viewBox="0 0 24 24" aria-hidden="true">{p}</svg>'
+    return ('<div class="obj"><div class="tc motor-w">'
+            '<small>Reserva directa</small>'
+            '<div class="mw-grid">'
+            f'<span class="mw-c">{sv(cal)}<i>Llegada</i><b>sáb 14 nov</b></span>'
+            f'<span class="mw-c">{sv(cal)}<i>Salida</i><b>lun 16 nov</b></span>'
+            f'<span class="mw-c">{sv(per)}<i>Huéspedes</i><b>2 adultos</b></span>'
+            f'<span class="mw-c cupon">{sv(tag)}<i>Cupón</i><b>VERANO10 <em>✓</em></b></span>'
+            '</div>'
+            f'<span class="mw-btn">{sv(lupa)}Buscar</span>'
+            '</div></div>')
+
+
 def logos_int(lista):
     # marcas = logos (regla): placas blancas, todos los logos oficiales a color, mismo modo
     return '<div class="logos-int">' + ''.join(f'<span><img src="/assets/logos/{f}" alt="{n}" loading="lazy" decoding="async"></span>' for n, f in lista) + '</div>'
@@ -440,8 +457,8 @@ def pagina(p):
 <link rel="preload" href="/assets/fonts/Outfit-Medium.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Regular.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
-<link rel="stylesheet" href="/assets/producto.css?v=20261104c">
-<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104c">
+<link rel="stylesheet" href="/assets/producto.css?v=20261104d">
+<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104d">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
 </head>
 <body data-producto="{k}">
@@ -491,7 +508,7 @@ def pagina(p):
 <script src="/assets/vendor/react-dom.production.min.js" defer></script>
 <script src="/video/{p['video']}/video.js?v=20261104" defer></script>
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
-<script src="/assets/producto.js?v=20261104c" defer></script>
+<script src="/assets/producto.js?v=20261104d" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
 </body>
 </html>
@@ -517,7 +534,7 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Más reservas directas,</span><span class="ln"><span class="hl">sin comisiones.</span></span>',
     deck='Súmale a los hoteles de tu cartera un motor de reservas en su propia web: el huésped reserva directo y el hotel deja de pagarle comisión a la OTA.',
     confianza=['Prueba gratis en cuentas nuevas', 'Pensado para el celular'],
-    objetos=[tc('buscar', 'Buscador', '2 noches, 2 huéspedes'), logo_c('pagos/mercado-pago-isotipo.png', 'Mercado Pago'), tc('tag', 'Promociones', 'Mejor tarifa garantizada', 'verde'), logo_c('pagos/paypal-isotipo.png', 'PayPal'), tc('chispa', 'Racimo IA', 'Asistido por agente de IA', 'violeta'), logo_c('pagos/stripe.png', 'Stripe'), tc('escudo', 'Directa', 'Pago seguro, sin comisión', 'oscura')],
+    objetos=[motor_mini(), logo_c('pagos/mercado-pago-isotipo.png', 'Mercado Pago'), tc('chispa', 'Racimo IA', 'Asistido por agente de IA', 'violeta'), logo_c('pagos/paypal-isotipo.png', 'PayPal'), tc('tag', 'Promociones', 'Mejor tarifa garantizada', 'verde'), logo_c('pagos/stripe.png', 'Stripe')],
     historia_h2='Así reserva el huésped',
     pasos=pasos_de('motor', ['El dato', 'Reserva directa', 'Sin comisión', 'Editor y promos', 'Listo']),
     video_alt='Video: el huésped elige fechas y una suite en la web del hotel, confirma la reserva y la reserva directa entra en el listado de reservas.',

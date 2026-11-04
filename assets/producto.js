@@ -134,7 +134,7 @@
       const SL_T = [[-88, -118], [88, 114], [88, -118], [-88, 114]], SL_L = [[-128, 40], [128, -30]];
       let it = 0, il = 0; const t = performance.now() / 1000;
       otas.filter(el => el.offsetParent !== null).forEach((el, i) => {
-        const p = el.querySelector('.tc') ? SL_T[it++ % 4] : SL_L[il++ % 2];
+        const p = el.querySelector('.motor-w') ? [0, 168] : el.querySelector('.tc') ? SL_T[it++ % 4] : SL_L[il++ % 2];   // el motor completo, debajo de la uva
         const bob = reduce ? 0 : Math.sin(t * 1.1 + i * 1.7) * 5;
         el.style.transform = `translate(-50%,-50%) translate3d(${p[0] * (1 + salida * .3)}px, ${p[1] + bob}px, 0)`;
         el.style.opacity = String(1 - salida * .9); el.style.zIndex = '4';

@@ -255,3 +255,24 @@ html[data-anim] .noche .relato p.on{color:#fff}
   .tc small{font-size:10px} .tc b{font-size:13px}
 }
 @media(max-width:700px){.escena-uva:has(.tc){margin-bottom:17%!important}}
+
+/* el motor completo en la órbita de Motor (04/11): fechas, huéspedes, cupón y Buscar */
+.tc.motor-w{width:276px;display:block;padding:14px 14px 14px;min-height:0}
+.motor-w small{display:block;margin:0 0 9px 2px}
+.mw-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mw-c{display:grid;grid-template-columns:16px 1fr;column-gap:7px;align-items:center;padding:7px 9px;border-radius:10px;background:#f4f4f6;border:1px solid rgba(18,18,18,.07)}
+.mw-c svg{grid-row:1 / 3;width:15px;height:15px;fill:none;stroke:var(--violet);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.mw-c i{font-style:normal;font-family:var(--body);font-size:10px;font-weight:500;color:rgba(18,18,18,.5);line-height:1.2}
+.mw-c b{font-family:var(--display);font-size:13.5px;font-weight:500;line-height:1.2;color:var(--ink);white-space:nowrap}
+.mw-c.cupon{background:rgba(0,240,104,.1);border:1px dashed rgba(0,160,70,.55)}
+.mw-c.cupon svg{stroke:#00a046}
+.mw-c.cupon em{font-style:normal;color:#00a046;font-weight:600}
+.mw-btn{margin-top:8px;display:flex;align-items:center;justify-content:center;gap:7px;height:38px;border-radius:999px;background:var(--green);color:var(--ink);font-family:var(--display);font-size:14.5px;font-weight:500}
+.mw-btn svg{width:16px;height:16px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+@media(max-width:700px){
+  .tc.motor-w{width:236px;padding:11px;min-height:0}
+  .mw-c{padding:6px 7px;column-gap:6px;grid-template-columns:14px 1fr}
+  .mw-c svg{width:13px;height:13px} .mw-c b{font-size:12px} .mw-c i{font-size:9.5px}
+  .mw-btn{height:32px;font-size:13px;margin-top:6px}
+  .escena-uva:has(.motor-w){margin-bottom:44%!important}
+}
