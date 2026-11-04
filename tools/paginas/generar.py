@@ -140,7 +140,7 @@ def planes(cols, tres=False):
     c = ''
     for i, (n, feats) in enumerate(cols):
         cls = ' class="ent"' if i == len(cols) - 1 else ''
-        c += f'<div{cls}><b>{n}</b><ul>' + ''.join(f'<li>{f}</li>' for f in feats) + '</ul></div>'
+        c += f'<div{cls}>' + (f'<b>{n}</b>' if n else '') + '<ul>' + ''.join(f'<li>{f}</li>' for f in feats) + '</ul></div>'
     return f'<div class="planes{" tres-col" if tres else ""}{" un-plan" if len(cols) == 1 else ""}">{c}</div>'
 
 
@@ -484,7 +484,7 @@ PRODUCTOS.append(dict(
             ('Búsqueda agéntica y asistente con IA', 'El huésped busca como habla, y un asistente con IA le responde y lo acompaña hasta reservar.'),
             ('Multiplataforma', 'En la web del hotel, en Google Hotels, en el celular y en redes: el mismo motor en todos lados.'),
             ('Un plan, completo', 'Todo el motor para cada hotel de tu cartera, sin versiones recortadas.', planes([
-                ('Full', ['Hasta 30 categorías, tarifarios y políticas sin límite', 'Promociones, vouchers y temas sin límite', 'Paquetes: alojamiento más extras', 'Acceso para clientes con convenio', 'Calendario informativo y combinación inteligente de habitaciones', 'Motor embebible en la web propia'])])),
+                ('', ['Hasta 30 categorías, tarifarios y políticas sin límite', 'Promociones, vouchers y temas sin límite', 'Paquetes: alojamiento más extras', 'Acceso para clientes con convenio', 'Calendario informativo y combinación inteligente de habitaciones', 'Motor embebible en la web propia'])])),
         ]),
         manifiesto('m1', 'La reserva directa es <em>la más rentable</em> del hotel.', 'Y cada hotel que la suma con tu marca es un ingreso mensual para tu empresa.'),
         como(),
@@ -524,7 +524,7 @@ PRODUCTOS.append(dict(
         ]),
         lista('planes', 'Un plan, con todo adentro', 'El sitio, sus links y su presencia en Google y en las IA, para cada hotel de tu cartera.', [
             ('Todo incluido', 'Hosting seguro, sitio para celular, dominio y vinculación con Google Analytics, Tag Manager y Meta.', planes([
-                ('Full', ['Gestor de sitios y agente creador con IA', 'Plantillas personalizadas y asistencia de un ejecutivo web', 'SEO técnico y optimización para IA, con seguimiento de métricas', 'Blog, pop-ups, botón de WhatsApp y My Links', 'Gráficas para redes sociales con IA'])])),
+                ('', ['Gestor de sitios y agente creador con IA', 'Plantillas personalizadas y asistencia de un ejecutivo web', 'SEO técnico y optimización para IA, con seguimiento de métricas', 'Blog, pop-ups, botón de WhatsApp y My Links', 'Gráficas para redes sociales con IA'])])),
         ]),
         como('Lo vendes con tu marca'),
     ],
@@ -560,7 +560,7 @@ PRODUCTOS.append(dict(
             ('Migración simple', 'Importación masiva de reservas desde Excel, para pasar al hotel sin perder nada.'),
             ('Facturación del país', 'Integrado con la facturación electrónica de cada mercado.', chips(['ARCA', 'SII', 'Siigo', 'Factura Lista', 'GNS', 'SiFactura', 'Alanube'])),
             ('Un plan, con todo adentro', 'La operación completa del hotel, sin versiones recortadas.', planes([
-                ('Full', ['Plano de ocupación, carga de reservas y bloqueos', 'Caja diaria y cuentas recaudadoras sin límite', 'Estado de habitaciones, inventario y productos adicionales', 'Web check-in', 'Facturación fiscal e importación de reservas'])])),
+                ('', ['Plano de ocupación, carga de reservas y bloqueos', 'Caja diaria y cuentas recaudadoras sin límite', 'Estado de habitaciones, inventario y productos adicionales', 'Web check-in', 'Facturación fiscal e importación de reservas'])])),
         ], extra='<p class="aviso" data-entra>¿Ya vendes tu propio PMS? Este no es para ti: mira lo que lo complementa, como el <a href="/channel-manager/">Channel Manager</a>.</p>'),
         manifiesto('m1', 'Para el hotel que todavía <em>anota en un cuaderno.</em>', 'Un sistema completo para el cliente de tu cartera que todavía no tiene, con tu marca.'),
         como(),
@@ -634,7 +634,7 @@ PRODUCTOS.append(dict(
             ('Cotizador', 'Presupuestos con las tarifas del momento, en segundos.'),
             ('Encuestas y NPS', 'Para saber qué opina el huésped después de irse.'),
             ('Un plan, con todo adentro', 'Bandeja, canales, IA y email marketing, sin versiones recortadas.', planes([
-                ('Full', ['Hasta 60.000 contactos', 'WhatsApp, Instagram, Facebook, email y chat web', 'Agente de IA', 'Cotizador, encuestas y NPS', 'Email marketing con automatizaciones'])])),
+                ('', ['Hasta 60.000 contactos', 'WhatsApp, Instagram, Facebook, email y chat web', 'Agente de IA', 'Cotizador, encuestas y NPS', 'Email marketing con automatizaciones'])])),
         ]),
         manifiesto('m1', 'La consulta que no se contesta <em>es una reserva para otro.</em>', 'Por eso todo llega a una sola bandeja, y nada queda sin respuesta.'),
         como(),
