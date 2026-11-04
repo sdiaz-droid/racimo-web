@@ -274,6 +274,7 @@
     new IntersectionObserver((es, o) => es.forEach(e => {
       if (!e.isIntersecting) return;
       lazo.animate([{ strokeDashoffset: 140 }, { strokeDashoffset: 0 }], { duration: 2200, easing: 'linear', iterations: Infinity });
+      $('#lazoVuelta')?.animate([{ strokeDashoffset: 140 }, { strokeDashoffset: 0 }], { duration: 2200, easing: 'linear', iterations: Infinity });
       o.disconnect();
     }), { threshold: .4 }).observe(lazo);
   }
