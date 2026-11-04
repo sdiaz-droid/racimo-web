@@ -42,6 +42,11 @@ def tarj(html_, x, y, z=.5, cls=''):
     return f'<div class="obj" data-x="{x}" data-y="{y}" data-z="{z}"><div class="tarj {cls}">{html_}</div></div>'
 
 
+def recortes(prod, n):
+    # recortes REALES del PMS de Racimo (anonimizados) que giran alrededor de la uva
+    return [f'<div class="obj rec"><figure class="recorte"><img src="/assets/orbita/{prod}-{i}.webp?v=20261104" alt="" decoding="async"></figure></div>' for i in range(1, n + 1)]
+
+
 def globo(img, nombre, x, y, z=.6, nuevo=False):
     # globito con el logo oficial de la plataforma, flotando junto a la uva
     x = min(max(x, -.36), .42)
@@ -383,8 +388,8 @@ def pagina(p):
 <link rel="preload" href="/assets/fonts/Outfit-Medium.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
-<link rel="stylesheet" href="/assets/producto.css?v=20261029">
-<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261029">
+<link rel="stylesheet" href="/assets/producto.css?v=20261104">
+<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
 </head>
 <body data-producto="{k}">
@@ -432,9 +437,9 @@ def pagina(p):
 <script src="/assets/vendor/lenis.min.js" defer></script>
 <script src="/assets/vendor/react.production.min.js" defer></script>
 <script src="/assets/vendor/react-dom.production.min.js" defer></script>
-<script src="/video/{p['video']}/video.js" defer></script>
+<script src="/video/{p['video']}/video.js?v=20261104" defer></script>
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
-<script src="/assets/producto.js?v=20261029" defer></script>
+<script src="/assets/producto.js?v=20261104" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
 </body>
 </html>
@@ -460,15 +465,9 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Más reservas directas,</span><span class="ln"><span class="hl">sin comisiones.</span></span>',
     deck='Súmale a los hoteles de tu cartera un motor de reservas en su propia web: el huésped reserva directo y el hotel deja de pagarle comisión a la OTA.',
     confianza=['Prueba gratis en cuentas nuevas', 'Pensado para el celular'],
-    objetos=[
-        tarj('<small>Reserva directa</small><b>Suite Lago · 3 noches</b><span class="ok">Confirmada</span>', -.47, -.2, .8),
-        tarj('<small>Comisión</small><b>0 %</b>', .42, -.28, .7, 'verde'),
-        tarj('<small>Comparador</small><b>Directo, el mejor precio</b><span class="ok">vs. las OTAs</span>', .5, .2, .9),
-        tarj('<small>Google Hotels</small><b>Sitio oficial</b>', -.44, .3, .4, 'oscura'),
-        tarj('<small>Compra abandonada</small><b>Le escribimos al huésped</b>', .02, .5, .6, 'violeta'),
-    ],
+    objetos=recortes('motor', 5),
     historia_h2='Así reserva el huésped',
-    pasos=pasos_de('motor', ['Las fechas', 'En la web del hotel', 'Sin comisión', 'Llega a Reservas', 'Listo']),
+    pasos=pasos_de('motor', ['El dato', 'Reserva directa', 'Sin comisión', 'Editor y promos', 'Listo']),
     video_alt='Video: el huésped elige fechas y una suite en la web del hotel, confirma la reserva y la reserva directa entra en el listado de reservas.',
     secciones=[
         antes('s1', 'Cada reserva directa es margen para el hotel', 'Lo que cambia cuando el hotel vende desde su propia web.',
@@ -501,15 +500,9 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">El sitio del hotel,</span><span class="ln"><span class="hl">listo en minutos.</span></span>',
     deck='Webs para los hoteles de tu cartera con el motor de reservas integrado, SEO incluido y plantillas que el hotel puede actualizar solo.',
     confianza=['Motor de reservas integrado', 'Multi-idioma y multimoneda'],
-    objetos=[
-        tarj(f'<img src="{F}domos-vinedo.webp" alt="" loading="lazy"><span>Domos del Viñedo</span>', -.5, -.24, .8, 'foto'),
-        tarj(f'<img src="{F}cabana-lago.webp" alt="" loading="lazy"><span>Cabañas del Lago</span>', .5, -.3, .6, 'foto'),
-        tarj(f'<img src="{F}tina-lago.webp" alt="" loading="lazy"><span>Spa &amp; tinas</span>', .48, .3, .9, 'foto'),
-        tarj('<small>Búsquedas</small><b>Lista para Google y las IA</b>', -.46, .34, .5),
-        tarj('<b>Reservar</b>', .02, .52, .7, 'chip verde'),
-    ],
+    objetos=recortes('web', 5),
     historia_h2='Así se arma el sitio',
-    pasos=pasos_de('web', ['La portada', 'El sitio', 'Listo en minutos', 'En el celular', 'Listo']),
+    pasos=pasos_de('web', ['El dato', 'La web del hotel', 'Lista en minutos', 'My Links', 'Listo']),
     video_alt='Video: se arma la portada del sitio del hotel, aparecen las habitaciones y las opiniones, y el sitio se ve también en el celular.',
     secciones=[
         foto('s1', 'domos-vinedo', 'La vitrina que convierte visitas en reservas', 'Para el hotel que tiene una web vieja, estática o directamente no tiene: una vitrina pensada para vender, conectada a su motor de reservas.'),
@@ -546,15 +539,9 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Toda la operación,</span><span class="ln"><span class="hl">en una sola grilla.</span></span>',
     deck='Para el hotel de tu cartera que todavía no tiene sistema: reservas, recepción, caja y facturación en un solo lugar, conectado a todos sus canales.',
     confianza=['Ocupación en tiempo real', 'Migración desde Excel'],
-    objetos=[
-        tarj('<small>Plano de ocupación</small><div class="barras"><i style="width:80%"></i><i style="width:55%"></i><i style="width:92%"></i><i style="width:40%"></i></div>', -.48, -.18, .8),
-        tarj('<small>Check-in</small><b>Hab. 204 · 14:00</b><span class="ok">Lista</span>', .48, -.26, .7),
-        tarj('<small>Caja del día</small><b>$ y US$</b>', .5, .28, .9, 'oscura'),
-        tarj('<small>Limpieza</small><b>3 habitaciones listas</b>', -.45, .34, .5, 'verde'),
-        tarj('<small>Factura</small><b>Electrónica</b>', .0, .54, .6, 'violeta'),
-    ],
+    objetos=recortes('pms', 6),
     historia_h2='Así se ve el día del hotel',
-    pasos=pasos_de('pms', ['El día', 'El panel', 'Una sola grilla', 'El plano', 'Listo']),
+    pasos=pasos_de('pms', ['El dato', 'El día y el plano', 'Una sola grilla', 'Caja y facturas', 'Listo']),
     video_alt='Video: la tarjeta de arribos y salidas del día, el panel del hotel y el plano de ocupación donde se arrastra y confirma una nueva reserva.',
     secciones=[
         dia('s1', 'El día del hotel, en un solo sistema', 'Desde que entra la reserva hasta que sale la factura.', [
@@ -590,20 +577,9 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Que te encuentren</span><span class="ln"><span class="hl">y te reserven directo.</span></span>',
     deck='Una estrategia integral de publicidad y posicionamiento de marca, hecha por especialistas en hotelería, para que los hoteles de tu cartera vendan más habitaciones, spa y restaurante sin depender de las OTAs.',
     confianza=['0 % de comisión por reserva', 'Especialistas certificados por Google y Meta'],
-    objetos=[
-        # primero los logos: en el celular se ven sólo los tres primeros objetos
-        globo('chatgpt-negro.svg', 'ChatGPT', -.12, -.47, .95, nuevo=True),
-        globo('meta-color.png', 'Meta', -.4, .06, .65),
-        globo('google-color.svg', 'Google', .3, .44, .7),
-        tarj('<small>Anuncio · Sitio oficial</small><b>Hotel Las Moras</b><span class="ok">Reserva directo</span>', -.46, -.26, .9),
-        tarj('<small>Hotel Ads</small><b>Directo, al lado de la OTA</b>', .48, -.22, .7, 'verde'),
-        tarj('<small>Búsqueda de marca</small><b>Primero, el hotel</b>', .5, .3, .6, 'oscura'),
-        tarj('<small>Meta</small><b>Consultas por WhatsApp</b>', -.47, .32, .5, 'violeta'),
-        tarj('<small>ChatGPT</small><b>El hotel, en la conversación</b>', .46, .04, .4, 'oscura'),
-        tarj('<b>Reservas reales, no clics</b>', .0, .55, .8, 'chip'),
-    ],
+    objetos=recortes('ads', 4),
     historia_h2='Así se ve la búsqueda',
-    pasos=pasos_de('ads', ['La búsqueda', 'El anuncio', 'Reservan directo', 'Los resultados', 'Listo']),
+    pasos=pasos_de('ads', ['El dato', 'Resultados', 'Primero en Google', 'Inversión', 'Listo']),
     video_alt='Video: alguien busca el hotel, el anuncio del sitio oficial aparece primero con la tarifa directa y el panel muestra impresiones, clics y reservas.',
     secciones=[
         antes('s1', 'Las OTAs pujan por el nombre del hotel', 'Cuando alguien busca el hotel por su nombre, muchas veces la primera opción es una OTA.',
@@ -637,16 +613,9 @@ PRODUCTOS.append(dict(
     deck='WhatsApp, Instagram, Facebook, el email y el chat de la web en una sola bandeja, con el historial de cada huésped y campañas de email automáticas.',
     confianza=['Perfil 360° de cada huésped', 'Email marketing automatizado'],
     constelacion=False,
-    objetos=[
-        '<div class="obj"><div class="tarj burbuja"><span class="canal"><i style="background:#25D366"></i>WhatsApp</span>¿Tienen lugar del 12 al 15?</div></div>',
-        '<div class="obj"><div class="tarj burbuja"><span class="canal"><i style="background:#E1306C"></i>Instagram</span>¿Aceptan mascotas?</div></div>',
-        '<div class="obj"><div class="tarj burbuja mia"><span class="canal"><i style="background:#121212"></i>Respuesta</span>¡Sí! Te paso la cotización.</div></div>',
-        '<div class="obj"><div class="tarj burbuja"><span class="canal"><i style="background:#1877F2"></i>Messenger</span>¿El desayuno está incluido?</div></div>',
-        '<div class="obj"><div class="tarj burbuja"><span class="canal"><i style="background:#6c63ff"></i>Email</span>Presupuesto para un grupo</div></div>',
-        '<div class="obj"><div class="tarj burbuja"><span class="canal"><i style="background:#00f068"></i>Chat web</span>¿Hay cochera?</div></div>',
-    ],
+    objetos=recortes('crm', 5),
     historia_h2='Así responde el hotel',
-    pasos=pasos_de('crm', ['Las consultas', 'La bandeja', 'Una sola bandeja', 'Automatizaciones', 'Listo']),
+    pasos=pasos_de('crm', ['El dato', 'Mailing y agente', 'Sin respuesta, nunca', 'Automatizaciones', 'Listo']),
     video_alt='Video: llegan consultas por distintos canales, el equipo las responde desde una sola bandeja y se ven las automatizaciones de email con sus resultados.',
     secciones=[
         chat('s1', 'Ninguna consulta se pierde', 'Cada mensaje queda en la misma bandeja, con el historial del huésped, sin importar por dónde llegó.',
@@ -682,15 +651,9 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">La tarifa justa,</span><span class="ln"><span class="hl">cada día.</span></span>',
     deck='Revenue management con IA para los hoteles de tu cartera: sugiere la tarifa de cada día con la demanda, la competencia, el clima y los eventos, y la aplica en un clic.',
     confianza=['Se activa el mismo día', 'El hotel pone piso y techo'],
-    objetos=[
-        tarj('<small>Tarifa sugerida · sábado</small><b>US$ 132</b><span class="ok">Aplicada</span>', -.47, -.22, .8),
-        tarj('<small>Ocupación prevista</small><b>93 %</b>', .48, -.27, .6, 'verde'),
-        tarj('<small>Competencia</small><b>Mediana US$ 128</b>', .5, .3, .9, 'oscura'),
-        tarj('<small>Clima y eventos</small><b>Fin de semana largo</b>', -.46, .34, .5),
-        tarj('<b>Un clic</b>', .02, .55, .7, 'chip violeta'),
-    ],
+    objetos=recortes('rms', 5),
     historia_h2='Así se decide la tarifa',
-    pasos=pasos_de('rms', ['La sugerencia', 'Tarifas sugeridas', 'Un clic', 'El pronóstico', 'Listo']),
+    pasos=pasos_de('rms', ['El dato', 'Diario y sugerencias', 'La tarifa justa', 'Competencia y agente', 'Listo']),
     video_alt='Video: la grilla de tarifas sugeridas del mes, con ocupación prevista, demanda y competencia; se aplican las sugerencias en un clic y se ve el pronóstico de ingresos.',
     secciones=[
         antes('s1', 'Del precio a ojo a la tarifa con datos', 'Lo que cambia cuando el hotel deja de copiar a la OTA.',
@@ -721,15 +684,9 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Del pedido a la habitación,</span><span class="ln"><span class="hl">sin papeles.</span></span>',
     deck='El punto de venta del restaurante, el bar y el room service del hotel: carta por QR, comandas que llegan solas a cocina y consumos que pasan directo a la cuenta del huésped.',
     confianza=['Integrado al PMS', 'Stock que se descuenta solo'],
-    objetos=[
-        tarj('<small>Room service</small><b>Hab. 302</b><span class="ok">Cargado a la habitación</span>', -.47, -.22, .8),
-        tarj('<small>Carta digital</small><b>Por QR</b>', .48, -.27, .6, 'verde'),
-        tarj('<small>Comanda</small><b>A cocina y barra</b>', .5, .3, .9, 'oscura'),
-        tarj('<small>Stock</small><b>Se descuenta solo</b>', -.46, .34, .5),
-        tarj('<b>Sin papeles</b>', .02, .55, .7, 'chip violeta'),
-    ],
+    objetos=recortes('pos', 5),
     historia_h2='Así viaja un pedido',
-    pasos=pasos_de('pos', ['El pedido', 'Room service', 'Sin papeles', 'Inventario', 'Listo']),
+    pasos=pasos_de('pos', ['El dato', 'Carta y room service', 'Sin papeles', 'Inventario y cuenta', 'Listo']),
     video_alt='Video: un pedido de room service para la habitación 302 se arma en el sistema, se carga a la cuenta del huésped y el inventario se actualiza.',
     secciones=[
         ticket('s1', 'Todo lo que el POS le resuelve al hotel', 'Cada línea, algo que deja de hacerse a mano.',
@@ -768,15 +725,9 @@ PRODUCTOS.append(dict(
     deck='Check-in online, llave digital, room service y la guía del hotel, en una app con la marca del hotel. Y para el equipo, la app de limpieza y mantenimiento.',
     confianza=['Llave digital en el celular', 'Check-in y check-out autónomos'],
     uva='GuestApp',
-    objetos=[
-        tarj('<small>Check-in</small><b>Completo</b><span class="ok">Antes de llegar</span>', -.48, -.22, .8),
-        tarj('<small>Llave digital</small><b>Suite 302</b>', .48, -.27, .7, 'verde'),
-        tarj('<small>Guía del hotel</small><b>Desayuno de 7 a 10</b>', .5, .3, .9, 'oscura'),
-        tarj('<small>Room service</small><b>Pedido en camino</b>', -.46, .34, .5, 'violeta'),
-        tarj('<b>Sin pasar por recepción</b>', .02, .55, .7, 'chip'),
-    ],
+    objetos=recortes('guestapp', 5),
     historia_h2='Así llega el huésped',
-    pasos=pasos_de('guestapp', ['La notificación', 'Check-in y llave', 'En el teléfono', 'En el hotel', 'Listo']),
+    pasos=pasos_de('guestapp', ['El dato', 'Llave y mensajes', 'En el teléfono', 'Room service', 'Listo']),
     video_alt='Video: el huésped recibe la notificación, hace el check-in online y abre su habitación con la llave digital; en el sistema, el arribo queda con check-in completo.',
     secciones=[
         noche('s1', '02:14', [
@@ -811,15 +762,9 @@ PRODUCTOS.append(dict(
     deck='Agentes de IA conectados en vivo al sistema del hotel: contestan por WhatsApp, la web o el email, preparan cotizaciones y automatizan tareas del equipo.',
     confianza=['Con la información viva del hotel', 'Autonomía configurable'],
     constelacion=False,
-    objetos=[
-        '<div class="obj"><div class="tarj"><small>03:12</small><b>Respondió una consulta</b></div></div>',
-        '<div class="obj"><div class="tarj verde"><small>Cotización</small><b>Enviada en segundos</b></div></div>',
-        '<div class="obj"><div class="tarj oscura"><small>Rutina</small><b>Resumen del día listo</b></div></div>',
-        '<div class="obj"><div class="tarj violeta"><small>Modo supervisado</small><b>Tú apruebas</b></div></div>',
-        '<div class="obj"><div class="tarj"><small>Aprendizaje</small><b>Cada corrección suma</b></div></div>',
-    ],
+    objetos=recortes('agentes', 5),
     historia_h2='Así trabaja un agente',
-    pasos=pasos_de('agentes', ['El agente', 'La conversación', 'Solo', 'Sus tareas', 'Listo']),
+    pasos=pasos_de('agentes', ['El dato', 'Racimo IA', 'Un equipo de IA', 'Rutinas', 'Listo']),
     video_alt='Video: el agente del hotel conversa con un huésped, consulta la disponibilidad y arma la reserva, y el panel muestra lo que resolvieron los agentes.',
     secciones=[
         dial('s1', 'El hotel decide cuánto hace solo', 'La autonomía de cada agente se configura en tres niveles.', [

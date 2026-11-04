@@ -10,8 +10,8 @@
 <link rel="preload" href="/assets/fonts/Outfit-Medium.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
-<link rel="stylesheet" href="/assets/producto.css?v=20261029">
-<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261029">
+<link rel="stylesheet" href="/assets/producto.css?v=20261104">
+<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
 </head>
 <body data-producto="pos">
@@ -58,7 +58,7 @@
         <circle class="g" cx="94" cy="190" r="78"/><circle class="g" cx="258" cy="190" r="78"/><circle class="g" cx="422" cy="190" r="78"/><circle class="g" cx="586" cy="190" r="78"/><circle class="g" cx="176" cy="332" r="78"/><circle class="g" cx="340" cy="332" r="78"/><circle class="g" cx="504" cy="332" r="78"/><circle class="vacio" cx="258" cy="474" r="78"/><circle class="g" cx="422" cy="474" r="78"/><circle class="g" cx="340" cy="616" r="78"/>
       </svg>
       <div class="orbita" id="orbita">
-        <div class="obj" data-x="-0.36" data-y="-0.22" data-z="0.8"><div class="tarj "><small>Room service</small><b>Hab. 302</b><span class="ok">Cargado a la habitación</span></div></div><div class="obj" data-x="0.42" data-y="-0.27" data-z="0.6"><div class="tarj verde"><small>Carta digital</small><b>Por QR</b></div></div><div class="obj" data-x="0.42" data-y="0.3" data-z="0.9"><div class="tarj oscura"><small>Comanda</small><b>A cocina y barra</b></div></div><div class="obj" data-x="-0.36" data-y="0.34" data-z="0.5"><div class="tarj "><small>Stock</small><b>Se descuenta solo</b></div></div><div class="obj" data-x="0.02" data-y="0.55" data-z="0.7"><div class="tarj chip violeta"><b>Sin papeles</b></div></div>
+        <div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pos-1.webp?v=20261104" alt="" decoding="async"></figure></div><div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pos-2.webp?v=20261104" alt="" decoding="async"></figure></div><div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pos-3.webp?v=20261104" alt="" decoding="async"></figure></div><div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pos-4.webp?v=20261104" alt="" decoding="async"></figure></div><div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pos-5.webp?v=20261104" alt="" decoding="async"></figure></div>
       </div>
       <div class="uva" id="uva"><p class="nombre">POS</p></div>
       <div class="uva-brillo" id="uvaBrillo"></div>
@@ -73,7 +73,7 @@
         <h2>Así viaja un pedido</h2>
         <p>El video corre solo: puedes saltar a cualquier paso o seguir de largo.</p>
       </div>
-      <div class="derecha"><ol class="pasos-video" id="pasosVideo" aria-hidden="true"><li data-t="0">El pedido</li><li data-t="2.8">Room service</li><li data-t="7.4">Sin papeles</li><li data-t="9.6">Inventario</li><li data-t="14.0">Listo</li></ol>
+      <div class="derecha"><ol class="pasos-video" id="pasosVideo" aria-hidden="true"><li data-t="0">El dato</li><li data-t="2.4">Carta y room service</li><li data-t="7.4">Sin papeles</li><li data-t="9.6">Inventario y cuenta</li><li data-t="14.4">Listo</li></ol>
       <a class="saltear" id="saltear" href="#s1">Saltear el video<svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v11M3.5 9 8 13.5 12.5 9"/></svg></a></div>
     </div>
     <div class="progreso" aria-hidden="true"><span id="progreso"></span></div>
@@ -196,9 +196,9 @@
 <script src="/assets/vendor/lenis.min.js" defer></script>
 <script src="/assets/vendor/react.production.min.js" defer></script>
 <script src="/assets/vendor/react-dom.production.min.js" defer></script>
-<script src="/video/pos/video.js" defer></script>
-<script>window.RACIMO_VIDEO = {"pieza": "RC_POS", "escenas": [{"name": "Intro", "dur": 2.8}, {"name": "A", "dur": 4.6}, {"name": "Titulo", "dur": 2.2}, {"name": "B", "dur": 4.4}, {"name": "Cierre", "dur": 2.6}], "ajustes": {"fondo": "Negro", "titular": "Del pedido a la habitación, |sin papeles.", "bajada": "Súmalo a tu propuesta."}, "pantallasPorSegundo": 0.22};</script>
-<script src="/assets/producto.js?v=20261029" defer></script>
+<script src="/video/pos/video.js?v=20261104" defer></script>
+<script>window.RACIMO_VIDEO = {"pieza": "RC_POS", "escenas": [{"name": "Intro", "dur": 2.4}, {"name": "A", "dur": 5.0}, {"name": "Titulo", "dur": 2.2}, {"name": "B", "dur": 4.8}, {"name": "Cierre", "dur": 2.6}], "ajustes": {"fondo": "Negro", "titular": "Del pedido a la habitación, |sin papeles.", "bajada": "Súmalo a tu propuesta."}, "pantallasPorSegundo": 0.22};</script>
+<script src="/assets/producto.js?v=20261104" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
 </body>
 </html>

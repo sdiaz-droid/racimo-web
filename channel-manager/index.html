@@ -10,7 +10,7 @@
 <link rel="preload" href="/assets/fonts/Outfit-Medium.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
-<link rel="stylesheet" href="/assets/producto.css?v=20261029">
+<link rel="stylesheet" href="/assets/producto.css?v=20261104">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
 </head>
 <body data-producto="channel">
@@ -79,7 +79,7 @@
         <p>El video corre solo: puedes saltar a cualquier paso o seguir de largo.</p>
       </div>
       <div class="derecha"><ol class="pasos-video" id="pasosVideo" aria-hidden="true">
-        <li data-t="0">Los canales</li><li data-t="3.2">Conectados</li><li data-t="6.8">Una tarifa</li><li data-t="9">Sincronizar</li><li data-t="13.4">Listo</li>
+        <li data-t="0">El dato</li><li data-t="2.4">Canales y tarifas</li><li data-t="7.6">Una tarifa</li><li data-t="9.8">Sin sobreventa</li><li data-t="14.6">Listo</li>
       </ol>
       <a class="saltear" id="saltear" href="#vendes">Saltear el video<svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v11M3.5 9 8 13.5 12.5 9"/></svg></a></div>
     </div>
@@ -238,18 +238,16 @@
 <script src="/assets/vendor/lenis.min.js" defer></script>
 <script src="/assets/vendor/react.production.min.js" defer></script>
 <script src="/assets/vendor/react-dom.production.min.js" defer></script>
-<script src="/video/channel/video.js" defer></script>
+<script src="/video/channel/video.js?v=20261104" defer></script>
 <script>
 window.RACIMO_VIDEO = {
-  escenas: [{"name":"Intro","dur":3.2},{"name":"Listado","dur":3.6},{"name":"Titulo","dur":2.2},{"name":"Tarifas","dur":4.4},{"name":"Sync","dur":3.2},{"name":"Cierre","dur":2.6}],
+  pieza: 'RC_CHANNEL',
+  escenas: [{"name":"Intro","dur":2.4},{"name":"A","dur":5.2},{"name":"Titulo","dur":2.2},{"name":"B","dur":4.8},{"name":"Cierre","dur":2.6}],
   ajustes: {fondo:'Negro', titular:'Una tarifa, |todos los canales.', bajada:'Súmalo a tu propuesta.'},
-  /* tramos de lectura: [segundo del video, cuánto scroll se queda quieto (en pantallas)] */
-  pausas: [[2.9,.45],[6.5,.5],[8.9,.8],[13.1,.45],[16.4,.8],[18.4,.35]],
-  pantallasPorSegundo: .2,
-  fin: 18.4
+  pantallasPorSegundo: .22
 };
 </script>
-<script src="/assets/producto.js?v=20261029" defer></script>
+<script src="/assets/producto.js?v=20261104" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
 </body>
 </html>

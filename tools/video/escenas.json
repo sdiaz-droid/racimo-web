@@ -4,13 +4,13 @@
   "escenas": [
    {
     "name": "Intro",
-    "dur": 2.6,
-    "desc": "Se marcan las fechas en un calendario que aterriza en el buscador"
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
    },
    {
     "name": "A",
-    "dur": 4.6,
-    "desc": "Web del hotel: el huésped elige la suite y confirma"
+    "dur": 5.0,
+    "desc": "PMS real: primeras tomas"
    },
    {
     "name": "Titulo",
@@ -19,13 +19,13 @@
    },
    {
     "name": "B",
-    "dur": 4.2,
-    "desc": "La reserva directa entra en Reservas de Racimo"
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
    },
    {
     "name": "Cierre",
     "dur": 2.6,
-    "desc": "Logotipo de Racimo y Motor de Reservas"
+    "desc": "Logotipo de Racimo y producto"
    }
   ],
   "ajustes": {
@@ -39,13 +39,13 @@
   "escenas": [
    {
     "name": "Intro",
-    "dur": 2.6,
-    "desc": "El boceto de la página se arma bloque por bloque"
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
    },
    {
     "name": "A",
-    "dur": 4.6,
-    "desc": "Editor: se arrastra el bloque de opiniones y se publica"
+    "dur": 5.0,
+    "desc": "PMS real: primeras tomas"
    },
    {
     "name": "Titulo",
@@ -54,13 +54,13 @@
    },
    {
     "name": "B",
-    "dur": 4.4,
-    "desc": "El sitio publicado en desktop y mobile"
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
    },
    {
     "name": "Cierre",
     "dur": 2.6,
-    "desc": "Logotipo de Racimo y Sitio Web"
+    "desc": "Logotipo de Racimo y producto"
    }
   ],
   "ajustes": {
@@ -74,13 +74,13 @@
   "escenas": [
    {
     "name": "Intro",
-    "dur": 2.8,
-    "desc": "La tarjeta de arribos y salidas del día entra sobre negro"
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
    },
    {
-    "name": "Panel",
-    "dur": 3.2,
-    "desc": "La tarjeta vuela al Panel de bienvenida y la cámara se abre a toda la interfaz"
+    "name": "A",
+    "dur": 5.2,
+    "desc": "PMS real: primeras tomas"
    },
    {
     "name": "Titulo",
@@ -88,14 +88,14 @@
     "desc": "Placa tipográfica"
    },
    {
-    "name": "Plano",
-    "dur": 5.6,
-    "desc": "Plano de ocupación: las reservas se dibujan, el cursor arrastra una nueva y la confirma"
+    "name": "B",
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
    },
    {
     "name": "Cierre",
     "dur": 2.6,
-    "desc": "Logotipo de Racimo y PMS"
+    "desc": "Logotipo de Racimo y producto"
    }
   ],
   "ajustes": {
@@ -109,13 +109,13 @@
   "escenas": [
    {
     "name": "Intro",
-    "dur": 2.6,
-    "desc": "Se tipea la búsqueda y aparecen los precios"
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
    },
    {
     "name": "A",
-    "dur": 4.6,
-    "desc": "Resultado con comparación de precios: el sitio oficial gana"
+    "dur": 5.2,
+    "desc": "PMS real: primeras tomas"
    },
    {
     "name": "Titulo",
@@ -124,13 +124,13 @@
    },
    {
     "name": "B",
-    "dur": 4.4,
-    "desc": "Racimo Ads: resultados de las campañas"
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
    },
    {
     "name": "Cierre",
     "dur": 2.6,
-    "desc": "Logotipo de Racimo y Publicidad digital"
+    "desc": "Logotipo de Racimo y producto"
    }
   ],
   "ajustes": {
@@ -144,13 +144,13 @@
   "escenas": [
    {
     "name": "Intro",
-    "dur": 2.8,
-    "desc": "Mensajes de WhatsApp, email, Instagram y Booking convergen"
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
    },
    {
     "name": "A",
-    "dur": 4.6,
-    "desc": "Bandeja unificada: respuesta con plantilla"
+    "dur": 5.2,
+    "desc": "PMS real: primeras tomas"
    },
    {
     "name": "Titulo",
@@ -159,13 +159,13 @@
    },
    {
     "name": "B",
-    "dur": 4.4,
-    "desc": "Automatización del viaje del huésped"
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
    },
    {
     "name": "Cierre",
     "dur": 2.6,
-    "desc": "Logotipo de Racimo y CRM"
+    "desc": "Logotipo de Racimo y producto"
    }
   ],
   "ajustes": {
@@ -179,13 +179,13 @@
   "escenas": [
    {
     "name": "Intro",
-    "dur": 2.8,
-    "desc": "La comanda de room service se imprime"
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
    },
    {
     "name": "A",
-    "dur": 4.6,
-    "desc": "Room service: el pedido pasa de Nuevos a En cocina y En camino"
+    "dur": 5.0,
+    "desc": "PMS real: primeras tomas"
    },
    {
     "name": "Titulo",
@@ -194,13 +194,13 @@
    },
    {
     "name": "B",
-    "dur": 4.4,
-    "desc": "Inventario: el stock se descuenta con la venta"
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
    },
    {
     "name": "Cierre",
     "dur": 2.6,
-    "desc": "Logotipo de Racimo y POS"
+    "desc": "Logotipo de Racimo y producto"
    }
   ],
   "ajustes": {
@@ -210,17 +210,17 @@
   }
  },
  "guestapp": {
-  "pieza": "RC_HUESPED",
+  "pieza": "RC_GUESTAPP",
   "escenas": [
    {
     "name": "Intro",
     "dur": 2.4,
-    "desc": "Ícono de la app y notificación al huésped"
+    "desc": "El dato del producto, grande"
    },
    {
     "name": "A",
-    "dur": 5.0,
-    "desc": "En el teléfono: check-in online y llave digital"
+    "dur": 5.2,
+    "desc": "PMS real: primeras tomas"
    },
    {
     "name": "Titulo",
@@ -229,13 +229,13 @@
    },
    {
     "name": "B",
-    "dur": 4.2,
-    "desc": "En Racimo: el arribo queda con check-in completo y llave enviada"
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
    },
    {
     "name": "Cierre",
     "dur": 2.6,
-    "desc": "Logotipo de Racimo y Huésped+"
+    "desc": "Logotipo de Racimo y producto"
    }
   ],
   "ajustes": {
@@ -245,17 +245,17 @@
   }
  },
  "agentes": {
-  "pieza": "RC_IA",
+  "pieza": "RC_AGENTES",
   "escenas": [
    {
     "name": "Intro",
-    "dur": 2.6,
-    "desc": "El agente se presenta"
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
    },
    {
     "name": "A",
-    "dur": 4.8,
-    "desc": "El agente atiende una consulta por WhatsApp y cierra la reserva solo"
+    "dur": 5.2,
+    "desc": "PMS real: primeras tomas"
    },
    {
     "name": "Titulo",
@@ -264,13 +264,13 @@
    },
    {
     "name": "B",
-    "dur": 4.4,
-    "desc": "Panel de agentes activos"
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
    },
    {
     "name": "Cierre",
     "dur": 2.6,
-    "desc": "Logotipo de Racimo y Agentes de IA"
+    "desc": "Logotipo de Racimo y producto"
    }
   ],
   "ajustes": {
@@ -284,13 +284,13 @@
   "escenas": [
    {
     "name": "Intro",
-    "dur": 2.8,
-    "desc": "La tarifa sugerida gira como un contador"
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
    },
    {
     "name": "A",
-    "dur": 4.6,
-    "desc": "Grilla de tarifas sugeridas; se aplican en un clic"
+    "dur": 5.2,
+    "desc": "PMS real: primeras tomas"
    },
    {
     "name": "Titulo",
@@ -299,13 +299,13 @@
    },
    {
     "name": "B",
-    "dur": 4.4,
-    "desc": "Pronóstico del mes: ocupación, RevPAR e ingreso"
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
    },
    {
     "name": "Cierre",
     "dur": 2.6,
-    "desc": "Logotipo de Racimo y RMS"
+    "desc": "Logotipo de Racimo y producto"
    }
   ],
   "ajustes": {

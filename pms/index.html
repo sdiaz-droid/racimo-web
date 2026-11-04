@@ -10,8 +10,8 @@
 <link rel="preload" href="/assets/fonts/Outfit-Medium.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
-<link rel="stylesheet" href="/assets/producto.css?v=20261029">
-<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261029">
+<link rel="stylesheet" href="/assets/producto.css?v=20261104">
+<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
 </head>
 <body data-producto="pms">
@@ -58,7 +58,7 @@
         <circle class="g" cx="94" cy="190" r="78"/><circle class="g" cx="258" cy="190" r="78"/><circle class="g" cx="422" cy="190" r="78"/><circle class="vacio" cx="586" cy="190" r="78"/><circle class="g" cx="176" cy="332" r="78"/><circle class="g" cx="340" cy="332" r="78"/><circle class="g" cx="504" cy="332" r="78"/><circle class="g" cx="258" cy="474" r="78"/><circle class="g" cx="422" cy="474" r="78"/><circle class="g" cx="340" cy="616" r="78"/>
       </svg>
       <div class="orbita" id="orbita">
-        <div class="obj" data-x="-0.36" data-y="-0.18" data-z="0.8"><div class="tarj "><small>Plano de ocupación</small><div class="barras"><i style="width:80%"></i><i style="width:55%"></i><i style="width:92%"></i><i style="width:40%"></i></div></div></div><div class="obj" data-x="0.42" data-y="-0.26" data-z="0.7"><div class="tarj "><small>Check-in</small><b>Hab. 204 · 14:00</b><span class="ok">Lista</span></div></div><div class="obj" data-x="0.42" data-y="0.28" data-z="0.9"><div class="tarj oscura"><small>Caja del día</small><b>$ y US$</b></div></div><div class="obj" data-x="-0.36" data-y="0.34" data-z="0.5"><div class="tarj verde"><small>Limpieza</small><b>3 habitaciones listas</b></div></div><div class="obj" data-x="0.0" data-y="0.54" data-z="0.6"><div class="tarj violeta"><small>Factura</small><b>Electrónica</b></div></div>
+        <div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pms-1.webp?v=20261104" alt="" decoding="async"></figure></div><div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pms-2.webp?v=20261104" alt="" decoding="async"></figure></div><div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pms-3.webp?v=20261104" alt="" decoding="async"></figure></div><div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pms-4.webp?v=20261104" alt="" decoding="async"></figure></div><div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pms-5.webp?v=20261104" alt="" decoding="async"></figure></div><div class="obj rec"><figure class="recorte"><img src="/assets/orbita/pms-6.webp?v=20261104" alt="" decoding="async"></figure></div>
       </div>
       <div class="uva" id="uva"><p class="nombre">PMS</p></div>
       <div class="uva-brillo" id="uvaBrillo"></div>
@@ -73,7 +73,7 @@
         <h2>Así se ve el día del hotel</h2>
         <p>El video corre solo: puedes saltar a cualquier paso o seguir de largo.</p>
       </div>
-      <div class="derecha"><ol class="pasos-video" id="pasosVideo" aria-hidden="true"><li data-t="0">El día</li><li data-t="2.8">El panel</li><li data-t="6.0">Una sola grilla</li><li data-t="8.2">El plano</li><li data-t="13.8">Listo</li></ol>
+      <div class="derecha"><ol class="pasos-video" id="pasosVideo" aria-hidden="true"><li data-t="0">El dato</li><li data-t="2.4">El día y el plano</li><li data-t="7.6">Una sola grilla</li><li data-t="9.8">Caja y facturas</li><li data-t="14.6">Listo</li></ol>
       <a class="saltear" id="saltear" href="#s1">Saltear el video<svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v11M3.5 9 8 13.5 12.5 9"/></svg></a></div>
     </div>
     <div class="progreso" aria-hidden="true"><span id="progreso"></span></div>
@@ -190,9 +190,9 @@
 <script src="/assets/vendor/lenis.min.js" defer></script>
 <script src="/assets/vendor/react.production.min.js" defer></script>
 <script src="/assets/vendor/react-dom.production.min.js" defer></script>
-<script src="/video/pms/video.js" defer></script>
-<script>window.RACIMO_VIDEO = {"pieza": "RC_PMS", "escenas": [{"name": "Intro", "dur": 2.8}, {"name": "Panel", "dur": 3.2}, {"name": "Titulo", "dur": 2.2}, {"name": "Plano", "dur": 5.6}, {"name": "Cierre", "dur": 2.6}], "ajustes": {"fondo": "Negro", "titular": "Toda la operación, |en una sola grilla.", "bajada": "Súmalo a tu propuesta."}, "pantallasPorSegundo": 0.22};</script>
-<script src="/assets/producto.js?v=20261029" defer></script>
+<script src="/video/pms/video.js?v=20261104" defer></script>
+<script>window.RACIMO_VIDEO = {"pieza": "RC_PMS", "escenas": [{"name": "Intro", "dur": 2.4}, {"name": "A", "dur": 5.2}, {"name": "Titulo", "dur": 2.2}, {"name": "B", "dur": 4.8}, {"name": "Cierre", "dur": 2.6}], "ajustes": {"fondo": "Negro", "titular": "Toda la operación, |en una sola grilla.", "bajada": "Súmalo a tu propuesta."}, "pantallasPorSegundo": 0.22};</script>
+<script src="/assets/producto.js?v=20261104" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
 </body>
 </html>

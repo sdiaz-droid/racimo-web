@@ -124,7 +124,7 @@
     if (!escena) return;
     if (constelacion) return flotar(dt, salida);
     const w = escena.clientWidth;
-    const ancho = otas[0] && otas[0].classList.contains('obj') ? .38 : .47;   // las tarjetas de texto, más cerca de la uva
+    const ancho = otas[0] && otas[0].classList.contains('rec') ? .46 : otas[0] && otas[0].classList.contains('obj') ? .38 : .47;   // las tarjetas de texto, más cerca de la uva
     const chico = ancho < .4 && innerWidth < 700;
     const rx = w * (ancho * (chico ? .82 : 1) + salida * .12), ry = w * ((chico ? .24 : .3) + salida * .06);
     const vis = otas.filter(el => el.offsetParent !== null);
