@@ -58,8 +58,8 @@ const VIDEOS = {
         pops: [{ t: 0.4, x: 700, y: 640, eb: 'PROMOCIONES', tx: 'Mejor tarifa garantizada', icon: 'spark', tone: 'v' }] }),
     ],
     B: [
-      T('mo-editor', 2.4, [[0, todo], [1.0, c(760, 480, 1.5)]], {
-        pops: [{ t: 0.8, x: 760, y: 210, eb: 'EDITOR DEL MOTOR', tx: 'Con la marca y los colores del hotel', icon: 'grid', tone: 'b' }] }),
+      T('mo-motor', 2.4, [[0, c(960, 640, 1.3)], [1.2, c(900, 820, 1.7)]], {
+        pops: [{ t: 0.7, x: 900, y: 700, eb: 'CON LA MARCA DEL HOTEL', tx: 'Habitaciones, fotos y tarifas propias', icon: 'grid', tone: 'b' }] }),
       T('mo-promos', 2.4, [[0, todo], [1.0, c(700, 300, 1.6)]], {
         pops: [{ t: 0.8, x: 760, y: 170, eb: 'PROMOCIONES Y PAQUETES', tx: 'Ofertas propias, distintas a las OTAs', icon: 'tag', tone: 'g' }] }),
     ],
