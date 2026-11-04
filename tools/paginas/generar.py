@@ -745,7 +745,7 @@ PRODUCTOS.append(dict(
             ('Dos planes para tu cartera', 'La app del equipo y los mensajes masivos están en Full.', planes([
                 ('Lite', ['App del huésped y guía local', 'Check-in y check-out autónomos', 'Llave digital hasta 25 cerraduras', 'Room service y pagos']),
                 ('Full', ['Guía editable', 'Llaves sin límite', 'App del equipo y tareas', 'Mensajes masivos e informes'])])),
-        ]),
+        ], extra='<p class="aviso" data-entra>Requiere el PMS de Racimo: el check-in, la llave digital y la limpieza leen la reserva del sistema. El room service necesita además el POS.</p>'),
         manifiesto('m1', 'Menos filas en recepción, <em>más tiempo para el huésped.</em>', 'La tecnología se encarga de lo repetitivo y el equipo, de la experiencia.'),
         como(),
     ],
@@ -780,7 +780,7 @@ PRODUCTOS.append(dict(
             ('Dos planes para tu cartera', 'Con panel de costo por agente y memoria del hotel en los dos.', planes([
                 ('Lite', ['Hasta 3 agentes', 'Hasta 10 rutinas activas']),
                 ('Full', ['Hasta 30 agentes', 'Hasta 30 rutinas activas'])])),
-        ], extra='<p class="aviso" data-entra>Para responder por WhatsApp, la web o el email, el hotel necesita el CRM con ese canal conectado.</p>'),
+        ], extra='<p class="aviso" data-entra>Trabaja conectado en vivo al PMS de Racimo. Para responder por WhatsApp, la web o el email, el hotel necesita además el CRM con ese canal conectado.</p>'),
         manifiesto('m1', 'Contesta a las 3 de la mañana, <em>con la información de ahora.</em>', 'Porque está conectado al sistema del hotel, no a un documento viejo.'),
         como(),
     ],
