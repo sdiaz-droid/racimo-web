@@ -124,18 +124,32 @@
     if (!escena) return;
     if (constelacion) return flotar(dt, salida);
     const w = escena.clientWidth;
-    const ancho = otas[0] && otas[0].classList.contains('rec') ? .46 : otas[0] && otas[0].classList.contains('obj') ? .38 : .47;   // las tarjetas de texto, más cerca de la uva
-    const chico = ancho < .4 && innerWidth < 700;
-    const rx = w * (ancho * (chico ? .82 : 1) + salida * .12), ry = w * ((chico ? .24 : .3) + salida * .06);
+    const tcs = otas.some(el => el.querySelector('.tc'));
+    const ancho = tcs ? .43 : otas[0] && otas[0].classList.contains('rec') ? .46 : otas[0] && otas[0].classList.contains('obj') ? .38 : .47;   // las tarjetas de texto, más cerca de la uva
+    const chico = (tcs || ancho < .4) && innerWidth < 700;
+    let rx = w * (ancho * (chico ? .82 : 1) + salida * .12), ry = w * ((chico ? .24 : .3) + salida * .06);
+    // celular con tarjetas: la órbita usa el ancho de la pantalla, sin que ninguna tarjeta se salga
+    // celular con tarjetas: no giran (se encimarían con el nombre de la uva); flotan quietas en las esquinas
+    if (tcs && innerWidth < 700) {
+      const SL_T = [[-88, -118], [88, 114], [88, -118], [-88, 114]], SL_L = [[-128, 40], [128, -30]];
+      let it = 0, il = 0; const t = performance.now() / 1000;
+      otas.filter(el => el.offsetParent !== null).forEach((el, i) => {
+        const p = el.querySelector('.tc') ? SL_T[it++ % 4] : SL_L[il++ % 2];
+        const bob = reduce ? 0 : Math.sin(t * 1.1 + i * 1.7) * 5;
+        el.style.transform = `translate(-50%,-50%) translate3d(${p[0] * (1 + salida * .3)}px, ${p[1] + bob}px, 0)`;
+        el.style.opacity = String(1 - salida * .9); el.style.zIndex = '4';
+      });
+      return;
+    }
     const vis = otas.filter(el => el.offsetParent !== null);
     vis.forEach((el, i) => {
       const a = ang + (i / vis.length) * Math.PI * 2;
       const z = Math.sin(a);                       // -1 atrás, 1 adelante
       const k = (z + 1) / 2;
-      const s = .74 + .3 * k;
+      const s = tcs ? .88 + .14 * k : .74 + .3 * k;   // las tarjetas nunca se achican tanto que no se lean
       el.style.transform = `translate(-50%,-50%) translate3d(${Math.cos(a) * rx}px, ${z * ry}px, 0) scale(${s})`;
-      el.style.opacity = String((.42 + .58 * k) * (1 - salida * .9));
-      el.style.zIndex = z > 0 && !chico ? '3' : '1';
+      el.style.opacity = String((tcs ? .78 + .22 * k : .42 + .58 * k) * (1 - salida * .9));
+      el.style.zIndex = tcs && el.querySelector('.tc') ? '4' : z > 0 && !chico ? '3' : '1';   // las tarjetas, siempre delante de la uva
     });
     if (!reduce) ang += dt * .16;
   }

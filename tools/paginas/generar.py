@@ -144,6 +144,49 @@ def planes(cols, tres=False):
     return f'<div class="planes{" tres-col" if tres else ""}{" un-plan" if len(cols) == 1 else ""}">{c}</div>'
 
 
+
+# ── tarjeta de órbita (v4): símbolo + etiqueta + texto, todas del mismo ancho ──
+ICO = {
+    'caja': '<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/>',
+    'cal': '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/>',
+    'grilla': '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+    'llave': '<circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.3-9.3M17 6l3 3M15 8l2 2"/>',
+    'buscar': '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+    'tag': '<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+    'chispa': '<path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/>',
+    'grafico': '<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>',
+    'nube': '<path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 13 3.5 3.5 0 0 0 6 19z"/>',
+    'equipo': '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/>',
+    'chat': '<path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/>',
+    'check': '<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',
+    'bandeja': '<path d="M3 13h5l1.5 3h5L16 13h5"/><path d="M5.5 5h13L21 13v6H3v-6z"/>',
+    'qr': '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 17h4v4"/>',
+    'campana': '<path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+    'olla': '<path d="M3 11h18M5 11v7a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-7"/><path d="M8 7c0-2 1-3 1-3M12 7c0-2 1-3 1-3M16 7c0-2 1-3 1-3"/>',
+    'caja2': '<path d="m21 8-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>',
+    'cel': '<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>',
+    'mapa': '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+    'globo': '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+    'link': '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+    'perilla': '<rect x="2" y="7" width="20" height="10" rx="5"/><circle cx="16" cy="12" r="3"/>',
+    'escudo': '<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+    'factura': '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/>',
+}
+
+
+def tc(ico, eb, tx, tono=''):
+    svg = f'<svg viewBox="0 0 24 24" aria-hidden="true">{ICO[ico]}</svg>'
+    return f'<div class="obj"><div class="tc {tono}"><span class="ic">{svg}</span><small>{eb}</small><b>{tx}</b></div></div>'
+
+
+def logo_c(f, nombre):
+    return f'<div class="obj"><div class="globo grande"><img src="/assets/logos/{f}" alt="{nombre}"></div></div>'
+
+
+def ota_c(f, nombre):
+    return f'<div class="obj"><div class="globo grande de-ota"><img src="/assets/ota/{f}" alt="{nombre}"></div></div>'
+
+
 def logos_int(lista):
     # marcas = logos (regla): placas blancas, todos los logos oficiales a color, mismo modo
     return '<div class="logos-int">' + ''.join(f'<span><img src="/assets/logos/{f}" alt="{n}" loading="lazy" decoding="async"></span>' for n, f in lista) + '</div>'
@@ -397,8 +440,8 @@ def pagina(p):
 <link rel="preload" href="/assets/fonts/Outfit-Medium.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Regular.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
-<link rel="stylesheet" href="/assets/producto.css?v=20261104">
-<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104">
+<link rel="stylesheet" href="/assets/producto.css?v=20261104c">
+<link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104c">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
 </head>
 <body data-producto="{k}">
@@ -448,7 +491,7 @@ def pagina(p):
 <script src="/assets/vendor/react-dom.production.min.js" defer></script>
 <script src="/video/{p['video']}/video.js?v=20261104" defer></script>
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
-<script src="/assets/producto.js?v=20261104" defer></script>
+<script src="/assets/producto.js?v=20261104c" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
 </body>
 </html>
@@ -474,7 +517,7 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Más reservas directas,</span><span class="ln"><span class="hl">sin comisiones.</span></span>',
     deck='Súmale a los hoteles de tu cartera un motor de reservas en su propia web: el huésped reserva directo y el hotel deja de pagarle comisión a la OTA.',
     confianza=['Prueba gratis en cuentas nuevas', 'Pensado para el celular'],
-    objetos=recortes('motor', 4) + [globo_logo('pagos/mercado-pago-isotipo.png', 'Mercado Pago'), globo_logo('pagos/paypal-isotipo.png', 'PayPal'), globo_logo('pagos/stripe-isotipo.png', 'Stripe'), tarj('<small>✦ Racimo IA</small><b>Asistido por agente de IA</b>', 0, 0, .7, 'violeta')],
+    objetos=[tc('buscar', 'Buscador', '2 noches, 2 huéspedes'), logo_c('pagos/mercado-pago-isotipo.png', 'Mercado Pago'), tc('tag', 'Promociones', 'Mejor tarifa garantizada', 'verde'), logo_c('pagos/paypal-isotipo.png', 'PayPal'), tc('chispa', 'Racimo IA', 'Asistido por agente de IA', 'violeta'), logo_c('pagos/stripe.png', 'Stripe'), tc('escudo', 'Directa', 'Pago seguro, sin comisión', 'oscura')],
     historia_h2='Así reserva el huésped',
     pasos=pasos_de('motor', ['El dato', 'Reserva directa', 'Sin comisión', 'Editor y promos', 'Listo']),
     video_alt='Video: el huésped elige fechas y una suite en la web del hotel, confirma la reserva y la reserva directa entra en el listado de reservas.',
@@ -510,7 +553,7 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">El sitio del hotel,</span><span class="ln"><span class="hl">listo en minutos.</span></span>',
     deck='Webs para los hoteles de tu cartera con el motor de reservas integrado, SEO incluido y plantillas que el hotel puede actualizar solo.',
     confianza=['Motor de reservas integrado', 'Multi-idioma y multimoneda'],
-    objetos=recortes('web', 3) + [tarj('<small>Google y las IA</small><b>Lista para que la encuentren</b>', 0, 0, .6, 'verde'), tarj('<small>Motor integrado</small><b>Se reserva sin salir de la web</b>', 0, 0, .6, 'violeta')],
+    objetos=[tc('globo', 'Buscadores', 'Lista para que la encuentren'), logo_c('google-color.svg', 'Google'), tc('cal', 'Motor integrado', 'Se reserva sin salir de la web', 'verde'), logo_c('chatgpt-negro.svg', 'ChatGPT'), tc('link', 'My Links', 'Todos los links del hotel', 'violeta'), tc('cel', 'Responsive', 'Se adapta a cualquier pantalla', 'oscura')],
     historia_h2='Así se arma el sitio',
     pasos=pasos_de('web', ['El dato', 'La web del hotel', 'Lista en minutos', 'My Links', 'Listo']),
     video_alt='Video: se arma la portada del sitio del hotel, aparecen las habitaciones y las opiniones, y el sitio se ve también en el celular.',
@@ -549,7 +592,7 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Toda la operación,</span><span class="ln"><span class="hl">en una sola grilla.</span></span>',
     deck='Para el hotel de tu cartera que todavía no tiene sistema: reservas, recepción, caja y facturación en un solo lugar, conectado a todos sus canales.',
     confianza=['Ocupación en tiempo real', 'Migración desde Excel'],
-    objetos=recortes('pms', 2) + [tarj('<small>Plano de ocupación</small><b>Todas las habitaciones, en tiempo real</b>', 0, 0, .6, 'oscura'), globo_logo('fiscal/siigo.png', 'Siigo'), globo_logo('fiscal/sii.png', 'SII'), globo_logo('fiscal/alanube.png', 'Alanube'), tarj('<small>Check-in online</small><b>El huésped llega con todo cargado</b>', 0, 0, .6, 'violeta')],
+    objetos=[tc('caja', 'Caja diaria', 'Efectivo, tarjeta y transferencia'), logo_c('fiscal/siigo.png', 'Siigo'), tc('cal', 'Arribos de hoy', '3 llegadas y 2 salidas', 'verde'), logo_c('fiscal/sii.png', 'SII'), tc('grilla', 'Plano', 'Todo el hotel en una grilla', 'oscura'), logo_c('fiscal/alanube.png', 'Alanube'), tc('llave', 'Check-in online', 'El huésped llega con todo cargado', 'violeta')],
     historia_h2='Así se ve el día del hotel',
     pasos=pasos_de('pms', ['El dato', 'El día y el plano', 'Una sola grilla', 'Caja y facturas', 'Listo']),
     video_alt='Video: la tarjeta de arribos y salidas del día, el panel del hotel y el plano de ocupación donde se arrastra y confirma una nueva reserva.',
@@ -587,7 +630,7 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Que te encuentren</span><span class="ln"><span class="hl">y te reserven directo.</span></span>',
     deck='Una estrategia integral de publicidad y posicionamiento de marca, hecha por especialistas en hotelería, para que los hoteles de tu cartera vendan más habitaciones, spa y restaurante sin depender de las OTAs.',
     confianza=['0 % de comisión por reserva', 'Especialistas certificados por Google y Meta'],
-    objetos=recortes('ads', 2) + [tarj('<small>Plataformas</small><b>Google, Meta y ChatGPT</b>', 0, 0, .6, 'verde'), tarj('<small>Resultados</small><b>Reservas reales, no clics</b>', 0, 0, .6, 'violeta')],
+    objetos=[logo_c('google-color.svg', 'Google'), tc('grafico', 'Resultados', 'Reservas reales, no clics', 'verde'), logo_c('meta-color.png', 'Meta'), tc('buscar', 'Tu marca', 'Primero el hotel, no la OTA'), logo_c('chatgpt-negro.svg', 'ChatGPT'), tc('chispa', 'Nuevo', 'El hotel, en ChatGPT', 'violeta')],
     historia_h2='Así se ve la búsqueda',
     pasos=pasos_de('ads', ['El dato', 'Resultados', 'Primero en Google', 'Inversión', 'Listo']),
     video_alt='Video: alguien busca el hotel, el anuncio del sitio oficial aparece primero con la tarifa directa y el panel muestra impresiones, clics y reservas.',
@@ -623,7 +666,7 @@ PRODUCTOS.append(dict(
     deck='WhatsApp, Instagram, Facebook, el email y el chat de la web en una sola bandeja, con el historial de cada huésped y campañas de email automáticas.',
     confianza=['Perfil 360° de cada huésped', 'Email marketing automatizado'],
     constelacion=False,
-    objetos=recortes('crm', 2) + [tarj('<small>✦ Racimo IA sugiere</small><b>La respuesta, lista para enviar</b>', 0, 0, .6, 'violeta'), tarj('<small>Reserva confirmada</small><b>La consulta termina en reserva</b>', 0, 0, .6, 'verde'), tarj('<small>Una sola bandeja</small><b>WhatsApp, Instagram, web y email</b>', 0, 0, .6, 'oscura')],
+    objetos=[tc('chat', 'WhatsApp', '¿Tienen lugar del 14 al 16?'), logo_c('meta-color.png', 'Meta'), tc('chispa', 'Racimo IA', 'Sugiere la respuesta', 'violeta'), logo_c('google-color.svg', 'Gmail'), tc('check', 'Confirmada', 'Suite Lago, del 14 al 16', 'verde'), tc('bandeja', 'Una sola bandeja', 'Todos los canales juntos', 'oscura')],
     historia_h2='Así responde el hotel',
     pasos=pasos_de('crm', ['El dato', 'Mailing y agente', 'Sin respuesta, nunca', 'Automatizaciones', 'Listo']),
     video_alt='Video: llegan consultas por distintos canales, el equipo las responde desde una sola bandeja y se ven las automatizaciones de email con sus resultados.',
@@ -660,7 +703,7 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">La tarifa justa,</span><span class="ln"><span class="hl">cada día.</span></span>',
     deck='Revenue management con IA para los hoteles de tu cartera: sugiere la tarifa de cada día con la demanda, la competencia, el clima y los eventos, y la aplica en un clic.',
     confianza=['Se activa el mismo día', 'El hotel pone piso y techo'],
-    objetos=recortes('rms', 3) + [tarj('<small>Tarifa sugerida</small><b>Se aplica en un clic</b>', 0, 0, .6, 'verde'), tarj('<small>Pronóstico</small><b>Con clima y eventos</b>', 0, 0, .6, 'violeta')],
+    objetos=[tc('chispa', 'Tarifa sugerida', 'Se aplica en un clic', 'violeta'), logo_c('ota/booking.svg', 'Booking.com'), tc('grafico', 'Ocupación', '93 % el fin de semana', 'verde'), logo_c('ota/airbnb.svg', 'Airbnb'), tc('equipo', 'Set competitivo', 'Las tarifas de tu competencia'), logo_c('ota/expedia.svg', 'Expedia'), tc('nube', 'Pronóstico', 'Con clima y eventos', 'oscura')],
     historia_h2='Así se decide la tarifa',
     pasos=pasos_de('rms', ['El dato', 'Diario y sugerencias', 'La tarifa justa', 'Competencia y agente', 'Listo']),
     video_alt='Video: la grilla de tarifas sugeridas del mes, con ocupación prevista, demanda y competencia; se aplican las sugerencias en un clic y se ve el pronóstico de ingresos.',
@@ -693,7 +736,7 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Del pedido a la habitación,</span><span class="ln"><span class="hl">sin papeles.</span></span>',
     deck='El punto de venta del restaurante, el bar y el room service del hotel: carta por QR, comandas que llegan solas a cocina y consumos que pasan directo a la cuenta del huésped.',
     confianza=['Integrado al PMS', 'Stock que se descuenta solo'],
-    objetos=[tarj('<small>Room service · Hab. 204</small><b>1× Club sándwich</b><span class="ok">Cargado a la habitación</span>', 0, 0, .6, ''), tarj('<small>En cocina · Hab. 302</small><b>Risotto de hongos</b>', 0, 0, .6, ''), tarj('<small>Carta digital</small><b>El menú por QR</b>', 0, 0, .6, 'verde'), tarj('<small>Inventario</small><b>El stock se descuenta solo</b>', 0, 0, .6, 'violeta'), tarj('<small>Comandas</small><b>Llegan solas a cocina</b>', 0, 0, .6, 'oscura')],
+    objetos=[tc('campana', 'Room service', 'Hab. 204, club sándwich'), tc('qr', 'Carta digital', 'El menú por QR', 'verde'), tc('olla', 'Comandas', 'Llegan solas a cocina', 'oscura'), tc('caja2', 'Inventario', 'El stock se descuenta solo', 'violeta'), tc('factura', 'A la cuenta', 'Se carga a la habitación')],
     historia_h2='Así viaja un pedido',
     pasos=pasos_de('pos', ['El dato', 'Carta y room service', 'Sin papeles', 'Inventario y cuenta', 'Listo']),
     video_alt='Video: un pedido de room service para la habitación 302 se arma en el sistema, se carga a la cuenta del huésped y el inventario se actualiza.',
@@ -734,7 +777,7 @@ PRODUCTOS.append(dict(
     deck='Check-in online, llave digital, room service y la guía del hotel, en una app con la marca del hotel. Y para el equipo, la app de limpieza y mantenimiento.',
     confianza=['Llave digital en el celular', 'Check-in y check-out autónomos'],
     uva='GuestApp',
-    objetos=recortes('guestapp', 1) + [tarj('<small>Room service · Hab. 204</small><b>Pedido desde la app</b><span class="ok">Cargado a la habitación</span>', 0, 0, .6, ''), tarj('<small>Llave digital</small><b>La habitación se abre con el teléfono</b>', 0, 0, .6, 'verde'), tarj('<small>Check-in y check-out</small><b>Sin pasar por recepción</b>', 0, 0, .6, 'violeta'), tarj('<small>Guía del hotel</small><b>Todo en la app del huésped</b>', 0, 0, .6, 'oscura')],
+    objetos=[tc('llave', 'Llave digital', 'Se abre con el teléfono', 'violeta'), tc('cel', 'Check-in', 'Sin pasar por recepción'), tc('campana', 'Room service', 'Se pide desde la app', 'verde'), tc('mapa', 'Guía del hotel', 'Todo en la app del huésped', 'oscura'), tc('chat', 'Mensajes', 'El hotel avisa en un toque')],
     historia_h2='Así llega el huésped',
     pasos=pasos_de('guestapp', ['El dato', 'Llave y mensajes', 'En el teléfono', 'Room service', 'Listo']),
     video_alt='Video: el huésped recibe la notificación, hace el check-in online y abre su habitación con la llave digital; en el sistema, el arribo queda con check-in completo.',
@@ -771,7 +814,7 @@ PRODUCTOS.append(dict(
     deck='Agentes de IA conectados en vivo al sistema del hotel: contestan por WhatsApp, la web o el email, preparan cotizaciones y automatizan tareas del equipo.',
     confianza=['Con la información viva del hotel', 'Autonomía configurable'],
     constelacion=False,
-    objetos=recortes('agentes', 2) + [tarj('<small>✦ Racimo IA</small><b>Asistido por agentes de IA</b>', 0, 0, .6, 'violeta'), tarj('<small>Autonomía</small><b>Supervisado o autónomo</b>', 0, 0, .6, 'verde'), tarj('<small>Canales</small><b>WhatsApp, web y email</b>', 0, 0, .6, 'oscura')],
+    objetos=[tc('chispa', 'Racimo IA', 'Asistido por agentes de IA', 'violeta'), logo_c('chatgpt-negro.svg', 'IA'), tc('equipo', 'Agentes', 'Uno por cada puesto'), tc('perilla', 'Autonomía', 'Supervisado o autónomo', 'verde'), tc('chat', 'Canales', 'WhatsApp, web y email', 'oscura')],
     historia_h2='Así trabaja un agente',
     pasos=pasos_de('agentes', ['El dato', 'Racimo IA', 'Un equipo de IA', 'Rutinas', 'Listo']),
     video_alt='Video: el agente del hotel conversa con un huésped, consulta la disponibilidad y arma la reserva, y el panel muestra lo que resolvieron los agentes.',
