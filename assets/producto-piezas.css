@@ -1,0 +1,215 @@
+/* Piezas de composición para cada página de producto: cada producto usa las suyas,
+   en su propio orden, para que ninguna página se lea como la misma plantilla. */
+
+/* objetos del hero (tarjetas chicas alrededor de la uva) */
+.orbita .obj{position:absolute;left:44%;top:57%;margin:0;will-change:transform,opacity;transform:translate(-50%,-50%)}
+.tarj{background:#fff;color:var(--ink);border-radius:16px;padding:12px 15px;min-width:150px;max-width:230px;
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 22px 50px -18px rgba(0,0,0,.75);font-size:13px;line-height:1.35}
+.tarj small{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6e6e6e;margin-bottom:5px;font-weight:500}
+.tarj b{display:block;font-family:var(--display);font-weight:500;font-size:17px;letter-spacing:-.02em;line-height:1.15}
+.tarj .ok{display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12px;color:#00a84a;font-weight:500}
+.tarj .ok::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+.tarj.oscura{background:#1b1b1b;color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 22px 50px -18px rgba(0,0,0,.8)}
+.tarj.oscura small{color:rgba(255,255,255,.5)}
+/* junto a la uva, el verde va en el borde y no en el fondo: el único verde lleno es la uva */
+.tarj.verde{background:var(--ink);color:#fff;box-shadow:0 0 0 1px rgba(0,240,104,.6),0 22px 50px -18px rgba(0,0,0,.8)} .tarj.verde small{color:var(--green)}
+.tarj.violeta{background:var(--violet);color:#fff} .tarj.violeta small{color:rgba(255,255,255,.7)}
+.tarj.foto{padding:0;overflow:hidden;width:200px;min-width:0}
+.tarj.foto img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.tarj.foto span{display:block;padding:9px 12px;font-size:12px}
+.tarj.burbuja{border-radius:18px 18px 18px 6px;max-width:220px}
+.tarj.burbuja.mia{border-radius:18px 18px 6px 18px;background:var(--green)}
+.tarj .canal{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#6e6e6e;margin-bottom:5px;font-weight:500}
+.tarj .canal i{width:8px;height:8px;border-radius:50%}
+.tarj.chip{border-radius:999px;padding:9px 16px;min-width:0;font-family:var(--display);font-size:15px;font-weight:500;white-space:nowrap}
+.barras{display:grid;gap:5px;min-width:190px}
+.barras i{display:block;height:10px;border-radius:6px;background:var(--violet)}
+.barras i:nth-child(2n){background:var(--green)}
+@media(max-width:600px){.tarj{min-width:0;max-width:150px;padding:9px 11px;font-size:11.5px}.tarj b{font-size:14px}.tarj.foto{width:120px}.tarj.chip{font-size:12.5px;padding:7px 12px}.barras{min-width:120px}}
+
+/* banda manifiesto: una sola frase grande */
+.manifiesto{background:var(--violet);border-top:0;overflow:hidden}
+.manifiesto .frase{font-family:var(--display);font-weight:500;letter-spacing:-.04em;line-height:1.02;font-size:clamp(44px,7.4vw,124px);max-width:15ch}
+.manifiesto .frase em{font-style:normal;color:var(--ink);background:var(--green);padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.manifiesto .bajada{color:rgba(255,255,255,.86)}
+.manifiesto .bleed-u{position:absolute;right:-8vw;bottom:-14vw;width:34vw;aspect-ratio:1;border-radius:50%;background:var(--ink);opacity:.9;pointer-events:none}
+.manifiesto .shell{position:relative;z-index:1}
+
+/* antes / después */
+.antes{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,28px);margin-top:clamp(36px,5vw,60px)}
+.antes > div{border-radius:26px;padding:clamp(26px,3vw,44px);position:relative;overflow:hidden}
+.antes .sin{background:#161616;border:1px solid var(--line-soft)}
+.antes .con{background:var(--green);color:var(--ink)}
+.antes h3{font-size:clamp(22px,2vw,30px)}
+.antes small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;opacity:.6;font-weight:500}
+.antes ul{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px;font-size:16.5px}
+.antes li{display:flex;gap:12px}
+.antes .sin li{color:var(--fg-2)}
+.antes .sin li::before{content:"";flex:none;width:16px;height:2px;margin-top:12px;background:rgba(255,255,255,.35)}
+.antes .con li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;
+  background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f068' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/11px no-repeat}
+.antes .con::after{content:"";position:absolute;right:-50px;top:-50px;width:160px;height:160px;border-radius:50%;border:1.5px solid rgba(18,18,18,.18)}
+
+/* el día del hotel: una línea que se dibuja con el scroll */
+.dia{position:relative;margin-top:clamp(44px,6vw,80px);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
+.dia::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:var(--line)}
+.dia::after{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:var(--green);transform-origin:0 50%;transform:scaleX(var(--avance,0))}
+.dia .hito{position:relative;z-index:1}
+.dia .hito .h{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 18px;border-radius:999px;background:var(--ink);
+  border:1.5px solid var(--line);font-family:var(--display);font-size:19px;letter-spacing:-.02em;transition:border-color .5s,background-color .5s,color .5s}
+.dia .hito.on .h{background:var(--green);border-color:var(--green);color:var(--ink)}
+.dia h3{font-size:20px;margin-top:20px}
+.dia p{color:var(--fg-2);font-size:15px;margin-top:8px}
+
+/* el ticket */
+.ticket-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,90px);align-items:center}
+.ticket{position:relative;background:#f7f7f4;color:var(--ink);border-radius:6px 6px 0 0;padding:34px 34px 40px;max-width:520px;justify-self:center;width:100%;
+  font-size:15px;box-shadow:0 50px 120px -40px rgba(0,0,0,.9)}
+.ticket::after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:14px;
+  background:radial-gradient(circle at 10px -4px,transparent 12px,#f7f7f4 12.5px) 0 0/20px 14px repeat-x}
+.ticket .cab-t{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px dashed rgba(18,18,18,.25);padding-bottom:16px;margin-bottom:8px;gap:12px}
+.ticket .cab-t b{font-family:var(--display);font-size:22px;font-weight:500;letter-spacing:-.02em}
+.ticket .cab-t span{font-size:12.5px;color:#6e6e6e;letter-spacing:.08em;text-transform:uppercase}
+.ticket ul{list-style:none;margin:0;padding:0}
+.ticket li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px dotted rgba(18,18,18,.2)}
+.ticket li span:last-child{color:#00a84a;font-weight:500;white-space:nowrap}
+.ticket .total{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;font-family:var(--display);font-size:20px;font-weight:500}
+.ticket .total em{font-style:normal;background:var(--green);padding:4px 10px;border-radius:8px;font-size:15px;white-space:nowrap}
+
+/* chat que se escribe con el scroll */
+.chat-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(30px,5vw,90px);align-items:center}
+.chat{background:#161616;border:1px solid var(--line-soft);border-radius:30px;padding:26px;display:flex;flex-direction:column;gap:12px;max-width:480px;width:100%;justify-self:center}
+.chat .top{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--line-soft);margin-bottom:6px}
+.chat .top i{width:38px;height:38px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:var(--ink);font-family:var(--display);font-style:normal;font-weight:500}
+.chat .top b{font-family:var(--display);font-weight:500;font-size:16px;display:block}
+.chat .top span{font-size:12.5px;color:var(--fg-3)}
+.chat .m{max-width:84%;padding:11px 15px;border-radius:18px;font-size:15px;line-height:1.45;transition:opacity .6s var(--ease-out),transform .7s var(--ease-out)}
+html[data-anim] .chat .m{opacity:.1;transform:translateY(10px)}
+html[data-anim] .chat .m.on{opacity:1;transform:none}
+.chat .m.el{align-self:flex-start;background:#242424;border-bottom-left-radius:6px}
+.chat .m.ia{align-self:flex-end;background:var(--green);color:var(--ink);border-bottom-right-radius:6px}
+.chat .m .canal{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.6;display:block;margin-bottom:3px}
+
+/* la noche del huésped */
+.noche{background:#0b0b0b;overflow:hidden}
+.noche .shell{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(30px,5vw,90px);align-items:center}
+.noche .hora{font-family:var(--display);font-weight:300;font-size:clamp(90px,14vw,220px);letter-spacing:-.06em;line-height:.9;color:var(--green)}
+.noche .relato{display:grid;gap:18px;margin-top:30px;max-width:40ch}
+.noche .relato p{font-size:clamp(18px,1.5vw,21px);transition:color .7s var(--ease-out)}
+html[data-anim] .noche .relato p{color:rgba(255,255,255,.32)}
+html[data-anim] .noche .relato p.on{color:#fff}
+.puerta{position:relative;justify-self:center;width:min(100%,330px);aspect-ratio:9/18;border-radius:42px;background:#151515;border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 0 120px -20px rgba(0,240,104,.35);display:grid;place-items:center;overflow:hidden}
+.puerta .llave{width:46%;aspect-ratio:1;border-radius:50%;background:var(--green);display:grid;place-items:center;box-shadow:0 0 0 14px rgba(0,240,104,.12),0 0 0 32px rgba(0,240,104,.06)}
+.puerta .llave svg{width:40%;height:40%;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.puerta .txt{position:absolute;bottom:13%;left:0;right:0;text-align:center}
+.puerta .txt b{display:block;font-family:var(--display);font-size:22px;font-weight:500}
+.puerta .txt span{font-size:13px;color:var(--fg-3)}
+
+/* la perilla de autonomía */
+.dial{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(40px,5vw,70px);border-radius:28px;overflow:hidden;border:1px solid var(--line-soft)}
+.dial > div{padding:clamp(24px,3vw,40px);background:#151515;position:relative;transition:background-color .6s var(--ease-out),color .6s}
+.dial > div + div{border-left:1px solid var(--line-soft)}
+.dial > div.on{background:var(--green);color:var(--ink)}
+.dial > div.on p{color:rgba(18,18,18,.72)}
+.dial .nivel{display:flex;gap:6px;margin-bottom:24px}
+.dial .nivel i{width:28px;height:8px;border-radius:4px;background:rgba(255,255,255,.18)}
+.dial > div.on .nivel i{background:rgba(18,18,18,.22)}
+.dial .nivel i.l{background:var(--green)}
+.dial > div.on .nivel i.l{background:var(--ink)}
+.dial h3{font-size:clamp(21px,1.8vw,26px)}
+.dial p{color:var(--fg-2);margin-top:10px;font-size:15.5px}
+
+/* banda de foto a sangre */
+.foto-banda{position:relative;min-height:min(88svh,820px);display:flex;align-items:flex-end;overflow:hidden;border-top:0;padding:0}
+.foto-banda img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover;will-change:transform}
+.foto-banda::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.1) 0%,rgba(18,18,18,.25) 45%,rgba(18,18,18,.93) 100%)}
+.foto-banda .shell{position:relative;z-index:1;width:100%;padding-block:clamp(56px,7vw,110px)}
+.foto-banda h2{max-width:16ch}
+.foto-banda .bajada{color:rgba(255,255,255,.82)}
+
+/* tres pilares con imagen */
+.pilares{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,26px);margin-top:clamp(40px,5vw,64px)}
+.pilares article{border-radius:26px;overflow:hidden;background:#161616;border:1px solid var(--line-soft)}
+.pilares .vis{aspect-ratio:4/3;position:relative;overflow:hidden;display:grid;place-items:center;background:#1c1c1c}
+.pilares .vis > img{width:100%;height:100%;object-fit:cover}
+.pilares .txt{padding:24px 26px 28px}
+.pilares h3{font-size:24px}
+.pilares p{color:var(--fg-2);margin-top:10px;font-size:15.5px}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:76%}
+.posts img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;display:block}
+.links-mock{display:grid;gap:9px;width:62%}
+.links-mock span{display:block;text-align:center;padding:11px;border-radius:999px;background:#fff;color:var(--ink);font-size:13.5px;font-weight:500}
+.links-mock span:first-child{background:var(--green)}
+.mail-mock{width:70%;background:#fff;border-radius:14px;overflow:hidden;color:var(--ink);font-size:12px}
+.mail-mock img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.mail-mock b{display:block;padding:10px 12px 4px;font-family:var(--display);font-size:15px;font-weight:500}
+.mail-mock span{display:block;padding:0 12px 12px;color:#6e6e6e}
+
+/* chips de integraciones y notas */
+.chips-int{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips-int span{font-size:13.5px;padding:6px 13px;border-radius:999px;border:1px solid var(--line);color:var(--fg-2)}
+.aviso{font-size:13.5px;color:var(--fg-3);margin-top:18px;max-width:60ch}
+.aviso a{color:var(--fg-2)}
+.planes.tres-col{grid-template-columns:repeat(3,1fr)}
+
+@media(max-width:900px){
+  .antes,.ticket-wrap,.chat-wrap,.noche .shell,.pilares,.dial{grid-template-columns:1fr}
+  .dial > div + div{border-left:0;border-top:1px solid var(--line-soft)}
+  .dia{grid-template-columns:1fr;gap:26px;padding-left:22px}
+  .dia::before,.dia::after{left:0;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .dia::after{transform-origin:50% 0;transform:scaleY(var(--avance,0))}
+  .dia .hito .h{height:46px;font-size:16px}
+  .planes.tres-col{grid-template-columns:1fr}
+  .foto-banda{min-height:72svh}
+  .puerta{width:min(70%,260px)}
+}
+
+/* titulares largos: un escalón más chico para que no pasen de tres líneas */
+.p-hero h1.largo{font-size:clamp(40px,4.5vw,74px)}
+@media(max-width:600px){.p-hero h1.largo{font-size:clamp(36px,9.6vw,50px)}}
+@media(max-width:900px){body:not([data-producto="channel"]) .uva,body:not([data-producto="channel"]) .uva-brillo,.orbita .obj{left:50%}body:not([data-producto="channel"]) .escena-uva{margin-bottom:10%}}
+@media(max-width:700px){
+  /* en el celular, tres objetos alcanzan: la uva y su nombre tienen que leerse */
+  .orbita .obj:nth-child(n+4){display:none}
+  body:not([data-producto="channel"]) .uva,body:not([data-producto="channel"]) .uva-brillo{width:44%}
+  .tarj{max-width:136px}
+  /* el nombre de la uva siempre se lee: la uva va adelante de las tarjetas */
+  body:not([data-producto="channel"]) .uva{z-index:2}
+}
+
+/* plataformas donde se hace la publicidad, en el encabezado: logos en blanco, el mismo modo */
+.plataformas{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center}
+.plataformas li{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:500;font-size:17px;letter-spacing:-.01em;color:var(--white)}
+.plataformas img{height:22px;width:auto;display:block}
+@media(max-width:600px){.plataformas{margin-top:18px;gap:8px 20px}.plataformas li{font-size:15.5px}.plataformas img{height:19px}}
+
+/* celular: nada por debajo de 12 px en las tarjetas del hero y del chat */
+@media(max-width:600px){.tarj small,.tarj .canal,.chat .m .canal{font-size:12px;letter-spacing:.08em}}
+
+/* celular: las tarjetas del hero se abren al bajar; el hero las recorta para que la página no se corra de costado */
+.p-hero{overflow-x:clip}
+@media(max-width:600px){.tarj{font-size:12.5px}}
+
+/* globitos con los logos oficiales de las plataformas (Publicidad digital) */
+.globo{width:clamp(58px,5.2vw,76px);aspect-ratio:1;border-radius:50%;background:#fff;display:grid;place-items:center;
+  box-shadow:0 0 0 1px rgba(255,255,255,.6),0 18px 40px -14px rgba(0,0,0,.85)}
+.globo img{width:48%;height:48%;object-fit:contain;display:block}
+@media(max-width:600px){.globo{width:52px}}
+/* ChatGPT, lo nuevo: un globito más grande con la etiqueta «Nuevo» en el violeta del manual */
+.globo{position:relative}
+.globo.destacado{width:clamp(70px,6.4vw,92px)}
+.globo .nuevo{position:absolute;top:-6px;right:-22px;background:var(--violet);color:#fff;font-family:var(--body);font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;box-shadow:0 8px 20px -8px rgba(108,99,255,.8);white-space:nowrap}
+@media(max-width:600px){.globo.destacado{width:62px}.globo .nuevo{font-size:12px;padding:3px 8px;right:-26px}}
+
+/* ── verde sutil (devolución de Sofi, 29/10): los colores del manual no cambian; el verde lleno queda
+      para botones y acentos chicos, y las superficies grandes pasan a grafito con borde o texto verde ── */
+.antes .con{background:#161616;color:var(--white);box-shadow:inset 0 0 0 1.5px var(--green)}
+.antes .con small{color:var(--green);opacity:1}
+.antes .con li::before{background-color:rgba(0,240,104,.14)}
+.antes .con::after{border-color:rgba(0,240,104,.25)}
+.manifiesto .frase em{background:var(--ink);color:var(--green)}
+.puerta{box-shadow:0 0 70px -30px rgba(0,240,104,.25)}
+.puerta .llave{background:var(--ink);box-shadow:inset 0 0 0 2px var(--green),0 0 0 14px rgba(0,240,104,.06)}
+.puerta .llave svg{stroke:var(--green)}
