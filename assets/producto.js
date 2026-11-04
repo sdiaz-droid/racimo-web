@@ -257,7 +257,7 @@
     armarTramos();
     if (modoReloj) { hist.dataset.modo = 'reloj'; pantalla.style.setProperty('--abre', reduce ? '100%' : '9%'); }
     montar();
-    new IntersectionObserver(es => { relojOn = es[0].isIntersecting; }, { threshold: .3 }).observe(pantalla);
+    new IntersectionObserver(es => { relojOn = es[0].isIntersecting; }, { threshold: .25 }).observe(marco);
     $('#saltear')?.addEventListener('click', e => {
       e.preventDefault();
       const destino = hist.nextElementSibling;
