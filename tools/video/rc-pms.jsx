@@ -35,7 +35,7 @@ function Bienvenida({ T = BIG, C = Z }) {
               <div style={{ fontSize: 20, fontWeight: 600, color: VERDE_TX, fontVariantNumeric: 'tabular-nums', width: 50 }}>{Math.round(meter)}%</div>
             </div>
           </div>
-          <BtnLinea>Aumentá tu nivel</BtnLinea>
+          <BtnLinea>Aumenta tu nivel</BtnLinea>
         </Card>
         <Card style={enter(2)}>
           <CardTitle icon="logIn">Arribos y salidas de hoy</CardTitle>
@@ -85,7 +85,7 @@ function Bienvenida({ T = BIG, C = Z }) {
           <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 24, color: NEGRO }}>Novedades</div>
           <BtnLinea icon="plus">Nueva novedad</BtnLinea>
         </div>
-        {[['10 de agosto de 2026', 'Llegaron los paquetes', 'Combiná estadía y servicios en una sola reserva, con precios, cupos y extras configurables.'], ['9 de agosto de 2026', 'Más información en el Plano de ocupación', 'Recepción ve el estado operativo de cada habitación directamente desde la grilla.']].map(([d, t, b], i) => (
+        {[['10 de agosto de 2026', 'Llegaron los paquetes', 'Combina estadía y servicios en una sola reserva, con precios, cupos y extras configurables.'], ['9 de agosto de 2026', 'Más información en el Plano de ocupación', 'Recepción ve el estado operativo de cada habitación directamente desde la grilla.']].map(([d, t, b], i) => (
           <Card key={t} style={enter(3 + i)}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ fontSize: 14, color: GRIS.mut }}>{d}</span><Tag>Mejora</Tag></div>
             <div style={{ fontSize: 19, fontWeight: 600, color: NEGRO }}>{t}</div>
@@ -113,7 +113,7 @@ function Bienvenida({ T = BIG, C = Z }) {
         <div style={{ ...enter(4), display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 24, color: NEGRO }}>Avisos del sistema</div>
         </div>
-        {[['Mantenimiento', '10 de agosto de 2026', 'Ventana de mantenimiento programada', 'Martes 12/08 entre las 03:00 y las 04:00. El sistema sigue operativo.'], ['Seguridad', '8 de agosto de 2026', 'Verificación en dos pasos disponible', 'Activá el segundo factor para todos los usuarios desde Administración.']].map(([tg, d, t, b], i) => (
+        {[['Mantenimiento', '10 de agosto de 2026', 'Ventana de mantenimiento programada', 'Martes 12/08 entre las 03:00 y las 04:00. El sistema sigue operativo.'], ['Seguridad', '8 de agosto de 2026', 'Verificación en dos pasos disponible', 'Activa el segundo factor para todos los usuarios desde Administración.']].map(([tg, d, t, b], i) => (
           <Card key={t} style={enter(5 + i)}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ fontSize: 14, color: GRIS.mut }}>{d}</span><Tag violeta={i === 0}>{tg}</Tag></div>
             <div style={{ fontSize: 18, fontWeight: 600, color: NEGRO }}>{t}</div>

@@ -40,14 +40,13 @@ function Ic({ n, s = 20, c = '#3a3a3a', w = 2 }) {
 }
 
 const OTAS = [
-  { id: 'booking', nombre: 'Booking.com', logo: 'logos/booking.svg', pid: '292671', con: 'Channex' },
-  { id: 'expedia', nombre: 'Expedia', logo: 'logos/expedia.svg', pid: '1231725', con: 'Channex' },
-  { id: 'airbnb', nombre: 'Airbnb', logo: 'logos/airbnb.svg', pid: '4471903', con: 'Channex' },
+  { id: 'booking', nombre: 'Booking.com', logo: 'logos/booking.svg', pid: '292671', con: 'Directa' },
+  { id: 'expedia', nombre: 'Expedia', logo: 'logos/expedia.svg', pid: '1231725', con: 'Directa' },
+  { id: 'airbnb', nombre: 'Airbnb', logo: 'logos/airbnb.svg', pid: '4471903', con: 'Directa' },
   { id: 'despegar', nombre: 'Despegar', logo: 'logos/despegar.svg', pid: '88214', con: 'Automático', neg: true },
   { id: 'agoda', nombre: 'Agoda', logo: 'logos/agoda.svg', pid: '3820114', con: 'Automático', alto: true },
-  { id: 'tripadvisor', nombre: 'Tripadvisor', logo: 'logos/tripadvisor.svg', pid: '—', con: 'Automático' },
   { id: 'hotelbeds', nombre: 'Hotelbeds', logo: 'logos/hotelbeds.png', pid: '77120', con: 'Automático' },
-  { id: 'hyperguest', nombre: 'HyperGuest', logo: 'logos/hyperguest.svg', pid: '99933', con: 'Channex' }
+  { id: 'hyperguest', nombre: 'HyperGuest', logo: 'logos/hyperguest.svg', pid: '99933', con: 'Directa' }
 ];
 
 function Logo({ o, h = 30 }) {

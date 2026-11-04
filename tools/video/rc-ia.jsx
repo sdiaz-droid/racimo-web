@@ -29,7 +29,7 @@ function Chat({ T, C }) {
           <div style={{ position: 'absolute', left: 28, top: 480, display: 'flex', gap: 12, alignItems: 'flex-start', ...enter(T, s0 + 3.0, 14) }}>
             <Avatar s={36} />
             <div style={{ width: 520, border: `2px solid ${VIOLETA}`, borderRadius: 20, padding: '20px 22px', display: 'flex', flexDirection: 'column', gap: 10, boxSizing: 'border-box' }}>
-              <div style={{ fontSize: 19, color: NEGRO }}>Listo, te la reservé. Confirmás con el pago:</div>
+              <div style={{ fontSize: 19, color: NEGRO }}>Listo, te la reservé. Confirmas con el pago:</div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#fafafa', borderRadius: 14, padding: '14px 16px' }}>
                 <div><div style={{ fontSize: 16, fontWeight: 600, color: NEGRO }}>Reserva #MR-20957</div><div style={{ fontSize: 14, color: GRIS.mut }}>Superior · 20 → 23 ago · US$ 330</div></div>
                 <BtnVerde>PAGAR</BtnVerde>

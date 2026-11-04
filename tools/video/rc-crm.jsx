@@ -20,7 +20,7 @@ function Bandeja({ T, C }) {
             <div style={{ width: 50, height: 50, borderRadius: 25, background: act ? VIOLETA : GRIS.suave, color: act ? '#fff' : NEGRO, fontSize: 16, fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 'none' }}>{ini}</div>
             <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><div style={{ fontSize: 17, fontWeight: 600, color: NEGRO, ...nw }}>{nm}</div><div style={{ fontSize: 12, fontWeight: 600, color: GRIS.mut, border: '1px solid ' + GRIS.borde, borderRadius: 6, padding: '2px 7px', ...nw }}>{ch}</div></div>
-              <div style={{ fontSize: 15, color: GRIS.tx, ...nw, overflow: 'hidden', textOverflow: 'ellipsis' }}>{act && T > sent ? 'Vos: ¡Hola Valentina! Sí, tenemos cochera…' : pv}</div>
+              <div style={{ fontSize: 15, color: GRIS.tx, ...nw, overflow: 'hidden', textOverflow: 'ellipsis' }}>{act && T > sent ? 'Tú: ¡Hola Valentina! Sí, tenemos cochera…' : pv}</div>
             </div>
             <div style={{ fontSize: 13, color: GRIS.mut }}>{h}</div>
           </div>
@@ -40,7 +40,7 @@ function Bandeja({ T, C }) {
           })}
         </div>
         <div style={{ position: 'absolute', left: 24, right: 24, bottom: 20, height: 60, borderRadius: 16, border: '1px solid ' + GRIS.borde, display: 'flex', alignItems: 'center', padding: '0 12px 0 20px', gap: 12 }}>
-          <div style={{ flex: 1, fontSize: 16, color: GRIS.mut }}>Escribí una respuesta…</div>
+          <div style={{ flex: 1, fontSize: 16, color: GRIS.mut }}>Escribe una respuesta…</div>
           <div style={{ width: 42, height: 42, borderRadius: 12, background: VERDE, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Ic n="send" s={18} c={NEGRO} /></div>
         </div>
       </div>

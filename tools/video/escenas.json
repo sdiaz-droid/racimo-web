@@ -31,7 +31,7 @@
   "ajustes": {
    "fondo": "Negro",
    "titular": "Más reservas directas, |sin comisiones.",
-   "bajada": "Sumalo a tu propuesta."
+   "bajada": "Súmalo a tu propuesta."
   }
  },
  "web": {
@@ -66,7 +66,7 @@
   "ajustes": {
    "fondo": "Negro",
    "titular": "El sitio del hotel, |listo en minutos.",
-   "bajada": "Sumalo a tu propuesta."
+   "bajada": "Súmalo a tu propuesta."
   }
  },
  "pms": {
@@ -101,7 +101,7 @@
   "ajustes": {
    "fondo": "Negro",
    "titular": "Toda la operación, |en una sola grilla.",
-   "bajada": "Sumalo a tu propuesta."
+   "bajada": "Súmalo a tu propuesta."
   }
  },
  "ads": {
@@ -136,7 +136,7 @@
   "ajustes": {
    "fondo": "Negro",
    "titular": "Que te encuentren |y te reserven directo.",
-   "bajada": "Sumalo a tu propuesta."
+   "bajada": "Súmalo a tu propuesta."
   }
  },
  "crm": {
@@ -171,42 +171,7 @@
   "ajustes": {
    "fondo": "Negro",
    "titular": "Todos los canales, |una sola bandeja.",
-   "bajada": "Sumalo a tu propuesta."
-  }
- },
- "marketing": {
-  "pieza": "RC_MKT",
-  "escenas": [
-   {
-    "name": "Intro",
-    "dur": 2.4,
-    "desc": "Los tres capítulos: redes, MyLinks y email"
-   },
-   {
-    "name": "A",
-    "dur": 4.4,
-    "desc": "01 Redes sociales: se programa una publicación"
-   },
-   {
-    "name": "Titulo",
-    "dur": 2.2,
-    "desc": "Placa tipográfica"
-   },
-   {
-    "name": "B",
-    "dur": 6.0,
-    "desc": "02 MyLinks y 03 Email marketing"
-   },
-   {
-    "name": "Cierre",
-    "dur": 2.6,
-    "desc": "Logotipo de Racimo y Marketing Digital"
-   }
-  ],
-  "ajustes": {
-   "fondo": "Negro",
-   "titular": "Redes, links y email, |desde un solo lugar.",
-   "bajada": "Sumalo a tu propuesta."
+   "bajada": "Súmalo a tu propuesta."
   }
  },
  "pos": {
@@ -241,7 +206,7 @@
   "ajustes": {
    "fondo": "Negro",
    "titular": "Del pedido a la habitación, |sin papeles.",
-   "bajada": "Sumalo a tu propuesta."
+   "bajada": "Súmalo a tu propuesta."
   }
  },
  "guestapp": {
@@ -276,7 +241,7 @@
   "ajustes": {
    "fondo": "Negro",
    "titular": "El hotel entero, |en el teléfono del huésped.",
-   "bajada": "Sumalo a tu propuesta."
+   "bajada": "Súmalo a tu propuesta."
   }
  },
  "agentes": {
@@ -311,7 +276,42 @@
   "ajustes": {
    "fondo": "Negro",
    "titular": "Responde, cotiza |y reserva solo.",
-   "bajada": "Sumalo a tu propuesta."
+   "bajada": "Súmalo a tu propuesta."
+  }
+ },
+ "rms": {
+  "pieza": "RC_RMS",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.8,
+    "desc": "La tarifa sugerida gira como un contador"
+   },
+   {
+    "name": "A",
+    "dur": 4.6,
+    "desc": "Grilla de tarifas sugeridas; se aplican en un clic"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.4,
+    "desc": "Pronóstico del mes: ocupación, RevPAR e ingreso"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y RMS"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "La tarifa justa, |cada día.",
+   "bajada": "Súmalo a tu propuesta."
   }
  }
 }

@@ -1,6 +1,6 @@
 /* Secuencia del catálogo: el racimo queda fijo y los productos se encienden de
    a uno con el scroll. Copiado de clickup.com/brain/agents.
-   Regla que se respeta acá: NADA arranca invisible desde el CSS a secas. El
+   Regla que se respeta aquí: NADA arranca invisible desde el CSS a secas. El
    apagado y el pin sólo existen si este script puso data-seq-on; si el script
    no corre, la sección queda como una lista legible con los ocho productos. */
 (() => {

@@ -20,7 +20,7 @@ function Busqueda({ T, C }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}><div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 32, color: NEGRO }}>Hotel Las Moras</div><Tag tone="n">Anuncio</Tag></div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 16, color: GRIS.tx }}>{[0, 1, 2, 3, 4].map(i => <Ic key={i} n="star" s={16} c={VERDE_TX} />)}<span style={{ marginLeft: 6 }}>4,8 · 1.204 opiniones</span></div>
-            <div style={{ fontSize: 16, color: GRIS.mut }}>Hotel boutique · Chacras de Coria, Mendoza · desayuno incluido</div>
+            <div style={{ fontSize: 16, color: GRIS.mut }}>Hotel boutique · Valle Escondido · desayuno incluido</div>
           </div>
         </div>
         {PRICES.map(([logo, l, p], i) => {
@@ -39,7 +39,7 @@ function Busqueda({ T, C }) {
       {OTHERS.map(([n, r, p], i) => (
         <LCard key={n} style={{ position: 'absolute', left: 1180, width: 660, top: 190 + i * 150, height: 132, flexDirection: 'row', alignItems: 'center', gap: 18, ...enter(T, s0 + 0.2 + i * 0.1, 14) }}>
           <Img style={{ width: 110, height: 88, borderRadius: 12, flex: 'none' }} src={['assets/fotos/tina-noche.jpg', 'assets/fotos/cabana-lago.jpg', 'assets/fotos/piscina-finca.jpg', 'assets/fotos/ecolodge.jpg'][i % 4]} />
-          <div style={{ flex: 1 }}><div style={{ fontSize: 19, fontWeight: 600, color: NEGRO }}>{n}</div><div style={{ fontSize: 15, color: GRIS.mut }}>{r} · Chacras de Coria</div></div>
+          <div style={{ flex: 1 }}><div style={{ fontSize: 19, fontWeight: 600, color: NEGRO }}>{n}</div><div style={{ fontSize: 15, color: GRIS.mut }}>{r} · Valle Escondido</div></div>
           <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 26, color: GRIS.tx }}>US$ {p}</div>
         </LCard>
       ))}

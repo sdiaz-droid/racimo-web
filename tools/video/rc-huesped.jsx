@@ -33,7 +33,7 @@ function Checkin({ T, s0 }) {
   return (
     <div style={{ position: 'absolute', inset: 0, padding: '56px 22px 0', display: 'flex', flexDirection: 'column', gap: 18 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><Ic n="left" /><div style={{ fontSize: 17, fontWeight: 600, color: NEGRO, ...nw }}>Check-in online</div></div>
-      <div style={{ ...OUT, fontSize: 30, lineHeight: 1.15 }}>Llegá y andá directo a tu habitación</div>
+      <div style={{ ...OUT, fontSize: 30, lineHeight: 1.15 }}>Llega y ve directo a tu habitación</div>
       <div style={{ height: 8, borderRadius: 4, background: GRIS.suave, overflow: 'hidden' }}><div style={{ width: prog * 100 + '%', height: '100%', background: VERDE }} /></div>
       {steps.map(([ic, l, t]) => {
         const ok = T > s0 + t;
@@ -59,7 +59,7 @@ function Llave({ T, s0 }) {
         <div style={{ width: 150, height: 150, borderRadius: 75, background: VERDE, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: `scale(${tw(T, a, a + 0.4, 0.6, 1, MOTION.pop)})` }}><Ic n="key" s={64} c={NEGRO} /></div>
       </div>
       <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 40, color: '#fff' }}>Suite 302</div>
-      <div style={{ fontSize: 17, color: GRIS.claro, textAlign: 'center' }}>Acercá el teléfono a la cerradura para abrir.</div>
+      <div style={{ fontSize: 17, color: GRIS.claro, textAlign: 'center' }}>Acerca el teléfono a la cerradura para abrir.</div>
     </div>
   );
 }

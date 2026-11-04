@@ -6,7 +6,7 @@ const nw = { whiteSpace: 'nowrap' };
 const CAPS = [['01', 'Redes sociales'], ['02', 'MyLinks'], ['03', 'Email marketing']];
 const DAYS = ['lun 10', 'mar 11', 'mié 12', 'jue 13', 'vie 14', 'sáb 15', 'dom 16'];
 const POSTS = [[0, 'Desayuno de campo', 'IG'], [1, 'Tour de bodegas', 'FB'], [2, 'Suite con balcón', 'IG'], [5, 'Brunch del sábado', 'IG'], [6, 'Atardecer en la terraza', 'FB']];
-const CAPTION = 'Escapada de fin de semana entre viñedos. Reservá directo en nuestra web.';
+const CAPTION = 'Escapada de fin de semana junto al lago. Reserva directo en nuestra web.';
 const FOTOS = ['assets/fotos/habitacion.png', 'assets/fotos/domo.png', 'assets/fotos/colonial.png', 'assets/fotos/cabana.png', 'assets/fotos/living.png', 'assets/fotos/edificio.png'];
 const COLW = 158, CX = 36, CY = 200;
 
@@ -24,7 +24,7 @@ function Redes({ T, C }) {
   const src = { x: 1230, y: 150 };
   return (
     <div style={{ position: 'absolute', inset: 0 }}>
-      <Head title="Redes sociales" icon="mega" sub="Planificá y publicá en Instagram y Facebook desde un solo lugar.">
+      <Head title="Redes sociales" icon="mega" sub="Planifica y publica en Instagram y Facebook desde un solo lugar.">
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, border: '1px solid ' + GRIS.borde, borderRadius: 12, padding: '8px 14px' }}><span style={{ fontSize: 15, fontWeight: 600, color: NEGRO }}>Meta</span><span style={{ fontSize: 14, color: VERDE_TX, fontWeight: 600 }}>Conectado</span></div>
       </Head>
       {DAYS.map((d, i) => (
@@ -46,7 +46,7 @@ function Redes({ T, C }) {
   );
 }
 
-const LINKS = [['cal', 'Reservar ahora', 'Mejor precio garantizado', 11, 64], ['msg', 'Escribinos por WhatsApp', '+54 9 261 555 0142', 7, 38], ['image', 'Instagram', '@hotellasmoras', 4, 21], ['pin', 'Cómo llegar', 'Chacras de Coria, Mendoza', 2, 15]];
+const LINKS = [['cal', 'Reservar ahora', 'Mejor precio garantizado', 11, 64], ['msg', 'Escribinos por WhatsApp', '+54 9 261 555 0142', 7, 38], ['image', 'Instagram', '@hotellasmoras', 4, 21], ['pin', 'Cómo llegar', 'Valle Escondido', 2, 15]];
 function MyLinks({ T, s0 }) {
   return (
     <div style={{ position: 'absolute', inset: 0 }}>
@@ -64,7 +64,7 @@ function MyLinks({ T, s0 }) {
           <div style={{ position: 'absolute', inset: 0, background: NEGRO, padding: '60px 26px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
             <div style={{ width: 96, height: 96, borderRadius: 48, background: VIOLETA, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 36, color: '#fff' }}>LM</div>
             <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 28, color: '#fff' }}>Hotel Las Moras</div>
-            <div style={{ fontSize: 14, color: GRIS.claro, textAlign: 'center', lineHeight: 1.5 }}>Hotel boutique entre viñedos, en Chacras de Coria.</div>
+            <div style={{ fontSize: 14, color: GRIS.claro, textAlign: 'center', lineHeight: 1.5 }}>Hotel boutique junto al lago, en Valle Escondido.</div>
             {LINKS.map(([ic, l], i) => {
               const tap = i === 0 ? 1 - 0.05 * Math.sin(Math.PI * ((T - s0) % 0.9 / 0.9)) : 1;
               return <div key={l} style={{ alignSelf: 'stretch', height: 58, borderRadius: 16, background: i === 0 ? VERDE : '#1a1a1a', border: '1px solid ' + (i === 0 ? VERDE : '#242424'), display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, fontSize: 16, fontWeight: 600, color: i === 0 ? NEGRO : '#fff', transform: `scale(${tap})`, ...enter(T, s0 + 0.2 + i * 0.1, 10) }}><Ic n={ic} s={18} c={i === 0 ? NEGRO : '#fff'} />{l}</div>;
@@ -81,7 +81,7 @@ function Email({ T, s0 }) {
     <div style={{ position: 'absolute', inset: 0 }}>
       <Head title="Email marketing" icon="mail" sub="Campaña «Escapada de primavera» · enviada a 4.820 contactos."><Tag tone="G">✓ Enviada</Tag></Head>
       <LCard style={{ position: 'absolute', left: 36, width: 700, top: 140, height: 750, padding: 0, overflow: 'hidden', gap: 0, ...enter(T, s0) }}>
-        <div style={{ padding: '18px 24px', borderBottom: '1px solid ' + GRIS.borde }}><div style={{ fontSize: 14, color: GRIS.mut }}>Asunto</div><div style={{ fontSize: 18, fontWeight: 600, color: NEGRO }}>Primavera entre viñedos: 3 noches, pagás 2</div></div>
+        <div style={{ padding: '18px 24px', borderBottom: '1px solid ' + GRIS.borde }}><div style={{ fontSize: 14, color: GRIS.mut }}>Asunto</div><div style={{ fontSize: 18, fontWeight: 600, color: NEGRO }}>Primavera junto al lago: 3 noches, pagas 2</div></div>
         <Img style={{ height: 400 }} src="assets/fotos/colonial.png" pos="center 56%" />
         <div style={{ padding: '26px 30px', display: 'flex', flexDirection: 'column', gap: 14 }}>
           <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 34, color: NEGRO, lineHeight: 1.1 }}>Llegó la primavera a Las Moras</div>

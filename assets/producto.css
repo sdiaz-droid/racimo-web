@@ -141,7 +141,9 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .saltear:hover{color:var(--white);border-color:var(--line)}
 .historia[data-modo="reloj"] .pin{position:relative;height:auto;min-height:0;padding-block:clamp(80px,10vw,140px)}
-.historia[data-modo="reloj"] .saltear{display:none}
+.historia[data-modo="reloj"] .pasos-video li{cursor:pointer}
+.historia[data-modo="reloj"] .marco{flex:none;height:min(78svh,calc((100vw - 2*var(--gutter,24px)) * .5625))}
+@media (max-width:760px) and (orientation:portrait){.historia[data-modo="reloj"] .marco{height:min(76svh,calc((100vw - 32px) * 1.7778))}}
 
 /* barra de avance del video (en el celular reemplaza a los pasos) */
 .progreso{display:none;max-width:1440px;width:100%;margin:0 auto 14px;height:3px;border-radius:3px;background:var(--line-soft);overflow:hidden}
@@ -288,3 +290,6 @@ html.desde-uva::after{content:"";position:fixed;inset:0;z-index:79;background:va
   *{scroll-behavior:auto!important}
   html[data-anim] [data-entra]{opacity:1;transform:none;transition:none}
 }
+.planes.un-plan{grid-template-columns:1fr}
+.planes.un-plan ul{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
+@media (max-width:760px){.planes.un-plan ul{grid-template-columns:1fr}}

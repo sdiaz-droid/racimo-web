@@ -155,7 +155,7 @@
   const barra = $('#progreso');
   let VH = innerHeight, anchoPrevio = innerWidth;
   let video = null, vertical = null, segs = [], abrir = .7, totalPantallas = 0;
-  let tObjetivo = 0, tActual = 0, modoReloj = reduce;
+  let tObjetivo = 0, tActual = 0, modoReloj = true;
 
   function armarTramos() {
     // la línea de scroll: abrir la uva, después el video con sus pausas de lectura
@@ -236,23 +236,36 @@
     if (barra) barra.style.transform = `scaleX(${(tActual / cfg.fin).toFixed(4)})`;
   }
 
-  // con «reducir movimiento»: el video corre solo, en loop, cuando se ve
-  let relojOn = false, relojT = 0;
+  // el video corre solo, en loop, cuando se ve; la uva se abre en la pantalla al entrar
+  let relojOn = false, relojT = 0, apertura = reduce ? 1 : 0;
   function reloj(dt) {
     if (!video || !modoReloj || !relojOn) return;
+    if (apertura < 1) {
+      apertura = Math.min(1, apertura + dt / 1.1);
+      const a = ease(apertura);
+      pantalla.style.setProperty('--abre', (9 + a * 91).toFixed(2) + '%');
+      pUva.style.setProperty('--uva-o', (1 - clamp((a - .15) * 1.5, 0, 1)).toFixed(3));
+      pUva.style.setProperty('--uva-s', (1 + a * 2.2).toFixed(3));
+      return;
+    }
     relojT = (relojT + dt) % cfg.fin;
     video.set(relojT); pintarPasos(relojT);
+    if (barra) barra.style.transform = `scaleX(${(relojT / cfg.fin).toFixed(4)})`;
   }
 
   if (hist && cfg && window.RacimoVideo) {
     armarTramos();
-    if (modoReloj) { hist.dataset.modo = 'reloj'; pantalla.style.setProperty('--abre', '100%'); }
+    if (modoReloj) { hist.dataset.modo = 'reloj'; pantalla.style.setProperty('--abre', reduce ? '100%' : '9%'); }
     montar();
     new IntersectionObserver(es => { relojOn = es[0].isIntersecting; }, { threshold: .3 }).observe(pantalla);
     $('#saltear')?.addEventListener('click', e => {
       e.preventDefault();
-      scrollTo(histTop + totalPantallas * VH + VH * .02, { duration: 1.6 });
+      const destino = hist.nextElementSibling;
+      if (modoReloj && destino) scrollTo(destino, { duration: 1.2 });
+      else scrollTo(histTop + totalPantallas * VH + VH * .02, { duration: 1.6 });
     });
+    // cada paso salta a su escena
+    pasos.forEach(li => li.addEventListener('click', () => { apertura = 1; relojT = parseFloat(li.dataset.t) || 0; pantalla.style.setProperty('--abre', '100%'); pUva.style.setProperty('--uva-o', '0'); }));
   } else if (hist) hist.hidden = true;
 
   /* ── el lazo con tu PMS ───────────────────────────────────── */

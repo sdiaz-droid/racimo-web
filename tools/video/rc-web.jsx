@@ -21,8 +21,8 @@ function Site({ narrow, reviews = 1, T = 99, a = -99 }) {
         <Img style={{ position: 'absolute', inset: 0 }} src="assets/fotos/domos-vinedo.jpg" pos="center 60%" />
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(18,18,18,0.38)' }} />
         <div style={{ position: 'absolute', left: narrow ? 22 : 48, bottom: narrow ? 24 : 44, right: 22 }}>
-          <div style={{ ...OUT, color: '#fff', fontSize: narrow ? 38 : 68, lineHeight: 1.05 }}>Tu lugar en Mendoza</div>
-          <div style={{ marginTop: 10, fontSize: narrow ? 15 : 19, color: '#fff' }}>A diez minutos de los viñedos de Chacras de Coria.</div>
+          <div style={{ ...OUT, color: '#fff', fontSize: narrow ? 38 : 68, lineHeight: 1.05 }}>Tu lugar en el valle</div>
+          <div style={{ marginTop: 10, fontSize: narrow ? 15 : 19, color: '#fff' }}>A diez minutos del lago, en Valle Escondido.</div>
         </div>
       </div>
       <div style={{ padding: `${narrow ? 28 : 40}px ${pad}px 0`, ...e(2) }}>
@@ -82,7 +82,7 @@ function Editor({ T, C, cur }) {
       <div style={{ position: 'absolute', left: CAN.x, top: CAN.y, width: CAN.w, height: CAN.h, border: '1px solid ' + GRIS.borde, borderRadius: 20, overflow: 'hidden', background: '#fafafa' }}>
         <div style={{ transform: `translateY(${scroll}px)` }}>
           <Site T={T} a={s0 - 0.4} reviews={rev} />
-          {rev < 1 && <div style={{ margin: '24px 48px', height: 150 * (1 - rev), border: `2px dashed ${dragging ? VIOLETA : GRIS.borde}`, borderRadius: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, fontSize: 18, color: dragging ? VIOLETA_TX : GRIS.mut, background: dragging ? VIOLETA_T : 'transparent', opacity: 1 - rev }}><Ic n="plus" c={dragging ? VIOLETA : GRIS.mut} />Soltá un bloque acá</div>}
+          {rev < 1 && <div style={{ margin: '24px 48px', height: 150 * (1 - rev), border: `2px dashed ${dragging ? VIOLETA : GRIS.borde}`, borderRadius: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, fontSize: 18, color: dragging ? VIOLETA_TX : GRIS.mut, background: dragging ? VIOLETA_T : 'transparent', opacity: 1 - rev }}><Ic n="plus" c={dragging ? VIOLETA : GRIS.mut} />Suelta un bloque aquí</div>}
         </div>
       </div>
       {dragging && cur && (

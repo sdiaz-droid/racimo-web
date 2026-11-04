@@ -27,12 +27,12 @@
 
   function showProduct(key) {
     if (key && own.has(key)) {
-      name.textContent = 'Eso ya lo vendés vos.';
+      name.textContent = 'Eso ya lo vendes tú.';
       price.replaceChildren();
       return;
     }
     if (!catalog[key]) {
-      name.textContent = 'Tocá una uva para ver el producto.';
+      name.textContent = 'Toca una uva para ver el producto.';
       price.replaceChildren();
       return;
     }
@@ -41,7 +41,7 @@
     cta.className = 'price-cta';
     cta.href = '#contacto';
     cta.dataset.consulta = catalog[key][1];
-    cta.textContent = 'Consultá el precio y ponele tu markup →';
+    cta.textContent = 'Consulta el precio y ponle tu markup →';
     const items = [cta];
     const pagina = byKey.get(key)?.dataset.pagina ? byKey.get(key).getAttribute('href') : null;
     if (pagina) {
@@ -78,7 +78,7 @@
     });
     const remaining = products.size - own.size;
     status.textContent = own.size
-      ? (remaining === 0 ? 'Ya vendés todos los productos.' : remaining + (remaining === 1 ? ' producto disponible.' : ' productos disponibles.'))
+      ? (remaining === 0 ? 'Ya vendes todos los productos.' : remaining + (remaining === 1 ? ' producto disponible.' : ' productos disponibles.'))
       : '';
   }
 
@@ -102,7 +102,7 @@
     }
   }));
   // tocar una uva = ver ese producto y su consulta (si tiene página, uva.js la abre con la transición).
-  // Marcar lo que ya vendés queda en los chips de arriba.
+  // Marcar lo que ya vendes queda en los chips de arriba.
   function pinProduct(key, pointerInitiated) {
     hero.dataset.input = pointerInitiated ? 'pointer' : 'keyboard';
     pinned = key;
