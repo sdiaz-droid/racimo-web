@@ -220,3 +220,12 @@ html[data-anim] .noche .relato p.on{color:#fff}
   box-shadow:0 1px 2px rgba(0,0,0,.35),0 10px 24px rgba(0,0,0,.35),0 28px 60px rgba(0,0,0,.4)}
 .recorte img{display:block;width:100%;height:auto;max-height:clamp(120px,11vw,180px);object-fit:cover;object-position:top left}
 @media(max-width:700px){.recorte{width:clamp(110px,31vw,150px);border-radius:10px}.recorte img{max-height:110px}}
+
+/* marcas = logos (04/11): facturación electrónica y pasarelas con sus logos oficiales, en placas blancas */
+.logos-int{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.logos-int span{display:grid;place-items:center;height:46px;padding:0 16px;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.3),0 10px 24px -12px rgba(0,0,0,.6)}
+.logos-int img{display:block;height:22px;width:auto;max-width:110px;object-fit:contain}
+/* globitos de logos en la órbita: más grandes para que los logos con texto se lean */
+.globo.grande{width:clamp(74px,6.6vw,96px)}
+.globo.grande img{width:66%;height:52%}
+@media(max-width:600px){.globo.grande{width:60px}}

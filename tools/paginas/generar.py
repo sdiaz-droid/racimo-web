@@ -144,6 +144,15 @@ def planes(cols, tres=False):
     return f'<div class="planes{" tres-col" if tres else ""}{" un-plan" if len(cols) == 1 else ""}">{c}</div>'
 
 
+def logos_int(lista):
+    # marcas = logos (regla): placas blancas, todos los logos oficiales a color, mismo modo
+    return '<div class="logos-int">' + ''.join(f'<span><img src="/assets/logos/{f}" alt="{n}" loading="lazy" decoding="async"></span>' for n, f in lista) + '</div>'
+
+
+def globo_logo(f, nombre):
+    return f'<div class="obj rec"><div class="globo grande"><img src="/assets/logos/{f}" alt="{nombre}"></div></div>'
+
+
 def chips(nombres):
     return '<div class="chips-int">' + ''.join(f'<span>{n}</span>' for n in nombres) + '</div>'
 
@@ -465,7 +474,7 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Más reservas directas,</span><span class="ln"><span class="hl">sin comisiones.</span></span>',
     deck='Súmale a los hoteles de tu cartera un motor de reservas en su propia web: el huésped reserva directo y el hotel deja de pagarle comisión a la OTA.',
     confianza=['Prueba gratis en cuentas nuevas', 'Pensado para el celular'],
-    objetos=recortes('motor', 4) + [tarj('<small>✦ Racimo IA</small><b>Asistido por agente de IA</b>', 0, 0, .7, 'violeta')],
+    objetos=recortes('motor', 4) + [globo_logo('pagos/mercado-pago-isotipo.png', 'Mercado Pago'), globo_logo('pagos/paypal-isotipo.png', 'PayPal'), globo_logo('pagos/stripe-isotipo.png', 'Stripe'), tarj('<small>✦ Racimo IA</small><b>Asistido por agente de IA</b>', 0, 0, .7, 'violeta')],
     historia_h2='Así reserva el huésped',
     pasos=pasos_de('motor', ['El dato', 'Reserva directa', 'Sin comisión', 'Editor y promos', 'Listo']),
     video_alt='Video: el huésped elige fechas y una suite en la web del hotel, confirma la reserva y la reserva directa entra en el listado de reservas.',
@@ -478,7 +487,7 @@ PRODUCTOS.append(dict(
             ('En Google Hotels, sin costo por clic', 'Con los enlaces gratuitos de reserva de Google, las tarifas aparecen en Google Hotels junto a las OTAs, sin costo por clic ni comisión.'),
             ('Recupera la compra abandonada', 'Si el huésped no termina la reserva, el motor le escribe un mail automático para recuperarla.'),
             ('Multi-idioma y multimoneda', 'Para el huésped internacional, en su idioma y su moneda.'),
-            ('Cobra con la pasarela del hotel', 'Se integra con las pasarelas de pago más usadas.', chips(['Mercado Pago', 'WebPay', 'Payway', 'Stripe', 'PayPal'])),
+            ('Cobra con la pasarela del hotel', 'Se integra con las pasarelas de pago más usadas.', logos_int([('Mercado Pago', 'pagos/mercado-pago.png'), ('WebPay', 'pagos/webpay.png'), ('Payway', 'pagos/payway.png'), ('Stripe', 'pagos/stripe.png'), ('PayPal', 'pagos/paypal.png')])),
             ('Rápido y listo para los buscadores', 'Carga en segundos y está preparado para Google y para los motores de búsqueda, como Google Partner.'),
             ('Seguro de punta a punta', 'Pagos con las pasarelas certificadas del hotel y datos del huésped protegidos.'),
             ('Búsqueda agéntica y asistente con IA', 'El huésped busca como habla, y un asistente con IA le responde y lo acompaña hasta reservar.'),
@@ -540,7 +549,7 @@ PRODUCTOS.append(dict(
     h1='<span class="ln">Toda la operación,</span><span class="ln"><span class="hl">en una sola grilla.</span></span>',
     deck='Para el hotel de tu cartera que todavía no tiene sistema: reservas, recepción, caja y facturación en un solo lugar, conectado a todos sus canales.',
     confianza=['Ocupación en tiempo real', 'Migración desde Excel'],
-    objetos=recortes('pms', 2) + [tarj('<small>Plano de ocupación</small><b>Todas las habitaciones, en tiempo real</b>', 0, 0, .6, 'oscura'), tarj('<small>Facturación electrónica</small><b>A la Nube, SII, Siigo y más</b>', 0, 0, .6, 'verde'), tarj('<small>Check-in online</small><b>El huésped llega con todo cargado</b>', 0, 0, .6, 'violeta')],
+    objetos=recortes('pms', 2) + [tarj('<small>Plano de ocupación</small><b>Todas las habitaciones, en tiempo real</b>', 0, 0, .6, 'oscura'), globo_logo('fiscal/siigo.png', 'Siigo'), globo_logo('fiscal/sii.png', 'SII'), globo_logo('fiscal/alanube.png', 'Alanube'), tarj('<small>Check-in online</small><b>El huésped llega con todo cargado</b>', 0, 0, .6, 'violeta')],
     historia_h2='Así se ve el día del hotel',
     pasos=pasos_de('pms', ['El dato', 'El día y el plano', 'Una sola grilla', 'Caja y facturas', 'Listo']),
     video_alt='Video: la tarjeta de arribos y salidas del día, el panel del hotel y el plano de ocupación donde se arrastra y confirma una nueva reserva.',
@@ -558,7 +567,7 @@ PRODUCTOS.append(dict(
             ('Caja multimoneda', 'Efectivo en $ y en USD, en la caja diaria.'),
             ('Informes', 'Reservas, cancelaciones y tarifas.'),
             ('Migración simple', 'Importación masiva de reservas desde Excel, para pasar al hotel sin perder nada.'),
-            ('Facturación del país', 'Integrado con la facturación electrónica de cada mercado.', chips(['ARCA', 'SII', 'Siigo', 'Factura Lista', 'GNS', 'SiFactura', 'Alanube'])),
+            ('Facturación del país', 'Integrado con la facturación electrónica de cada mercado.', logos_int([('ARCA', 'fiscal/arca.png'), ('SII', 'fiscal/sii.png'), ('Siigo', 'fiscal/siigo.png'), ('Factura Lista', 'fiscal/factura-lista.png'), ('GNS Software', 'fiscal/gns.png'), ('SiFactura', 'fiscal/sifactura.png'), ('Alanube', 'fiscal/alanube.png')])),
             ('Un plan, con todo adentro', 'La operación completa del hotel, sin versiones recortadas.', planes([
                 ('', ['Plano de ocupación, carga de reservas y bloqueos', 'Caja diaria y cuentas recaudadoras sin límite', 'Estado de habitaciones, inventario y productos adicionales', 'Web check-in', 'Facturación fiscal e importación de reservas'])])),
         ], extra='<p class="aviso" data-entra>¿Ya vendes tu propio PMS? Este no es para ti: mira lo que lo complementa, como el <a href="/channel-manager/">Channel Manager</a>.</p>'),
