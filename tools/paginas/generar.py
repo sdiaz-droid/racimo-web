@@ -555,7 +555,7 @@ PRODUCTOS.append(dict(
         lista('vendes', 'Lo que le vendes a cada hotel', 'Todo en uno: <b>reservas, operación, caja e informes</b> en el mismo lugar.', [
             ('El plano de ocupación', 'La ocupación en tiempo real, sincronizada con los canales de venta.'),
             ('Recepción sin papeles', 'Check-in, check-out y el estado de cada habitación.'),
-            ('Caja multimoneda', 'Efectivo en $ y en US$, en la caja diaria.'),
+            ('Caja multimoneda', 'Efectivo en $ y en USD, en la caja diaria.'),
             ('Informes', 'Reservas, cancelaciones y tarifas.'),
             ('Migración simple', 'Importación masiva de reservas desde Excel, para pasar al hotel sin perder nada.'),
             ('Facturación del país', 'Integrado con la facturación electrónica de cada mercado.', chips(['ARCA', 'SII', 'Siigo', 'Factura Lista', 'GNS', 'SiFactura', 'Alanube'])),
