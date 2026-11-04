@@ -542,7 +542,7 @@ PRODUCTOS.append(dict(
         antes('s1', 'Cada reserva directa es margen para el hotel', 'Lo que cambia cuando el hotel vende desde su propia web.',
               ('Todo pasa por la OTA', ['El huésped reserva en la OTA, aunque haya buscado el hotel', 'El hotel paga comisión por cada reserva', 'Las tarifas y promociones son las mismas en todos lados']),
               ('El huésped reserva en la web del hotel', ['Reserva directa, sin comisión', 'Tarifas y promociones propias, distintas a las de las OTAs', 'Un comparador le muestra que reservar directo conviene']), etiqueta='Con el motor propio del hotel'),
-        lista('vendes', 'Lo que le vendes a cada hotel', 'Un motor que se ve como el hotel y vende <b>desde el celular, en pocos pasos</b>.', [
+        lista('vendes', 'Qué incluye el motor de reservas', 'Un motor que se ve como el hotel y vende <b>desde el celular, en pocos pasos</b>.', [
             ('Con el diseño del hotel', 'El motor se adapta a la identidad visual de cada hotel: no parece un sistema aparte.'),
             ('En Google Hotels, sin costo por clic', 'Con los enlaces gratuitos de reserva de Google, las tarifas aparecen en Google Hotels junto a las OTAs, sin costo por clic ni comisión.'),
             ('Recupera la compra abandonada', 'Si el huésped no termina la reserva, el motor le escribe un mail automático para recuperarla.'),
@@ -576,7 +576,7 @@ PRODUCTOS.append(dict(
     video_alt='Video: se arma la portada del sitio del hotel, aparecen las habitaciones y las opiniones, y el sitio se ve también en el celular.',
     secciones=[
         foto('s1', 'domos-vinedo', 'La vitrina que convierte visitas en reservas', 'Para el hotel que tiene una web vieja, estática o directamente no tiene: una vitrina pensada para vender, conectada a su motor de reservas.'),
-        lista('vendes', 'Lo que le vendes a cada hotel', 'Un sitio <b>profesional y adaptable</b> a celular, tablet y escritorio.', [
+        lista('vendes', 'Qué incluye el sitio web', 'Un sitio <b>profesional y adaptable</b> a celular, tablet y escritorio.', [
             ('Con el motor de reservas adentro', 'El sitio y el motor están integrados: la visita se convierte en reserva sin salir de la web.'),
             ('Lo actualiza el hotel', 'Plantillas autogestionables y un gestor de sitios con IA, para cambiar textos, fotos y secciones sin programar.'),
             ('Para Google y para las IA', 'SEO técnico automático y optimización para motores generativos, para que lo citen ChatGPT, Gemini o Perplexity.'),
@@ -621,7 +621,7 @@ PRODUCTOS.append(dict(
             ('Caja', 'Cobro', 'Caja diaria en varias monedas.'),
             ('Factura', 'Cierre', 'Facturación electrónica integrada.'),
         ]),
-        lista('vendes', 'Lo que le vendes a cada hotel', 'Todo en uno: <b>reservas, operación, caja e informes</b> en el mismo lugar.', [
+        lista('vendes', 'Qué incluye el PMS', 'Todo en uno: <b>reservas, operación, caja e informes</b> en el mismo lugar.', [
             ('El plano de ocupación', 'La ocupación en tiempo real, sincronizada con los canales de venta.'),
             ('Recepción sin papeles', 'Check-in, check-out y el estado de cada habitación.'),
             ('Caja multimoneda', 'Efectivo en $ y en USD, en la caja diaria.'),
@@ -656,7 +656,7 @@ PRODUCTOS.append(dict(
               ('El hotel pierde su propia búsqueda', ['La OTA aparece arriba, con el nombre del hotel', 'El huésped reserva ahí y el hotel paga comisión', 'Cambiar precios en la OTA tarda días']),
               ('El hotel aparece primero', ['Anuncio del sitio oficial, arriba de la OTA', 'La tarifa directa al lado de la OTA en Google', 'Los cambios de precio se activan al instante'])),
         manifiesto('m1', 'Fee fijo y <em>0 % de comisión</em> por reserva.', 'La inversión en publicidad la define el hotel, y el resultado se mide contra reservas reales.'),
-        lista('vendes', 'Lo que le vendes a cada hotel', 'Un equipo <b>sólo de hotelería</b> que arma, mide y optimiza las campañas en Google, Meta y ChatGPT.', [
+        lista('vendes', 'Qué incluye Publicidad digital', 'Un equipo <b>sólo de hotelería</b> que arma, mide y optimiza las campañas en Google, Meta y ChatGPT.', [
             ('Búsqueda de marca y genérica', 'Para que el hotel aparezca cuando lo buscan y cuando buscan dónde dormir en su destino.'),
             ('Hotel Ads', 'La tarifa directa del hotel al lado de la de la OTA, en Google.'),
             ('Meta, para crear demanda', 'Campañas que generan interés nuevo y consultas por WhatsApp.'),
@@ -696,7 +696,7 @@ PRODUCTOS.append(dict(
                  ('ia', '', 'Es pet friendly. Te dejo el link para reservar directo.'),
                  ('el', 'Email · 09:02', 'Perfecto, ¡reservado!'),
              ], extra='<p class="aviso" data-entra>Conversación de ejemplo.</p>'),
-        lista('vendes', 'Lo que le vendes a cada hotel', 'Todo lo que pasa con un huésped, <b>en un solo perfil</b>.', [
+        lista('vendes', 'Qué incluye el CRM', 'Todo lo que pasa con un huésped, <b>en un solo perfil</b>.', [
             ('Perfil 360° del huésped', 'Las consultas y el historial de cada huésped en un solo lugar.'),
             ('Email marketing automatizado', 'Campañas segmentadas antes, durante y después de la estadía.'),
             ('Chat en la web', 'Un chat flotante que capta y califica consultas las 24 horas.'),
@@ -729,7 +729,7 @@ PRODUCTOS.append(dict(
               ('Tarifas por intuición', ['El precio se define mirando a la competencia a mano', 'Un fin de semana largo se vende igual que un martes', 'Nadie sabe si la tarifa de hoy dejó plata sobre la mesa']),
               ('Tarifas sugeridas con IA', ['Demanda, competencia, clima y eventos, todo junto', 'La sugerencia respeta el piso y el techo que pone el hotel', 'Se aplica en un clic y llega a todos los canales']),
               etiqueta='Con el RMS'),
-        lista('vendes', 'Lo que le vendes a cada hotel', 'Revenue management <b>que se activa el mismo día</b> y aprende de cada decisión.', [
+        lista('vendes', 'Qué incluye el RMS', 'Revenue management <b>que se activa el mismo día</b> y aprende de cada decisión.', [
             ('Diario de revenue', 'Ocupación, ADR, RevPAR y pickup de cada día, contra el año anterior.'),
             ('Set competitivo', 'Las tarifas públicas de sus competidores, actualizadas solas.'),
             ('Proyección de demanda', 'Con el clima y los eventos de su destino.'),
@@ -805,7 +805,7 @@ PRODUCTOS.append(dict(
             'El check-in ya lo hizo desde el teléfono.',
             'Toca la llave digital y la puerta se abre.',
         ], ('Suite 302', 'Abierta con la llave digital')),
-        lista('vendes', 'Lo que le vendes a cada hotel', 'El huésped resuelve su estadía solo, y <b>el equipo trabaja coordinado</b>.', [
+        lista('vendes', 'Qué incluye GuestApp', 'El huésped resuelve su estadía solo, y <b>el equipo trabaja coordinado</b>.', [
             ('Check-in y check-out autónomos', 'Para el huésped que llega tarde o sale temprano, sin depender de recepción.'),
             ('Una app con la marca del hotel', 'La guía del hotel y sugerencias locales, para que nadie llame a recepción a preguntar el wi-fi.'),
             ('Llave digital', 'En el celular, con las cerraduras digitales que el hotel ya tiene. Se acabaron las llaves perdidas.'),
@@ -841,7 +841,7 @@ PRODUCTOS.append(dict(
             ('Resuelve lo repetitivo', 'Rutinas que corren solas: resúmenes, respuestas frecuentes y tareas de todos los días.'),
             ('Opera con más autonomía', 'El hotel define hasta dónde llega cada agente, y puede volver atrás cuando quiera.'),
         ]),
-        lista('vendes', 'Lo que le vendes a cada hotel', 'Inteligencia artificial que <b>trabaja con la información real del hotel</b>, no con una base aparte.', [
+        lista('vendes', 'Qué incluyen los agentes de IA', 'Inteligencia artificial que <b>trabaja con la información real del hotel</b>, no con una base aparte.', [
             ('Conectada en vivo', 'Consulta la información operativa y comercial del hotel en lenguaje natural.'),
             ('En los canales del hotel', 'Responde por WhatsApp, el chat de la web o el email, con el CRM y el canal conectados.'),
             ('Rutinas y agentes', 'Automatiza tareas recurrentes y prepara respuestas, resúmenes o documentos para el equipo.'),
