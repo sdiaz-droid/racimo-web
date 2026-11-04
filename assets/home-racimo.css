@@ -24,3 +24,17 @@ a.seq-pz:hover{border-bottom-color:var(--violet)}
 .seq-li a{display:inline-block;padding:10px 0;margin:-10px 0;min-width:44px}
 /* verde sutil (devolución de Sofi, 29/10): los círculos grandes sangrados, de contorno en vez de verde lleno */
 .bleed-g{background:none;border:2px solid var(--green)}
+
+/* tira de logos de quienes revenden (04/11): logos oficiales, todos en blanco, en movimiento continuo */
+.tira-clientes{position:relative;display:flex;overflow:hidden;margin-top:clamp(28px,3.4vw,44px);padding-block:clamp(18px,2vw,26px);
+  border-block:1px solid rgba(255,255,255,.1);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.tira-pista{flex:none;display:flex;align-items:center;gap:clamp(56px,7vw,110px);margin:0;padding:0 clamp(28px,3.5vw,55px);list-style:none;
+  animation:tira 38s linear infinite}
+.tira-pista li{flex:none;display:flex;align-items:center;opacity:.82;transition:opacity .25s}
+.tira-pista li:hover{opacity:1}
+.tira-pista img{display:block;width:auto;max-width:none}
+.tira-clientes:hover .tira-pista{animation-play-state:paused}
+@keyframes tira{to{transform:translateX(-100%)}}
+@media(max-width:700px){.tira-pista img{transform:scale(.78)}.tira-pista{gap:44px}}
+@media(prefers-reduced-motion:reduce){.tira-pista{animation:none}.tira-pista[aria-hidden]{display:none}.tira-clientes{flex-wrap:wrap;justify-content:center}}

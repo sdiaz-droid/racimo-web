@@ -103,16 +103,18 @@ const VIDEOS = {
     label: 'CRM', producto: 'CRM',
     intro: { eb: 'CRM · CON TU MARCA', tx: 'Ninguna consulta |sin respuesta.' },
     A: [
-      T('crm-mailing', 2.6, [[0, todo], [1.0, c(700, 360, 1.7)]], {
-        pops: [{ t: 0.8, x: 700, y: 230, eb: 'EMAIL MARKETING', tx: 'Campañas antes, durante y después', icon: 'mail', tone: 'b' }] }),
-      T('ia-agentes', 2.6, [[0, todo], [1.0, c(560, 430, 1.8)]], {
-        pops: [{ t: 0.8, x: 760, y: 320, eb: 'AGENTE DE IA', tx: 'Responde WhatsApp, Instagram y la web', icon: 'msg', tone: 'v' }] }),
+      T('crm-conversa', 2.6, [[0, todo], [1.0, c(1240, 420, 1.55)]], {
+        marcos: [{ t: 1.6, x: 680, y: 790, w: 1120, h: 110 }],
+        pops: [{ t: 0.7, x: 1100, y: 120, eb: 'WHATSAPP, INSTAGRAM Y WEB', tx: 'Todas las consultas en una bandeja', icon: 'msg', tone: 'b' },
+               { t: 1.7, x: 1240, y: 760, eb: 'RACIMO IA', tx: 'Te sugiere la respuesta', icon: 'spark', tone: 'v' }] }),
+      T('crm-conversa', 2.6, [[0, c(1240, 500, 1.6)], [2.6, c(1240, 560, 1.75)]], {
+        pops: [{ t: 0.5, x: 1240, y: 470, eb: 'RESERVA CONFIRMADA', tx: 'La consulta termina en reserva directa', icon: 'check', tone: 'g' }] }),
     ],
     B: [
-      T('ia-rutinas', 2.4, [[0, todo], [1.0, c(700, 260, 1.7)]], {
-        pops: [{ t: 0.8, x: 760, y: 150, eb: 'AUTOMATIZACIONES', tx: 'Respuestas automáticas, todo el día', icon: 'refresh', tone: 'g' }] }),
-      T('hu-mensajes', 2.4, [[0, todo], [1.0, c(760, 420, 1.6)]], {
-        pops: [{ t: 0.8, x: 760, y: 300, eb: 'MENSAJES', tx: 'Avisos a todos los huéspedes, en un clic', icon: 'msg', tone: 'v' }] }),
+      T('crm-mailing', 2.4, [[0, todo], [1.0, c(700, 360, 1.7)]], {
+        pops: [{ t: 0.8, x: 700, y: 230, eb: 'EMAIL MARKETING', tx: 'Campañas antes, durante y después', icon: 'mail', tone: 'v' }] }),
+      T('ia-agentes', 2.4, [[0, todo], [1.0, c(560, 430, 1.8)]], {
+        pops: [{ t: 0.8, x: 760, y: 320, eb: 'AGENTE DE IA', tx: 'Responde solo, con tus reglas', icon: 'spark', tone: 'g' }] }),
     ],
   },
   POS: {
@@ -121,8 +123,8 @@ const VIDEOS = {
     A: [
       T('pos-menus', 2.6, [[0, todo], [1.0, c(1150, 520, 1.6)]], { srcV: R + 'pos-menus-cel.webp',
         pops: [{ t: 0.8, x: 900, y: 360, eb: 'CARTA DIGITAL', tx: 'El menú del hotel, por QR', icon: 'grid', tone: 'b' }] }),
-      T('pos-room', 2.4, [[0, todo], [1.0, c(760, 200, 1.7)]], {
-        pops: [{ t: 0.8, x: 760, y: 120, eb: 'ROOM SERVICE', tx: 'Pedidos que llegan solos a cocina', icon: 'bell', tone: 'v' }] }),
+      T('pos-room', 2.4, [[0, todo], [1.0, c(760, 560, 1.45)]], {
+        pops: [{ t: 0.8, x: 760, y: 330, eb: 'ROOM SERVICE', tx: 'Pedidos que llegan solos a cocina', icon: 'bell', tone: 'v' }] }),
     ],
     B: [
       T('pos-inventario', 2.6, [[0, todo], [1.0, c(760, 420, 1.6)]], {
@@ -141,8 +143,8 @@ const VIDEOS = {
         pops: [{ t: 0.8, x: 760, y: 180, eb: 'MENSAJES', tx: 'El huésped escribe desde la app', icon: 'msg', tone: 'v' }] }),
     ],
     B: [
-      T('pos-room', 2.4, [[0, todo], [1.0, c(760, 200, 1.7)]], {
-        pops: [{ t: 0.8, x: 760, y: 120, eb: 'ROOM SERVICE', tx: 'Pide desde la habitación', icon: 'bell', tone: 'g' }] }),
+      T('pos-room', 2.4, [[0, todo], [1.0, c(760, 560, 1.45)]], {
+        pops: [{ t: 0.8, x: 760, y: 330, eb: 'ROOM SERVICE', tx: 'Pide desde la habitación', icon: 'bell', tone: 'g' }] }),
       T('hu-llaves', 2.4, [[0, c(960, 500, 1.2)], [2.4, c(1100, 600, 1.5)]], {
         pops: [{ t: 0.6, x: 1100, y: 450, eb: 'CHECK-IN Y CHECK-OUT', tx: 'Sin pasar por recepción', icon: 'check', tone: 'v' }] }),
     ],
