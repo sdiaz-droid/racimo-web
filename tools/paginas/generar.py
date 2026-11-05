@@ -439,6 +439,65 @@ def consulta(p):
 </section>'''
 
 
+# ─────────────────────────── menú (igual en las 11 páginas) ───────────────────────────
+# Lenguaje propio de Racimo: nada de «Productos», «Soluciones», «Precios» ni «Recursos».
+MENU_GRUPOS = [
+    ('Para que el hotel venda', [('channel', 'Una tarifa, todos los canales'), ('motor', 'Reservas directas, sin comisiones'),
+                                 ('web', 'El sitio del hotel, listo en minutos'), ('ads', 'Que lo encuentren y le reserven directo')]),
+    ('Para que el hotel opere', [('pms', 'Toda la operación en una grilla'), ('pos', 'Del pedido a la habitación'),
+                                 ('rms', 'La tarifa justa, cada día')]),
+    ('Para que el huésped vuelva', [('crm', 'Todos los canales, una bandeja'), ('guestapp', 'El hotel en el teléfono del huésped'),
+                                    ('agentes', 'Responde, cotiza y reserva solo')]),
+]
+MENU_LINKS = [('/#ganas', 'Cómo ganas'), ('/#modelos', 'Formas de revender'), ('/#quienes', 'Quiénes revenden')]
+CHEVRON = '<svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>'
+
+
+def menu_html(actual=None, consulta='#consulta', inicio='/'):
+    grupos = []
+    for titulo, items in MENU_GRUPOS:
+        lis = []
+        for k, frase in items:
+            nombre, url, _ = CATALOGO[k]
+            cur = ' aria-current="page"' if k == actual else ''
+            lis.append(f'<li><a class="m-item" href="{url}"{cur}><i></i><span>{e(nombre)}</span><small>{e(frase)}</small></a></li>')
+        grupos.append(f'<div class="m-grupo"><h3>{e(titulo)}</h3><ul class="m-uvas">{"".join(lis)}</ul></div>')
+    links = ''.join(f'<a href="{u}">{e(t)}</a>' for u, t in MENU_LINKS)
+    return f'''<header class="nav" id="nav">
+  <div class="shell">
+    <a href="{inicio}" aria-label="Racimo tech, inicio" style="display:block">{WORDMARK}</a>
+    <nav class="m-links" aria-label="Principal">
+      <button class="m-abre" type="button" aria-expanded="false" aria-controls="mPanel"><i class="m-uva"></i>El racimo{CHEVRON}</button>
+      {links}
+    </nav>
+    <a class="btn m-cta" href="{consulta}">Consulta el precio</a>
+    <button class="m-burger" type="button" aria-expanded="false" aria-controls="mPanel" aria-label="Abrir el menú"><b></b></button>
+  </div>
+  <div class="m-panel" id="mPanel">
+    <div class="m-panel-in">
+      <div class="m-intro">
+        <b>Diez uvas, una sola marca: la tuya.</b>
+        <p>Cada producto se vende solo o en racimo, con tu nombre y al precio que tú definas.</p>
+        <a class="m-todo" href="/#catalogo">Ver el racimo completo{FLECHA}</a>
+      </div>
+      <div class="m-grupos">{"".join(grupos)}</div>
+      <div class="m-cel">{links}<a class="btn" href="{consulta}">Consulta el precio</a></div>
+    </div>
+  </div>
+</header>'''
+
+
+def poner_menu(ruta, actual=None, consulta='#consulta', inicio='/'):
+    """Pone el menú en una página hecha a mano (home y Channel Manager)."""
+    html_ = ruta.read_text(encoding='utf-8')
+    html_ = re.sub(r'<header class="nav" id="nav">.*?</header>', lambda m: menu_html(actual, consulta, inicio), html_, count=1, flags=re.S)
+    if 'menu.css' not in html_:
+        html_ = html_.replace('</head>', '<link rel="stylesheet" href="/assets/menu.css?v=20261105">\n</head>', 1)
+    if 'menu.js' not in html_:
+        html_ = html_.replace('</body>', '<script src="/assets/menu.js?v=20261105" defer></script>\n</body>', 1)
+    ruta.write_text(html_, encoding='utf-8', newline='\n')
+
+
 def pagina(p):
     k = p['k']
     vid = ESCENAS[p['video']]
@@ -460,6 +519,7 @@ def pagina(p):
 <link rel="stylesheet" href="/assets/producto.css?v=20261104d">
 <link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104d">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
+<link rel="stylesheet" href="/assets/menu.css?v=20261105">
 </head>
 <body data-producto="{k}">
 <!-- generado por tools/paginas/generar.py: editar ahí, no aquí -->
@@ -472,16 +532,7 @@ def pagina(p):
   <div class="velo"></div>
 </div>
 
-<header class="nav" id="nav">
-  <div class="shell">
-    <a href="/" aria-label="Racimo tech, inicio" style="display:block">{WORDMARK}</a>
-    <nav class="navlinks" aria-label="Principal">
-      <a href="/#racimo">Catálogo</a><a href="#historia">Cómo funciona</a>
-      <a href="#s1">Qué vendes</a><a href="/#modelos">Cómo trabajamos</a>
-    </nav>
-    <a class="btn" href="#consulta">Consulta el precio</a>
-  </div>
-</header>
+{menu_html(k)}
 
 <main>
 {hero(p)}
@@ -510,6 +561,7 @@ def pagina(p):
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
 <script src="/assets/producto.js?v=20261104d" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
+<script src="/assets/menu.js?v=20261105" defer></script>
 </body>
 </html>
 '''
@@ -864,3 +916,6 @@ if __name__ == '__main__':
         carpeta.mkdir(exist_ok=True)
         (carpeta / 'index.html').write_text(pagina(p), encoding='utf-8', newline='\n')
         print('ok', CATALOGO[p['k']][1])
+    poner_menu(RAIZ / 'index.html', None, '#contacto', '#top')
+    poner_menu(RAIZ / 'channel-manager/index.html', 'channel')
+    print('ok menú en / y /channel-manager/')

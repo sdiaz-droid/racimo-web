@@ -1,0 +1,74 @@
+/* Menú de Racimo: el mismo en la home y en las diez páginas de producto.
+   Lo genera tools/paginas/generar.py (menu_html). Lenguaje propio: «El racimo» y sus uvas. */
+.nav{--m-bg:rgba(18,18,18,.94)}
+.nav .shell{gap:20px}
+.m-links{display:flex;align-items:center;gap:4px;margin-inline:auto 0;font-size:14.5px}
+.m-links>a,.m-abre{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;
+  color:var(--fg-2);text-decoration:none;background:transparent;border:0;cursor:pointer;font:inherit;
+  transition:color .18s var(--ease-out),background-color .18s var(--ease-out)}
+.m-abre .m-uva{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,240,104,.16);flex:none}
+.m-abre svg{width:12px;height:12px;transition:transform .3s var(--ease-out)}
+.m-abre[aria-expanded="true"]{color:var(--white);background:rgba(255,255,255,.06)}
+.m-abre[aria-expanded="true"] svg{transform:rotate(180deg)}
+@media(hover:hover) and (pointer:fine){.m-links>a:hover,.m-abre:hover{color:var(--white);background:rgba(255,255,255,.05)}}
+.m-links>a[aria-current]{color:var(--white)}
+.nav .m-cta{margin-left:10px}
+
+/* panel del racimo */
+.m-panel{position:absolute;left:0;right:0;top:100%;padding:0 var(--gut);pointer-events:none}
+.m-panel-in{max-width:1180px;margin:10px auto 0;display:grid;grid-template-columns:minmax(220px,.8fr) 2.6fr;gap:0;
+  background:#171717;border:1px solid var(--line);border-radius:24px;overflow:hidden;
+  box-shadow:0 2px 6px rgba(0,0,0,.25),0 24px 60px rgba(0,0,0,.45);
+  opacity:0;transform:translateY(-6px);visibility:hidden;
+  transition:opacity .22s var(--ease-out),transform .3s var(--ease-out),visibility 0s linear .3s}
+.nav[data-menu="abierto"] .m-panel{pointer-events:auto}
+.nav[data-menu="abierto"] .m-panel-in{opacity:1;transform:none;visibility:visible;transition-delay:0s}
+.m-intro{padding:30px 28px;background:
+  radial-gradient(120% 80% at 0% 0%,rgba(108,99,255,.22) 0%,rgba(108,99,255,0) 60%),
+  radial-gradient(90% 70% at 100% 100%,rgba(0,240,104,.12) 0%,rgba(0,240,104,0) 60%),#141414;
+  border-right:1px solid var(--line-soft);display:flex;flex-direction:column;gap:14px}
+.m-intro b{font-family:var(--display);font-weight:500;font-size:24px;line-height:1.1;letter-spacing:-.03em;color:var(--white)}
+.m-intro p{font-size:14px;line-height:1.5;color:var(--fg-2)}
+.m-intro .m-todo{margin-top:auto;display:inline-flex;align-items:center;gap:8px;color:var(--green);text-decoration:none;font-size:14.5px;font-family:var(--display);font-weight:500}
+.m-intro .m-todo svg{width:15px;height:15px;transition:transform .3s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.m-intro .m-todo:hover svg{transform:translateX(3px)}}
+.m-grupos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:22px}
+.m-grupo h3{font-family:var(--body);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);margin:6px 12px 10px}
+.m-uvas{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.m-item{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:center;padding:10px 12px;border-radius:14px;text-decoration:none;
+  transition:background-color .18s var(--ease-out)}
+.m-item i{grid-row:span 2;width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(0,240,104,.7);transition:background-color .2s,box-shadow .2s}
+.m-item span{font-family:var(--display);font-weight:500;font-size:16px;letter-spacing:-.015em;color:var(--white);line-height:1.2}
+.m-item small{font-size:12.5px;line-height:1.35;color:var(--fg-3)}
+@media(hover:hover) and (pointer:fine){.m-item:hover{background:rgba(255,255,255,.05)} .m-item:hover i{background:var(--green)}}
+.m-item[aria-current]{background:rgba(0,240,104,.07)}
+.m-item[aria-current] i{background:var(--green);box-shadow:0 0 0 4px rgba(0,240,104,.18)}
+.m-item[aria-current] small::after{content:" · estás aquí";color:var(--green)}
+
+/* botón del celular */
+.m-burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;
+  align-items:center;justify-content:center;flex:none}
+.m-burger b{display:block;width:16px;height:1.6px;background:var(--white);border-radius:2px;position:relative;transition:background-color .2s}
+.m-burger b::before,.m-burger b::after{content:"";position:absolute;left:0;width:16px;height:1.6px;background:var(--white);border-radius:2px;transition:transform .3s var(--ease-out)}
+.m-burger b::before{top:-5px} .m-burger b::after{top:5px}
+.nav[data-menu="abierto"] .m-burger b{background:transparent}
+.nav[data-menu="abierto"] .m-burger b::before{transform:translateY(5px) rotate(45deg)}
+.nav[data-menu="abierto"] .m-burger b::after{transform:translateY(-5px) rotate(-45deg)}
+
+@media(max-width:1060px){.m-links{font-size:14px}.m-links>a,.m-abre{padding:0 10px}}
+@media(max-width:960px){
+  .m-links,.nav .m-cta{display:none}
+  .m-burger{display:inline-flex}
+  .m-panel{position:fixed;top:var(--nav-h);bottom:0;padding:0;overflow:auto;overscroll-behavior:contain}
+  .m-panel-in{margin:0;border-radius:0;border:0;border-top:1px solid var(--line-soft);grid-template-columns:1fr;min-height:100%;background:#151515;box-shadow:none}
+  .m-intro{border-right:0;border-bottom:1px solid var(--line-soft);padding:22px var(--gut)}
+  .m-intro b{font-size:21px}
+  .m-grupos{grid-template-columns:1fr;padding:12px calc(var(--gut) - 12px)}
+  .m-grupo+.m-grupo{border-top:1px solid var(--line-soft);padding-top:8px}
+  .m-cel{display:grid!important}
+}
+.m-cel{display:none;gap:4px;padding:8px var(--gut) 28px;border-top:1px solid var(--line-soft)}
+.m-cel a:not(.btn){display:flex;align-items:center;min-height:50px;color:var(--white);text-decoration:none;font-family:var(--display);font-size:18px;font-weight:500;letter-spacing:-.015em}
+.m-cel .btn{margin-top:12px;width:100%}
+html.m-trabado,html.m-trabado body{overflow:hidden}
+@media(prefers-reduced-motion:reduce){.m-panel-in,.m-abre svg,.m-burger b::before,.m-burger b::after{transition:none}}
