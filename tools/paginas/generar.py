@@ -453,35 +453,59 @@ MENU_LINKS = [('/#ganas', 'Cómo ganas'), ('/#modelos', 'Formas de revender'), (
 CHEVRON = '<svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>'
 
 
+MENU_ICO = {'channel': 'link', 'motor': 'cal', 'web': 'globo', 'ads': 'buscar', 'pms': 'grilla', 'pos': 'factura',
+            'rms': 'grafico', 'crm': 'bandeja', 'guestapp': 'cel', 'agentes': 'chispa'}
+RACIMITO = '<svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="4" cy="4.6" r="2.6"/><circle cx="10" cy="4.6" r="2.6"/><circle cx="7" cy="9.8" r="2.6"/></svg>'
+
+
+def mini_racimo(actual=None):
+    """El racimo de la home en miniatura: cada uva lleva el símbolo de su producto."""
+    uvas = []
+    for k, x, y in RACIMO:
+        nombre, url, _ = CATALOGO[k]
+        cur = ' aria-current="page"' if k == actual else ''
+        uvas.append(f'<a class="m-g" href="{url}" data-k="{k}"{cur} tabindex="-1" aria-hidden="true" transform="translate({x} {y})">'
+                    f'<circle r="76"/><g class="m-g-ic" transform="translate(-30 -30) scale(2.5)">{ICO[MENU_ICO[k]]}</g></a>')
+    return ('<svg class="m-racimo" viewBox="6 -52 668 762" aria-hidden="true" focusable="false">'
+            '<path class="m-tallo" d="M337.5-44C328 32 332 112 333.5 190L346.5 190C348 112 342 32 342.5-44Z"/>'
+            '<path class="m-hoja" d="M338 12C364-26 406-48 446-38C428-4 384 18 338 12Z"/>'
+            '<path class="m-hoja2" d="M330 64C310 38 272 26 242 42C260 70 296 82 330 64Z"/>'
+            + ''.join(uvas) + '</svg>')
+
+
 def menu_html(actual=None, consulta='#consulta', inicio='/'):
-    grupos = []
+    grupos, n = [], 0
     for titulo, items in MENU_GRUPOS:
         lis = []
         for k, frase in items:
             nombre, url, _ = CATALOGO[k]
             cur = ' aria-current="page"' if k == actual else ''
-            lis.append(f'<li><a class="m-item" href="{url}"{cur}><i></i><span>{e(nombre)}</span><small>{e(frase)}</small></a></li>')
+            ico = f'<svg viewBox="0 0 24 24" aria-hidden="true">{ICO[MENU_ICO[k]]}</svg>'
+            lis.append(f'<li style="--i:{n}"><a class="m-item" href="{url}" data-k="{k}"{cur}><i>{ico}</i><span>{e(nombre)}</span><small>{e(frase)}</small></a></li>')
+            n += 1
         grupos.append(f'<div class="m-grupo"><h3>{e(titulo)}</h3><ul class="m-uvas">{"".join(lis)}</ul></div>')
     links = ''.join(f'<a href="{u}">{e(t)}</a>' for u, t in MENU_LINKS)
     return f'''<header class="nav" id="nav">
   <div class="shell">
-    <a href="{inicio}" aria-label="Racimo tech, inicio" style="display:block">{WORDMARK}</a>
+    <a class="m-marca" href="{inicio}" aria-label="Racimo tech, inicio">{WORDMARK}</a>
     <nav class="m-links" aria-label="Principal">
-      <button class="m-abre" type="button" aria-expanded="false" aria-controls="mPanel"><i class="m-uva"></i>El racimo{CHEVRON}</button>
+      <span class="m-ind" aria-hidden="true"></span>
+      <button class="m-abre" type="button" aria-expanded="false" aria-controls="mPanel">{RACIMITO}El racimo{CHEVRON}</button>
       {links}
     </nav>
-    <a class="btn m-cta" href="{consulta}">Consulta el precio</a>
+    <a class="btn m-cta" href="{consulta}">Consulta el precio{FLECHA}</a>
     <button class="m-burger" type="button" aria-expanded="false" aria-controls="mPanel" aria-label="Abrir el menú"><b></b></button>
   </div>
   <div class="m-panel" id="mPanel">
     <div class="m-panel-in">
       <div class="m-intro">
-        <b>Diez uvas, una sola marca: la tuya.</b>
+        {mini_racimo(actual)}
+        <b>Diez uvas, una sola marca: <em>la tuya.</em></b>
         <p>Cada producto se vende solo o en racimo, con tu nombre y al precio que tú definas.</p>
         <a class="m-todo" href="/#catalogo">Ver el racimo completo{FLECHA}</a>
       </div>
       <div class="m-grupos">{"".join(grupos)}</div>
-      <div class="m-cel">{links}<a class="btn" href="{consulta}">Consulta el precio</a></div>
+      <div class="m-cel">{links}<a class="btn" href="{consulta}">Consulta el precio{FLECHA}</a></div>
     </div>
   </div>
 </header>'''
@@ -491,10 +515,11 @@ def poner_menu(ruta, actual=None, consulta='#consulta', inicio='/'):
     """Pone el menú en una página hecha a mano (home y Channel Manager)."""
     html_ = ruta.read_text(encoding='utf-8')
     html_ = re.sub(r'<header class="nav" id="nav">.*?</header>', lambda m: menu_html(actual, consulta, inicio), html_, count=1, flags=re.S)
+    html_ = re.sub(r'/assets/menu\.(css|js)\?v=\w+', lambda m: f'/assets/menu.{m.group(1)}?v=20261105b', html_)
     if 'menu.css' not in html_:
-        html_ = html_.replace('</head>', '<link rel="stylesheet" href="/assets/menu.css?v=20261105">\n</head>', 1)
+        html_ = html_.replace('</head>', '<link rel="stylesheet" href="/assets/menu.css?v=20261105b">\n</head>', 1)
     if 'menu.js' not in html_:
-        html_ = html_.replace('</body>', '<script src="/assets/menu.js?v=20261105" defer></script>\n</body>', 1)
+        html_ = html_.replace('</body>', '<script src="/assets/menu.js?v=20261105b" defer></script>\n</body>', 1)
     ruta.write_text(html_, encoding='utf-8', newline='\n')
 
 
@@ -519,7 +544,7 @@ def pagina(p):
 <link rel="stylesheet" href="/assets/producto.css?v=20261104d">
 <link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104d">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
-<link rel="stylesheet" href="/assets/menu.css?v=20261105">
+<link rel="stylesheet" href="/assets/menu.css?v=20261105b">
 </head>
 <body data-producto="{k}">
 <!-- generado por tools/paginas/generar.py: editar ahí, no aquí -->
@@ -561,7 +586,7 @@ def pagina(p):
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
 <script src="/assets/producto.js?v=20261104d" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
-<script src="/assets/menu.js?v=20261105" defer></script>
+<script src="/assets/menu.js?v=20261105b" defer></script>
 </body>
 </html>
 '''

@@ -15,6 +15,8 @@
     if (abre) abre.setAttribute('aria-expanded', abierto ? 'true' : 'false');
     if (burger) burger.setAttribute('aria-expanded', abierto ? 'true' : 'false');
     document.documentElement.classList.toggle('m-trabado', abierto && cel.matches);
+    if (ind) { if (abierto && !cel.matches) mover(abre); else if (!links.matches(':hover')) links.removeAttribute('data-ind'); }
+    if (!abierto) encender(null);
     if (abierto && quien === 'teclado') {
       var primero = panel.querySelector('a');
       if (primero) primero.focus();
@@ -36,6 +38,37 @@
     });
   }
   if (burger) burger.addEventListener('click', function () { set(!abierto()); });
+
+  // la pastilla que sigue al mouse por los enlaces de la barra
+  var links = nav.querySelector('.m-links');
+  var ind = links && links.querySelector('.m-ind');
+  function mover(el, sinAnim) {
+    if (!ind) return;
+    if (!el) { if (!abierto()) links.removeAttribute('data-ind'); else mover(abre); return; }
+    var vacio = !links.hasAttribute('data-ind');
+    links.style.setProperty('--x', el.offsetLeft + 'px');
+    links.style.setProperty('--w', el.offsetWidth + 'px');
+    links.setAttribute('data-ind', vacio || sinAnim ? 'sin-anim' : '1');
+    if (vacio) requestAnimationFrame(function () { links.setAttribute('data-ind', '1'); });
+  }
+  if (links) {
+    links.querySelectorAll('a, .m-abre').forEach(function (el) {
+      el.addEventListener('mouseenter', function () { mover(el); });
+      el.addEventListener('focus', function () { mover(el); });
+    });
+    links.addEventListener('mouseleave', function () { mover(null); });
+  }
+
+  // cada producto de la lista enciende su uva en el racimo (y al revés)
+  function encender(k) {
+    nav.querySelectorAll('.m-g, .m-item').forEach(function (el) { el.classList.toggle('on', !!k && el.dataset.k === k); });
+  }
+  nav.querySelectorAll('.m-item, .m-g').forEach(function (el) {
+    el.addEventListener('mouseenter', function () { encender(el.dataset.k); });
+    el.addEventListener('focus', function () { encender(el.dataset.k); });
+  });
+  panel.addEventListener('mouseleave', function () { encender(null); });
+  panel.addEventListener('focusout', function (ev) { if (!panel.contains(ev.relatedTarget)) encender(null); });
 
   panel.addEventListener('click', function (ev) { if (ev.target.closest('a')) set(false); });
   document.addEventListener('keydown', function (ev) {
