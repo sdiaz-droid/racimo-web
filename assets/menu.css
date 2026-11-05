@@ -115,6 +115,28 @@ header.nav[data-menu="abierto"] .m-uvas li{opacity:1;transform:none;transition-d
 .m-item[aria-current].on i svg{stroke:var(--ink)}
 .m-item[aria-current] small::after{content:" · estás aquí";color:var(--green)}
 
+/* primero, los cinco principales en tarjetas; abajo, el resto en una fila compacta */
+@media(min-width:961px){
+  .m-grupos{grid-template-columns:1fr;gap:10px;padding:22px 22px 18px;align-content:start}
+  .m-principal .m-uvas{grid-template-columns:repeat(5,1fr);gap:10px}
+  .m-principal .m-item{grid-template-columns:1fr;align-content:start;gap:6px;height:100%;padding:18px 16px 18px;border-radius:20px;
+    background:rgba(255,255,255,.025);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+  .m-principal .m-item i{grid-row:auto;width:44px;height:44px;border-radius:14px;margin-bottom:10px}
+  .m-principal .m-item i svg{width:21px;height:21px}
+  .m-principal .m-item span{font-size:17px}
+  .m-principal .m-item.on{background:rgba(0,240,104,.06);box-shadow:inset 0 0 0 1px rgba(0,240,104,.35)}
+  .m-principal .m-item[aria-current]{box-shadow:inset 0 0 0 1px rgba(0,240,104,.45)}
+  .m-principal .m-item[aria-current] small::after{display:block;content:"Estás aquí";margin-top:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .m-mas{margin-top:6px;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)}
+  .m-mas .m-uvas{grid-template-columns:repeat(5,1fr);gap:4px}
+  .m-mas .m-item{grid-template-columns:auto 1fr;gap:0 12px;padding:8px 10px;border-radius:14px}
+  .m-mas .m-item i{width:34px;height:34px;border-radius:11px;grid-row:span 1}
+  .m-mas .m-item i svg{width:17px;height:17px}
+  .m-mas .m-item span{font-size:15px}
+  .m-mas .m-item small{display:none}
+  .m-mas .m-item[aria-current] span::after{content:" ·";color:var(--green)}
+}
+
 /* ── botón del celular ───────────────────────────────────── */
 .m-burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);cursor:pointer;
   align-items:center;justify-content:center;flex:none}

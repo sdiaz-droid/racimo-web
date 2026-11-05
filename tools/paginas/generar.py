@@ -441,13 +441,14 @@ def consulta(p):
 
 # ─────────────────────────── menú (igual en las 11 páginas) ───────────────────────────
 # Lenguaje propio de Racimo: nada de «Productos», «Soluciones», «Precios» ni «Recursos».
+# primero, los cinco que Fernanda y Nadia (Racimo) confirmaron en la revisión del 04/11; después, el resto
 MENU_GRUPOS = [
-    ('Para que el hotel venda', [('channel', 'Una tarifa, todos los canales'), ('motor', 'Reservas directas, sin comisiones'),
-                                 ('web', 'El sitio del hotel, listo en minutos'), ('ads', 'Que lo encuentren y le reserven directo')]),
-    ('Para que el hotel opere', [('pms', 'Toda la operación en una grilla'), ('pos', 'Del pedido a la habitación'),
+    ('Para empezar a revender', [('channel', 'Una tarifa, todos los canales'), ('motor', 'Reservas directas, sin comisiones'),
+                                 ('web', 'El sitio del hotel, listo en minutos'), ('pms', 'Toda la operación en una grilla'),
                                  ('rms', 'La tarifa justa, cada día')]),
-    ('Para que el huésped vuelva', [('crm', 'Todos los canales, una bandeja'), ('guestapp', 'El hotel en el teléfono del huésped'),
-                                    ('agentes', 'Responde, cotiza y reserva solo')]),
+    ('Para sumar al racimo', [('crm', 'Todos los canales, una bandeja'), ('pos', 'Del pedido a la habitación'),
+                              ('guestapp', 'El hotel en el teléfono del huésped'), ('agentes', 'Responde, cotiza y reserva solo'),
+                              ('ads', 'Que lo encuentren y le reserven directo')]),
 ]
 MENU_LINKS = [('/#ganas', 'Cómo ganas'), ('/#modelos', 'Formas de revender'), ('/#quienes', 'Quiénes revenden')]
 CHEVRON = '<svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>'
@@ -483,7 +484,8 @@ def menu_html(actual=None, consulta='#consulta', inicio='/'):
             ico = f'<svg viewBox="0 0 24 24" aria-hidden="true">{ICO[MENU_ICO[k]]}</svg>'
             lis.append(f'<li style="--i:{n}"><a class="m-item" href="{url}" data-k="{k}"{cur}><i>{ico}</i><span>{e(nombre)}</span><small>{e(frase)}</small></a></li>')
             n += 1
-        grupos.append(f'<div class="m-grupo"><h3>{e(titulo)}</h3><ul class="m-uvas">{"".join(lis)}</ul></div>')
+        clase = 'm-grupo m-principal' if not grupos else 'm-grupo m-mas'
+        grupos.append(f'<div class="{clase}"><h3>{e(titulo)}</h3><ul class="m-uvas">{"".join(lis)}</ul></div>')
     links = ''.join(f'<a href="{u}">{e(t)}</a>' for u, t in MENU_LINKS)
     return f'''<header class="nav" id="nav">
   <div class="shell">
@@ -515,11 +517,11 @@ def poner_menu(ruta, actual=None, consulta='#consulta', inicio='/'):
     """Pone el menú en una página hecha a mano (home y Channel Manager)."""
     html_ = ruta.read_text(encoding='utf-8')
     html_ = re.sub(r'<header class="nav" id="nav">.*?</header>', lambda m: menu_html(actual, consulta, inicio), html_, count=1, flags=re.S)
-    html_ = re.sub(r'/assets/menu\.(css|js)\?v=\w+', lambda m: f'/assets/menu.{m.group(1)}?v=20261105b', html_)
+    html_ = re.sub(r'/assets/menu\.(css|js)\?v=\w+', lambda m: f'/assets/menu.{m.group(1)}?v=20261105c', html_)
     if 'menu.css' not in html_:
-        html_ = html_.replace('</head>', '<link rel="stylesheet" href="/assets/menu.css?v=20261105b">\n</head>', 1)
+        html_ = html_.replace('</head>', '<link rel="stylesheet" href="/assets/menu.css?v=20261105c">\n</head>', 1)
     if 'menu.js' not in html_:
-        html_ = html_.replace('</body>', '<script src="/assets/menu.js?v=20261105b" defer></script>\n</body>', 1)
+        html_ = html_.replace('</body>', '<script src="/assets/menu.js?v=20261105c" defer></script>\n</body>', 1)
     ruta.write_text(html_, encoding='utf-8', newline='\n')
 
 
@@ -544,7 +546,7 @@ def pagina(p):
 <link rel="stylesheet" href="/assets/producto.css?v=20261104d">
 <link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104d">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
-<link rel="stylesheet" href="/assets/menu.css?v=20261105b">
+<link rel="stylesheet" href="/assets/menu.css?v=20261105c">
 </head>
 <body data-producto="{k}">
 <!-- generado por tools/paginas/generar.py: editar ahí, no aquí -->
@@ -586,7 +588,7 @@ def pagina(p):
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
 <script src="/assets/producto.js?v=20261104d" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
-<script src="/assets/menu.js?v=20261105b" defer></script>
+<script src="/assets/menu.js?v=20261105c" defer></script>
 </body>
 </html>
 '''
