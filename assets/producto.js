@@ -251,6 +251,8 @@
   }
 
   // el video corre solo, en loop, cuando se ve; la uva se abre en la pantalla al entrar
+  // Revisión 2 de Racimo: «pasan muy rápido» → el video corre al 65 % (≈1,5 veces más largo)
+  const VEL_VIDEO = 0.65;
   let relojOn = false, relojT = 0, apertura = reduce ? 1 : 0;
   function reloj(dt) {
     if (!video || !modoReloj || !relojOn) return;
@@ -262,7 +264,7 @@
       pUva.style.setProperty('--uva-s', (1 + a * 2.2).toFixed(3));
       return;
     }
-    relojT = (relojT + dt) % cfg.fin;
+    relojT = (relojT + dt * VEL_VIDEO) % cfg.fin;
     video.set(relojT); pintarPasos(relojT);
     if (barra) barra.style.transform = `scaleX(${(relojT / cfg.fin).toFixed(4)})`;
   }

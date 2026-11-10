@@ -48,7 +48,7 @@ const VIDEOS = {
   },
   MOTOR: {
     label: 'MOTOR DE RESERVAS', producto: 'Motor de reservas',
-    intro: { eb: 'MOTOR DE RESERVAS · CON TU MARCA', tx: 'Más reservas directas, |sin comisiones.' },
+    intro: { eb: 'MOTOR DE RESERVAS · CON TU MARCA', tx: 'Sin comisiones, |desde tu propio motor.' },
     A: [
       T('mo-motor', 2.8, [[0, c(960, 470, 1.2)], [1.2, c(900, 650, 1.7)]], { srcV: R + 'mo-motor-cel.webp',
         marcos: [{ t: 1.0, x: 400, y: 560, w: 1140, h: 90 }],
@@ -68,16 +68,16 @@ const VIDEOS = {
     label: 'SITIO WEB', producto: 'Sitio web',
     intro: { eb: 'SITIO WEB · CON TU MARCA', tx: 'La web del hotel, |lista en minutos.' },
     A: [
-      T('web-sitio', 2.8, [[0, c(960, 500, 1.15)], [2.8, c(960, 470, 1.35)]], { srcV: R + 'web-sitio-cel.webp',
+      T('web-sitio-foto', 2.8, [[0, c(960, 500, 1.15)], [2.8, c(960, 470, 1.35)]], { srcV: R + 'web-sitio-cel-foto.webp',
         pops: [{ t: 1.0, x: 1500, y: 300, eb: 'SITIO DEL HOTEL', tx: 'Rápido, lindo y listo para Google', icon: 'globe', tone: 'b' }] }),
-      T('web-sitio', 2.2, [[0, c(1400, 130, 1.9)], [2.2, c(1500, 135, 2.0)]], {
+      T('web-sitio-foto', 2.2, [[0, c(1400, 130, 1.9)], [2.2, c(1500, 135, 2.0)]], {
         pops: [{ t: 0.4, x: 1500, y: 230, eb: 'MOTOR INTEGRADO', tx: 'Se reserva sin salir de la web', icon: 'cal', tone: 'g' }],
         cursor: { path: [[0.3, { x: 1300, y: 300 }], [1.2, { x: 1730, y: 145 }], [2.0, { x: 1730, y: 145 }]], clicks: [1.4] } }),
     ],
     B: [
       T('web-mylinks', 2.6, [[0, todo], [1.0, c(1520, 520, 1.7)]], {
         pops: [{ t: 0.8, x: 1300, y: 330, eb: 'MY LINKS', tx: 'Todos los links del hotel, en su dominio', icon: 'link', tone: 'v' }] }),
-      T('web-sitio', 2.2, [[0, c(960, 500, 1.2)], [2.2, c(960, 520, 1.25)]], {
+      T('web-sitio-foto', 2.2, [[0, c(960, 500, 1.2)], [2.2, c(960, 520, 1.25)]], {
         pops: [{ t: 0.4, x: 960, y: 420, eb: 'EN CELULAR Y EN COMPU', tx: 'Se adapta a cualquier pantalla', icon: 'grid', tone: 'g' }] }),
     ],
   },

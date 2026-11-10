@@ -74,7 +74,7 @@ def hero(p):
       <h1 data-entra{' class="largo"' if len(re.sub('<[^>]+>', '', p['h1'])) > 34 else ''}>{p['h1']}</h1>
 {plataformas(p)}
       <p class="deck" data-entra>{p['deck']}</p>
-      <div class="acciones" data-entra>
+{f'      <p class="nota-ast" data-entra>{p["nota"]}</p>' + chr(10) if p.get('nota') else ''}      <div class="acciones" data-entra>
         <a class="btn" href="#consulta">Consulta el precio y ponle tu markup{FLECHA}</a>
         <a class="link-baja" href="#historia">Mira cómo funciona{ABAJO}</a>
       </div>
@@ -543,7 +543,7 @@ def pagina(p):
 <link rel="preload" href="/assets/fonts/Outfit-Medium.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Regular.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
-<link rel="stylesheet" href="/assets/producto.css?v=20261104d">
+<link rel="stylesheet" href="/assets/producto.css?v=20261110">
 <link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104d">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
 <link rel="stylesheet" href="/assets/menu.css?v=20261105c">
@@ -584,9 +584,9 @@ def pagina(p):
 <script src="/assets/vendor/lenis.min.js" defer></script>
 <script src="/assets/vendor/react.production.min.js" defer></script>
 <script src="/assets/vendor/react-dom.production.min.js" defer></script>
-<script src="/video/{p['video']}/video.js?v=20261104" defer></script>
+<script src="/video/{p['video']}/video.js?v=20261110" defer></script>
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
-<script src="/assets/producto.js?v=20261104d" defer></script>
+<script src="/assets/producto.js?v=20261110" defer></script>
 <script src="/assets/consulta.js?v=20261021" defer></script>
 <script src="/assets/menu.js?v=20261105c" defer></script>
 </body>
@@ -610,7 +610,8 @@ PRODUCTOS.append(dict(
     k='motor', video='motor', title='Motor de reservas en marca blanca',
     description='Súmale a tus hoteles un motor de reservas propio: venta directa desde su web, sin comisiones de OTAs, con tu marca y tu precio.',
     volanta='Motor de reservas · con tu marca',
-    h1='<span class="ln">Más reservas directas,</span><span class="ln"><span class="hl">sin comisiones.</span></span>',
+    h1='<span class="ln">Más reservas directas,</span><span class="ln"><span class="hl">sin comisiones*</span></span>',
+    nota='*Desde tu propio motor.',
     deck='Súmale a los hoteles de tu cartera un motor de reservas en su propia web: el huésped reserva directo y el hotel deja de pagarle comisión a la OTA.',
     confianza=['Prueba gratis en cuentas nuevas', 'Pensado para el celular'],
     objetos=[motor_mini(), logo_c('pagos/mercado-pago-isotipo.png', 'Mercado Pago'), tc('chispa', 'Racimo IA', 'Asistido por agente de IA', 'violeta'), logo_c('pagos/paypal-isotipo.png', 'PayPal'), tc('tag', 'Promociones', 'Mejor tarifa garantizada', 'verde'), logo_c('pagos/stripe.png', 'Stripe')],
@@ -672,7 +673,7 @@ PRODUCTOS.append(dict(
         ]),
         lista('planes', 'Un plan, con todo adentro', 'El sitio, sus links y su presencia en Google y en las IA, para cada hotel de tu cartera.', [
             ('Todo incluido', 'Hosting seguro, sitio para celular, dominio y vinculación con Google Analytics, Tag Manager y Meta.', planes([
-                ('', ['Gestor de sitios y agente creador con IA', 'Plantillas personalizadas y asistencia de un ejecutivo web', 'SEO técnico y optimización para IA, con seguimiento de métricas', 'Blog, pop-ups, botón de WhatsApp y My Links', 'Gráficas para redes sociales con IA'])])),
+                ('', ['Gestor de sitios y agente creador con IA', 'Plantillas personalizadas', 'SEO técnico y optimización para IA, con seguimiento de métricas', 'Blog, pop-ups, botón de WhatsApp y My Links', 'Gráficas para redes sociales con IA'])])),
         ]),
         como('Lo vendes con tu marca'),
     ],
