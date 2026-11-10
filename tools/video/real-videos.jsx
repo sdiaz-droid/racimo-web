@@ -48,7 +48,7 @@ const VIDEOS = {
   },
   MOTOR: {
     label: 'MOTOR DE RESERVAS', producto: 'Motor de reservas',
-    intro: { eb: 'MOTOR DE RESERVAS · CON TU MARCA', tx: 'Sin comisiones, |desde tu propio motor.' },
+    intro: { eb: 'MOTOR DE RESERVAS · CON TU MARCA', tx: 'Más reservas directas, |desde tu propio motor.' },
     A: [
       T('mo-motor', 2.8, [[0, c(960, 470, 1.2)], [1.2, c(900, 650, 1.7)]], { srcV: R + 'mo-motor-cel.webp',
         marcos: [{ t: 1.0, x: 400, y: 560, w: 1140, h: 90 }],

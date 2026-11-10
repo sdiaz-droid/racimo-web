@@ -543,7 +543,7 @@ def pagina(p):
 <link rel="preload" href="/assets/fonts/Outfit-Medium.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Regular.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
-<link rel="stylesheet" href="/assets/producto.css?v=20261110">
+<link rel="stylesheet" href="/assets/producto.css?v=20261110b">
 <link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104d">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261021">
 <link rel="stylesheet" href="/assets/menu.css?v=20261105c">
@@ -610,8 +610,7 @@ PRODUCTOS.append(dict(
     k='motor', video='motor', title='Motor de reservas en marca blanca',
     description='Súmale a tus hoteles un motor de reservas propio: venta directa desde su web, sin comisiones de OTAs, con tu marca y tu precio.',
     volanta='Motor de reservas · con tu marca',
-    h1='<span class="ln">Más reservas directas,</span><span class="ln"><span class="hl">sin comisiones*</span></span>',
-    nota='*Desde tu propio motor.',
+    h1='<span class="ln">Más reservas directas,</span><span class="ln"><span class="hl">desde tu propio motor.</span></span>',
     deck='Súmale a los hoteles de tu cartera un motor de reservas en su propia web: el huésped reserva directo y el hotel deja de pagarle comisión a la OTA.',
     confianza=['Prueba gratis en cuentas nuevas', 'Pensado para el celular'],
     objetos=[motor_mini(), logo_c('pagos/mercado-pago-isotipo.png', 'Mercado Pago'), tc('chispa', 'Racimo IA', 'Asistido por agente de IA', 'violeta'), logo_c('pagos/paypal-isotipo.png', 'PayPal'), tc('tag', 'Promociones', 'Mejor tarifa garantizada', 'verde'), logo_c('pagos/stripe.png', 'Stripe')],
