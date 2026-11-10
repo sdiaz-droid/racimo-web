@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motor · Hotel Los Álamos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oliva:#7b6a3c; --oliva-2:#6a5b32; --tinta:#26241f; --tinta-2:#5d5a52; --tinta-3:#8d897f;
+  --linea:#e6e1d6; --fondo:#f5f2eb; --blanco:#fff;
+  --verde:#1e6b45; --verde-borde:#9fd8b4; --verde-fondo:#f1faf4; --verde-osc:#14472f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--fondo)}
+body{font-family:Inter,"Segoe UI",system-ui,sans-serif;color:var(--tinta);-webkit-font-smoothing:antialiased;
+  background:radial-gradient(1200px 500px at 50% 380px,#fbfaf6 0%,rgba(251,250,246,0) 70%),linear-gradient(#f8f6f0,#f1ede4)}
+svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ───────── escritorio (1920 × 1000) ───────── */
+.d{width:1920px;height:1000px;overflow:hidden;position:relative}
+.top{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:#fbfaf7;border-bottom:1px solid var(--linea);font-size:14px}
+.top .izq{display:flex;align-items:center;gap:8px;color:var(--tinta);font-weight:500}
+.top .der{display:flex;align-items:center;gap:22px;color:var(--tinta);font-weight:500}
+.sel{display:flex;align-items:center;gap:8px;border:1px solid var(--linea);border-radius:8px;padding:6px 10px;background:#fff}
+.bandera{width:20px;height:14px;border-radius:2px;background:linear-gradient(#c60b1e 0 25%,#ffc400 25% 75%,#c60b1e 75%)}
+.btn-o{display:inline-flex;align-items:center;gap:8px;background:var(--oliva);color:#fff;border-radius:8px;padding:9px 16px;font-weight:600;font-size:14px}
+
+.galeria{height:250px;display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:6px;position:relative}
+.galeria div{background-size:cover;background-position:center}
+.flecha{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.flecha.i{left:20px}.flecha.d2{right:20px}
+.marca{position:absolute;left:28px;bottom:22px;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.95);border-radius:14px;padding:10px 18px 10px 10px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.marca .iso{width:46px;height:46px;border-radius:10px;background:var(--oliva);color:#fff;display:flex;align-items:center;justify-content:center;font:600 20px/1 Georgia,serif;letter-spacing:.02em}
+.marca b{display:block;font-size:17px}
+.marca small{display:flex;align-items:center;gap:6px;color:var(--tinta-2);font-size:13px;margin-top:2px}
+.estrellas{color:#c9a227;letter-spacing:1px;font-size:12px}
+.fotos-n{position:absolute;right:26px;bottom:22px;background:rgba(20,20,20,.62);color:#fff;font-size:13px;font-weight:500;border-radius:999px;padding:7px 14px;display:flex;gap:8px;align-items:center}
+
+.pasos{height:58px;display:flex;align-items:center;gap:18px;padding:0 395px;font-size:14px;color:var(--tinta-2);border-bottom:1px solid var(--linea);background:rgba(255,255,255,.35)}
+.paso{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.paso i{width:28px;height:28px;border-radius:50%;border:1px solid #d6d0c3;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:13px;background:#fff}
+.paso.on{color:var(--tinta);font-weight:600}.paso.on i{background:var(--oliva);border-color:var(--oliva);color:#fff}
+.raya{flex:1;height:1px;background:#d9d3c6}
+
+.cont{width:1130px;margin:0 auto}
+.buscador{margin-top:20px;height:80px;background:#fff;border:1px solid var(--linea);border-radius:18px;box-shadow:0 10px 30px rgba(60,50,20,.08);display:flex;align-items:center;padding:0 12px 0 22px}
+.campo{display:flex;align-items:center;gap:12px;padding:0 18px;white-space:nowrap;height:48px;border-right:1px solid var(--linea)}
+.campo:first-child{padding-left:0}
+.campo .ico{width:36px;height:36px;border-radius:10px;background:#f2efe7;display:flex;align-items:center;justify-content:center;color:var(--tinta-2)}
+.campo small{display:block;font-size:10.5px;letter-spacing:.08em;color:var(--tinta-3);font-weight:600;text-transform:uppercase}
+.campo b{display:block;font-size:15px;font-weight:600;margin-top:2px}
+.campo .ph{font-weight:400;color:var(--tinta-2)}
+.noches{font-size:11px;font-weight:600;background:#f2efe7;border-radius:6px;padding:3px 7px;color:var(--tinta-2);margin-left:6px}
+.buscar{margin-left:auto;height:56px;width:150px;border-radius:12px;background:var(--oliva);color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:16px;box-shadow:0 6px 16px rgba(123,106,60,.35)}
+
+.fila{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;margin-top:18px}
+.promo{border:1.5px solid var(--verde-borde);background:var(--verde-fondo);border-radius:16px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;height:82px}
+.promo h4{white-space:nowrap;display:flex;align-items:center;gap:8px;color:var(--verde);font-size:15px;font-weight:700;letter-spacing:.02em}
+.promo p{font-size:13px;color:var(--tinta-2);margin-top:4px}
+.promo .btn-o{padding:10px 16px}
+.tarifa{border:1.5px solid var(--verde-borde);background:#fff;border-radius:16px;padding:12px 16px;height:82px}
+.tarifa h4{display:flex;align-items:center;gap:8px;color:var(--verde);font-size:15px;font-weight:700}
+.comp{display:flex;gap:10px;margin-top:8px;align-items:center}
+.directa{display:flex;align-items:center;gap:10px;background:var(--verde-fondo);border:1px solid var(--verde-borde);border-radius:999px;padding:5px 6px 5px 14px;font-size:13px;white-space:nowrap}
+.directa b{font-size:15px;color:var(--verde-osc)}
+.mejor{background:var(--verde-osc);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.04em;border-radius:6px;padding:3px 7px}
+.otras{flex:1;border:1px solid var(--linea);border-radius:999px;padding:6px 12px;font-size:12px;color:var(--tinta-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.otras em{font-style:normal;background:#fff3c4;border-radius:4px;padding:1px 5px;color:#5a4a10;font-weight:600}
+
+.orden{display:flex;align-items:center;gap:16px;margin-top:18px}
+.pill{background:var(--oliva);color:#fff;font-size:12px;font-weight:700;letter-spacing:.06em;border-radius:999px;padding:7px 14px}
+.orden .raya{background:#dcd6c9}
+.drop{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--linea);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:500}
+
+.habs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.hab{background:#fff;border:1px solid var(--linea);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(60,50,20,.07)}
+.hab .foto{height:168px;background-size:cover;background-position:center;position:relative}
+.chips-f{position:absolute;left:12px;top:12px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.chip-f{display:flex;align-items:center;gap:6px;background:var(--verde-fondo);border:1px solid var(--verde-borde);color:var(--verde-osc);font-size:11.5px;font-weight:600;border-radius:999px;padding:4px 10px}
+.chip-f svg{width:13px;height:13px}
+.ultima{background:#fff8e1;border-color:#f0dc9a;color:#6b5512}
+.hab .cuerpo{padding:14px 16px 16px}
+.hab h3{font-size:19px;font-weight:600}
+.hab .sub{font-size:12.5px;color:var(--tinta-2);margin-top:3px}
+.amen{display:flex;gap:6px;margin-top:10px;flex-wrap:nowrap}
+.amen span{display:flex;align-items:center;gap:5px;border:1px solid var(--linea);border-radius:999px;padding:4px 9px;font-size:11.5px;color:var(--tinta-2);white-space:nowrap}
+.amen svg{width:13px;height:13px}
+.precio{display:flex;align-items:flex-end;justify-content:space-between;margin-top:12px}
+.precio small{display:block;font-size:10.5px;letter-spacing:.08em;color:var(--tinta-3);font-weight:600}
+.precio s{font-size:12.5px;color:var(--tinta-3);margin-right:6px}
+.precio b{font-size:22px;font-weight:700}
+.precio .tot{font-size:11.5px;color:var(--tinta-2);margin-top:2px}
+.precio .btn-o{padding:10px 14px}
+
+/* ───────── celular (390 de ancho) ───────── */
+.m{width:390px;background:inherit}
+.m .top{height:56px;padding:0 16px}
+.m .gal{height:230px;background-size:cover;background-position:center;position:relative}
+.m .puntos{position:absolute;bottom:12px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.m .puntos i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6)}.m .puntos i:first-child{background:#fff;width:18px;border-radius:4px}
+.m .nom{padding:14px 16px 4px;display:flex;align-items:center;gap:12px}
+.m .nom .iso{width:42px;height:42px;border-radius:10px;background:var(--oliva);color:#fff;display:flex;align-items:center;justify-content:center;font:600 18px/1 Georgia,serif}
+.m .nom b{font-size:17px;display:block}.m .nom small{font-size:12.5px;color:var(--tinta-2);display:flex;gap:6px;align-items:center}
+.m .pasos-m{display:flex;align-items:center;gap:8px;padding:12px 16px;font-size:13px}
+.m .pasos-m i{width:26px;height:26px;border-radius:50%;border:1px solid #d6d0c3;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:12px;background:#fff;flex:none}
+.m .pasos-m .on i{background:var(--oliva);border-color:var(--oliva);color:#fff}
+.m .pasos-m .on{display:flex;align-items:center;gap:8px;font-weight:600}
+.m .bloque{padding:0 16px}
+.m .busc{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--linea);border-radius:999px;padding:6px 6px 6px 16px;font-size:14px;font-weight:500;box-shadow:0 8px 22px rgba(60,50,20,.08)}
+.m .busc .sep{width:1px;height:18px;background:var(--linea)}
+.m .busc .btn-o{margin-left:auto;border-radius:999px;padding:10px 16px}
+.m .promo{height:auto;flex-direction:column;align-items:stretch;margin-top:14px;padding:14px 16px}
+.m .promo .btn-o{justify-content:center;margin-top:10px;padding:12px}
+.m .tarifa{height:auto;margin-top:12px}
+.m .orden{margin-top:16px}
+.m .hab{margin-top:14px}
+.m .hab .foto{height:210px}
+</style>
+</head>
+<body>
+<!-- ESCRITORIO -->
+<section class="d" id="escritorio">
+  <div class="top">
+    <div class="izq"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Volver a la web</div>
+    <div class="der">
+      <span style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>Check in y Cancelación Online</span>
+      <span class="sel">$<svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span class="sel"><i class="bandera"></i>Español<svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span class="btn-o"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Iniciar sesión</span>
+    </div>
+  </div>
+  <div class="galeria">
+    <div style="background-image:url(F_colonial)"></div>
+    <div style="background-image:url(F_piscina)"></div>
+    <div style="background-image:url(F_restaurante)"></div>
+    <div style="background-image:url(F_spa)"></div>
+    <span class="flecha i"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></span>
+    <span class="flecha d2"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></span>
+    <div class="marca"><span class="iso">LÁ</span><div><b>Hotel Los Álamos</b><small><span class="estrellas">★★★★</span>Valle Escondido</small></div></div>
+    <span class="fotos-n"><svg viewBox="0 0 24 24" style="width:15px;height:15px"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m21 17-5-5-9 7"/></svg>Ver las 24 fotos</span>
+  </div>
+  <div class="pasos">
+    <span class="paso on"><i>1</i>Elegir habitación</span><span class="raya"></span>
+    <span class="paso"><i>2</i>Reserva y extras</span><span class="raya"></span>
+    <span class="paso"><i>3</i>Checkout</span><span class="raya"></span>
+    <span class="paso"><i>4</i>Gracias</span>
+  </div>
+  <div class="cont">
+    <div class="buscador">
+      <div class="campo"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span><div><small>Destino</small><b>Hotel Los Álamos</b></div></div>
+      <div class="campo"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span><div><small>Llegada · 14 h</small><b>jue, 13 nov</b></div></div>
+      <div class="campo"><div><small>Salida · 10 h</small><b>dom, 16 nov<span class="noches">3 noches</span></b></div></div>
+      <div class="campo"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/></svg></span><div><small>Huéspedes</small><b>2 adultos</b></div></div>
+      <div class="campo" style="border:0"><span class="ico"><svg viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></span><div><small>Código promocional</small><b class="ph">Ingresa tu código</b></div></div>
+      <span class="buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>Buscar</span>
+    </div>
+    <div class="fila">
+      <div class="promo"><div><h4><svg viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg>3 PROMOCIONES DISPONIBLES</h4><p>Desayuno incluido, escapadas y 10&nbsp;%&nbsp;off anticipado.</p></div><span class="btn-o" style="white-space:nowrap">Ver promociones<svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      <div class="tarifa"><h4><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Mejor tarifa garantizada</h4>
+        <div class="comp"><span class="directa">Reserva directa <b>$ 290.700</b><span class="mejor">MEJOR OPCIÓN</span></span><span class="otras"><em>Otros sitios desde $ 343.000</em></span></div>
+      </div>
+    </div>
+    <div class="orden"><span class="pill">RECOMENDADAS</span><span class="raya"></span><span class="drop"><svg viewBox="0 0 24 24" style="width:15px;height:15px"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Recomendadas<svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="m6 9 6 6 6-6"/></svg></span></div>
+    <div class="habs">
+      <div class="hab"><div class="foto" style="background-image:url(F_habitacion)"><div class="chips-f"><span class="chip-f"><svg viewBox="0 0 24 24"><path d="M3 11h18v10H3zM12 11V7M7.5 7a2.5 2.5 0 0 1 4.5-1.5A2.5 2.5 0 0 1 16.5 7"/></svg>Alojamiento con desayuno</span></div></div>
+        <div class="cuerpo"><h3>Clásica</h3><p class="sub">Cama matrimonial o dos singles · Hasta 2 huéspedes</p>
+          <div class="amen"><span><svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/></svg>Wi‑Fi</span><span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8"/></svg>Smart TV</span><span><svg viewBox="0 0 24 24"><path d="M12 2v20M4.9 6l14.2 12M19.1 6 4.9 18"/></svg>Aire acond.</span></div>
+          <div class="precio"><div><small>TARIFA POR NOCHE</small><div><s>$ 108.900</s><b>$ 96.900</b></div><p class="tot">Total 3 noches $ 290.700</p></div><span class="btn-o">Seleccionar</span></div></div></div>
+      <div class="hab"><div class="foto" style="background-image:url(F_living)"><div class="chips-f"><span class="chip-f ultima"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>¡Última disponible!</span></div></div>
+        <div class="cuerpo"><h3>Superior con living</h3><p class="sub">Cama queen y sofá cama · Hasta 3 huéspedes</p>
+          <div class="amen"><span><svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/></svg>Wi‑Fi</span><span><svg viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/></svg>Cafetera</span><span><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M5 10h14M8 6v1M8 13v3"/></svg>Frigobar</span></div>
+          <div class="precio"><div><small>TARIFA POR NOCHE</small><div><b>$ 128.400</b></div><p class="tot">Total 3 noches $ 385.200</p></div><span class="btn-o">Seleccionar</span></div></div></div>
+      <div class="hab"><div class="foto" style="background-image:url(F_tina)"><div class="chips-f"><span class="chip-f"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9Z"/></svg>Escapada de fin de semana</span></div></div>
+        <div class="cuerpo"><h3>Suite con tina</h3><p class="sub">Cama king y tina exterior · Hasta 2 huéspedes</p>
+          <div class="amen"><span><svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/></svg>Wi‑Fi</span><span><svg viewBox="0 0 24 24"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5ZM6 12V5a2 2 0 0 1 4 0"/></svg>Tina</span><span><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-6 7 6v11"/></svg>Vista al valle</span></div>
+          <div class="precio"><div><small>TARIFA POR NOCHE</small><div><s>$ 189.000</s><b>$ 164.500</b></div><p class="tot">Total 3 noches $ 493.500</p></div><span class="btn-o">Seleccionar</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CELULAR -->
+<section class="m" id="celular">
+  <div class="top"><svg viewBox="0 0 24 24" style="width:22px;height:22px"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span style="display:flex;gap:14px;align-items:center"><span class="sel"><i class="bandera"></i>ES</span><svg viewBox="0 0 24 24" style="width:24px;height:24px"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></div>
+  <div class="gal" style="background-image:url(F_colonial)"><div class="puntos"><i></i><i></i><i></i><i></i><i></i></div></div>
+  <div class="nom"><span class="iso">LÁ</span><div><b>Hotel Los Álamos</b><small><span class="estrellas">★★★★</span>Valle Escondido</small></div></div>
+  <div class="pasos-m"><span class="on"><i>1</i>Habitación</span><span class="raya"></span><i>2</i><span class="raya"></span><i>3</i><span class="raya"></span><i>4</i></div>
+  <div class="bloque">
+    <div class="busc"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>13 – 16 nov<span class="sep"></span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/></svg>2<span class="btn-o"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>Cambiar</span></div>
+    <div class="promo"><div><h4><svg viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg>3 PROMOCIONES DISPONIBLES</h4><p>Desayuno incluido, escapadas y 10&nbsp;%&nbsp;off anticipado.</p></div><span class="btn-o">Ver promociones<svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+    <div class="tarifa"><h4><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Mejor tarifa garantizada</h4><div class="comp"><span class="directa">Reserva directa <b>$ 290.700</b><span class="mejor">MEJOR OPCIÓN</span></span></div></div>
+    <div class="orden"><span class="pill">RECOMENDADAS</span><span class="raya"></span><span class="drop">Ordenar<svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="m6 9 6 6 6-6"/></svg></span></div>
+    <div class="hab"><div class="foto" style="background-image:url(F_habitacion)"><div class="chips-f"><span class="chip-f"><svg viewBox="0 0 24 24"><path d="M3 11h18v10H3zM12 11V7"/></svg>Alojamiento con desayuno</span></div></div>
+      <div class="cuerpo"><h3>Clásica</h3><p class="sub">Cama matrimonial o dos singles · Hasta 2 huéspedes</p>
+        <div class="amen"><span>Wi‑Fi</span><span>Smart TV</span><span>Aire acond.</span></div>
+        <div class="precio"><div><small>TARIFA POR NOCHE</small><div><s>$ 108.900</s><b>$ 96.900</b></div><p class="tot">Total 3 noches $ 290.700</p></div><span class="btn-o">Seleccionar</span></div></div></div>
+    <div class="hab"><div class="foto" style="background-image:url(F_living)"><div class="chips-f"><span class="chip-f ultima">¡Última disponible!</span></div></div>
+      <div class="cuerpo"><h3>Superior con living</h3><p class="sub">Cama queen y sofá cama · Hasta 3 huéspedes</p>
+        <div class="amen"><span>Wi‑Fi</span><span>Cafetera</span><span>Frigobar</span></div>
+        <div class="precio"><div><small>TARIFA POR NOCHE</small><div><b>$ 128.400</b></div><p class="tot">Total 3 noches $ 385.200</p></div><span class="btn-o">Seleccionar</span></div></div></div>
+    <div class="hab" style="margin-bottom:24px"><div class="foto" style="background-image:url(F_tina)"><div class="chips-f"><span class="chip-f">Escapada de fin de semana</span></div></div>
+      <div class="cuerpo"><h3>Suite con tina</h3><p class="sub">Cama king y tina exterior · Hasta 2 huéspedes</p>
+        <div class="amen"><span>Wi‑Fi</span><span>Tina</span><span>Vista al valle</span></div>
+        <div class="precio"><div><small>TARIFA POR NOCHE</small><div><s>$ 189.000</s><b>$ 164.500</b></div><p class="tot">Total 3 noches $ 493.500</p></div><span class="btn-o">Seleccionar</span></div></div></div>
+  </div>
+</section>
+</body>
+</html>

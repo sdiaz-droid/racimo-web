@@ -49,17 +49,19 @@ const VIDEOS = {
   MOTOR: {
     label: 'MOTOR DE RESERVAS', producto: 'Motor de reservas',
     intro: { eb: 'MOTOR DE RESERVAS · CON TU MARCA', tx: 'Más reservas directas, |desde tu propio motor.' },
+    // Revisión 2 de Racimo: «una imagen más general del motor». Hotel inventado (Hotel Los Álamos, Valle Escondido),
+    // con la estética del motor real: arranca con el motor completo y recién después se acerca.
     A: [
-      T('mo-motor', 2.8, [[0, c(960, 470, 1.2)], [1.2, c(900, 650, 1.7)]], { srcV: R + 'mo-motor-cel.webp',
-        marcos: [{ t: 1.0, x: 400, y: 560, w: 1140, h: 90 }],
-        pops: [{ t: 1.3, x: 1180, y: 520, eb: 'RESERVA DIRECTA', tx: 'El huésped reserva en la web del hotel', icon: 'cal', tone: 'g' }],
-        cursor: { path: [[0.5, { x: 900, y: 300 }], [1.6, { x: 1430, y: 608 }], [2.4, { x: 1430, y: 608 }]], clicks: [1.8] } }),
-      T('mo-motor', 2.2, [[0, c(800, 720, 1.7)], [2.2, c(800, 760, 1.8)]], {
-        pops: [{ t: 0.4, x: 700, y: 640, eb: 'PROMOCIONES', tx: 'Mejor tarifa garantizada', icon: 'spark', tone: 'v' }] }),
+      T('mo-motor-v2', 2.8, [[0, todo], [1.0, todo], [1.9, c(960, 430, 1.55)]], { srcV: R + 'mo-motor-cel-v2.webp',
+        marcos: [{ t: 1.7, x: 395, y: 385, w: 1130, h: 78 }],
+        pops: [{ t: 1.9, x: 760, y: 360, eb: 'RESERVA DIRECTA', tx: 'El huésped reserva en la web del hotel', icon: 'cal', tone: 'g' }],
+        cursor: { path: [[0.4, { x: 900, y: 720 }], [1.9, { x: 1438, y: 424 }], [2.6, { x: 1438, y: 424 }]], clicks: [2.1] } }),
+      T('mo-motor-v2', 2.2, [[0, c(1170, 540, 1.6)], [2.2, c(1190, 545, 1.7)]], {
+        pops: [{ t: 0.4, x: 1400, y: 700, eb: 'MEJOR TARIFA GARANTIZADA', tx: 'Más barato reservando directo', icon: 'spark', tone: 'v' }] }),
     ],
     B: [
-      T('mo-motor', 2.4, [[0, c(960, 640, 1.3)], [1.2, c(900, 820, 1.7)]], {
-        pops: [{ t: 0.7, x: 900, y: 700, eb: 'CON LA MARCA DEL HOTEL', tx: 'Habitaciones, fotos y tarifas propias', icon: 'grid', tone: 'b' }] }),
+      T('mo-motor-v2', 2.4, [[0, todo], [0.7, todo], [2.4, c(960, 790, 1.45)]], {
+        pops: [{ t: 1.1, x: 960, y: 690, eb: 'CON LA MARCA DEL HOTEL', tx: 'Habitaciones, fotos y tarifas propias', icon: 'grid', tone: 'b' }] }),
       T('mo-promos', 2.4, [[0, todo], [1.0, c(700, 300, 1.6)]], {
         pops: [{ t: 0.8, x: 760, y: 170, eb: 'PROMOCIONES Y PAQUETES', tx: 'Ofertas propias, distintas a las OTAs', icon: 'tag', tone: 'g' }] }),
     ],
