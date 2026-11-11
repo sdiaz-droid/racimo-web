@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- Conjuntos de anuncios de la plataforma de Publicidad digital, SIMULADO para el video (pedido de Aldana, 11/11/2026).
+     Hotel inventado: Hotel Los Álamos, Valle Escondido. Las cifras son de ejemplo. -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Arial,Helvetica,sans-serif;background:#fff;color:#111827}
+#escritorio{width:1920px;height:1000px;overflow:hidden;position:relative;display:flex;background:#e8eaef}
+.lado{width:88px;flex:none;background:#14107a;display:flex;flex-direction:column;align-items:center;padding-top:22px;gap:26px;color:#c9c8f5;font-size:12px}
+.lado .logo{width:44px;height:44px;border-radius:8px;background:#6c63ff;display:grid;place-items:center;margin-bottom:18px}
+.lado .logo svg{width:26px;height:26px}
+.lado .it{display:flex;flex-direction:column;align-items:center;gap:5px;width:76px;padding:9px 0;border-radius:10px}
+.lado .it svg{width:22px;height:22px;stroke:#c9c8f5;fill:none;stroke-width:2}
+.lado .it.on{background:#6c63ff;color:#fff}.lado .it.on svg{stroke:#fff}
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+.barra{height:47px;background:#fff;display:flex;align-items:center;padding:0 24px}
+.barra .bus{width:680px;height:32px;border-radius:9px;border:1px solid #e3e5ea;background:#f6f7f9;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:14px;color:#6b7280}
+.cab{display:flex;align-items:flex-end;justify-content:space-between;padding:26px 30px 0}
+.cab h1{font-size:30px;font-weight:400;letter-spacing:-.01em}
+.cab small{display:block;font-size:12px;letter-spacing:.08em;color:#6b7280;margin-top:4px}
+.cab .tabs{display:flex;gap:6px}
+.cab .tabs span{padding:8px 14px;border-radius:8px;font-size:14px;background:#f1f2f5;color:#374151}
+.cab .tabs .on{background:#111827;color:#fff}
+.nuevo{display:flex;align-items:center;gap:8px;background:#6c63ff;color:#fff;font-size:14px;font-weight:600;padding:11px 18px;border-radius:999px;box-shadow:0 8px 18px -8px rgba(108,99,255,.8)}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:22px 30px 0;flex:1;min-height:0}
+.col{background:#fff;border-radius:18px;padding:16px 16px 0;display:flex;flex-direction:column;gap:12px;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.03),0 14px 30px -22px rgba(20,16,122,.45)}
+.ch{display:flex;align-items:center;gap:10px}
+.ch .lg{width:38px;height:38px;border-radius:11px;background:#f4f5f8;display:grid;place-items:center;flex:none}
+.ch .lg img{max-width:22px;max-height:22px}
+.ch b{display:block;font-size:15.5px;font-weight:600}
+.ch small{font-size:12px;color:#6b7280}
+.act{margin-left:auto;font-size:11.5px;font-weight:700;color:#0b7a3e;background:#e3f6ea;border-radius:999px;padding:4px 9px;display:flex;align-items:center;gap:5px}
+.act::before{content:"";width:6px;height:6px;border-radius:50%;background:#16a34a}
+.kpi{display:grid;grid-template-columns:1fr 1fr 1fr;border-radius:12px;background:#f6f7fb;padding:9px 4px}
+.kpi div{text-align:center;font-size:11px;color:#6b7280}
+.kpi div+div{box-shadow:inset 1px 0 0 #e4e6ee}
+.kpi b{display:block;font-size:17px;color:#111827;font-weight:600}
+.kpi .v b{color:#0b7a3e}
+.pz{font-size:11px;letter-spacing:.08em;color:#9ca3af;font-weight:700;margin-top:2px}
+/* Google Search */
+.sad{border:1px solid #e6e6e6;border-radius:12px;padding:11px 13px;font-family:Arial,Helvetica,sans-serif}
+.sad .pat{font-size:11px;font-weight:700;margin-bottom:4px}
+.sad .u{font-size:11.5px;color:#4d5156}
+.sad h4{font-size:15.5px;font-weight:400;color:#1a0dab;line-height:1.3;margin:3px 0}
+.sad p{font-size:11.5px;color:#4d5156;line-height:1.45}
+.kw{display:flex;flex-wrap:wrap;gap:6px}
+.kw span{font-size:11.5px;padding:5px 9px;border-radius:999px;background:#eef0ff;color:#3f37c9}
+/* Hotel Ads */
+.hcard{border:1px solid #e3e3e3;border-radius:12px;overflow:hidden;font-family:Arial,Helvetica,sans-serif}
+.hcard .ft{height:118px;background-size:cover;background-position:center}
+.hcard .in{padding:10px 12px}
+.hcard h5{font-size:16px;font-weight:400}
+.hcard .st{font-size:11px;color:#70757a;margin:2px 0 8px}.hcard .st i{font-style:normal;color:#e7711b}
+.pr{display:flex;align-items:center;justify-content:space-between;padding:7px 9px;border-radius:8px;border:1px solid #e3e3e3;font-size:12px;margin-bottom:6px}
+.pr b{font-size:13px}
+.pr.of{border:2px solid #188038;background:#f3faf5}.pr.of b{color:#188038}
+.pr .tg{font-size:9.5px;font-weight:700;color:#188038;background:#e6f4ea;border-radius:4px;padding:2px 5px;margin-left:6px}
+/* Meta */
+.ig{border:1px solid #e6e6e6;border-radius:12px;overflow:hidden;font-size:12px}
+.ig .top{display:flex;align-items:center;gap:8px;padding:8px 10px}
+.ig .av{width:26px;height:26px;border-radius:50%;background:#1f4a3a;color:#f5efe6;display:grid;place-items:center;font-family:Georgia,serif;font-size:10.5px;box-shadow:0 0 0 2px #fff,0 0 0 3.5px #d62976}
+.ig .top b{font-size:12px;display:block}.ig .top small{font-size:10.5px;color:#737373}
+.ig .ft{height:200px;background-size:cover;background-position:center}
+.ig .cta{display:flex;justify-content:space-between;align-items:center;padding:9px 10px;background:#f0f2f5;font-weight:600;font-size:12.5px}
+.ig .cta span{background:#0866ff;color:#fff;border-radius:7px;padding:5px 10px;font-size:11.5px}
+.storys{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.storys div{height:110px;border-radius:10px;background-size:cover;background-position:center;position:relative;overflow:hidden}
+.storys div::after{content:attr(data-t);position:absolute;left:7px;right:7px;bottom:7px;color:#fff;font-size:10.5px;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+/* ChatGPT */
+.gpt{border:1px solid #e6e6e6;border-radius:12px;padding:12px;background:#fff;display:flex;flex-direction:column;gap:10px;font-size:12.5px}
+.gpt .yo{align-self:flex-end;background:#f1f1f1;border-radius:16px;padding:8px 12px;max-width:88%;line-height:1.4}
+.gpt .ia{line-height:1.5;color:#222}
+.gpt .spon{border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;display:flex}
+.gpt .spon .ft{width:96px;flex:none;background-size:cover;background-position:center}
+.gpt .spon .tx{padding:9px 11px}
+.gpt .spon small{font-size:10px;color:#8e8e8e;display:block}
+.gpt .spon b{display:block;font-size:13.5px;margin:2px 0}
+.gpt .spon span{font-size:11.5px;color:#555}
+.gpt .spon em{display:inline-block;margin-top:6px;font-style:normal;font-size:11px;font-weight:700;background:#111;color:#fff;border-radius:999px;padding:4px 10px}
+.graf{margin-top:auto;margin-bottom:16px;border-radius:14px;background:#f6f7fb;padding:12px 14px 8px}
+.graf .gt{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.06em;color:#9ca3af;font-weight:700}
+.graf .gt b{color:#111827;letter-spacing:0;font-size:13px}
+.graf svg{display:block;width:100%;height:120px;margin-top:6px}
+</style></head><body>
+<div id="escritorio">
+  <div class="lado">
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#00f068" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h13L9 18M12 12l6 6"/></svg></div>
+    <div class="it"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 19c.8-3.2 3.2-5 6-5s5.2 1.8 6 5M16 5.5a3 3 0 0 1 0 5.6M18 14c1.7.7 2.7 2.4 3 5"/></svg>Huésped+</div>
+    <div class="it"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 9V5h8v4M8 14h8"/></svg>POS</div>
+    <div class="it"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>RMS</div>
+    <div class="it on"><svg viewBox="0 0 24 24"><path d="M5 20V10M10 20V4M15 20v-7M20 20v-4"/></svg>Hotel Ads</div>
+  </div>
+  <div class="main">
+    <div class="barra"><div class="bus"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar aplicaciones, contactos, correos…</div></div>
+    <div class="cab">
+      <div><h1>Hotel Los Álamos</h1><small>CONJUNTOS DE ANUNCIOS · 4 ACTIVOS</small></div>
+      <div class="tabs"><span>7D</span><span class="on">30D</span><span>Este mes</span></div>
+      <div class="nuevo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Nuevo conjunto</div>
+    </div>
+    <div class="cols">
+      <!-- GOOGLE SEARCH -->
+      <div class="col">
+        <div class="ch"><span class="lg"><img src="LOGO_G" alt=""></span><div><b>Búsqueda en Google</b><small>Marca y genéricas</small></div><span class="act">Activo</span></div>
+        <div class="kpi"><div><b>2.140</b>Impresiones</div><div><b>286</b>Clics</div><div class="v"><b>4</b>Reservas</div></div>
+        <div class="pz">ANUNCIOS</div>
+        <div class="sad"><div class="pat">Patrocinado</div><div class="u">www.hotellosalamos.com</div><h4>Hotel Los Álamos · Sitio oficial</h4><p>Reserva directo: desayuno incluido y cancelación flexible.</p></div>
+        <div class="sad"><div class="pat">Patrocinado</div><div class="u">www.hotellosalamos.com › ofertas</div><h4>Hotel boutique en Valle Escondido</h4><p>Hasta 15 % reservando directo. A pasos de la plaza.</p></div>
+        <div class="pz">PALABRAS CLAVE</div>
+        <div class="kw"><span>hotel los álamos</span><span>hotel valle escondido</span><span>hotel boutique con spa</span><span>dónde dormir en valle escondido</span></div>
+        <div class="graf"><div class="gt">CLICS · 30 DÍAS<b>+38 %</b></div><svg viewBox="0 0 360 120" preserveAspectRatio="none"><defs><linearGradient id="g4285f4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4285f4" stop-opacity=".35"/><stop offset="1" stop-color="#4285f4" stop-opacity="0"/></linearGradient></defs><path d="M0.0 93.9 L27.7 87.9 L55.4 87.9 L83.1 75.8 L110.8 81.9 L138.5 69.8 L166.2 63.8 L193.8 69.8 L221.5 57.7 L249.2 51.7 L276.9 57.7 L304.6 39.7 L332.3 33.6 L360.0 21.6 L360 120 L0 120 Z" fill="url(#g4285f4)"/><path d="M0.0 93.9 L27.7 87.9 L55.4 87.9 L83.1 75.8 L110.8 81.9 L138.5 69.8 L166.2 63.8 L193.8 69.8 L221.5 57.7 L249.2 51.7 L276.9 57.7 L304.6 39.7 L332.3 33.6 L360.0 21.6" fill="none" stroke="#4285f4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="357.0" cy="21.6" r="5" fill="#4285f4" stroke="#fff" stroke-width="2"/></svg></div>
+      </div>
+      <!-- HOTEL ADS -->
+      <div class="col">
+        <div class="ch"><span class="lg"><img src="LOGO_G" alt=""></span><div><b>Hotel Ads</b><small>Precio directo en Google</small></div><span class="act">Activo</span></div>
+        <div class="kpi"><div><b>1.066</b>Impresiones</div><div><b>133</b>Clics</div><div class="v"><b>2</b>Reservas</div></div>
+        <div class="pz">ASÍ SE VE</div>
+        <div class="hcard"><div class="ft" style="background-image:url(F_colonial)"></div><div class="in"><h5>Hotel Los Álamos</h5><div class="st"><i>★★★★★</i> 4,8 · Hotel boutique</div>
+          <div class="pr of"><span>Sitio oficial<span class="tg">Mejor precio</span></span><b>USD 95</b></div>
+          <div class="pr"><span>Viajes y Hoteles Online</span><b>USD 109</b></div>
+          <div class="pr"><span>Reservas Express</span><b>USD 112</b></div></div></div>
+        <div class="graf"><div class="gt">RESERVAS DIRECTAS<b>+2</b></div><svg viewBox="0 0 360 120" preserveAspectRatio="none"><defs><linearGradient id="g34a853" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34a853" stop-opacity=".35"/><stop offset="1" stop-color="#34a853" stop-opacity="0"/></linearGradient></defs><path d="M0.0 95.6 L27.7 87.3 L55.4 95.6 L83.1 79.1 L110.8 70.9 L138.5 79.1 L166.2 62.7 L193.8 62.7 L221.5 54.5 L249.2 62.7 L276.9 46.2 L304.6 38.0 L332.3 38.0 L360.0 21.6 L360 120 L0 120 Z" fill="url(#g34a853)"/><path d="M0.0 95.6 L27.7 87.3 L55.4 95.6 L83.1 79.1 L110.8 70.9 L138.5 79.1 L166.2 62.7 L193.8 62.7 L221.5 54.5 L249.2 62.7 L276.9 46.2 L304.6 38.0 L332.3 38.0 L360.0 21.6" fill="none" stroke="#34a853" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="357.0" cy="21.6" r="5" fill="#34a853" stroke="#fff" stroke-width="2"/></svg></div>
+      </div>
+      <!-- META -->
+      <div class="col">
+        <div class="ch"><span class="lg"><img src="L_META" alt=""></span><div><b>Instagram y Facebook</b><small>Alcance y retargeting</small></div><span class="act">Activo</span></div>
+        <div class="kpi"><div><b>18.400</b>Alcance</div><div><b>612</b>Clics</div><div class="v"><b>35</b>WhatsApp</div></div>
+        <div class="pz">ANUNCIOS</div>
+        <div class="ig"><div class="top"><span class="av">LÁ</span><div><b>hotel.losalamos</b><small>Publicidad</small></div></div>
+          <div class="ft" style="background-image:url(F_tina)"></div>
+          <div class="cta">Tina frente al lago<span>Reservar</span></div></div>
+        <div class="storys"><div style="background-image:url(F_kayak)" data-t="Kayak al amanecer"></div><div style="background-image:url(F_cena)" data-t="Cena de montaña"></div><div style="background-image:url(F_habitacion)" data-t="Suite con balcón"></div></div>
+        <div class="graf"><div class="gt">CONSULTAS POR WHATSAPP<b>+35</b></div><svg viewBox="0 0 360 120" preserveAspectRatio="none"><defs><linearGradient id="g0866ff" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0866ff" stop-opacity=".35"/><stop offset="1" stop-color="#0866ff" stop-opacity="0"/></linearGradient></defs><path d="M0.0 94.6 L27.7 87.7 L55.4 91.1 L83.1 80.7 L110.8 70.3 L138.5 77.2 L166.2 63.3 L193.8 66.8 L221.5 52.9 L249.2 56.3 L276.9 42.4 L304.6 35.5 L332.3 39.0 L360.0 21.6 L360 120 L0 120 Z" fill="url(#g0866ff)"/><path d="M0.0 94.6 L27.7 87.7 L55.4 91.1 L83.1 80.7 L110.8 70.3 L138.5 77.2 L166.2 63.3 L193.8 66.8 L221.5 52.9 L249.2 56.3 L276.9 42.4 L304.6 35.5 L332.3 39.0 L360.0 21.6" fill="none" stroke="#0866ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="357.0" cy="21.6" r="5" fill="#0866ff" stroke="#fff" stroke-width="2"/></svg></div>
+      </div>
+      <!-- CHATGPT -->
+      <div class="col">
+        <div class="ch"><span class="lg"><img src="L_GPT" alt=""></span><div><b>ChatGPT</b><small>Donde se planifica el viaje</small></div><span class="act">Activo</span></div>
+        <div class="kpi"><div><b>940</b>Apariciones</div><div><b>88</b>Clics</div><div class="v"><b>1</b>Reserva</div></div>
+        <div class="pz">ASÍ SE VE</div>
+        <div class="gpt">
+          <div class="yo">¿Dónde me quedo en Valle Escondido? Quiero algo tranquilo, con spa.</div>
+          <div class="ia">Te recomiendo alojarte cerca de la plaza: tienes el lago a minutos y varios hoteles boutique con spa.</div>
+          <div class="spon"><div class="ft" style="background-image:url(F_spa)"></div><div class="tx"><small>Patrocinado</small><b>Hotel Los Álamos</b><span>Hotel boutique con spa, a pasos de la plaza.</span><br><em>Ver disponibilidad</em></div></div>
+        </div>
+        <div class="kw"><span>escapada con spa</span><span>hotel tranquilo</span><span>viaje en pareja</span></div>
+        <div class="graf"><div class="gt">APARICIONES EN CHATGPT<b>+940</b></div><svg viewBox="0 0 360 120" preserveAspectRatio="none"><defs><linearGradient id="g10a37f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10a37f" stop-opacity=".35"/><stop offset="1" stop-color="#10a37f" stop-opacity="0"/></linearGradient></defs><path d="M0.0 102.0 L27.7 102.0 L55.4 91.9 L83.1 91.9 L110.8 81.9 L138.5 81.9 L166.2 81.9 L193.8 71.8 L221.5 61.8 L249.2 61.8 L276.9 51.7 L304.6 41.7 L332.3 31.6 L360.0 21.6 L360 120 L0 120 Z" fill="url(#g10a37f)"/><path d="M0.0 102.0 L27.7 102.0 L55.4 91.9 L83.1 91.9 L110.8 81.9 L138.5 81.9 L166.2 81.9 L193.8 71.8 L221.5 61.8 L249.2 61.8 L276.9 51.7 L304.6 41.7 L332.3 31.6 L360.0 21.6" fill="none" stroke="#10a37f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="357.0" cy="21.6" r="5" fill="#10a37f" stroke="#fff" stroke-width="2"/></svg></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

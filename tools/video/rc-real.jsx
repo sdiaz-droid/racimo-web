@@ -41,6 +41,25 @@ function Pop({ T, a, b, sx, sy, ox = 0, oy = -120, eb, tx, tone = 'b', icon, W, 
   );
 }
 
+// tipeo en un buscador de la captura: tapa el texto, lo escribe letra por letra con cursor y,
+// al «Enter», destapa los resultados de arriba hacia abajo. Tiempos relativos a la toma.
+function Tipea({ T, a, x, y, w, h, txt, t0, t1, fs, font, color, enter, cubre }) {
+  const k = Math.max(0, Math.min(1, (T - a - t0) / (t1 - t0)));
+  const n = Math.round(k * txt.length);
+  const titila = (T - a) < t0 || (T - a) > t1 ? (Math.floor((T - a) * 2.4) % 2 === 0) : true;
+  const cursorOn = (T - a) < enter + 0.15 && titila;
+  const baja = cubre ? tw(T, a + enter + 0.1, a + enter + 0.75, cubre.y, 1000, MOTION.move) : 1000;
+  return (
+    <React.Fragment>
+      {cubre && baja < 1000 && <div style={{ position: 'absolute', left: 0, top: baja, width: 1920, height: 1000 - baja, background: '#fff' }} />}
+      {cubre && baja < 1000 && baja > cubre.y && <div style={{ position: 'absolute', left: 0, top: baja - 2, width: 1920, height: 2, background: 'linear-gradient(90deg,#4285f4,#34a853,#fbbc05,#ea4335)', opacity: 0.8 }} />}
+      <div style={{ position: 'absolute', left: x, top: y, width: w, height: h, background: '#fff', display: 'flex', alignItems: 'center', fontFamily: font || 'Arial, Helvetica, sans-serif', fontSize: fs, color: color || '#202124', whiteSpace: 'pre' }}>
+        {txt.slice(0, n)}<span style={{ display: 'inline-block', width: 1.5, height: fs * 1.2, marginLeft: 1, background: '#202124', opacity: cursorOn ? 1 : 0 }} />
+      </div>
+    </React.Fragment>
+  );
+}
+
 // una pantalla larga que se scrollea dentro de un rectángulo de la captura (el celular de vista previa)
 // k: [[t, fracción del recorrido]] relativos a la toma; entre claves, easeInOut
 function Desliza({ T, a, src, x, y, w, h, r, alto, k }) {
@@ -98,6 +117,7 @@ function hacer(cfg) {
               <World cam={c} W={W} H={H}>
                 <Pantalla src={s.src} />
                 {s.desliza && <Desliza T={T} a={s.a} {...s.desliza} />}
+                {s.tipea && <Tipea T={T} a={s.a} {...s.tipea} />}
                 {(s.marcos || []).map((m, i) => <Marco key={i} T={T} a={s.a + m.t} b={s.a + (m.hasta ?? s.d)} {...m} />)}
               </World>
             </div>
@@ -134,7 +154,7 @@ function hacer(cfg) {
         {cursor && <Cursor T={T} cam={cursor.cam} W={W} H={H} path={cursor.path} clicks={cursor.clicks} vis={cursor.vis} />}
         <Titulo T={T} t0={C.Titulo} t1={C.B} texto={tweaks.titular} W={W} H={H} v={v} />
         <Cierre T={T} t0={C.Cierre} total={total} producto={cfg.producto} bajada={tweaks.bajada} v={v} />
-        <Bug T={T} label={cfg.label} end={C.Cierre - 0.3} hide={[[C.Titulo, C.B]]} />
+        <Bug T={T} label={cfg.label} end={C.Cierre - 0.3} hide={[[C.Titulo, C.B], ...(cfg.bugOculto || []).map(([x, y]) => [C.A + x, C.A + y])]} />
       </React.Fragment>
     );
   };

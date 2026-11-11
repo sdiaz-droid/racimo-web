@@ -176,20 +176,28 @@ const VIDEOS = {
   ADS: {
     label: 'PUBLICIDAD DIGITAL', producto: 'Publicidad digital',
     intro: { eb: 'PUBLICIDAD DIGITAL', tx: 'Primero en Google, |no la OTA.' },
+    bugOculto: [[-0.2, 2.6]], // durante el tipeo, la cámara está pegada al logo de Google
+    // Pedido de Aldana (11/11): la búsqueda se tipea y recién ahí aparecen los resultados;
+    // después, los conjuntos de anuncios por canal (pantalla: tools/pantallas-inventadas/ads-conjuntos.html).
     A: [
-      T('ads-google', 2.8, [[0, todo], [1.0, c(560, 330, 1.5)]], {
-        marcos: [{ t: 0.9, x: 190, y: 188, w: 720, h: 282 }],
-        pops: [{ t: 1.1, x: 560, y: 160, eb: 'PRIMERO EN GOOGLE', tx: 'El sitio oficial, arriba de la OTA', icon: 'search', tone: 'v' }] }),
-      T('ads-google', 2.4, [[0, c(1160, 540, 1.6)], [2.4, c(1180, 560, 1.75)]], {
-        marcos: [{ t: 0.5, x: 1000, y: 486, w: 478, h: 56 }],
-        pops: [{ t: 0.6, x: 1240, y: 780, eb: 'HOTEL ADS', tx: 'La tarifa directa, al lado de la OTA', icon: 'tag', tone: 'g' }] }),
+      T('ads-google', 4.4, [[0, c(660, 262, 2.0), c(526, 230, 1.25)], [2.1, c(660, 262, 2.0), c(526, 230, 1.25)], [2.9, todo], [3.6, c(560, 330, 1.5)]], {
+        tipea: { x: 134, y: 34, w: 660, h: 34, txt: 'hotel los álamos valle escondido', t0: 0.35, t1: 1.6, fs: 17, enter: 1.95, cubre: { y: 84 } },
+        cursor: { path: [[1.3, { x: 700, y: 230 }], [1.9, { x: 905, y: 51 }], [2.4, { x: 905, y: 51 }]], clicks: [1.95] },
+        marcos: [{ t: 3.5, x: 190, y: 188, w: 720, h: 282 }],
+        pops: [{ t: 3.6, x: 560, y: 160, eb: 'PRIMERO EN GOOGLE', tx: 'El sitio oficial, arriba de la OTA', icon: 'search', tone: 'v' }] }),
+      T('ads-google', 2.2, [[0, c(1160, 540, 1.6)], [2.2, c(1180, 560, 1.75)]], {
+        marcos: [{ t: 0.4, x: 1000, y: 486, w: 478, h: 56 }],
+        pops: [{ t: 0.5, x: 1240, y: 780, eb: 'HOTEL ADS', tx: 'La tarifa directa, al lado de la OTA', icon: 'tag', tone: 'g' }] }),
     ],
     B: [
-      T('ads-ads', 2.6, [[0, todo], [1.0, c(700, 230, 1.6)]], {
-        marcos: [{ t: 0.9, x: 70, y: 120, w: 1180, h: 110 }],
-        pops: [{ t: 1.1, x: 700, y: 110, eb: 'RESULTADOS', tx: 'Impresiones, clics y reservas', icon: 'chart', tone: 'b' }] }),
-      T('ads-inversion', 2.4, [[0, todo], [1.0, c(960, 230, 1.6)]], {
-        pops: [{ t: 0.8, x: 960, y: 120, eb: 'COSTO DE DISTRIBUCIÓN', tx: 'Mucho menos que la comisión de la OTA', icon: 'bank', tone: 'g' }] }),
+      T('ads-conjuntos', 3.6, [[0, todo], [0.8, c(700, 420, 1.9)], [2.8, c(1240, 420, 1.9)], [3.6, c(1240, 440, 1.95)]], {
+        pops: [{ t: 0.9, x: 640, y: 150, eb: 'CONJUNTOS DE ANUNCIOS', tx: 'Google, Meta y ChatGPT, en un solo panel', icon: 'grid', tone: 'v', hasta: 2.2 },
+               { t: 2.3, x: 1300, y: 150, eb: 'CADA CANAL, SU ANUNCIO', tx: 'Con las fotos y la marca del hotel', icon: 'spark', tone: 'g' }] }),
+      T('ads-ads', 1.8, [[0, todo], [0.7, c(700, 230, 1.6)]], {
+        marcos: [{ t: 0.6, x: 70, y: 120, w: 1180, h: 110 }],
+        pops: [{ t: 0.7, x: 700, y: 110, eb: 'RESULTADOS', tx: 'Impresiones, clics y reservas', icon: 'chart', tone: 'b' }] }),
+      T('ads-inversion', 1.8, [[0, todo], [0.7, c(960, 230, 1.6)]], {
+        pops: [{ t: 0.6, x: 960, y: 120, eb: 'PAGAS POR RESERVAS', tx: 'Comisión sólo por reservas reales, no por clics', icon: 'bank', tone: 'g' }] }),
     ],
   },
 };

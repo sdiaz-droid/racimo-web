@@ -841,7 +841,7 @@ PRODUCTOS.append(dict(
             ('ChatGPT, donde se planifica el viaje', 'Anuncios del hotel en las conversaciones de ChatGPT, cuando el viajero busca dónde quedarse.'),
             ('Habitaciones, spa y restaurante', 'Campañas para todo lo que vende el hotel, no sólo las noches.'),
             ('Se mide contra reservas', 'Reservas y búsquedas reales atribuidas, no clics, con un reporte mensual.'),
-            ('Un solo plan, completo', 'Buscador, Hotel Ads, Performance Max y Meta en un mismo plan.', planes([
+            ('El plan completo', 'Todo lo que el hotel necesita para vender más: buscador de Google, Hotel Ads, Performance Max y Meta, trabajando juntos.', planes([
                 ('', ['Google Search de marca y genérico', 'Hotel Ads y enlaces gratuitos de reserva', 'Performance Max', 'Meta: alcance y retargeting'])])),
         ], extra='<p class="aviso" data-entra>Las campañas tienen un período de aprendizaje: los resultados se construyen mes a mes.</p>'),
         como(),
