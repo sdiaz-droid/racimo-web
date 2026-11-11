@@ -23,15 +23,39 @@
     if (fd.get('_honey')) return;
     const datos = {};
     for (const [k, v] of fd.entries()) { if (k === '_honey') continue; datos[k] = datos[k] ? datos[k] + ', ' + v : v; }
+    // Enviando: el botón lo dice (FormSubmit tarda unos segundos y antes parecía que no pasaba nada)
+    const btn = form.querySelector('button[type=submit]');
+    const textoBtn = btn ? btn.innerHTML : '';
+    if (btn) { btn.innerHTML = '<span class="girando" aria-hidden="true"></span>Enviando…'; btn.disabled = true; btn.setAttribute('aria-busy', 'true'); }
     form.dataset.estado = 'enviando';
+    const corte = new AbortController();
+    const reloj = setTimeout(() => corte.abort(), 20000);
     try {
       const r = await fetch('https://formsubmit.co/ajax/resellers@racimo.tech', {
-        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(datos)
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(datos), signal: corte.signal
       });
       if (!r.ok) throw new Error(r.status);
       const j = await r.json().catch(() => ({}));
       if (String(j.success) !== 'true') throw new Error(j.message || 'sin éxito');
+      // Listo: el formulario conserva su alto (nada salta) y el aviso aparece en el mismo lugar
+      form.style.minHeight = form.offsetHeight + 'px';
+      const g = form.querySelector('.gracias');
+      if (g && !g.querySelector('.ok-ic')) g.insertAdjacentHTML('afterbegin', '<span class="ok-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 12.5 4 4 8-9"/></svg></span>');
+      const nombre = String(datos['Nombre'] || datos['Nombre y apellido'] || '').trim().split(' ')[0];
+      const h = g && g.querySelector('h3');
+      if (h && nombre) h.textContent = `¡Listo, ${nombre}! Recibimos tu consulta.`;
       form.dataset.estado = 'ok';
-    } catch (err) { form.dataset.estado = 'error'; }
+      if (g) {
+        g.tabIndex = -1;
+        const r2 = g.getBoundingClientRect();
+        if (r2.top < 80 || r2.bottom > innerHeight) g.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        g.focus({ preventScroll: true });
+      }
+    } catch (err) {
+      form.dataset.estado = 'error';
+      if (btn) { btn.innerHTML = textoBtn; btn.disabled = false; btn.removeAttribute('aria-busy'); }
+      const er = form.querySelector('.error');
+      if (er && er.getBoundingClientRect().bottom > innerHeight) er.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } finally { clearTimeout(reloj); }
   });
 })();

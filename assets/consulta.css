@@ -20,7 +20,20 @@ form.f{background:var(--ink);border-radius:24px;padding:clamp(22px,2.6vw,36px);d
 .f .enviar{grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
 .f .enviar small{color:var(--fg-3);font-size:13px;max-width:36ch}
 .f .miel{position:absolute;left:-9999px}
-.f[data-estado="enviando"] .btn{opacity:.7;pointer-events:none}
+.f[data-estado="enviando"] .btn{pointer-events:none;opacity:.9}
+.f .btn{white-space:nowrap;gap:10px}
+.f .btn svg{width:16px;height:16px;flex:none}
+.f .btn .girando{width:16px;height:16px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:girar .7s linear infinite;flex:none}
+@keyframes girar{to{transform:rotate(360deg)}}
+.f[data-estado="ok"]{align-content:center}
+.f[data-estado="ok"] .gracias{text-align:center;outline:none;animation:gracias-in .5s cubic-bezier(.2,.8,.2,1) both}
+.gracias .ok-ic{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 18px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 10px rgba(0,240,104,.14),0 0 0 22px rgba(0,240,104,.06);animation:ok-pop .55s cubic-bezier(.3,1.6,.5,1) .1s both}
+.gracias .ok-ic svg{width:36px;height:36px;fill:none;stroke:#121212;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;animation:ok-trazo .45s ease-out .45s forwards}
+@keyframes ok-pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+@keyframes ok-trazo{to{stroke-dashoffset:0}}
+@keyframes gracias-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.gracias .ok-ic,.f[data-estado="ok"] .gracias{animation:none}.gracias .ok-ic svg{animation:none;stroke-dashoffset:0}}
 .gracias{display:none;grid-column:1/-1;padding:10px 0}
 .gracias h3{font-size:28px}
 .gracias p{color:var(--fg-2);margin-top:10px}
