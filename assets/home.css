@@ -351,16 +351,21 @@ html[data-reveal-on] [data-reveal-group].is-in>*:nth-child(8){transition-delay:4
 .seq-riel{display:none}
 
 /* ── con JS: el pin y el encendido progresivo ── */
-.seq[data-seq-on]{--paso:34vh}
-.seq[data-seq-on] .seq-riel{display:block;height:calc(var(--paso) * (var(--n) - 1))}
-.seq[data-seq-on] .seq-stage{position:sticky;top:var(--nav-h);
-  height:calc(100svh - var(--nav-h));display:grid;align-items:center}
-.seq[data-seq-on] .seq-li{opacity:.18;transition:opacity .5s var(--ease-out)}
+/* sin pin: se elige con el puntero (pedido de Racimo, 11/11) */
+.seq[data-seq-on] .seq-grid{align-items:center}
+.seq[data-seq-on] .seq-li{opacity:.5;transition:opacity .3s var(--ease-out)}
+.seq[data-seq-on] .seq-li:hover{opacity:.8}
+.seq[data-seq-on] .seq-li.final{cursor:pointer}
+.seq[data-seq-on] .sgrape{cursor:pointer}
+.seq[data-seq-on] .sgrape:not(.is-on):hover .sgrape-body{stroke:var(--green);fill:rgba(0,240,104,.14)}
+.seq-pista{display:none}
+.seq[data-seq-on] .seq-pista{display:block;margin:6px 0 0;text-align:center;font-size:13px;color:rgba(18,18,18,.46)}
 .seq[data-seq-on] .seq-li.is-on{opacity:1}
 .seq[data-seq-on] .seq-panels{min-height:clamp(200px,25vh,270px)}
 /* el que SALE se va rapido y el que ENTRA arranca despues: con los dos en .52s
    los dos textos quedaban visibles a la vez y se leian encimados */
-.seq[data-seq-on] .seq-panel{position:absolute;inset:0;opacity:0;transform:translateY(9px);
+.seq[data-seq-on] .seq-panels{display:grid}
+.seq[data-seq-on] .seq-panel{grid-area:1/1;opacity:0;transform:translateY(9px);
   pointer-events:none;transition:opacity .18s linear,transform .18s linear}
 .seq[data-seq-on] .seq-panel.is-on{opacity:1;transform:none;pointer-events:auto;
   transition:opacity .42s var(--ease-out) .14s,transform .42s var(--ease-out) .14s}

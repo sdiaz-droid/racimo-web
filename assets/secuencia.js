@@ -1,72 +1,64 @@
-/* Secuencia del catálogo: el racimo queda fijo y los productos se encienden de
-   a uno con el scroll. Copiado de clickup.com/brain/agents.
+/* Catálogo de la home: el racimo y la lista de productos, sin pin de scroll.
+   Pedido de Racimo (reunión 11/11): recorrer los productos con el scroll
+   confundía. Ahora se elige con el puntero: al pasar por un producto de la
+   lista o por su uva, se enciende el panel con la bajada y el precio; con un
+   clic se entra a la página del producto.
    Regla que se respeta aquí: NADA arranca invisible desde el CSS a secas. El
-   apagado y el pin sólo existen si este script puso data-seq-on; si el script
-   no corre, la sección queda como una lista legible con los ocho productos. */
+   apagado sólo existe si este script puso data-seq-on; si el script no corre,
+   la sección queda como una lista legible con todos los productos. */
 (() => {
   'use strict';
   const seq = document.getElementById('seq');
   if (!seq) return;
-  const stage = seq.querySelector('.seq-stage');
   const items = [...seq.querySelectorAll('.seq-li')];
   const panels = [...seq.querySelectorAll('.seq-panel')];
   const grapes = [...seq.querySelectorAll('.sgrape')];
   const n = panels.length;
-  if (!stage || n < 2 || items.length !== n) return;
+  if (n < 2 || items.length !== n) return;
 
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   let activo = false, i = -1;
 
-  // El apagado es GRADUAL segun la distancia al paso activo, no encendido/apagado.
-  // Es lo que hace que se lea como una secuencia y no como "aparecen cosas":
-  // en ClickUp los items que todavia no tocan estan atenuados, no ausentes.
-  const HALO = [1, .5, .3, .18];
-
   function pintar(k) {
-    if (k === i) return;
+    if (k === i || k < 0 || k >= n) return;
     i = k;
-    items.forEach((el, j) => {
-      el.classList.toggle('is-on', j === k);
-      el.style.opacity = String(HALO[Math.min(Math.abs(j - k), HALO.length - 1)]);
-    });
+    items.forEach((el, j) => el.classList.toggle('is-on', j === k));
     panels.forEach((el, j) => el.classList.toggle('is-on', j === k));
     const claves = (panels[k].dataset.uvas || '').split(' ').filter(Boolean);
     grapes.forEach(g => g.classList.toggle('is-on', claves.includes(g.dataset.k)));
     if (claves.length > 1) seq.dataset.final = '1'; else seq.removeAttribute('data-final');
   }
 
-  let recorrido = 0, arranque = 0;
-  function recalcular() {
-    recorrido = seq.offsetHeight - stage.offsetHeight;
-    // se cachea el offset del documento para NO leer layout en cada scroll:
-    // getBoundingClientRect() en el listener fuerza un reflow por evento y es
-    // lo que hacia que el scroll se sintiera trabado.
-    let y = 0;
-    for (let el = seq; el; el = el.offsetParent) y += el.offsetTop;
-    arranque = y;
-  }
+  // Cada uva lleva al paso cuyo panel la tiene sola (no al del racimo completo).
+  const pasoDeUva = {};
+  panels.forEach((p, j) => {
+    const c = (p.dataset.uvas || '').split(' ').filter(Boolean);
+    if (c.length === 1) pasoDeUva[c[0]] = j;
+  });
+  const hrefDePaso = panels.map(p => (p.querySelector('.seq-ver') || {}).getAttribute?.('href') || null);
 
-  function medir() {
-    if (!activo || recorrido <= 0) return;
-    const avance = (scrollY - arranque) / recorrido;
-    // El ultimo paso se alcanza al 86% del recorrido y se queda ahi hasta el
-    // final. Antes se alcanzaba justo cuando el sticky se suelta, asi que el
-    // paso final se iba para arriba solo: se sentia como que "scrollea solo".
-    const progreso = Math.max(0, Math.min(1, avance / 0.86));
-    pintar(Math.round(progreso * (n - 1)));
-  }
+  items.forEach((el, j) => {
+    el.addEventListener('pointerenter', () => activo && pintar(j));
+    el.addEventListener('focusin', () => activo && pintar(j));
+    // «El racimo completo» no tiene página: el clic sólo lo enciende
+    if (!el.querySelector('a')) el.addEventListener('click', () => activo && pintar(j));
+  });
+  grapes.forEach(g => {
+    const j = pasoDeUva[g.dataset.k];
+    if (j == null) return;
+    g.addEventListener('pointerenter', () => activo && pintar(j));
+    g.addEventListener('click', () => {
+      if (!activo) return;
+      // táctil: el primer toque enciende, el segundo entra
+      if (i !== j) { pintar(j); return; }
+      if (hrefDePaso[j]) location.href = hrefDePaso[j];
+    });
+  });
 
-  // Sin requestAnimationFrame a proposito: si el rAF no corre —pestana en
-  // segundo plano, headless, throttling— el coalescer se queda con el pedido
-  // puesto y el handler no vuelve a medir NUNCA. medir() es una lectura y un
-  // toggle de clases solo cuando cambia el paso, asi que va directo.
   function encender() {
     if (activo) return;
-    seq.style.setProperty('--n', String(n));
     seq.dataset.seqOn = '1';
     activo = true;
     i = -1;
-    recalcular();
     pintar(0);
   }
 
@@ -77,20 +69,11 @@
     activo = false;
     i = -1;
     [...items, ...panels, ...grapes].forEach(el => el.classList.remove('is-on'));
-    items.forEach(el => { el.style.opacity = ''; });
   }
 
-  // El pin pide alto y ancho: en mobile, en pantallas bajas y con movimiento
-  // reducido se queda la versión estática, que dice lo mismo.
-  function sincronizar() {
-    (innerWidth > 900 && innerHeight > 520 && !reduce.matches) ? encender() : apagar();
-    recalcular();
-    medir();
-  }
-
-  addEventListener('scroll', medir, {passive: true});
+  // En pantallas angostas el racimo no entra al lado de la lista: queda la
+  // versión estática, que dice lo mismo.
+  function sincronizar() { innerWidth > 900 ? encender() : apagar(); }
   addEventListener('resize', sincronizar);
-  document.fonts && document.fonts.ready.then(() => { recalcular(); medir(); });
-  reduce.addEventListener('change', sincronizar);
   sincronizar();
 })();
