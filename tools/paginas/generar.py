@@ -289,8 +289,104 @@ def chat(id_, h2, bajada, quien, mensajes, extra=''):
 </section>'''
 
 
-def noche(id_, hora, relato, puerta):
+# ── MyLinks del hotel (GuestApp): un celular con la página del hotel inventado
+#    (Hotel Los Álamos) que se puede scrollear. Fotos en /assets/mylinks/.
+ML = '/assets/mylinks/'
+
+
+def _ico(d):
+    return f'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">{d}</svg>'
+
+
+I_LLAVE = _ico('<circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3M17 6l3 3M14 9l2 2"/>')
+I_CHECK = _ico('<rect x="4" y="3" width="16" height="18" rx="3"/><path d="m8.5 12.5 2.3 2.3 4.7-4.8"/>')
+I_CAMPANA = _ico('<path d="M4 17h16M6 17a6 6 0 0 1 12 0M12 8v3M10 21h4"/><circle cx="12" cy="6.5" r="1.3"/>')
+I_CHAT = _ico('<path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12Z"/>')
+I_CAL = _ico('<rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/>')
+I_WIFI = _ico('<path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.6 16a5 5 0 0 1 6.8 0"/><circle cx="12" cy="19.2" r="1"/>')
+I_MAPA = _ico('<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/>')
+I_BRUJ = _ico('<circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/>')
+I_WEB = _ico('<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.8 2.6 14.2 0 17M12 3.5c-2.6 2.8-2.6 14.2 0 17"/>')
+I_IG = _ico('<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/>')
+I_TEL = _ico('<path d="M5 4h3.5l1.7 4.3-2.2 1.4a11 11 0 0 0 6.3 6.3l1.4-2.2L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4Z"/>')
+I_MAIL = _ico('<rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="m4 7 8 6 8-6"/>')
+I_EST = _ico('<path d="m12 3.8 2.5 5.1 5.6.8-4 3.9 1 5.6-5.1-2.7-5 2.7 1-5.6-4-3.9 5.5-.8L12 3.8Z"/>')
+I_FLE = '<svg class="ml-fle" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3.5 4.5 4.5L6 12.5"/></svg>'
+
+
+def _fila(ico, t, d):
+    return f'<a class="ml-fila"><span class="ml-ic">{ico}</span><span class="ml-tx"><b>{t}</b><small>{d}</small></span>{I_FLE}</a>'
+
+
+def mylinks_cel():
+    exps = [('tina', 'Tina frente al lago', 'Al atardecer · 90 min'), ('kayak', 'Kayak en el lago', 'Salidas 8 y 17 h'),
+            ('cena', 'Cena de montaña', 'Menú de pasos, de jueves a domingo'), ('spa', 'Masajes en el bosque', 'Con reserva previa')]
+    tarjetas = ''.join(f'<a class="ml-exp"><img src="{ML}{f}.webp" alt="" loading="lazy" decoding="async"><span><b>{t}</b><small>{d}</small></span></a>' for f, t, d in exps)
+    return f'''<div class="ml-cel" data-ml role="img" aria-label="Ejemplo: la página del Hotel Los Álamos en el teléfono del huésped, con check-in, llave digital, room service, experiencias y la guía del hotel">
+      <div class="ml-isla" aria-hidden="true"></div>
+      <div class="ml-pantalla" data-lenis-prevent aria-hidden="true">
+        <div class="ml-estado"><span>02:14</span><span class="ml-bat"><i></i></span></div>
+        <header class="ml-portada">
+          <img src="{ML}portada.webp" alt="" decoding="async">
+          <div class="ml-marca">
+            <span class="ml-logo">LÁ</span>
+            <h4>Hotel Los Álamos</h4>
+            <p>Hotel boutique · Valle Escondido</p>
+            <div class="ml-redes"><span>{I_IG}</span><span>{I_CHAT}</span><span>{I_MAIL}</span><span>{I_TEL}</span></div>
+          </div>
+        </header>
+        <div class="ml-cuerpo">
+          <div class="ml-hola"><small>Tu estadía · 11 al 14 de noviembre</small><b>Bienvenida, Laura</b></div>
+          <div class="ml-llave" data-ml-paso="llave">
+            <img src="{ML}habitacion.webp" alt="" loading="lazy" decoding="async">
+            <div class="ml-llave-in">
+              <span class="ml-llave-bt">{I_LLAVE}</span>
+              <span class="ml-tx"><small>Llave digital</small><b>Suite 302</b><em class="ml-cerrada">Toca para abrir</em><em class="ml-abierta">Abierta</em></span>
+            </div>
+          </div>
+          <div class="ml-grilla">
+            <a class="ml-tile" data-ml-paso="checkin"><span class="ml-ic">{I_CHECK}</span><b>Check-in online</b><small class="ml-pend">Antes de llegar, en 2 minutos</small><small class="ml-listo">Listo · lo hiciste ayer</small></a>
+            <a class="ml-tile"><span class="ml-ic">{I_CAMPANA}</span><b>Room service</b><small>La carta, a tu habitación</small></a>
+            <a class="ml-tile"><span class="ml-ic">{I_CHAT}</span><b>Mensajes</b><small>Recepción te responde al toque</small></a>
+            <a class="ml-tile"><span class="ml-ic">{I_CAL}</span><b>Check-out</b><small>Sales sin pasar por recepción</small></a>
+          </div>
+          <div class="ml-tit"><b>Experiencias</b><small>Reserva desde acá</small></div>
+          <div class="ml-carril">{tarjetas}</div>
+          <div class="ml-tit"><b>Guía del hotel</b></div>
+          <div class="ml-lista">
+            {_fila(I_WIFI, 'Wi-fi y horarios', 'La clave, el desayuno de 7 a 10 h y el check-out')}
+            {_fila(I_BRUJ, 'Qué hacer cerca', 'Senderos, miradores y bodegas del valle')}
+            {_fila(I_MAPA, 'Cómo llegar', 'Av. del Lago 120, a pasos de la plaza')}
+          </div>
+          <a class="ml-banner"><img src="{ML}lago.webp" alt="" loading="lazy" decoding="async"><span><small>Vuelve pronto</small><b>Tu próxima escapada</b><em>Reserva al mejor precio</em></span></a>
+          <div class="ml-lista">
+            {_fila(I_WEB, 'Sitio web', 'hotellosalamos.com')}
+            {_fila(I_CHAT, 'WhatsApp', 'Te respondemos de 8 a 23 h')}
+            {_fila(I_IG, 'Instagram', '@hotel.losalamos')}
+            {_fila(I_EST, 'Cuéntanos tu estadía', 'Tu opinión nos ayuda a mejorar')}
+          </div>
+          <p class="ml-pie">hotellosalamos.com/mylinks</p>
+        </div>
+      </div>
+    </div>'''
+
+
+def noche(id_, hora, relato, puerta=None, cel=None):
     r = ''.join(f'<p data-paso>{x}</p>' for x in relato)
+    if cel:
+        return f'''<section class="banda noche con-cel" id="{id_}">
+  <div class="shell">
+    <div data-progreso="noche">
+      <p class="hora" data-entra>{hora}</p>
+      <div class="relato">{r}</div>
+    </div>
+    <div class="ml-lugar" data-entra>
+      {cel}
+      <p class="ml-pista">Desliza dentro del teléfono</p>
+    </div>
+  </div>
+</section>'''
+
     return f'''<section class="banda noche" id="{id_}">
   <div class="shell">
     <div data-progreso="noche">
@@ -531,6 +627,9 @@ def pagina(p):
     cfg = {'pieza': vid['pieza'], 'escenas': [{'name': s['name'], 'dur': s['dur']} for s in vid['escenas']],
            'ajustes': vid['ajustes'], 'pantallasPorSegundo': .22}
     secciones = '\n\n'.join(s for s in p['secciones'])
+    tiene_ml = 'data-ml' in secciones
+    extra_css = '\n<link rel="stylesheet" href="/assets/mylinks.css?v=20261111">' if tiene_ml else ''
+    extra_js = '\n<script src="/assets/mylinks.js?v=20261111" defer></script>' if tiene_ml else ''
     return f'''<!doctype html>
 <html lang="es-AR">
 <head>
@@ -546,7 +645,7 @@ def pagina(p):
 <link rel="stylesheet" href="/assets/producto.css?v=20261110b">
 <link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104d">
 <link rel="stylesheet" href="/assets/consulta.css?v=20261111">
-<link rel="stylesheet" href="/assets/menu.css?v=20261105c">
+<link rel="stylesheet" href="/assets/menu.css?v=20261105c">{extra_css}
 </head>
 <body data-producto="{k}">
 <!-- generado por tools/paginas/generar.py: editar ahí, no aquí -->
@@ -588,7 +687,7 @@ def pagina(p):
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
 <script src="/assets/producto.js?v=20261110" defer></script>
 <script src="/assets/consulta.js?v=20261111" defer></script>
-<script src="/assets/menu.js?v=20261105c" defer></script>
+<script src="/assets/menu.js?v=20261105c" defer></script>{extra_js}
 </body>
 </html>
 '''
@@ -881,7 +980,7 @@ PRODUCTOS.append(dict(
             'En recepción no hay nadie.',
             'El check-in ya lo hizo desde el teléfono.',
             'Toca la llave digital y la puerta se abre.',
-        ], ('Suite 302', 'Abierta con la llave digital')),
+        ], cel=mylinks_cel()),
         lista('vendes', 'Qué incluye GuestApp', 'El huésped resuelve su estadía solo, y <b>el equipo trabaja coordinado</b>.', [
             ('Check-in y check-out autónomos', 'Para el huésped que llega tarde o sale temprano, sin depender de recepción.'),
             ('Una app con la marca del hotel', 'La guía del hotel y sugerencias locales, para que nadie llame a recepción a preguntar el wi-fi.'),
