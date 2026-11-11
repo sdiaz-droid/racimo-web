@@ -41,6 +41,18 @@ function Pop({ T, a, b, sx, sy, ox = 0, oy = -120, eb, tx, tone = 'b', icon, W, 
   );
 }
 
+// una pantalla larga que se scrollea dentro de un rectángulo de la captura (el celular de vista previa)
+// k: [[t, fracción del recorrido]] relativos a la toma; entre claves, easeInOut
+function Desliza({ T, a, src, x, y, w, h, r, alto, k }) {
+  let f = k[0][1];
+  for (let i = 1; i < k.length; i++) if (T >= a + k[i - 1][0]) f = tw(T, a + k[i - 1][0], a + k[i][0], k[i - 1][1], k[i][1], MOTION.move);
+  return (
+    <div style={{ position: 'absolute', left: x, top: y, width: w, height: h, borderRadius: r, overflow: 'hidden', background: '#f5efe6' }}>
+      <img src={src} style={{ position: 'absolute', left: 0, top: -f * (alto - h), width: w, height: alto }} />
+    </div>
+  );
+}
+
 // una pantalla real dentro del mundo
 function Pantalla({ src }) {
   return (
@@ -51,8 +63,8 @@ function Pantalla({ src }) {
 }
 
 // en vertical, la captura del celular dentro de un teléfono
-function Telefono({ T, a, b, src, W, H }) {
-  const w = 760, h = w * 2532 / 1170;
+function Telefono({ T, a, b, src, W, H, r }) {
+  const w = 760, h = w * (r || 2532 / 1170);
   const op = Math.min(tw(T, a, a + 0.4, 0, 1), 1 - tw(T, b - 0.35, b, 0, 1));
   const y = tw(T, a, b, 0, -Math.max(0, h - 1500) * 0.9, MOTION.move);
   return (
@@ -76,7 +88,7 @@ function hacer(cfg) {
         const op = Math.min(tw(T, s.a - 0.35, s.a + 0.05, 0, 1), 1 - tw(T, s.b - 0.05, s.b + 0.3, 0, 1));
         if (op <= 0) continue;
         if (v && s.srcV) {
-          capas.push(<Telefono key={s.src + 'v'} T={T} a={s.a} b={s.b} src={s.srcV} W={W} H={H} />);
+          capas.push(<Telefono key={s.src + 'v'} T={T} a={s.a} b={s.b} src={s.srcV} r={s.srcVr} W={W} H={H} />);
         } else {
           const K = s.cam.map(([t, c, cv]) => [s.a + t, c, cv]);
           const c = camAt(T, K, v);
@@ -85,6 +97,7 @@ function hacer(cfg) {
             <div key={s.src} style={{ position: 'absolute', inset: 0, opacity: op }}>
               <World cam={c} W={W} H={H}>
                 <Pantalla src={s.src} />
+                {s.desliza && <Desliza T={T} a={s.a} {...s.desliza} />}
                 {(s.marcos || []).map((m, i) => <Marco key={i} T={T} a={s.a + m.t} b={s.a + (m.hasta ?? s.d)} {...m} />)}
               </World>
             </div>

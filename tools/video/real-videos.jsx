@@ -77,9 +77,14 @@ const VIDEOS = {
         cursor: { path: [[0.3, { x: 1300, y: 300 }], [1.2, { x: 1730, y: 145 }], [2.0, { x: 1730, y: 145 }]], clicks: [1.4] } }),
     ],
     B: [
-      T('web-mylinks', 2.6, [[0, todo], [1.0, c(1520, 520, 1.7)]], {
-        pops: [{ t: 0.8, x: 1300, y: 330, eb: 'MY LINKS', tx: 'Todos los links del hotel, en su dominio', icon: 'link', tone: 'v' }] }),
-      T('web-sitio-foto', 2.2, [[0, c(960, 500, 1.2)], [2.2, c(960, 520, 1.25)]], {
+      // MyLinks: la vista previa del editor muestra la página del Hotel Los Álamos (la misma del celular de
+      // GuestApp) y se scrollea sola. Tira: tools/pantallas-inventadas/mylinks-video.py
+      T('web-mylinks', 3.1, [[0, todo], [0.8, c(1089, 484, 1.5)]], {
+        srcV: R + 'web-mylinks-cel.webp', srcVr: 6678 / 1015,
+        desliza: { src: R + 'web-mylinks-cel.webp', x: 1570, y: 172, w: 289, h: 623.5, r: 26, alto: 289 * 6678 / 1015,
+          k: [[0, 0], [0.9, 0], [1.5, 0.27], [1.85, 0.27], [2.55, 0.6], [3.1, 0.64]] },
+        pops: [{ t: 0.8, x: 1100, y: 330, eb: 'MY LINKS', tx: 'Todos los links del hotel, en su dominio', icon: 'link', tone: 'v' }] }),
+      T('web-sitio-foto', 1.7, [[0, c(960, 500, 1.2)], [1.7, c(960, 520, 1.25)]], {
         pops: [{ t: 0.4, x: 960, y: 420, eb: 'EN CELULAR Y EN COMPU', tx: 'Se adapta a cualquier pantalla', icon: 'grid', tone: 'g' }] }),
     ],
   },
