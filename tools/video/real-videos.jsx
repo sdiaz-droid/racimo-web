@@ -105,18 +105,18 @@ const VIDEOS = {
     label: 'CRM', producto: 'CRM',
     intro: { eb: 'CRM · CON TU MARCA', tx: 'Ninguna consulta |sin respuesta.' },
     A: [
-      T('crm-conversa', 2.6, [[0, todo], [1.0, c(1240, 420, 1.55)]], {
-        marcos: [{ t: 1.6, x: 680, y: 790, w: 1120, h: 110 }],
-        pops: [{ t: 0.7, x: 1100, y: 120, eb: 'WHATSAPP, INSTAGRAM Y WEB', tx: 'Todas las consultas en una bandeja', icon: 'msg', tone: 'b' },
-               { t: 1.7, x: 1240, y: 760, eb: 'RACIMO IA', tx: 'Te sugiere la respuesta', icon: 'spark', tone: 'v' }] }),
-      T('crm-conversa', 2.6, [[0, c(1240, 500, 1.6)], [2.6, c(1240, 560, 1.75)]], {
-        pops: [{ t: 0.5, x: 1240, y: 470, eb: 'RESERVA CONFIRMADA', tx: 'La consulta termina en reserva directa', icon: 'check', tone: 'g' }] }),
+      T('crm-centraliza', 2.8, [[0, todo], [1.2, c(960, 420, 1.12)]], {
+        pops: [{ t: 0.6, x: 400, y: 150, eb: 'WHATSAPP, INSTAGRAM, FACEBOOK, WEB Y EMAIL', tx: 'Todas las consultas llegan a un lugar', icon: 'inArrow', tone: 'b' },
+               { t: 1.6, x: 1440, y: 140, eb: 'CONVERSA', tx: 'Una sola bandeja para todo el equipo', icon: 'msg', tone: 'v' }] }),
+      T('crm-centraliza', 2.4, [[0, c(1000, 410, 1.4)], [2.4, c(1060, 420, 1.55)]], {
+        marcos: [{ t: 0.5, x: 1636, y: 279, w: 158, h: 38 }],
+        pops: [{ t: 0.6, x: 1440, y: 620, eb: 'RACIMO IA', tx: 'Responde al instante, a cualquier hora', icon: 'spark', tone: 'g' }] }),
     ],
     B: [
       T('crm-mailing', 2.4, [[0, todo], [1.0, c(700, 360, 1.7)]], {
         pops: [{ t: 0.8, x: 700, y: 230, eb: 'EMAIL MARKETING', tx: 'Campañas antes, durante y después', icon: 'mail', tone: 'v' }] }),
-      T('ia-agentes', 2.4, [[0, todo], [1.0, c(560, 430, 1.8)]], {
-        pops: [{ t: 0.8, x: 760, y: 320, eb: 'AGENTE DE IA', tx: 'Responde solo, con tus reglas', icon: 'spark', tone: 'g' }] }),
+      T('crm-bandeja', 2.4, [[0, todo], [1.0, c(860, 400, 1.4)]], {
+        pops: [{ t: 0.8, x: 860, y: 200, eb: 'BANDEJA DE ENTRADA', tx: 'Ninguna consulta se pierde', icon: 'check', tone: 'g' }] }),
     ],
   },
   POS: {
@@ -172,17 +172,19 @@ const VIDEOS = {
     label: 'PUBLICIDAD DIGITAL', producto: 'Publicidad digital',
     intro: { eb: 'PUBLICIDAD DIGITAL', tx: 'Primero en Google, |no la OTA.' },
     A: [
-      T('ads-ads', 2.8, [[0, todo], [1.0, c(700, 230, 1.6)]], {
-        marcos: [{ t: 0.9, x: 70, y: 120, w: 1180, h: 110 }],
-        pops: [{ t: 1.1, x: 700, y: 110, eb: 'RESULTADOS', tx: 'Impresiones, clics y conversiones', icon: 'chart', tone: 'b' }] }),
-      T('ads-ads', 2.4, [[0, c(700, 600, 1.5)], [2.4, c(700, 640, 1.65)]], {
-        pops: [{ t: 0.5, x: 700, y: 470, eb: 'EMBUDO', tx: 'De la búsqueda a la reserva', icon: 'grid', tone: 'v' }] }),
+      T('ads-google', 2.8, [[0, todo], [1.0, c(560, 330, 1.5)]], {
+        marcos: [{ t: 0.9, x: 190, y: 188, w: 720, h: 282 }],
+        pops: [{ t: 1.1, x: 560, y: 160, eb: 'PRIMERO EN GOOGLE', tx: 'El sitio oficial, arriba de la OTA', icon: 'search', tone: 'v' }] }),
+      T('ads-google', 2.4, [[0, c(1160, 540, 1.6)], [2.4, c(1180, 560, 1.75)]], {
+        marcos: [{ t: 0.5, x: 1000, y: 486, w: 478, h: 56 }],
+        pops: [{ t: 0.6, x: 1240, y: 780, eb: 'HOTEL ADS', tx: 'La tarifa directa, al lado de la OTA', icon: 'tag', tone: 'g' }] }),
     ],
     B: [
-      T('ads-inversion', 2.6, [[0, todo], [1.0, c(960, 230, 1.6)]], {
+      T('ads-ads', 2.6, [[0, todo], [1.0, c(700, 230, 1.6)]], {
+        marcos: [{ t: 0.9, x: 70, y: 120, w: 1180, h: 110 }],
+        pops: [{ t: 1.1, x: 700, y: 110, eb: 'RESULTADOS', tx: 'Impresiones, clics y reservas', icon: 'chart', tone: 'b' }] }),
+      T('ads-inversion', 2.4, [[0, todo], [1.0, c(960, 230, 1.6)]], {
         pops: [{ t: 0.8, x: 960, y: 120, eb: 'COSTO DE DISTRIBUCIÓN', tx: 'Mucho menos que la comisión de la OTA', icon: 'bank', tone: 'g' }] }),
-      T('ads-inversion', 2.2, [[0, c(960, 480, 1.5)], [2.2, c(960, 500, 1.6)]], {
-        pops: [{ t: 0.5, x: 960, y: 380, eb: 'RESERVAS POR CANAL', tx: 'Directo, OTA y otros', icon: 'cal', tone: 'v' }] }),
     ],
   },
 };
