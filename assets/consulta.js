@@ -11,7 +11,14 @@
   if (q) marcar(q);
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    if (!form.reportValidity()) return;
+    form.querySelectorAll('.falta').forEach(c => c.classList.remove('falta'));
+    if (!form.checkValidity()) {
+      const malos = [...form.querySelectorAll(':invalid')].filter(i => i.name);
+      malos.forEach(i => i.closest('.campo')?.classList.add('falta'));
+      form.dataset.estado = 'incompleto';
+      malos[0]?.focus();
+      return;
+    }
     const fd = new FormData(form);
     if (fd.get('_honey')) return;
     const datos = {};
@@ -22,6 +29,8 @@
         method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(datos)
       });
       if (!r.ok) throw new Error(r.status);
+      const j = await r.json().catch(() => ({}));
+      if (String(j.success) !== 'true') throw new Error(j.message || 'sin éxito');
       form.dataset.estado = 'ok';
     } catch (err) { form.dataset.estado = 'error'; }
   });

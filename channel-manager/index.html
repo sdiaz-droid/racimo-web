@@ -11,7 +11,7 @@
 <link rel="preload" href="/assets/fonts/Inter-Regular.ttf?v=20261104" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
 <link rel="stylesheet" href="/assets/producto.css?v=20261110b">
-<link rel="stylesheet" href="/assets/consulta.css?v=20261021">
+<link rel="stylesheet" href="/assets/consulta.css?v=20261111">
 <link rel="stylesheet" href="/assets/menu.css?v=20261105c">
 </head>
 <body data-producto="channel">
@@ -242,7 +242,7 @@
             <label><input type="checkbox" name="Productos" value="El racimo completo">El racimo completo</label>
           </div></fieldset>
         <div class="campo ancho"><label for="f-msg">¿Algo más que quieras contarnos? <span style="color:var(--fg-3)">(opcional)</span></label><textarea id="f-msg" name="Mensaje"></textarea></div>
-        <p class="error" id="formError" role="alert">No pudimos enviar la consulta. Prueba de nuevo o escríbenos a resellers@racimo.tech.</p>
+        <p class="faltan" role="alert">Completa los campos marcados en rojo para enviar la consulta.</p><p class="error" id="formError" role="alert">No pudimos enviar la consulta. Prueba de nuevo o escríbenos a resellers@racimo.tech.</p>
         <div class="enviar"><button class="btn" type="submit">Enviar consulta<svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></button>
           <small>Te respondemos por mail. No compartimos tus datos.</small></div>
         <div class="gracias" role="status" aria-live="polite"><h3>¡Listo, recibimos tu consulta!</h3><p>Te escribimos a tu mail con el precio reseller y los próximos pasos.</p></div>
@@ -271,7 +271,7 @@ window.RACIMO_VIDEO = {
 };
 </script>
 <script src="/assets/producto.js?v=20261110" defer></script>
-<script src="/assets/consulta.js?v=20261021" defer></script>
+<script src="/assets/consulta.js?v=20261111" defer></script>
 <script src="/assets/menu.js?v=20261105c" defer></script>
 </body>
 </html>

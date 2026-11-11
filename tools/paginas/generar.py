@@ -429,7 +429,7 @@ def consulta(p):
           <select id="f-cartera" name="Hoteles en cartera" required><option value="" disabled selected>Elige</option><option>Todavía ninguno</option><option>1 a 10</option><option>11 a 50</option><option>51 a 200</option><option>Más de 200</option></select></div>
         <fieldset class="ancho"><legend>¿Qué quieres sumar?</legend><div class="prod">{prods}</div></fieldset>
         <div class="campo ancho"><label for="f-msg">¿Algo más que quieras contarnos? <span style="color:var(--fg-3)">(opcional)</span></label><textarea id="f-msg" name="Mensaje"></textarea></div>
-        <p class="error" id="formError" role="alert">No pudimos enviar la consulta. Prueba de nuevo o escríbenos a resellers@racimo.tech.</p>
+        <p class="faltan" role="alert">Completa los campos marcados en rojo para enviar la consulta.</p><p class="error" id="formError" role="alert">No pudimos enviar la consulta. Prueba de nuevo o escríbenos a resellers@racimo.tech.</p>
         <div class="enviar"><button class="btn" type="submit">Enviar consulta{FLECHA}</button>
           <small>Te respondemos por mail. No compartimos tus datos.</small></div>
         <div class="gracias" role="status" aria-live="polite"><h3>¡Listo, recibimos tu consulta!</h3><p>Te escribimos a tu mail con el precio reseller y los próximos pasos.</p></div>
@@ -545,7 +545,7 @@ def pagina(p):
 <link rel="stylesheet" href="/assets/vendor/lenis.css">
 <link rel="stylesheet" href="/assets/producto.css?v=20261110b">
 <link rel="stylesheet" href="/assets/producto-piezas.css?v=20261104d">
-<link rel="stylesheet" href="/assets/consulta.css?v=20261021">
+<link rel="stylesheet" href="/assets/consulta.css?v=20261111">
 <link rel="stylesheet" href="/assets/menu.css?v=20261105c">
 </head>
 <body data-producto="{k}">
@@ -587,7 +587,7 @@ def pagina(p):
 <script src="/video/{p['video']}/video.js?v=20261110" defer></script>
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
 <script src="/assets/producto.js?v=20261110" defer></script>
-<script src="/assets/consulta.js?v=20261021" defer></script>
+<script src="/assets/consulta.js?v=20261111" defer></script>
 <script src="/assets/menu.js?v=20261105c" defer></script>
 </body>
 </html>
