@@ -351,13 +351,29 @@ html[data-reveal-on] [data-reveal-group].is-in>*:nth-child(8){transition-delay:4
 .seq-riel{display:none}
 
 /* ── con JS: el pin y el encendido progresivo ── */
-/* sin pin: se elige con el puntero (pedido de Racimo, 11/11) */
+/* sin pin: se elige con el hover (pedido de Racimo y Aldana, 11/11). Lista con contraste pleno,
+   sin números; el renglón y su uva se encienden juntos; sin hover, el panel vuelve a un estado neutro. */
 .seq[data-seq-on] .seq-grid{align-items:center}
-.seq[data-seq-on] .seq-li{opacity:.5;transition:opacity .3s var(--ease-out)}
-.seq[data-seq-on] .seq-li:hover{opacity:.8}
-.seq[data-seq-on] .seq-li.final{cursor:pointer}
+.seq-neutro{display:none}
+.seq[data-seq-on] .seq-neutro{display:block;grid-area:1/1;transition:opacity .3s var(--ease-out)}
+.seq[data-seq-on][data-elegido] .seq-neutro{opacity:0;pointer-events:none}
+.seq-neutro h3{font-family:var(--display);font-weight:500;letter-spacing:-.028em;line-height:1.14;font-size:clamp(21px,2.1vw,29px);margin:0}
+.seq-neutro p{margin:12px 0 0;font-size:clamp(15px,1.1vw,16.5px);line-height:1.55;color:rgba(18,18,18,.64);max-width:34ch}
+.seq-li i,.seq-num{display:none!important}
+.seq-neutro .seq-num,.seq-panel .seq-num{display:none!important}
+.seq[data-seq-on] .seq-li{opacity:1!important;position:relative;color:var(--ink);padding-left:12px;padding-right:36px;margin:0 -12px;border-radius:12px;
+  border-bottom-color:transparent;box-shadow:0 1px 0 rgba(18,18,18,.09);transition:background-color .25s var(--ease-out),padding .25s var(--ease-out)}
+.seq[data-seq-on] .seq-li::after{content:"→";position:absolute;right:14px;top:50%;transform:translate(-6px,-50%);opacity:0;
+  transition:opacity .25s,transform .25s var(--ease-out);font-family:var(--display);color:var(--ink)}
+.seq[data-seq-on] .seq-li.is-on{background:rgba(0,240,104,.16);padding-left:18px;box-shadow:none}
+.seq[data-seq-on] .seq-li.is-on::after{opacity:1;transform:translate(0,-50%)}
+.seq[data-seq-on] .seq-li.final.is-on{background:rgba(108,99,255,.12)}
+.seq[data-seq-on] .seq-li.final.is-on::after{color:var(--violet)}
+.seq[data-seq-on] .seq-li a{display:block;margin:0;padding:0}
+.seq[data-seq-on] .seq-li a:hover span{text-decoration:none}
+.seq[data-seq-on] .seq-li.final{cursor:default}
 .seq[data-seq-on] .sgrape{cursor:pointer}
-.seq[data-seq-on] .sgrape:not(.is-on):hover .sgrape-body{stroke:var(--green);fill:rgba(0,240,104,.14)}
+.seq[data-seq-on] .sgrape .sgrape-body{transition:fill .3s var(--ease-out),stroke .3s var(--ease-out)}
 .seq-pista{display:none}
 .seq[data-seq-on] .seq-pista{display:block;margin:6px 0 0;text-align:center;font-size:13px;color:rgba(18,18,18,.46)}
 .seq[data-seq-on] .seq-li.is-on{opacity:1}
@@ -369,9 +385,9 @@ html[data-reveal-on] [data-reveal-group].is-in>*:nth-child(8){transition-delay:4
   pointer-events:none;transition:opacity .18s linear,transform .18s linear}
 .seq[data-seq-on] .seq-panel.is-on{opacity:1;transform:none;pointer-events:auto;
   transition:opacity .42s var(--ease-out) .14s,transform .42s var(--ease-out) .14s}
-.seq[data-seq-on] .sgrape .sgrape-body{stroke:rgba(18,18,18,.18);
+.seq[data-seq-on] .sgrape .sgrape-body{stroke:rgba(18,18,18,.3);
   transition:fill .42s var(--ease-out),stroke .42s var(--ease-out)}
-.seq[data-seq-on] .sgrape .sgrape-label{fill:rgba(18,18,18,.3);transition:fill .42s var(--ease-out)}
+.seq[data-seq-on] .sgrape .sgrape-label{fill:rgba(18,18,18,.68);transition:fill .42s var(--ease-out)}
 .seq[data-seq-on] .sgrape.is-on .sgrape-body{stroke:var(--green);fill:var(--green)}
 .seq[data-seq-on] .sgrape.is-on .sgrape-label{fill:var(--ink)}
 .seq-panels{padding-bottom:0}
