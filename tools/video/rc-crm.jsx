@@ -1,7 +1,7 @@
 // Racimo · CRM. Twist: los mensajes de todos los canales convergen en una sola bandeja.
 (function () {
 const { VERDE, VIOLETA, NEGRO, VERDE_TX, VIOLETA_TX, VERDE_T, VIOLETA_T, GRIS, MOTION, tw, Ic, BtnVerde, BtnLinea, toStage, camAt, Video, enter, num, LCard, Tag, Stat, Head, Std } = window.RC;
-const SCOPE = [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Las Moras'], ['card', 'PUNTO DE VENTA', 'Las Moras · Recepción']];
+const SCOPE = [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Los Álamos'], ['card', 'PUNTO DE VENTA', 'Los Álamos · Recepción']];
 const nw = { whiteSpace: 'nowrap' };
 const CONV = [['VA', 'Valentina Acosta', 'WhatsApp', '¿Tienen cochera para el 14?', '10:02'], ['TB', 'Tomás Bidegain', 'Email', 'Consulta por factura de la estadía', '09:48'], ['CF', 'Camila Ferreyra', 'Instagram', '¿Aceptan mascotas pequeñas?', '09:31'], ['IP', 'Ignacio Peralta', 'Booking.com', 'Llegamos tarde, cerca de las 23 h', '09:12'], ['MR', 'Malena Ruiz Díaz', 'WhatsApp', 'Gracias por todo, volvemos pronto', 'Ayer'], ['BS', 'Bruno Saavedra', 'Email', 'Pedido de cuna para la habitación', 'Ayer']];
 const REPLY = '¡Hola Valentina! Sí, tenemos cochera cubierta sin cargo. Te la dejamos reservada para tu llegada del 14.';

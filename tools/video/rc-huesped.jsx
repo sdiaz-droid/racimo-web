@@ -1,7 +1,7 @@
 // Racimo · Huésped+. Twist: el teléfono es el protagonista; la app del huésped en primer plano.
 (function () {
 const { VERDE, VIOLETA, NEGRO, VERDE_TX, VIOLETA_TX, VERDE_T, VIOLETA_T, GRIS, MOTION, tw, Ic, BtnVerde, BtnLinea, toStage, camAt, Video, enter, num, LCard, Tag, Stat, Head, Std, Phone } = window.RC;
-const SCOPE = [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Las Moras'], ['card', 'PUNTO DE VENTA', 'Las Moras · Recepción']];
+const SCOPE = [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Los Álamos'], ['card', 'PUNTO DE VENTA', 'Los Álamos · Recepción']];
 const nw = { whiteSpace: 'nowrap' };
 const OUT = { fontFamily: 'Outfit, sans-serif', fontWeight: 500, letterSpacing: '-0.02em', color: NEGRO };
 const PH = { x: 760, y: 90, w: 400, h: 820 };
@@ -150,7 +150,7 @@ function Piece(P) {
             return (
               <div key={i} style={{ background: '#1a1a1a', border: '1px solid #242424', borderRadius: 24, padding: '18px 24px', display: 'flex', alignItems: 'center', gap: 16, boxSizing: 'border-box', opacity: nt, transform: `translateY(${(1 - nt) * 40}px)` }}>
                 <div style={{ width: 52, height: 52, borderRadius: 14, background: VERDE, display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 'none' }}>{icn === 'users' ? cen('users', 26, NEGRO) : <Ic n={icn} s={26} c={NEGRO} />}</div>
-                <div style={{ flex: 1, minWidth: 0 }}><div style={{ fontSize: 19, fontWeight: 600, color: '#fff' }}>Hotel Las Moras</div><div style={{ fontSize: 18, color: GRIS.claro }}>{txt}</div></div>
+                <div style={{ flex: 1, minWidth: 0 }}><div style={{ fontSize: 19, fontWeight: 600, color: '#fff' }}>Hotel Los Álamos</div><div style={{ fontSize: 18, color: GRIS.claro }}>{txt}</div></div>
                 <div style={{ fontSize: 15, color: '#6e6e6e', flex: 'none' }}>{t}</div>
               </div>
             );

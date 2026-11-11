@@ -1,7 +1,7 @@
 // Racimo · POS / Punto de venta. Twist: la comanda se imprime y viaja por las columnas.
 (function () {
 const { VERDE, VIOLETA, NEGRO, VERDE_TX, VIOLETA_TX, VERDE_T, VIOLETA_T, GRIS, MOTION, tw, Ic, BtnVerde, BtnLinea, toStage, camAt, Video, enter, num, LCard, Tag, Stat, Head, Std } = window.RC;
-const SCOPE = [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Las Moras'], ['card', 'PUNTO DE VENTA', 'Las Moras · Restaurante']];
+const SCOPE = [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Los Álamos'], ['card', 'PUNTO DE VENTA', 'Los Álamos · Restaurante']];
 const COLX = [36, 618, 1200], CW = 564, CY = 340, CH = 150, GAP = 14;
 const M = ['302', 'Valentina Acosta', '#A-1042', '2× Milanesa napolitana · 1× Agua mineral', '$ 32.400'];
 const COLS = [['Nuevos', 'inArrow'], ['En cocina', 'flame'], ['En camino', 'truck']];

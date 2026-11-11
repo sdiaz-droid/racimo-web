@@ -725,7 +725,7 @@ PRODUCTOS.append(dict(
     plataformas=[('Google', 'google-blanco.svg', 22), ('Meta', 'meta-blanco.png', 33), ('ChatGPT', 'chatgpt-blanco.svg', 22)],
     h1='<span class="ln">Que te encuentren</span><span class="ln"><span class="hl">y te reserven directo.</span></span>',
     deck='Una estrategia integral de publicidad y posicionamiento de marca, hecha por especialistas en hotelería, para que los hoteles de tu cartera vendan más habitaciones, spa y restaurante sin depender de las OTAs.',
-    confianza=['0 % de comisión por reserva', 'Especialistas certificados por Google y Meta'],
+    confianza=['Comisión sólo por reservas efectivas', 'Especialistas certificados por Google y Meta'],
     objetos=[logo_c('google-color.svg', 'Google'), tc('grafico', 'Resultados', 'Reservas reales, no clics', 'verde'), logo_c('meta-color.png', 'Meta'), tc('buscar', 'Tu marca', 'Primero el hotel, no la OTA'), logo_c('chatgpt-negro.svg', 'ChatGPT'), tc('chispa', 'Nuevo', 'El hotel, en ChatGPT', 'violeta')],
     historia_h2='Así se ve la búsqueda',
     pasos=pasos_de('ads', ['El dato', 'Resultados', 'Primero en Google', 'Inversión', 'Listo']),
@@ -734,7 +734,7 @@ PRODUCTOS.append(dict(
         antes('s1', 'Las OTAs pujan por el nombre del hotel', 'Cuando alguien busca el hotel por su nombre, muchas veces la primera opción es una OTA.',
               ('El hotel pierde su propia búsqueda', ['La OTA aparece arriba, con el nombre del hotel', 'El huésped reserva ahí y el hotel paga comisión', 'Cambiar precios en la OTA tarda días']),
               ('El hotel aparece primero', ['Anuncio del sitio oficial, arriba de la OTA', 'La tarifa directa al lado de la OTA en Google', 'Los cambios de precio se activan al instante'])),
-        manifiesto('m1', 'Fee fijo y <em>0 % de comisión</em> por reserva.', 'La inversión en publicidad la define el hotel, y el resultado se mide contra reservas reales.'),
+        manifiesto('m1', 'Fee fijo y <em>comisión sólo por reservas efectivas.</em>', 'Pagas comisión únicamente por las reservas que se generan de verdad, no por clics. La inversión en publicidad la define el hotel.'),
         lista('vendes', 'Qué incluye Publicidad digital', 'Un equipo <b>sólo de hotelería</b> que arma, mide y optimiza las campañas en Google, Meta y ChatGPT.', [
             ('Búsqueda de marca y genérica', 'Para que el hotel aparezca cuando lo buscan y cuando buscan dónde dormir en su destino.'),
             ('Hotel Ads', 'La tarifa directa del hotel al lado de la de la OTA, en Google.'),
@@ -742,10 +742,8 @@ PRODUCTOS.append(dict(
             ('ChatGPT, donde se planifica el viaje', 'Anuncios del hotel en las conversaciones de ChatGPT, cuando el viajero busca dónde quedarse.'),
             ('Habitaciones, spa y restaurante', 'Campañas para todo lo que vende el hotel, no sólo las noches.'),
             ('Se mide contra reservas', 'Reservas y búsquedas reales atribuidas, no clics, con un reporte mensual.'),
-            ('Tres planes, según la inversión', 'Cada plan suma canales: del buscador a Performance Max, Meta y remarketing.', planes([
-                ('Starter', ['Google Search de marca y genérico', 'Hotel Ads y enlaces gratuitos de reserva']),
-                ('Lite', ['Todo lo de Starter', 'Performance Max', 'Meta: alcance y retargeting']),
-                ('Full', ['Todo lo de Lite', 'Display y remarketing', 'Meta: promociones y eventos especiales'])], tres=True)),
+            ('Un solo plan, completo', 'Buscador, Hotel Ads, Performance Max y Meta en un mismo plan.', planes([
+                ('', ['Google Search de marca y genérico', 'Hotel Ads y enlaces gratuitos de reserva', 'Performance Max', 'Meta: alcance y retargeting'])])),
         ], extra='<p class="aviso" data-entra>Las campañas tienen un período de aprendizaje: los resultados se construyen mes a mes.</p>'),
         como(),
     ],
@@ -768,7 +766,7 @@ PRODUCTOS.append(dict(
     video_alt='Video: llegan consultas por distintos canales, el equipo las responde desde una sola bandeja y se ven las automatizaciones de email con sus resultados.',
     secciones=[
         chat('s1', 'Ninguna consulta se pierde', 'Cada mensaje queda en la misma bandeja, con el historial del huésped, sin importar por dónde llegó.',
-             ('Hotel Las Moras', 'Bandeja · todos los canales'), [
+             ('Hotel Los Álamos', 'Bandeja · todos los canales'), [
                  ('el', 'WhatsApp · 23:48', 'Hola, ¿tienen lugar del 12 al 15 de enero para dos?'),
                  ('ia', '', '¡Hola! Sí, tenemos la Suite Lago. Te armo la cotización con las tarifas del momento.'),
                  ('el', 'Instagram · 00:10', '¿Y si vamos con nuestro perro?'),
@@ -817,7 +815,7 @@ PRODUCTOS.append(dict(
             ('Dos planes para tu cartera', 'Los informes y el agente de revenue están en Full.', planes([
                 ('Lite', ['Set competitivo de 5 hoteles, una vez al día', 'Proyección de demanda a 90 días', '2 reglas de pricing']),
                 ('Full', ['Set competitivo de 10 hoteles, multicanal, 12 veces al día', 'Proyección a 180 días y presupuesto anual', 'Reglas sin límite, agente de revenue con IA e informes'])])),
-        ], extra='<p class="aviso" data-entra>Requiere el PMS de Racimo con datos históricos.</p>'),
+        ]),
         como(),
     ],
     combina=['pms', 'channel', 'motor', 'agentes'], combina_h2='El RMS rinde con todo el racimo',
@@ -838,14 +836,14 @@ PRODUCTOS.append(dict(
     video_alt='Video: un pedido de room service para la habitación 302 se arma en el sistema, se carga a la cuenta del huésped y el inventario se actualiza.',
     secciones=[
         ticket('s1', 'Todo lo que el POS le resuelve al hotel', 'Cada línea, algo que deja de hacerse a mano.',
-               ('Hotel Las Moras', 'Restaurante · Mesa 4'), [
+               ('Hotel Los Álamos', 'Restaurante · Mesa 4'), [
                    ('Carta por QR, sin reimprimir nunca más', 'Incluido'),
                    ('Comandas que llegan solas a cocina y barra', 'Incluido'),
                    ('Monitor de cocina por estación', 'Incluido'),
                    ('Stock y food cost por plato', 'Incluido'),
                    ('Informes y facturación', 'Incluido'),
                ], ('Total', 'A la cuenta del huésped'),
-               extra='<p class="aviso" data-entra>Requiere el PMS: el POS vive dentro de él.</p>'),
+               ),
         dia('flujo', 'Del pedido a la cuenta del huésped', 'Lo que pasa en el hotel cuando el huésped pide algo.', [
             ('Pide', 'Por QR', 'Mira la carta y pide desde la mesa o la habitación.'),
             ('Cocina', 'La comanda', 'Llega sola a la estación que la prepara.'),
@@ -861,7 +859,7 @@ PRODUCTOS.append(dict(
         como(),
     ],
     combina=['pms', 'guestapp', 'channel', 'motor'], combina_h2='El POS crece pegado al PMS',
-    combina_txt='Vive dentro del PMS, y con la GuestApp el huésped pide el room service desde su teléfono.',
+    combina_txt='Se conecta con el PMS, y con la GuestApp el huésped pide el room service desde su teléfono.',
 ))
 
 # GUESTAPP — la noche del huésped
@@ -893,7 +891,7 @@ PRODUCTOS.append(dict(
             ('Dos planes para tu cartera', 'La app del equipo y los mensajes masivos están en Full.', planes([
                 ('Lite', ['App del huésped y guía local', 'Check-in y check-out autónomos', 'Llave digital hasta 25 cerraduras', 'Room service y pagos']),
                 ('Full', ['Guía editable', 'Llaves sin límite', 'App del equipo y tareas', 'Mensajes masivos e informes'])])),
-        ], extra='<p class="aviso" data-entra>Requiere el PMS de Racimo: el check-in, la llave digital y la limpieza leen la reserva del sistema. El room service necesita además el POS.</p>'),
+        ]),
         manifiesto('m1', 'Menos filas en recepción, <em>más tiempo para el huésped.</em>', 'La tecnología se encarga de lo repetitivo y el equipo, de la experiencia.'),
         como(),
     ],

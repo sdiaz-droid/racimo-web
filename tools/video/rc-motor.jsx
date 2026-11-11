@@ -1,8 +1,8 @@
 // Racimo · Motor de reservas. Twist: el rango de fechas se marca en un calendario que aterriza en el buscador.
 (function () {
 const { VERDE, VIOLETA, NEGRO, VERDE_TX, VIOLETA_TX, VERDE_T, VIOLETA_T, GRIS, MOTION, tw, Ic, BtnVerde, BtnLinea, toStage, camAt, Video, enter, num, LCard, Tag, Stat, Head, Std, Browser, Img } = window.RC;
-const SCOPE = [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Las Moras'], ['card', 'PUNTO DE VENTA', 'Las Moras · Web']];
-const ROOMS = [['Clásica', '1 cama doble · 22 m² · desayuno incluido', 95], ['Suite Las Moras', 'Cama king · balcón · 38 m² · desayuno incluido', 130], ['Superior', '2 camas · vista a la montaña · 28 m²', 110]];
+const SCOPE = [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Los Álamos'], ['card', 'PUNTO DE VENTA', 'Los Álamos · Web']];
+const ROOMS = [['Clásica', '1 cama doble · 22 m² · desayuno incluido', 95], ['Suite Los Álamos', 'Cama king · balcón · 38 m² · desayuno incluido', 130], ['Superior', '2 camas · vista a la montaña · 28 m²', 110]];
 const Y0 = 64;
 const nw = { whiteSpace: 'nowrap' };
 
@@ -18,7 +18,7 @@ function Motor({ T, C }) {
   return (
     <Browser url="reservas.hotellasmoras.com">
       <div style={{ position: 'absolute', left: 80, right: 80, top: 34, display: 'flex', alignItems: 'center', gap: 36 }}>
-        <div><div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 40, letterSpacing: '-0.02em', color: NEGRO }}>Hotel Las Moras</div><div style={{ fontSize: 16, color: GRIS.mut }}>Valle Escondido</div></div>
+        <div><div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 40, letterSpacing: '-0.02em', color: NEGRO }}>Hotel Los Álamos</div><div style={{ fontSize: 16, color: GRIS.mut }}>Valle Escondido</div></div>
         <div style={{ flex: 1 }} />
         {['Habitaciones', 'Servicios', 'Ubicación', 'Contacto'].map(x => <div key={x} style={{ fontSize: 17, color: GRIS.tx }}>{x}</div>)}
         <div style={{ fontSize: 15, color: GRIS.mut }}>ES · USD</div>
@@ -48,7 +48,7 @@ function Motor({ T, C }) {
       <div style={{ position: 'absolute', left: 1280, right: 80, top: 320, height: 572, borderRadius: 20, background: done ? VERDE_T : '#fafafa', border: '1px solid ' + GRIS.borde, padding: '30px 32px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: 16 }}>
         <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 28, color: NEGRO }}>{done ? 'Reserva confirmada' : 'Tu reserva'}</div>
         {!chosen && <div style={{ fontSize: 17, color: GRIS.mut }}>Elige una habitación para continuar.</div>}
-        {chosen && [['grid', 'Suite Las Moras'], ['cal', '14/08 → 18/08 · 4 noches'], ['users', '2 adultos'], ['tag', 'Tarifa flexible · desayuno']].map(([ic, t], i) => (
+        {chosen && [['grid', 'Suite Los Álamos'], ['cal', '14/08 → 18/08 · 4 noches'], ['users', '2 adultos'], ['tag', 'Tarifa flexible · desayuno']].map(([ic, t], i) => (
           <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 18, color: NEGRO, ...enter(T, sel + 0.05 + i * 0.07, 12) }}><Ic n={ic} s={20} c={GRIS.mut} /><span style={nw}>{t}</span></div>
         ))}
         {chosen && <div style={{ marginTop: 'auto', borderTop: '1px solid ' + GRIS.borde, paddingTop: 18, display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', ...enter(T, sel + 0.35, 12) }}><div style={{ fontSize: 17, color: GRIS.tx }}>Total</div><div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 44, color: NEGRO }}>US$ 520</div></div>}

@@ -1,7 +1,7 @@
 // Racimo · Publicidad para hoteles (Hotel Ads + Racimo Ads). Twist: todo arranca con una búsqueda tipeada.
 (function () {
 const { VERDE, VIOLETA, NEGRO, VERDE_TX, VIOLETA_TX, VERDE_T, VIOLETA_T, GRIS, MOTION, tw, Ic, BtnVerde, BtnLinea, toStage, camAt, Video, enter, num, LCard, Tag, Stat, Head, Std, Browser, Img } = window.RC;
-const SCOPE = [['bank', 'RESELLER', 'Reseller Marketing'], ['grid', 'ESTABLECIMIENTO', 'Hotel Las Moras'], ['card', 'PUNTO DE VENTA', 'Las Moras · Marketing']];
+const SCOPE = [['bank', 'RESELLER', 'Reseller Marketing'], ['grid', 'ESTABLECIMIENTO', 'Hotel Los Álamos'], ['card', 'PUNTO DE VENTA', 'Los Álamos · Marketing']];
 const nw = { whiteSpace: 'nowrap' };
 const Q = 'hotel en chacras de coria';
 const PRICES = [[null, 'Sitio oficial', 130], ['logos/booking.svg', 'Booking.com', 142], ['logos/expedia.svg', 'Expedia', 145], ['logos/despegar.svg', 'Despegar', 148]];
@@ -18,7 +18,7 @@ function Busqueda({ T, C }) {
         <div style={{ display: 'flex', gap: 22 }}>
           <Img style={{ width: 220, height: 150, borderRadius: 14, flex: 'none' }} src="assets/fotos/domos-vinedo.jpg" />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}><div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 32, color: NEGRO }}>Hotel Las Moras</div><Tag tone="n">Anuncio</Tag></div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}><div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 32, color: NEGRO }}>Hotel Los Álamos</div><Tag tone="n">Anuncio</Tag></div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 16, color: GRIS.tx }}>{[0, 1, 2, 3, 4].map(i => <Ic key={i} n="star" s={16} c={VERDE_TX} />)}<span style={{ marginLeft: 6 }}>4,8 · 1.204 opiniones</span></div>
             <div style={{ fontSize: 16, color: GRIS.mut }}>Hotel boutique · Valle Escondido · desayuno incluido</div>
           </div>

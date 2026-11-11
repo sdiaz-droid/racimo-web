@@ -1,7 +1,7 @@
 // Racimo · Agentes de IA. Twist: no hay cursor; el agente resuelve solo, de punta a punta.
 (function () {
 const { VERDE, VIOLETA, NEGRO, VERDE_TX, VIOLETA_TX, VERDE_T, VIOLETA_T, GRIS, MOTION, tw, Ic, BtnVerde, BtnLinea, toStage, camAt, Video, enter, num, LCard, Tag, Stat, Head, Std } = window.RC;
-const SCOPE = [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Las Moras'], ['card', 'PUNTO DE VENTA', 'Las Moras · Recepción']];
+const SCOPE = [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Los Álamos'], ['card', 'PUNTO DE VENTA', 'Los Álamos · Recepción']];
 const nw = { whiteSpace: 'nowrap' };
 const A1 = '¡Hola! Sí. Tengo la Superior con vista a la montaña a US$ 110 por noche, desayuno incluido. Son 3 noches, total US$ 330. ¿Te la reservo?';
 const ACC = [[0.5, 'Detectó la intención: reserva'], [1.0, 'Consultó disponibilidad · 20 → 23 ago'], [1.4, 'Cotizó tarifa flexible · 2 adultos'], [2.9, 'Creó la reserva #MR-20957'], [3.3, 'Envió el link de pago']];
@@ -18,7 +18,7 @@ function Chat({ T, C }) {
       <Head title="Agente de reservas" icon="spark" sub="Racimo IA · atiende por WhatsApp, web e Instagram, las 24 horas."><Tag>● En línea</Tag><BtnLinea icon="settings">Configurar</BtnLinea></Head>
       <div style={{ position: 'absolute', left: 36, width: 1060, top: 130, height: 760, border: '1px solid ' + GRIS.borde, borderRadius: 20, overflow: 'hidden' }}>
         <div style={{ height: 84, borderBottom: '1px solid ' + GRIS.borde, display: 'flex', alignItems: 'center', gap: 14, padding: '0 24px' }}>
-          <Avatar /><div style={{ fontSize: 18, fontWeight: 600, color: NEGRO }}>Agente del Hotel Las Moras</div><div><Tag tone="n">WhatsApp</Tag></div>
+          <Avatar /><div style={{ fontSize: 18, fontWeight: 600, color: NEGRO }}>Agente del Hotel Los Álamos</div><div><Tag tone="n">WhatsApp</Tag></div>
           <div style={{ marginLeft: 'auto', fontSize: 15, color: GRIS.mut, ...nw }}>+54 9 261 555 0142</div>
         </div>
         {guest('Hola, ¿tienen lugar del 20 al 23 de agosto para dos?', s0 + 0.15, 112)}
@@ -111,7 +111,7 @@ function Piece(P) {
     if (op <= 0) return null;
     const cam = camAt(C.A, keys(C), v);
     const tg = toStage(cam, W, H, 112 + 36 + 46, 92 + 130 + 42);
-    const txt = 'Hola, soy el agente del Hotel Las Moras.';
+    const txt = 'Hola, soy el agente del Hotel Los Álamos.';
     const n = Math.floor(tw(T, 0.9, 1.9, 0, txt.length, Easing.linear));
     const draw = tw(T, 0.1, 0.9, 0, 1, MOTION.move);
     const glow = 1 + 0.06 * Math.sin(T * 5);

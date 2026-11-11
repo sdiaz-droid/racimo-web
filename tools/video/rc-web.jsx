@@ -1,7 +1,7 @@
 // Racimo · Sitio web. Twist: la página se arma por bloques, del boceto al sitio publicado.
 (function () {
 const { VERDE, VIOLETA, NEGRO, VERDE_TX, VIOLETA_TX, VERDE_T, VIOLETA_T, GRIS, MOTION, tw, Ic, BtnVerde, BtnLinea, toStage, camAt, Video, enter, Tag, Head, Std, Browser, Img, Phone } = window.RC;
-const SCOPE = [['bank', 'RESELLER', 'Reseller Marketing'], ['grid', 'ESTABLECIMIENTO', 'Hotel Las Moras'], ['card', 'PUNTO DE VENTA', 'Las Moras · Web']];
+const SCOPE = [['bank', 'RESELLER', 'Reseller Marketing'], ['grid', 'ESTABLECIMIENTO', 'Hotel Los Álamos'], ['card', 'PUNTO DE VENTA', 'Los Álamos · Web']];
 const nw = { whiteSpace: 'nowrap' };
 const OUT = { fontFamily: 'Outfit, sans-serif', fontWeight: 500, letterSpacing: '-0.02em', color: NEGRO };
 const REV = [['“La atención fue impecable y el desayuno, lo mejor del viaje.”', 'Lucía · Rosario'], ['“A minutos de los viñedos y con una vista increíble.”', 'Daniel · Santiago'], ['“Reservamos directo en la web y nos esperaron con todo listo.”', 'Paula · Córdoba']];
@@ -12,7 +12,7 @@ function Site({ narrow, reviews = 1, T = 99, a = -99 }) {
   return (
     <div style={{ width: '100%', background: '#fff', fontFamily: 'Inter, sans-serif' }}>
       <div style={{ height: narrow ? 64 : 76, display: 'flex', alignItems: 'center', gap: 28, padding: `0 ${pad}px`, ...e(0) }}>
-        <div style={{ ...OUT, fontSize: narrow ? 20 : 26, ...nw }}>Hotel Las Moras</div>
+        <div style={{ ...OUT, fontSize: narrow ? 20 : 26, ...nw }}>Hotel Los Álamos</div>
         <div style={{ flex: 1 }} />
         {!narrow && ['Habitaciones', 'Servicios', 'Opiniones', 'Contacto'].map(x => <div key={x} style={{ fontSize: 16, color: GRIS.tx }}>{x}</div>)}
         {narrow ? <Ic n="dots" /> : <BtnVerde>RESERVAR</BtnVerde>}
@@ -28,7 +28,7 @@ function Site({ narrow, reviews = 1, T = 99, a = -99 }) {
       <div style={{ padding: `${narrow ? 28 : 40}px ${pad}px 0`, ...e(2) }}>
         <div style={{ ...OUT, fontSize: narrow ? 26 : 34 }}>Habitaciones</div>
         <div style={{ marginTop: 18, display: 'grid', gridTemplateColumns: narrow ? '1fr' : 'repeat(3, minmax(0,1fr))', gap: 18 }}>
-          {[['Clásica', 95], ['Suite Las Moras', 130], ['Superior', 110]].slice(0, narrow ? 2 : 3).map(([n, p], i) => (
+          {[['Clásica', 95], ['Suite Los Álamos', 130], ['Superior', 110]].slice(0, narrow ? 2 : 3).map(([n, p], i) => (
             <div key={n} style={{ border: '1px solid ' + GRIS.borde, borderRadius: 18, overflow: 'hidden' }}>
               <Img style={{ height: narrow ? 120 : 170 }} src={['assets/fotos/cabana-patagonia.jpg', 'assets/fotos/tina-lago.jpg', 'assets/fotos/cabana-lago.jpg'][i]} />
               <div style={{ padding: '14px 18px', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}><div style={{ fontSize: 18, fontWeight: 600, color: NEGRO, ...nw }}>{n}</div><div style={{ fontSize: 15, color: GRIS.mut, ...nw }}>desde US$ {p}</div></div>

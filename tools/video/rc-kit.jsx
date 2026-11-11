@@ -70,7 +70,7 @@ const NAV = [['msg', 'CRM', 17], ['cal', 'Reservas', 8], ['link', 'Canales'], ['
 
 // Pantalla completa de Racimo en coordenadas de mundo 1920×1000
 function Shell({ active = 'Operaciones', scope, children, overlay }) {
-  const sc = scope || [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Las Moras'], ['card', 'PUNTO DE VENTA', 'Las Moras · Recepción']];
+  const sc = scope || [['bank', 'RESELLER', 'Reseller PMS'], ['grid', 'ESTABLECIMIENTO', 'Hotel Los Álamos'], ['card', 'PUNTO DE VENTA', 'Los Álamos · Recepción']];
   return (
     <div style={{ position: 'relative', width: 1920, height: 1000, fontFamily: 'Inter, sans-serif' }}>
       <div style={{ position: 'absolute', inset: 0, background: NEGRO, borderRadius: 28, border: '1px solid #242424', overflow: 'hidden' }}>

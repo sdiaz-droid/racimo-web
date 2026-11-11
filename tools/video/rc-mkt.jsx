@@ -1,7 +1,7 @@
 // Racimo · Marketing Digital. Twist: tres capítulos numerados (Redes · MyLinks · Email) con índice en pantalla.
 (function () {
 const { VERDE, VIOLETA, NEGRO, VERDE_TX, VIOLETA_TX, VERDE_T, VIOLETA_T, GRIS, MOTION, tw, Ic, BtnVerde, BtnLinea, toStage, camAt, Video, enter, num, LCard, Tag, Stat, Head, Std, Img, Phone } = window.RC;
-const SCOPE = [['bank', 'RESELLER', 'Reseller Marketing'], ['grid', 'ESTABLECIMIENTO', 'Hotel Las Moras'], ['card', 'PUNTO DE VENTA', 'Las Moras · Marketing']];
+const SCOPE = [['bank', 'RESELLER', 'Reseller Marketing'], ['grid', 'ESTABLECIMIENTO', 'Hotel Los Álamos'], ['card', 'PUNTO DE VENTA', 'Los Álamos · Marketing']];
 const nw = { whiteSpace: 'nowrap' };
 const CAPS = [['01', 'Redes sociales'], ['02', 'MyLinks'], ['03', 'Email marketing']];
 const DAYS = ['lun 10', 'mar 11', 'mié 12', 'jue 13', 'vie 14', 'sáb 15', 'dom 16'];
@@ -63,7 +63,7 @@ function MyLinks({ T, s0 }) {
         <Phone w={380} h={780}>
           <div style={{ position: 'absolute', inset: 0, background: NEGRO, padding: '60px 26px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
             <div style={{ width: 96, height: 96, borderRadius: 48, background: VIOLETA, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 36, color: '#fff' }}>LM</div>
-            <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 28, color: '#fff' }}>Hotel Las Moras</div>
+            <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 28, color: '#fff' }}>Hotel Los Álamos</div>
             <div style={{ fontSize: 14, color: GRIS.claro, textAlign: 'center', lineHeight: 1.5 }}>Hotel boutique junto al lago, en Valle Escondido.</div>
             {LINKS.map(([ic, l], i) => {
               const tap = i === 0 ? 1 - 0.05 * Math.sin(Math.PI * ((T - s0) % 0.9 / 0.9)) : 1;
@@ -84,7 +84,7 @@ function Email({ T, s0 }) {
         <div style={{ padding: '18px 24px', borderBottom: '1px solid ' + GRIS.borde }}><div style={{ fontSize: 14, color: GRIS.mut }}>Asunto</div><div style={{ fontSize: 18, fontWeight: 600, color: NEGRO }}>Primavera junto al lago: 3 noches, pagas 2</div></div>
         <Img style={{ height: 400 }} src="assets/fotos/colonial.png" pos="center 56%" />
         <div style={{ padding: '26px 30px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 34, color: NEGRO, lineHeight: 1.1 }}>Llegó la primavera a Las Moras</div>
+          <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 500, fontSize: 34, color: NEGRO, lineHeight: 1.1 }}>Llegó la primavera a Los Álamos</div>
           <div style={{ fontSize: 17, lineHeight: 1.6, color: GRIS.tx }}>Del 21 de septiembre al 15 de octubre, reservando directo en nuestra web, la tercera noche es sin cargo.</div>
           <div style={{ display: 'flex' }}><BtnVerde>RESERVAR</BtnVerde></div>
         </div>
