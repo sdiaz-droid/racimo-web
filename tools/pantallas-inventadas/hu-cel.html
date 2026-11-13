@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- Huésped+ · pantallas del celular de Laura (Suite 302) en la Guest App del Hotel Los Álamos, para el video:
+     #chat = escribe a recepción desde la app · #room = pide room service a la habitación.
+     Marca del HOTEL (bosque y arena), no de Racimo. 330 × 713 de mundo. Render: hu-cel.py -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bosque:#1f4a3a;--bosque-2:#2c6650;--arena:#f5efe6;--arena-2:#ebe2d4;--tinta:#1c1a17;--gris:#77706a}
+body{background:#000;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;display:flex;gap:30px;padding:20px}
+.pan{position:relative;width:330px;height:713px;overflow:hidden;background:var(--arena);color:var(--tinta)}
+.estado{height:44px;display:flex;justify-content:space-between;align-items:center;padding:4px 28px 0 30px;font:500 13px Outfit,sans-serif}
+.estado i{display:inline-block;width:22px;height:11px;border:1.5px solid currentColor;border-radius:3px;position:relative}
+.estado i::after{content:"";position:absolute;inset:1.5px;right:5px;background:currentColor;border-radius:1px}
+svg.s{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* chat */
+.cab{background:var(--bosque);color:#fff}
+.cab-in{display:flex;align-items:center;gap:11px;padding:6px 16px 14px}
+.logo{width:38px;height:38px;border-radius:50%;background:var(--arena);color:var(--bosque);display:grid;place-items:center;font:500 14px Georgia,serif;flex:none}
+.cab b{display:block;font:500 16px Outfit,sans-serif;letter-spacing:-.01em}
+.cab small{display:flex;align-items:center;gap:5px;font-size:11px;opacity:.8;margin-top:1px}
+.cab small::before{content:"";width:6px;height:6px;border-radius:50%;background:#6ee7a8}
+.cuerpo{padding:14px 14px 0;display:flex;flex-direction:column;gap:10px}
+.dia{align-self:center;font-size:10.5px;color:var(--gris);background:var(--arena-2);border-radius:999px;padding:4px 10px}
+.ctx{display:flex;align-items:center;gap:10px;background:#fff;border-radius:16px;padding:10px 12px;box-shadow:0 1px 2px rgba(28,26,23,.06)}
+.ctx .k{width:32px;height:32px;border-radius:10px;background:var(--bosque);color:#fff;display:grid;place-items:center}
+.ctx b{display:block;font-size:12.5px;font-weight:600}.ctx span{font-size:11px;color:var(--gris)}
+.bb{max-width:82%;border-radius:18px;padding:10px 13px 7px;font-size:13.5px;line-height:1.4}
+.bb .t{display:block;text-align:right;font-size:10px;margin-top:3px;opacity:.7}
+.yo{align-self:flex-end;background:var(--bosque);color:#fff;border-bottom-right-radius:6px}
+.el{align-self:flex-start;background:#fff;border-bottom-left-radius:6px;box-shadow:0 1px 2px rgba(28,26,23,.06)}
+.el .q{display:block;font-size:10.5px;font-weight:600;color:var(--bosque-2);margin-bottom:2px}
+.aviso{align-self:flex-start;display:flex;align-items:center;gap:7px;background:#e3efe8;color:var(--bosque);border-radius:999px;padding:7px 12px;font-size:11.5px;font-weight:600}
+.aviso::before{content:"";width:7px;height:7px;border-radius:50%;background:#2c9a62;box-shadow:0 0 0 3px rgba(44,154,98,.2)}
+.pie{position:absolute;left:0;right:0;bottom:0;padding:10px 12px 26px;background:linear-gradient(transparent,var(--arena) 18%)}
+.chips{display:flex;gap:6px;margin-bottom:9px}
+.chips span{font-size:11px;font-weight:500;color:var(--bosque);background:#fff;border:1px solid var(--arena-2);border-radius:999px;padding:6px 10px}
+.in{display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:5px 5px 5px 16px;font-size:13px;color:var(--gris);box-shadow:0 1px 2px rgba(28,26,23,.08)}
+.in .env{margin-left:auto;width:34px;height:34px;border-radius:50%;background:var(--bosque);color:#fff;display:grid;place-items:center}
+.barra{position:absolute;left:50%;bottom:8px;width:110px;height:4px;margin-left:-55px;border-radius:3px;background:var(--tinta);opacity:.85}
+/* room service */
+.hero{position:relative;height:208px;color:#fff;background:url(F_cena) center/cover}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.35),rgba(16,38,30,.15) 40%,rgba(16,38,30,.88))}
+.hero .estado,.hero .top,.hero .tx{position:relative}
+.hero .top{display:flex;justify-content:space-between;padding:4px 16px}
+.hero .bt{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(8px);display:grid;place-items:center}
+.hero .tx{position:absolute;left:18px;right:18px;bottom:16px}
+.hero small{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.hero h2{font:400 27px/1.1 Georgia,serif;margin:4px 0 6px}
+.hero p{display:flex;align-items:center;gap:6px;font-size:11.5px;opacity:.92}
+.hero p::before{content:"";width:6px;height:6px;border-radius:50%;background:#6ee7a8}
+.tabs{display:flex;gap:6px;padding:14px 14px 10px}
+.tabs span{font-size:12px;font-weight:500;border-radius:999px;padding:7px 13px;background:#fff;color:var(--gris)}
+.tabs span.on{background:var(--bosque);color:#fff}
+.plato{display:flex;gap:11px;margin:0 14px 9px;background:#fff;border-radius:18px;padding:9px;box-shadow:0 1px 2px rgba(28,26,23,.06)}
+.plato .f{width:74px;height:74px;border-radius:13px;background:center/cover;flex:none}
+.plato .f.vino{background:linear-gradient(150deg,#6b2335,#3a0f1c);display:grid;place-items:center;color:#f3d6dc}
+.plato .f.vino svg{width:30px;height:30px;stroke-width:1.6}
+.plato .tx{flex:1;min-width:0;display:flex;flex-direction:column}
+.plato b{font-size:13.5px;font-weight:600}
+.plato span{font-size:11px;color:var(--gris);line-height:1.35;margin-top:2px}
+.plato .pr{margin-top:auto;display:flex;align-items:center;justify-content:space-between}
+.plato .pr em{font-style:normal;font-size:13px;font-weight:600}
+.cant{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600}
+.cant i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:15px;border:1px solid var(--arena-2);color:var(--bosque)}
+.cant i.mas{background:var(--bosque);border-color:var(--bosque);color:#fff}
+.agr{font-size:11.5px;font-weight:600;color:var(--bosque);border:1px solid var(--bosque);border-radius:999px;padding:5px 11px}
+.hoja{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:24px 24px 0 0;padding:14px 16px 28px;box-shadow:0 -10px 30px rgba(28,26,23,.12)}
+.hoja .l1{display:flex;justify-content:space-between;align-items:baseline}
+.hoja .l1 b{font:500 15px Outfit,sans-serif}
+.hoja .l1 em{font-style:normal;font-size:16px;font-weight:700}
+.hoja .l2{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--gris);margin:3px 0 12px}
+.hoja .bt{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--bosque);color:#fff;border-radius:999px;height:44px;font-size:13.5px;font-weight:600}
+</style></head><body>
+
+<div class="pan" id="chat">
+  <div class="cab">
+    <div class="estado"><span>22:38</span><i></i></div>
+    <div class="cab-in">
+      <svg class="s" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      <div class="logo">LÁ</div>
+      <div><b>Recepción</b><small>Hotel Los Álamos · responde en minutos</small></div>
+    </div>
+  </div>
+  <div class="cuerpo">
+    <span class="dia">Hoy</span>
+    <div class="ctx"><span class="k"><svg class="s" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.7-8.7M17 6l2.5 2.5M14.5 8.5 16 10"/></svg></span><div><b>Suite 302 · Laura</b><span>Del 11 al 14 de noviembre</span></div></div>
+    <div class="bb yo">Hola, ¿me pueden subir dos toallas más a la 302? 🙂<span class="t">22:38 ✓✓</span></div>
+    <div class="bb el"><span class="q">Martín · Housekeeping</span>¡Claro, Laura! En 10 minutos las tienes en la habitación.<span class="t">22:40</span></div>
+    <span class="aviso">Housekeeping en camino a la 302</span>
+  </div>
+  <div class="pie">
+    <div class="chips"><span>Room service</span><span>Wi-fi</span><span>Check-out</span><span>Spa</span></div>
+    <div class="in">Escribe un mensaje…<span class="env"><svg class="s" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></span></div>
+  </div>
+  <div class="barra"></div>
+</div>
+
+<div class="pan" id="room">
+  <div class="hero">
+    <div class="estado"><span>21:12</span><i></i></div>
+    <div class="top"><span class="bt"><svg class="s" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></span><span class="bt"><svg class="s" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4-4"/></svg></span></div>
+    <div class="tx"><small>Room service</small><h2>A tu habitación</h2><p>Cocina abierta hasta las 00 h</p></div>
+  </div>
+  <div class="tabs"><span>Desayuno</span><span class="on">Platos</span><span>Bebidas</span><span>Postres</span></div>
+  <div class="plato"><div class="f vino" style="background:linear-gradient(150deg,#7a6a4f,#3f3424);color:#f3e7cf"><svg class="s" viewBox="0 0 24 24"><path d="M3 11h18a9 9 0 0 1-18 0zM7 7c0-1 1-1 1-2M12 7c0-1 1-1 1-2M17 7c0-1 1-1 1-2"/></svg></div><div class="tx"><b>Risotto de hongos</b><span>Hongos de pino del valle y parmesano</span><div class="pr"><em>$ 22.800</em><span class="cant"><i>−</i>1<i class="mas">+</i></span></div></div></div>
+  <div class="plato"><div class="f vino"><svg class="s" viewBox="0 0 24 24"><path d="M8 3h8l-.5 6a3.5 3.5 0 0 1-7 0zM12 12.5V20M8.5 20h7"/></svg></div><div class="tx"><b>Copa de malbec</b><span>Bodega del valle · cosecha 2022</span><div class="pr"><em>$ 8.400</em><span class="cant"><i>−</i>1<i class="mas">+</i></span></div></div></div>
+  <div class="plato"><div class="f vino" style="background:linear-gradient(150deg,#d9a441,#8a5a1c);color:#fff4dc"><svg class="s" viewBox="0 0 24 24"><path d="M3 15 15 5l6 10z"/><path d="M3 15v4h18v-4M9 15.5v.5M14 17v.5M17 13.5v.5"/></svg></div><div class="tx"><b>Tabla de quesos</b><span>Quesos de la zona, frutos secos y miel</span><div class="pr"><em>$ 18.500</em><span class="agr">Agregar</span></div></div></div>
+  <div class="hoja">
+    <div class="l1"><b>Tu pedido · Suite 302</b><em>$ 31.200</em></div>
+    <div class="l2">2 productos · A la cuenta de la habitación · llega en 25 min</div>
+    <div class="bt">Pedir a la habitación</div>
+  </div>
+  <div class="barra"></div>
+</div>
+</body></html>

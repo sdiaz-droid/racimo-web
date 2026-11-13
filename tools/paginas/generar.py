@@ -972,8 +972,8 @@ PRODUCTOS.append(dict(
     uva='Huésped+',
     objetos=[tc('llave', 'Llave digital', 'Se abre con el teléfono', 'violeta'), tc('cel', 'Check-in', 'Sin pasar por recepción'), tc('campana', 'Room service', 'Se pide desde la app', 'verde'), tc('mapa', 'Guía del hotel', 'Todo en la app del huésped', 'oscura'), tc('chat', 'Mensajes', 'El hotel avisa en un toque')],
     historia_h2='Así llega el huésped',
-    pasos=pasos_de('guestapp', ['El dato', 'Llave y mensajes', 'En el teléfono', 'Room service', 'Listo']),
-    video_alt='Video: el huésped recibe la notificación, hace el check-in online y abre su habitación con la llave digital; en el sistema, el arribo queda con check-in completo.',
+    pasos=pasos_de('guestapp', ['El dato', 'Llave digital', 'En el teléfono', 'Mensajes y room service', 'Listo']),
+    video_alt='Video: el hotel habilita la llave digital y la huésped abre la Suite 302 desde la Guest App; escribe a recepción y el mensaje llega a Conversa; pide room service y el pedido entra al POS.',
     secciones=[
         noche('s1', '02:14', [
             'El huésped llega de madrugada.',

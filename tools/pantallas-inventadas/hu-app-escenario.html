@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- Huésped+ · lo que ve el huésped: celular con la Guest App del Hotel Los Álamos (pedido de Aldana, 13/11).
+     Escenario 1920×1000; la pantalla del celular la dibuja el video (capa «desliza») con hu-app-cel.webp.
+     Pantalla: x 795, y 143, 330 × 713 (mundo). -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+#escritorio{width:1920px;height:1000px;position:relative;overflow:hidden;background:#1f4a3a}
+.foto{position:absolute;inset:-40px;background:url(F_colonial) center 40%/cover;filter:blur(18px) saturate(.9);transform:scale(1.05)}
+.velo{position:absolute;inset:0;background:radial-gradient(70% 90% at 50% 50%,rgba(31,74,58,.35),rgba(20,40,32,.82))}
+.sombra{position:absolute;left:781px;top:129px;width:358px;height:741px;border-radius:58px;box-shadow:0 60px 120px rgba(0,0,0,.45),0 18px 40px rgba(0,0,0,.35)}
+.tel{position:absolute;left:781px;top:129px;width:358px;height:741px;border-radius:58px;background:linear-gradient(145deg,#3a3a3c,#111 40%,#2a2a2c);padding:14px}
+.tel::before{content:"";position:absolute;inset:3px;border-radius:55px;border:1.5px solid rgba(255,255,255,.12)}
+.pan{width:330px;height:713px;border-radius:44px;background:#f5efe6}
+.boton{position:absolute;background:#2a2a2c;border-radius:3px}
+</style></head><body>
+<div id="escritorio">
+  <div class="foto"></div><div class="velo"></div>
+  <div class="sombra"></div>
+  <div class="tel"><div class="pan"></div></div>
+  <div class="boton" style="left:777px;top:270px;width:4px;height:60px"></div>
+  <div class="boton" style="left:777px;top:345px;width:4px;height:60px"></div>
+  <div class="boton" style="left:1139px;top:300px;width:4px;height:90px"></div>
+</div>
+</body></html>

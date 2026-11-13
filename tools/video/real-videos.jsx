@@ -6,6 +6,7 @@ const R = '/video/comun/real/';
 const T = (n, d, cam, extra = {}) => ({ src: R + n + '.webp', d, cam, ...extra });
 const c = (x, y, s) => ({ x, y, s });
 const todo = c(960, 500, 1.18);
+const CEL = (img, alto, k) => ({ src: R + img + '.webp', x: 795, y: 143, w: 330, h: 713, r: 44, alto, k });
 
 const VIDEOS = {
   PMS: {
@@ -146,17 +147,28 @@ const VIDEOS = {
   GUESTAPP: {
     label: 'HUÉSPED+', producto: 'Huésped+',
     intro: { eb: 'HUÉSPED+ · CON TU MARCA', tx: 'El hotel, |en el teléfono del huésped.' },
+    // Cada idea en dos tomas: lo que pasa adentro del sistema y lo que ve Laura (Suite 302) en su celular,
+    // con la Guest App del Hotel Los Álamos. Pedido de Aldana 13/11. Pantallas: tools/pantallas-inventadas/hu-*.
     A: [
-      T('hu-llaves', 2.8, [[0, todo], [1.0, c(700, 360, 1.6)]], {
-        pops: [{ t: 0.8, x: 760, y: 220, eb: 'LLAVE DIGITAL', tx: 'La habitación se abre con el teléfono', icon: 'key', tone: 'b' }] }),
-      T('hu-mensajes', 2.4, [[0, todo], [1.0, c(760, 300, 1.6)]], {
-        pops: [{ t: 0.8, x: 760, y: 180, eb: 'MENSAJES', tx: 'El huésped escribe desde la app', icon: 'msg', tone: 'v' }] }),
+      T('hu-llaves', 2.4, [[0, todo], [1.0, c(700, 360, 1.6)]], {
+        pops: [{ t: 0.7, x: 760, y: 220, eb: 'LLAVE DIGITAL', tx: 'El hotel la habilita desde el sistema', icon: 'key', tone: 'b' }] }),
+      T('hu-app', 2.4, [[0, c(960, 500, 1.02), c(960, 500, 1.55)], [2.4, c(960, 560, 1.18), c(960, 560, 1.55)]], {
+        desliza: CEL('hu-app-cel', 1857.8, [[0, 0], [2.4, 0]]),
+        marcos: [{ t: 0.6, x: 807, y: 551, w: 306, h: 152 }],
+        pops: [{ t: 0.5, x: 1430, y: 470, eb: 'EN EL CELULAR DEL HUÉSPED', tx: 'La Suite 302 se abre con la llave', icon: 'key', tone: 'g' }] }),
+      T('hu-app', 2.4, [[0, c(960, 500, 1.1), c(960, 500, 1.55)], [2.4, c(960, 470, 1.2), c(960, 470, 1.55)]], {
+        desliza: CEL('hu-chat-cel', 713, [[0, 0], [2.4, 0]]),
+        pops: [{ t: 0.4, x: 1430, y: 430, eb: 'DESDE LA GUEST APP', tx: 'Laura le escribe a recepción', icon: 'msg', tone: 'v' }] }),
     ],
     B: [
-      T('pos-room', 2.4, [[0, todo], [1.0, c(760, 560, 1.45)]], {
-        pops: [{ t: 0.8, x: 760, y: 330, eb: 'ROOM SERVICE', tx: 'Pide desde la habitación', icon: 'bell', tone: 'g' }] }),
-      T('hu-llaves', 2.4, [[0, c(960, 500, 1.2)], [2.4, c(1100, 600, 1.5)]], {
-        pops: [{ t: 0.6, x: 1100, y: 450, eb: 'CHECK-IN Y CHECK-OUT', tx: 'Sin pasar por recepción', icon: 'check', tone: 'v' }] }),
+      T('hu-conversa', 2.4, [[0, todo], [1.0, c(1250, 520, 1.25)]], {
+        pops: [{ t: 0.7, x: 1290, y: 800, eb: 'LLEGA A CONVERSA', tx: 'Housekeeping responde y sube las toallas', icon: 'msg', tone: 'v' }] }),
+      T('hu-app', 2.4, [[0, c(960, 500, 1.1), c(960, 500, 1.55)], [2.4, c(960, 540, 1.2), c(960, 540, 1.55)]], {
+        desliza: CEL('hu-room-cel', 713, [[0, 0], [2.4, 0]]),
+        pops: [{ t: 0.4, x: 1430, y: 430, eb: 'ROOM SERVICE', tx: 'Pide la cena desde la habitación', icon: 'bell', tone: 'g' }] }),
+      T('pos-room-302', 2.4, [[0, todo], [1.0, c(1000, 480, 1.6)]], {
+        marcos: [{ t: 0.9, x: 722, y: 428, w: 566, h: 142 }],
+        pops: [{ t: 0.8, x: 1000, y: 330, eb: 'ENTRA AL POS', tx: 'A cocina y a la cuenta de la 302', icon: 'receipt', tone: 'b' }] }),
     ],
   },
   AGENTES: {
