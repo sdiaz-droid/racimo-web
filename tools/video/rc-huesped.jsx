@@ -159,7 +159,7 @@ function Piece(P) {
       </div>
     );
   };
-  return <Std {...P} keys={keys} active="Huésped+" scope={SCOPE} label="HUÉSPED+" producto="Huésped+ · GuestApp" bareA A={<App T={T} C={C} />} B={<Panel T={T} C={C} />} intro={intro}
+  return <Std {...P} keys={keys} active="Huésped+" scope={SCOPE} label="HUÉSPED+" producto="Huésped+" bareA A={<App T={T} C={C} />} B={<Panel T={T} C={C} />} intro={intro}
     cursor={{ vis: [C.A + 0.6, C.A + 3.1], path: [[C.A + 0.6, { x: 1250, y: 900 }], [C.A + 1.1, tap1], [C.A + 1.3, tap1], [C.A + 2.65, tap2], [C.A + 3.3, { txt: 'FINALIZAR CHECK-IN', fb: { x: PH.x + PH.w / 2, y: PH.y + 614 }, dx: 40, dy: 80 }]], clicks: [C.A + 1.2, C.A + 2.8] }}
     captions={[[C.A + 0.3, C.Titulo, 'APP DEL HUÉSPED', 'Check-in y llave digital'], [C.B + 0.2, C.Cierre, 'EN RACIMO', 'Arribos del día']]} />;
 }

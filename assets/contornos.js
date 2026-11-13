@@ -14,7 +14,7 @@
     web: ['Sitio Web para Hoteles','Sitio web'], ads: ['Publicidad digital','Publicidad digital'],
     crm: ['CRM','CRM'], pms: ['PMS','PMS'], pos: ['POS','POS'],
     marketing: ['Marketing Digital','Marketing Digital'], agentes: ['Agentes de IA','Agentes de IA'],
-    guestapp: ['GuestApp','GuestApp']
+    guestapp: ['Huésped+','Huésped+']
   };
   const products = new Set(grains.map(grain => grain.dataset.k));
   const byKey = new Map(grains.map(grain => [grain.dataset.k, grain]));

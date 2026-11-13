@@ -26,7 +26,7 @@ CATALOGO = {
     'rms': ('RMS', '/rms/', 'RMS'),
     'ads': ('Publicidad digital', '/publicidad-digital/', 'Publicidad digital'),
     'pos': ('POS', '/pos/', 'POS'),
-    'guestapp': ('GuestApp', '/guestapp/', 'GuestApp'),
+    'guestapp': ('Huésped+', '/huesped-plus/', 'Huésped+'),
     'agentes': ('Agentes de IA', '/agentes-de-ia/', 'Agentes de IA'),
 }
 # lugar de cada uva en el racimo de la home (mismo viewBox)
@@ -289,7 +289,7 @@ def chat(id_, h2, bajada, quien, mensajes, extra=''):
 </section>'''
 
 
-# ── MyLinks del hotel (GuestApp): un celular con la página del hotel inventado
+# ── MyLinks del hotel (Huésped+): un celular con la página del hotel inventado
 #    (Hotel Los Álamos) que se puede scrollear. Fotos en /assets/mylinks/.
 ML = '/assets/mylinks/'
 
@@ -958,18 +958,18 @@ PRODUCTOS.append(dict(
         como(),
     ],
     combina=['pms', 'guestapp', 'channel', 'motor'], combina_h2='El POS crece pegado al PMS',
-    combina_txt='Se conecta con el PMS, y con la GuestApp el huésped pide el room service desde su teléfono.',
+    combina_txt='Se conecta con el PMS, y con la Guest App de Huésped+ el huésped pide el room service desde su teléfono.',
 ))
 
 # GUESTAPP — la noche del huésped
 PRODUCTOS.append(dict(
-    k='guestapp', video='guestapp', title='GuestApp para hoteles en marca blanca',
+    k='guestapp', video='guestapp', title='Huésped+ para hoteles en marca blanca',
     description='Check-in online, llave digital, room service y la guía del hotel en una app con la marca del hotel, más la app del equipo.',
-    volanta='GuestApp · Huésped+ · con tu marca',
+    volanta='Huésped+ · con tu marca',
     h1='<span class="ln">El hotel entero,</span><span class="ln"><span class="hl">en el teléfono del huésped.</span></span>',
-    deck='Check-in online, llave digital, room service y la guía del hotel, en una app con la marca del hotel. Y para el equipo, la app de limpieza y mantenimiento.',
+    deck='Guest App, check-in online, llave digital, room service y la guía del hotel, todo con la marca del hotel. Y para el equipo, la app de limpieza y mantenimiento.',
     confianza=['Llave digital en el celular', 'Check-in y check-out autónomos'],
-    uva='GuestApp',
+    uva='Huésped+',
     objetos=[tc('llave', 'Llave digital', 'Se abre con el teléfono', 'violeta'), tc('cel', 'Check-in', 'Sin pasar por recepción'), tc('campana', 'Room service', 'Se pide desde la app', 'verde'), tc('mapa', 'Guía del hotel', 'Todo en la app del huésped', 'oscura'), tc('chat', 'Mensajes', 'El hotel avisa en un toque')],
     historia_h2='Así llega el huésped',
     pasos=pasos_de('guestapp', ['El dato', 'Llave y mensajes', 'En el teléfono', 'Room service', 'Listo']),
@@ -981,9 +981,9 @@ PRODUCTOS.append(dict(
             'El check-in ya lo hizo desde el teléfono.',
             'Toca la llave digital y la puerta se abre.',
         ], cel=mylinks_cel()),
-        lista('vendes', 'Qué incluye GuestApp', 'El huésped resuelve su estadía solo, y <b>el equipo trabaja coordinado</b>.', [
+        lista('vendes', 'Qué incluye Huésped+', 'El huésped resuelve su estadía solo, y <b>el equipo trabaja coordinado</b>.', [
             ('Check-in y check-out autónomos', 'Para el huésped que llega tarde o sale temprano, sin depender de recepción.'),
-            ('Una app con la marca del hotel', 'La guía del hotel y sugerencias locales, para que nadie llame a recepción a preguntar el wi-fi.'),
+            ('Guest App, con la marca del hotel', 'La app del huésped: la guía del hotel y sugerencias locales con IA, para que nadie llame a recepción a preguntar el wi-fi.'),
             ('Llave digital', 'En el celular, con las cerraduras digitales que el hotel ya tiene. Se acabaron las llaves perdidas.'),
             ('Room service y pagos', 'Desde la app y el tótem, para que no se escape ningún cobro.'),
             ('La app del equipo', 'Limpieza y mantenimiento con tareas por área: recepción se entera cuando una habitación queda lista.'),

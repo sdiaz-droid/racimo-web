@@ -1,4 +1,4 @@
-/* MyLinks del hotel en GuestApp: el celular se scrollea por dentro (rueda,
+/* MyLinks del hotel en Huésped+: el celular se scrollea por dentro (rueda,
    arrastre con el mouse o el dedo). Mientras nadie lo toca, hace un recorrido
    solo y lento por la página; al primer gesto del usuario, el recorrido se
    detiene para siempre y manda la persona. El relato de la noche (02:14)

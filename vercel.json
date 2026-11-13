@@ -19,6 +19,16 @@
       "source": "/marketing-digital/:path*",
       "destination": "/sitio-web/",
       "permanent": true
+    },
+    {
+      "source": "/guestapp",
+      "destination": "/huesped-plus/",
+      "permanent": true
+    },
+    {
+      "source": "/guestapp/:path*",
+      "destination": "/huesped-plus/",
+      "permanent": true
     }
   ]
 }

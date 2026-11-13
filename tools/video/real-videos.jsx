@@ -68,7 +68,7 @@ const VIDEOS = {
   },
   WEB: {
     label: 'SITIO WEB', producto: 'Sitio web',
-    intro: { eb: 'SITIO WEB · CON TU MARCA', tx: 'La web del hotel, |lista en minutos.' },
+    intro: { eb: 'SITIO WEB · CON TU MARCA', tx: 'La web del hotel, |que vende directo.' },
     A: [
       T('web-sitio-foto', 2.8, [[0, c(960, 500, 1.15)], [2.8, c(960, 470, 1.35)]], { srcV: R + 'web-sitio-cel-foto.webp',
         pops: [{ t: 1.0, x: 1500, y: 300, eb: 'SITIO DEL HOTEL', tx: 'Rápido, lindo y listo para Google', icon: 'globe', tone: 'b' }] }),
@@ -77,12 +77,12 @@ const VIDEOS = {
         cursor: { path: [[0.3, { x: 1300, y: 300 }], [1.2, { x: 1730, y: 145 }], [2.0, { x: 1730, y: 145 }]], clicks: [1.4] } }),
     ],
     B: [
-      // MyLinks: la vista previa del editor muestra la página del Hotel Los Álamos (la misma del celular de
-      // GuestApp) y se scrollea sola. Tira: tools/pantallas-inventadas/mylinks-video.py
+      // MyLinks: la vista previa del editor muestra el MyLinks del Hotel Los Álamos con la cara real del producto
+      // (foto a sangre, botones de vidrio). Fuente: tools/pantallas-inventadas/mylinks-real.html + mylinks-video.py
       T('web-mylinks', 3.1, [[0, todo], [0.8, c(1089, 484, 1.5)]], {
-        srcV: R + 'web-mylinks-cel.webp', srcVr: 6678 / 1015,
-        desliza: { src: R + 'web-mylinks-cel.webp', x: 1570, y: 172, w: 289, h: 623.5, r: 26, alto: 289 * 6678 / 1015,
-          k: [[0, 0], [0.9, 0], [1.5, 0.27], [1.85, 0.27], [2.55, 0.6], [3.1, 0.64]] },
+        srcV: R + 'web-mylinks-cel.webp', srcVr: 2184 / 1012,
+        desliza: { src: R + 'web-mylinks-cel.webp', x: 1570, y: 172, w: 289, h: 623.5, r: 26, alto: 623.5,
+          k: [[0, 0], [3.1, 0]] },
         pops: [{ t: 0.8, x: 1100, y: 330, eb: 'MY LINKS', tx: 'Todos los links del hotel, en su dominio', icon: 'link', tone: 'v' }] }),
       T('web-sitio-foto', 1.7, [[0, c(960, 500, 1.2)], [1.7, c(960, 520, 1.25)]], {
         pops: [{ t: 0.4, x: 960, y: 420, eb: 'EN CELULAR Y EN COMPU', tx: 'Se adapta a cualquier pantalla', icon: 'grid', tone: 'g' }] }),
@@ -141,8 +141,8 @@ const VIDEOS = {
     ],
   },
   GUESTAPP: {
-    label: 'GUESTAPP', producto: 'GuestApp',
-    intro: { eb: 'GUESTAPP · CON TU MARCA', tx: 'El hotel, |en el teléfono del huésped.' },
+    label: 'HUÉSPED+', producto: 'Huésped+',
+    intro: { eb: 'HUÉSPED+ · CON TU MARCA', tx: 'El hotel, |en el teléfono del huésped.' },
     A: [
       T('hu-llaves', 2.8, [[0, todo], [1.0, c(700, 360, 1.6)]], {
         pops: [{ t: 0.8, x: 760, y: 220, eb: 'LLAVE DIGITAL', tx: 'La habitación se abre con el teléfono', icon: 'key', tone: 'b' }] }),
