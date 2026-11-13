@@ -1,4 +1,4 @@
-# Renderiza ads-google.html, crm-centraliza.html y ads-conjuntos.html a 2x (3840×2000) → video/comun/real/*.webp
+# Renderiza ads-google.html, crm-centraliza.html, crm-clientes.html y ads-conjuntos.html a 2x (3840×2000) → video/comun/real/*.webp
 import sys, pathlib
 from playwright.sync_api import sync_playwright
 from PIL import Image
@@ -11,7 +11,8 @@ reemplazos = {'url(F_colonial)': f"url('{(F/'colonial.png').as_uri()}')", 'url(F
   'L_WA': (L/'whatsapp-logo.svg').as_uri(), 'L_IG': (L/'instagram-glyph.svg').as_uri(), 'L_FB': (L/'facebook-logo.svg').as_uri(),
   'url(F_colonial2)': '', 'url(F_tina)': f"url('{(F/'tina-lago.jpg').as_uri()}')", 'url(F_kayak)': f"url('{(F/'kayaks.jpg').as_uri()}')",
   'url(F_cena)': f"url('{(F/'restaurante.jpg').as_uri()}')", 'url(F_spa)': f"url('{(F/'spa.jpg').as_uri()}')",
-  'L_META': (R/'assets/logos/meta-color.png').as_uri(), 'L_GPT': (R/'assets/logos/chatgpt-negro.svg').as_uri()}
+  'L_META': (R/'assets/logos/meta-color.png').as_uri(), 'L_GPT': (R/'assets/logos/chatgpt-negro.svg').as_uri(),
+  'L_RACIMO': (d/'racimo-isotipo.png').as_uri()}
 nombres = sys.argv[1:] or ['ads-google', 'crm-centraliza']
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path=r'C:/Program Files/Google/Chrome/Application/chrome.exe')

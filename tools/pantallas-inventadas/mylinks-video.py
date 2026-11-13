@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 from PIL import Image
 R = pathlib.Path(__file__).resolve().parents[2]; d = R / 'tools/pantallas-inventadas'
 F = pathlib.Path(r'C:/Users/aldis/Downloads/PORTFOLIO ALDANA SALIGARI/RACIMO/RACIMO pantallas/assets/fotos')
-html = (d / 'mylinks-real.html').read_text(encoding='utf8').replace('url(F_colonial)', f"url('{(F / 'colonial.png').as_uri()}')")
+html = (d / 'mylinks-real.html').read_text(encoding='utf8').replace('L_ISO', (d / 'racimo-isotipo.png').as_uri()).replace('url(F_colonial)', f"url('{(F / 'colonial.png').as_uri()}')")
 tmp = d / 'mylinks-real-listo.html'; tmp.write_text(html, encoding='utf8')
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path=r'C:/Program Files/Google/Chrome/Application/chrome.exe')

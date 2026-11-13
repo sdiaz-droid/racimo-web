@@ -110,10 +110,13 @@ const VIDEOS = {
     label: 'CRM', producto: 'CRM',
     intro: { eb: 'CRM · CON TU MARCA', tx: 'Ninguna consulta |sin respuesta.' },
     A: [
-      T('crm-centraliza', 2.8, [[0, todo], [1.2, c(960, 420, 1.12)]], {
-        pops: [{ t: 0.6, x: 400, y: 150, eb: 'WHATSAPP, INSTAGRAM, FACEBOOK, WEB Y EMAIL', tx: 'Todas las consultas llegan a un lugar', icon: 'inArrow', tone: 'b' },
-               { t: 1.6, x: 1440, y: 140, eb: 'CONVERSA', tx: 'Una sola bandeja para todo el equipo', icon: 'msg', tone: 'v' }] }),
-      T('crm-centraliza', 2.4, [[0, c(1000, 410, 1.4)], [2.4, c(1060, 420, 1.55)]], {
+      // Conversa real (vista Clientes, modo oscuro) con zoom a Canales. Pedido de Fer 13/11.
+      // Fuente: tools/pantallas-inventadas/crm-clientes.html (datos inventados) + render2.py
+      T('crm-clientes', 2.8, [[0, todo], [0.7, todo], [1.7, c(520, 740, 1.9), c(330, 740, 1.5)], [2.8, c(500, 750, 2.0), c(320, 750, 1.6)]], {
+        marcos: [{ t: 1.5, x: 108, y: 616, w: 204, h: 296 }],
+        pops: [{ t: 0.3, x: 1300, y: 140, eb: 'CONVERSA', tx: 'Una sola bandeja para todo el equipo', icon: 'msg', tone: 'v' },
+               { t: 1.7, x: 593, y: 1018, eb: 'CANALES CONECTADOS', tx: 'WhatsApp, Instagram, Facebook, web y Guest App', icon: 'inArrow', tone: 'b' }] }),
+      T('crm-centraliza', 2.4, [[0, c(960, 420, 1.12)], [2.4, c(1060, 420, 1.45)]], {
         marcos: [{ t: 0.5, x: 1636, y: 279, w: 158, h: 38 }],
         pops: [{ t: 0.6, x: 1440, y: 620, eb: 'RACIMO IA', tx: 'Responde al instante, a cualquier hora', icon: 'spark', tone: 'g' }] }),
     ],
