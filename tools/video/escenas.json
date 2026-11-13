@@ -1,0 +1,317 @@
+{
+ "motor": {
+  "pieza": "RC_MOTOR",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
+   },
+   {
+    "name": "A",
+    "dur": 5.0,
+    "desc": "PMS real: primeras tomas"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y producto"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Más reservas directas, |desde tu propio motor.",
+   "bajada": "Súmalo a tu propuesta."
+  }
+ },
+ "web": {
+  "pieza": "RC_WEB",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
+   },
+   {
+    "name": "A",
+    "dur": 5.0,
+    "desc": "PMS real: primeras tomas"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y producto"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "El sitio del hotel, |listo en minutos.",
+   "bajada": "Súmalo a tu propuesta."
+  }
+ },
+ "pms": {
+  "pieza": "RC_PMS",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
+   },
+   {
+    "name": "A",
+    "dur": 5.2,
+    "desc": "PMS real: primeras tomas"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y producto"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Toda la operación, |en una sola grilla.",
+   "bajada": "Súmalo a tu propuesta."
+  }
+ },
+ "ads": {
+  "pieza": "RC_ADS",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
+   },
+   {
+    "name": "A",
+    "dur": 6.6,
+    "desc": "PMS real: primeras tomas"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 7.2,
+    "desc": "PMS real: segundas tomas"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y producto"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Que te encuentren |y te reserven directo.",
+   "bajada": "Súmalo a tu propuesta."
+  }
+ },
+ "crm": {
+  "pieza": "RC_CRM",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
+   },
+   {
+    "name": "A",
+    "dur": 5.2,
+    "desc": "PMS real: primeras tomas"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y producto"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Todos los canales, |una sola bandeja.",
+   "bajada": "Súmalo a tu propuesta."
+  }
+ },
+ "pos": {
+  "pieza": "RC_POS",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
+   },
+   {
+    "name": "A",
+    "dur": 5.0,
+    "desc": "PMS real: primeras tomas"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y producto"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Del pedido a la habitación, |sin papeles.",
+   "bajada": "Súmalo a tu propuesta."
+  }
+ },
+ "guestapp": {
+  "pieza": "RC_GUESTAPP",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
+   },
+   {
+    "name": "A",
+    "dur": 7.2,
+    "desc": "PMS real: primeras tomas"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 7.2,
+    "desc": "PMS real: segundas tomas"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y producto"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "El hotel entero, |en el teléfono del huésped.",
+   "bajada": "Súmalo a tu propuesta."
+  }
+ },
+ "agentes": {
+  "pieza": "RC_AGENTES",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
+   },
+   {
+    "name": "A",
+    "dur": 5.2,
+    "desc": "PMS real: primeras tomas"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y producto"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "Responde, cotiza |y reserva solo.",
+   "bajada": "Súmalo a tu propuesta."
+  }
+ },
+ "rms": {
+  "pieza": "RC_RMS",
+  "escenas": [
+   {
+    "name": "Intro",
+    "dur": 2.4,
+    "desc": "El dato del producto, grande"
+   },
+   {
+    "name": "A",
+    "dur": 5.2,
+    "desc": "PMS real: primeras tomas"
+   },
+   {
+    "name": "Titulo",
+    "dur": 2.2,
+    "desc": "Placa tipográfica"
+   },
+   {
+    "name": "B",
+    "dur": 4.8,
+    "desc": "PMS real: segundas tomas"
+   },
+   {
+    "name": "Cierre",
+    "dur": 2.6,
+    "desc": "Logotipo de Racimo y producto"
+   }
+  ],
+  "ajustes": {
+   "fondo": "Negro",
+   "titular": "La tarifa justa, |cada día.",
+   "bajada": "Súmalo a tu propuesta."
+  }
+ }
+}

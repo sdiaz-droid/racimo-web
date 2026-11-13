@@ -1,0 +1,34 @@
+{
+  "redirects": [
+    {
+      "source": "/google-ads",
+      "destination": "/publicidad-digital/",
+      "permanent": true
+    },
+    {
+      "source": "/google-ads/:path*",
+      "destination": "/publicidad-digital/",
+      "permanent": true
+    },
+    {
+      "source": "/marketing-digital",
+      "destination": "/sitio-web/",
+      "permanent": true
+    },
+    {
+      "source": "/marketing-digital/:path*",
+      "destination": "/sitio-web/",
+      "permanent": true
+    },
+    {
+      "source": "/guestapp",
+      "destination": "/huesped-plus/",
+      "permanent": true
+    },
+    {
+      "source": "/guestapp/:path*",
+      "destination": "/huesped-plus/",
+      "permanent": true
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+/* Formulario de consulta de precio (home y páginas de producto) → resellers@racimo.tech */
+form.f{background:var(--ink);border-radius:24px;padding:clamp(22px,2.6vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:16px 16px;align-content:start}
+.f .campo{display:grid;gap:7px}
+.f .ancho{grid-column:1/-1}
+.f label,.f legend{font-size:13.5px;color:var(--fg-2)}
+.f input,.f select,.f textarea{width:100%;min-height:50px;border-radius:14px;border:1px solid var(--line);background:#181818;color:var(--white);
+  padding:12px 15px;font:inherit;font-size:16px;transition:border-color .2s,background-color .2s;appearance:none;-webkit-appearance:none}
+.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff99' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px}
+.f textarea{min-height:96px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--green);background:#1b1b1b}
+.f input::placeholder,.f textarea::placeholder{color:rgba(255,255,255,.3)}
+.f fieldset{border:0;margin:0;padding:0}
+.prod{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
+.prod label{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);
+  color:rgba(255,255,255,.8);font-size:14px;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.prod input{position:absolute;opacity:0;width:1px;height:1px;min-height:0}
+.prod label:has(input:checked){background:var(--green);border-color:var(--green);color:var(--ink)}
+.prod label:has(input:focus-visible){outline:2px solid var(--green);outline-offset:3px}
+.f .enviar{grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+.f .enviar small{color:var(--fg-3);font-size:13px;max-width:36ch}
+.f .miel{position:absolute;left:-9999px}
+.f[data-estado="enviando"] .btn{pointer-events:none;opacity:.9}
+.f .btn{white-space:nowrap;gap:10px}
+.f .btn svg{width:16px;height:16px;flex:none}
+.f .btn .girando{width:16px;height:16px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:girar .7s linear infinite;flex:none}
+@keyframes girar{to{transform:rotate(360deg)}}
+.f[data-estado="ok"]{align-content:center}
+.f[data-estado="ok"] .gracias{text-align:center;outline:none;animation:gracias-in .5s cubic-bezier(.2,.8,.2,1) both}
+.gracias .ok-ic{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 18px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 10px rgba(0,240,104,.14),0 0 0 22px rgba(0,240,104,.06);animation:ok-pop .55s cubic-bezier(.3,1.6,.5,1) .1s both}
+.gracias .ok-ic svg{width:36px;height:36px;fill:none;stroke:#121212;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;animation:ok-trazo .45s ease-out .45s forwards}
+@keyframes ok-pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+@keyframes ok-trazo{to{stroke-dashoffset:0}}
+@keyframes gracias-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.gracias .ok-ic,.f[data-estado="ok"] .gracias{animation:none}.gracias .ok-ic svg{animation:none;stroke-dashoffset:0}}
+.gracias{display:none;grid-column:1/-1;padding:10px 0}
+.gracias h3{font-size:28px}
+.gracias p{color:var(--fg-2);margin-top:10px}
+.f[data-estado="ok"] > :not(.gracias){display:none}
+.f[data-estado="ok"] .gracias{display:block}
+.f .error{grid-column:1/-1;color:#ffb4b4;font-size:14px;display:none}
+.f[data-estado="error"] .error{display:block}
+@media(max-width:900px){form.f{grid-template-columns:1fr}}
+
+.f .falta input,.f .falta select{border-color:#ff8a8a}
+.f .faltan{grid-column:1/-1;color:#ffb4b4;font-size:14px;display:none}
+.f[data-estado="incompleto"] .faltan{display:block}

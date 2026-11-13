@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- CRM · Conversa, vista Clientes en modo oscuro, igual a la pantalla real del PMS de Racimo (captura de Fer, 13/11).
+     Datos inventados: Hotel Los Álamos, huéspedes y equipo ficticios. El video hace zoom al panel «Canales». -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:#121212}
+#escritorio{width:1920px;height:1000px;position:relative;overflow:hidden;background:#121212;color:#e9e9ec}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* barra superior */
+.top{position:absolute;left:0;right:0;top:0;height:96px;display:flex;align-items:center}
+.logo{position:absolute;left:33px;top:33px;width:44px;height:44px;border-radius:2px;overflow:hidden}
+.logo img{width:100%;height:100%;display:block}
+.buscar{position:absolute;left:98px;top:36px;width:640px;height:50px;border-radius:6px;background:#2b2b2e;display:flex;align-items:center;gap:16px;padding:0 20px;color:#a9a9b0;font-size:17px}
+.buscar svg{width:22px;height:22px;color:#e9e9ec}
+.top-der{position:absolute;right:30px;top:38px;display:flex;align-items:center;gap:30px}
+.top-der svg{width:22px;height:22px;fill:#fff;stroke:none}
+.av{width:44px;height:44px;border-radius:50%;background:#22c55e;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600;position:relative}
+.av::after{content:"";position:absolute;right:-1px;bottom:1px;width:11px;height:11px;border-radius:50%;background:#16a34a;border:2px solid #121212}
+/* barra lateral */
+.lat{position:absolute;left:0;top:96px;bottom:0;width:96px}
+.lat a{display:flex;flex-direction:column;align-items:center;gap:6px;width:80px;margin:8px auto 14px;padding:10px 0;border-radius:8px;color:#fff;font-size:17px;position:relative}
+.lat a.on{background:#2b2b2e}
+.lat a svg{width:28px;height:28px;fill:#fff;stroke:none}
+.lat .bd{position:absolute;right:6px;top:2px;background:#4a4a50;color:#fff;font-size:12px;font-weight:600;border-radius:999px;padding:2px 7px}
+.lat .abajo{position:absolute;left:0;right:0;bottom:16px;text-align:center;font-size:17px;color:#fff}
+.lat .abajo small{display:block;font-size:13px;color:#9a9aa2;margin-top:12px}
+/* panel de bandejas */
+.bandejas{position:absolute;left:98px;top:96px;bottom:0;width:222px;background:#1b1b1d;border-right:1px solid #2a2a2e}
+.eq{display:flex;align-items:center;justify-content:space-between;padding:12px 20px 12px 20px;border-bottom:1px solid #2a2a2e;height:74px}
+.eq small{display:block;font-size:17px;color:#a9a9b0}
+.eq b{display:block;font-size:17px;font-weight:500;color:#e9e9ec;margin-top:2px}
+.car{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:7px solid #e9e9ec}
+.car.up{border-top:0;border-bottom:7px solid #e9e9ec}
+.b-it{display:flex;align-items:center;gap:10px;padding:0 20px;height:50px;font-size:17px;color:#e9e9ec}
+.b-it svg{width:19px;height:19px;fill:#fff;stroke:none}
+.b-it .n{margin-left:auto;background:#4a4a50;font-size:12px;font-weight:600;border-radius:999px;padding:2px 9px}
+.grupo{display:flex;align-items:center;justify-content:space-between;margin:0 12px;padding:0 8px;height:47px;border-top:1px solid #333338;font-size:17px;color:#e9e9ec}
+.grupo:first-of-type{margin-top:6px}
+.canal{display:flex;align-items:center;gap:10px;padding:0 20px;height:50px;font-size:17px;color:#e9e9ec}
+.canal .lg{width:21px;height:21px;display:grid;place-items:center;flex:none}
+.canal .lg img{width:21px;height:21px}
+.canal .lg svg{width:21px;height:21px}
+.canal .ok{margin-left:auto;width:19px;height:19px}
+/* lista de conversaciones */
+.lista{position:absolute;left:321px;top:96px;bottom:0;width:404px;background:#161618;border-right:1px solid #2a2a2e}
+.l-top{display:flex;justify-content:flex-end;align-items:center;gap:20px;height:74px;padding:0 6px 0 0;border-bottom:1px solid #2a2a2e}
+.l-top svg{width:22px;height:22px;fill:#e9e9ec;stroke:none}
+.nuevo{display:flex;align-items:center;gap:10px;background:#6c63ff;color:#fff;font-size:16px;font-weight:500;border-radius:4px;padding:11px 18px}
+.nuevo svg{width:16px;height:16px;fill:#fff}
+.conv{position:relative;height:125px;border-bottom:1px solid #2a2a2e;padding:22px 14px 0 70px}
+.conv.on{background:#202024}
+.conv .ava{position:absolute;left:10px;top:38px;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600;color:#fff}
+.conv .ava i{position:absolute;right:-4px;bottom:-3px;width:20px;height:20px;border-radius:50%;background:#161618;display:grid;place-items:center}
+.conv .ava i img,.conv .ava i svg{width:16px;height:16px}
+.c1{display:flex;align-items:center;gap:8px;font-size:16px;color:#e9e9ec}
+.c1 .src{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c1 .h{font-size:12.5px;color:#b3b3ba}
+.c1 svg{width:22px;height:22px;stroke:#e9e9ec;fill:none;stroke-width:1.6}
+.c2{display:flex;align-items:center;gap:8px;margin-top:9px}
+.c2 b{flex:1;font-size:20px;font-weight:400;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid #44444a;background:#2b2b2e;border-radius:999px;padding:3px 11px 3px 4px;font-size:14px;font-weight:700;color:#fff;letter-spacing:.01em;white-space:nowrap}
+.pill i{width:19px;height:19px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:10px;font-weight:700;color:#fff}
+.c3{margin-top:9px;font-size:16.5px;color:#b9b9c0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* chat */
+.chat{position:absolute;left:726px;right:0;top:96px;bottom:0;background:#141416}
+.ch-h{height:74px;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid #2a2a2e;background:#121212}
+.ch-h .nom b{display:block;font-size:22px;font-weight:600;color:#fff}
+.ch-h .nom span{display:flex;align-items:center;gap:8px;font-size:17px;color:#e9e9ec;margin-top:4px}
+.ch-h .nom img{width:19px;height:19px}
+.ch-h .acc{margin-left:auto;display:flex;align-items:center;gap:26px}
+.ch-h .acc>svg{width:24px;height:24px;color:#e9e9ec}
+.camp small{display:block;font-size:14px;color:#c9c9cf;letter-spacing:.02em;margin-bottom:6px}
+.est{display:inline-flex;align-items:center;gap:7px;background:#1f4d33;border:1px solid #2f7a4f;color:#86efac;font-size:15px;font-weight:600;border-radius:999px;padding:5px 12px}
+.est svg{width:15px;height:15px}
+.puntos{width:22px;height:22px;fill:#e9e9ec}
+.fondo-pt{position:absolute;left:0;right:0;top:74px;bottom:146px;background-image:radial-gradient(#2c2c31 1px,transparent 1.2px);background-size:22px 22px}
+.msgs{position:absolute;left:0;right:0;top:74px;bottom:146px;padding:22px 26px;display:flex;flex-direction:column;gap:18px;overflow:hidden}
+.sis{align-self:center;display:flex;align-items:center;gap:12px;font-size:18px;color:#e9e9ec}
+.sis svg{width:20px;height:20px;color:#7aa2ff}
+.b{max-width:640px;border-radius:8px;padding:12px 14px 10px;font-size:20px;line-height:1.4;position:relative}
+.b .q{display:block;font-size:18px;margin-bottom:6px}
+.b .t{display:flex;justify-content:flex-end;align-items:center;gap:8px;font-size:15px;margin-top:8px}
+.b.yo{align-self:flex-end;background:#2f6b58;color:#fff;margin-right:44px}
+.b.yo .q{color:#a7f3d0;text-align:right}
+.b.yo .t{color:#c8e6da}
+.b.el{align-self:flex-start;background:#26262a;color:#fff;margin-left:44px}
+.b.el .q{color:#a7f3d0}
+.b.el .t{justify-content:flex-start;color:#c9c9cf}
+.b .ini{position:absolute;bottom:-4px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff}
+.b.yo .ini{right:-44px;background:#22c55e}
+.b.el .ini{left:-44px;background:#b7791f}
+.b a{color:#a7f3d0;text-decoration:underline}
+.comp{position:absolute;left:10px;right:10px;bottom:10px;height:136px}
+.tabs{display:inline-flex;background:#1b1b1d;border-radius:6px 6px 0 0;padding:6px 6px 0}
+.tabs span{font-size:18px;padding:9px 16px;color:#b9b9c0}
+.tabs span.on{background:#121212;color:#fff;font-weight:600;border-radius:5px 5px 0 0}
+.input{height:72px;background:#1b1b1d;border-radius:0 6px 6px 6px;display:flex;align-items:center;gap:22px;padding:0 22px;font-size:20px;color:#b9b9c0}
+.input svg{width:22px;height:22px;color:#e9e9ec}
+.input .env{margin-left:auto}
+</style></head><body>
+<div id="escritorio">
+  <div class="top">
+    <div class="logo"><img src="L_RACIMO" alt=""></div>
+    <div class="buscar"><svg class="i" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>Buscar</div>
+    <div class="top-der">
+      <svg viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+      <div class="av">FG</div>
+    </div>
+  </div>
+
+  <div class="lat">
+    <a class="on"><span class="bd">16</span><svg viewBox="0 0 24 24"><path d="M12 4a3 3 0 1 1 0 6 3 3 0 0 1 0-6zM3 19c.6-4 4.3-6 9-6s8.4 2 9 6v1H3z"/></svg>Clientes</a>
+    <a><svg viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H8l-5 4V4a1 1 0 0 1 1-1z"/></svg>Hotel</a>
+    <a><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.5L21 7H3z"/></svg>Email</a>
+    <div class="abajo"><svg viewBox="0 0 24 24" style="width:26px;height:26px;fill:#fff"><path d="M19.4 13a7.4 7.4 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7 7 0 0 0-1.7-1L15 3h-4l-.4 2.9a7 7 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.4 7.4 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7 7 0 0 0 1.7 1L11 21h4l.4-2.9a7 7 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg><div>Ajustes</div><small>v2.80.0</small></div>
+  </div>
+
+  <div class="bandejas">
+    <div class="eq"><div><small>Equipo</small><b>Hotel Los Álamos</b></div><span class="car"></span></div>
+    <div class="b-it"><svg viewBox="0 0 24 24"><path d="M4 4h16v13H4zM4 13h5l1 2h4l1-2h5" stroke="#1b1b1d" stroke-width="1.5"/></svg>Abiertos<span class="n">15</span></div>
+    <div class="b-it"><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 1 1 0 6 3 3 0 0 1 0-6zM2 19c.5-3.5 3.3-5 7-5s6.5 1.5 7 5v1H2zM16 8l5 5M21 8l-5 5" stroke="#fff" stroke-width="1.8"/></svg>Sin asignar</div>
+    <div class="b-it"><svg viewBox="0 0 24 24"><path d="M4 3h16v18H4z"/><path d="M12 7a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM7.5 17c.4-2.3 2.2-3.5 4.5-3.5s4.1 1.2 4.5 3.5" stroke="#1b1b1d" stroke-width="1.6"/></svg>Asignado a mí<span class="n">1</span></div>
+    <div class="b-it"><svg viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>Menciones</div>
+    <div class="b-it"><svg viewBox="0 0 24 24"><circle cx="11" cy="12" r="8"/><path d="M11 7v5l3 2" stroke="#1b1b1d" stroke-width="2"/><circle cx="19" cy="18" r="3.4" fill="#fff" stroke="#1b1b1d" stroke-width="1.4"/></svg>Vencidos</div>
+    <div class="b-it"><svg viewBox="0 0 24 24"><path d="M6 10h12v11H6zM8.5 10V7a3.5 3.5 0 0 1 7 0v3" stroke="#fff" stroke-width="2" fill="none"/><rect x="6" y="10" width="12" height="11" rx="1.5"/></svg>Cerrados</div>
+    <div class="b-it"><svg viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:2"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v10h14V9M10 13h4"/></svg>Archivados</div>
+    <div class="grupo">Etiquetas<span class="car"></span></div>
+    <div class="grupo">Agentes<span class="car"></span></div>
+    <div class="grupo" style="border-bottom:0">Canales<span class="car up"></span></div>
+    <div class="canal"><span class="lg"><img src="L_WA" alt=""></span>WhatsApp<svg class="ok" viewBox="0 0 24 24"><path d="m12 1.8 2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3.1 1 3-2.6 1.9-1 3.1-3.2-.1L12 22.2l-2.6-1.9-3.2.1-1-3-2.6-1.9 1-3.1-1-3 2.6-1.9 1-3.1 3.2.1z" fill="#fff"/><path d="m8 12.3 2.7 2.6L16 9.6" stroke="#1b1b1d" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="canal"><span class="lg"><img src="L_IG" alt=""></span>Instagram<svg class="ok" viewBox="0 0 24 24"><path d="m12 1.8 2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3.1 1 3-2.6 1.9-1 3.1-3.2-.1L12 22.2l-2.6-1.9-3.2.1-1-3-2.6-1.9 1-3.1-1-3 2.6-1.9 1-3.1 3.2.1z" fill="#fff"/><path d="m8 12.3 2.7 2.6L16 9.6" stroke="#1b1b1d" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="canal"><span class="lg"><img src="L_FB" alt=""></span>Facebook<svg class="ok" viewBox="0 0 24 24"><path d="m12 1.8 2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3.1 1 3-2.6 1.9-1 3.1-3.2-.1L12 22.2l-2.6-1.9-3.2.1-1-3-2.6-1.9 1-3.1-1-3 2.6-1.9 1-3.1 3.2.1z" fill="#fff"/><path d="m8 12.3 2.7 2.6L16 9.6" stroke="#1b1b1d" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="canal"><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M12 6V3M8.5 11.5v1M15.5 11.5v1M1 12h2M21 12h2"/></svg></span>Widget<svg class="ok" viewBox="0 0 24 24"><path d="m12 1.8 2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3.1 1 3-2.6 1.9-1 3.1-3.2-.1L12 22.2l-2.6-1.9-3.2.1-1-3-2.6-1.9 1-3.1-1-3 2.6-1.9 1-3.1 3.2.1z" fill="#fff"/><path d="m8 12.3 2.7 2.6L16 9.6" stroke="#1b1b1d" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="canal"><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 19c.5-3.4 3.2-5 6.5-5 1.4 0 2.6.3 3.6.8"/><circle cx="17" cy="15" r="2.4"/><path d="M19 16.8 22 20M20.5 18.3l-1 1"/></svg></span>Guest App<svg class="ok" viewBox="0 0 24 24"><path d="m12 1.8 2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3.1 1 3-2.6 1.9-1 3.1-3.2-.1L12 22.2l-2.6-1.9-3.2.1-1-3-2.6-1.9 1-3.1-1-3 2.6-1.9 1-3.1 3.2.1z" fill="#fff"/><path d="m8 12.3 2.7 2.6L16 9.6" stroke="#1b1b1d" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </div>
+
+  <div class="lista">
+    <div class="l-top">
+      <svg viewBox="0 0 24 24"><path d="M3 6h12v2H3zM3 11h9v2H3zM3 16h6v2H3zM18 5v11h3l-4 4-4-4h3V5z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M9 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM1 20c.6-4 3.8-6 8-6s7.4 2 8 6zM19 7v3h3v2h-3v3h-2v-3h-3v-2h3V7z"/></svg>
+      <span class="nuevo"><svg viewBox="0 0 24 24"><path d="M3 17.3V21h3.7L17.8 9.9l-3.7-3.7zM20.7 7a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0l-1.8 1.8 3.7 3.7z"/></svg>Nuevo</span>
+    </div>
+    <div class="conv on">
+      <div class="ava" style="background:#16a34a">VR<i><img src="L_WA" alt=""></i></div>
+      <div class="c1"><span class="src">Hotel Los Álamos · WhatsApp</span><span class="h">hoy 11:41</span><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg></div>
+      <div class="c2"><b>Valentina Ríos</b><span class="pill"><i style="background:#22c55e">F</i>FLORENCIA GÓMEZ</span></div>
+      <div class="c3">Aquí lo tienes: hotellosalamos.com/reservar</div>
+    </div>
+    <div class="conv">
+      <div class="ava" style="background:#be185d">MV<i><img src="L_IG" alt=""></i></div>
+      <div class="c1"><span class="src">Hotel Los Álamos · Instagram</span><span class="h">hoy 11:12</span><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg></div>
+      <div class="c2"><b>@martin.viaja</b><span class="pill"><i style="background:#a16207">M</i>MARTÍN SOSA</span></div>
+      <div class="c3">¿La suite tiene balcón con vista al lago?</div>
+    </div>
+    <div class="conv">
+      <div class="ava" style="background:#2563eb">LM<i><img src="L_FB" alt=""></i></div>
+      <div class="c1"><span class="src">Hotel Los Álamos · Facebook</span><span class="h">hoy 10:47</span><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg></div>
+      <div class="c2"><b>Laura Méndez</b><span class="pill"><i style="background:#22c55e">F</i>FLORENCIA GÓMEZ</span></div>
+      <div class="c3">¿Aceptan mascotas en las habitaciones?</div>
+    </div>
+    <div class="conv">
+      <div class="ava" style="background:#6c63ff">DP<i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="3" y="6" width="18" height="13" rx="3"/></svg></i></div>
+      <div class="c1"><span class="src">Hotel Los Álamos · Widget</span><span class="h">hoy 10:05</span><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg></div>
+      <div class="c2"><b>Diego Paz</b><span class="pill"><i style="background:#6c63ff">IA</i>RACIMO IA</span></div>
+      <div class="c3">¿El desayuno está incluido en la tarifa?</div>
+    </div>
+    <div class="conv">
+      <div class="ava" style="background:#0f766e">LG<i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 19c.5-3.4 3.2-5 6.5-5"/></svg></i></div>
+      <div class="c1"><span class="src">Suite 302 · Guest App</span><span class="h">ayer 22:38</span><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg></div>
+      <div class="c2"><b>Laura Giménez</b><span class="pill"><i style="background:#a16207">M</i>MARTÍN SOSA</span></div>
+      <div class="c3">¿Me pueden subir dos toallas más a la 302?</div>
+    </div>
+    <div class="conv">
+      <div class="ava" style="background:#7c3aed">SC<i><img src="L_WA" alt=""></i></div>
+      <div class="c1"><span class="src">Hotel Los Álamos · WhatsApp</span><span class="h">ayer 19:02</span><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg></div>
+      <div class="c2"><b>Sofía Carrizo</b><span class="pill"><i style="background:#22c55e">F</i>FLORENCIA GÓMEZ</span></div>
+      <div class="c3">Gracias, nos vemos en diciembre</div>
+    </div>
+  </div>
+
+  <div class="chat">
+    <div class="ch-h">
+      <div class="nom"><b>Valentina Ríos</b><span><img src="L_WA" alt="">Hotel Los Álamos · WhatsApp</span></div>
+      <div class="acc">
+        <svg class="i" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8 8M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+        <svg class="i" viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="8" cy="8" r="1.4"/></svg>
+        <div class="camp"><small>ESTADO</small><span class="est"><svg class="i" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/></svg>Abierto</span></div>
+        <div class="camp"><small>RESPONSABLE</small><span class="pill"><i style="background:#22c55e">F</i>FLORENCIA GÓMEZ</span></div>
+        <svg class="puntos" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+      </div>
+    </div>
+    <div class="fondo-pt"></div>
+    <div class="msgs">
+      <div class="sis"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Florencia Gómez se asignó la conversación</div>
+      <div class="b el"><span class="q">Valentina Ríos</span>¡Hola! ¿Tienen lugar para el fin de semana largo? Somos 2 adultos.<span class="t">hoy 11:36</span><span class="ini">VR</span></div>
+      <div class="b yo"><span class="q">Florencia Gómez</span>¡Hola, Valentina! Sí, nos queda la Suite Lago con desayuno incluido. ¿Te paso el link para reservar directo?<span class="t">hoy 11:38 ✓✓</span><span class="ini">FG</span></div>
+      <div class="b el"><span class="q">Valentina Ríos</span>¡Sí, por favor!<span class="t">hoy 11:39</span><span class="ini">VR</span></div>
+      <div class="sis"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Florencia Gómez agregó la etiqueta: Reserva directa</div>
+      <div class="b yo"><span class="q">Florencia Gómez</span>Aquí lo tienes: <a>hotellosalamos.com/reservar</a>. Reservando directo tienes 10 % de descuento.<span class="t">hoy 11:41 ✓✓</span><span class="ini">FG</span></div>
+    </div>
+    <div class="comp">
+      <div class="tabs"><span class="on">Chat</span><span>Nota</span></div>
+      <div class="input">
+        <svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        <svg class="i" viewBox="0 0 24 24"><path d="m4 20 10-10M15 4v2M15 10v2M12 7h-2M20 7h-2M18.5 4.5l-1 1M18.5 9.5l-1-1"/></svg>
+        Shift + Enter para nueva línea. Escribe / para seleccionar una plantilla o contenido dinámico
+        <svg class="i env" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z" fill="#fff"/></svg>
+        <svg class="i" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>
