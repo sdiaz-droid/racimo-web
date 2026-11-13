@@ -152,18 +152,18 @@ const VIDEOS = {
     A: [
       T('hu-llaves', 2.4, [[0, todo], [1.0, c(700, 360, 1.6)]], {
         pops: [{ t: 0.7, x: 760, y: 220, eb: 'LLAVE DIGITAL', tx: 'El hotel la habilita desde el sistema', icon: 'key', tone: 'b' }] }),
-      T('hu-app', 2.4, [[0, c(960, 500, 1.02), c(960, 500, 1.55)], [2.4, c(960, 560, 1.18), c(960, 560, 1.55)]], {
+      T('hu-app', 2.4, [[0, c(960, 500, 1.02), c(960, 500, 1.5)], [2.4, c(960, 500, 1.1), c(960, 500, 1.55)]], {
         desliza: CEL('hu-app-cel', 1857.8, [[0, 0], [2.4, 0]]),
-        marcos: [{ t: 0.6, x: 807, y: 551, w: 306, h: 152 }],
+        marcos: [{ t: 0.6, x: 807, y: 551, w: 306, h: 152, hasta: 2.0 }],
         pops: [{ t: 0.5, x: 1430, y: 470, eb: 'EN EL CELULAR DEL HUÉSPED', tx: 'La Suite 302 se abre con la llave', icon: 'key', tone: 'g' }] }),
-      T('hu-app', 2.4, [[0, c(960, 500, 1.1), c(960, 500, 1.55)], [2.4, c(960, 470, 1.2), c(960, 470, 1.55)]], {
+      T('hu-app', 2.4, [[0, c(960, 500, 1.1), c(960, 500, 1.55)], [2.4, c(960, 500, 1.18), c(960, 500, 1.6)]], {
         desliza: CEL('hu-chat-cel', 713, [[0, 0], [2.4, 0]]),
         pops: [{ t: 0.4, x: 1430, y: 430, eb: 'DESDE LA GUEST APP', tx: 'Laura le escribe a recepción', icon: 'msg', tone: 'v' }] }),
     ],
     B: [
       T('hu-conversa', 2.4, [[0, todo], [1.0, c(1250, 520, 1.25)]], {
         pops: [{ t: 0.7, x: 1290, y: 800, eb: 'LLEGA A CONVERSA', tx: 'Housekeeping responde y sube las toallas', icon: 'msg', tone: 'v' }] }),
-      T('hu-app', 2.4, [[0, c(960, 500, 1.1), c(960, 500, 1.55)], [2.4, c(960, 540, 1.2), c(960, 540, 1.55)]], {
+      T('hu-app', 2.4, [[0, c(960, 500, 1.05), c(960, 500, 1.5)], [2.4, c(960, 500, 1.15), c(960, 500, 1.6)]], {
         desliza: CEL('hu-room-cel', 713, [[0, 0], [2.4, 0]]),
         pops: [{ t: 0.4, x: 1430, y: 430, eb: 'ROOM SERVICE', tx: 'Pide la cena desde la habitación', icon: 'bell', tone: 'g' }] }),
       T('pos-room-302', 2.4, [[0, todo], [1.0, c(1000, 480, 1.6)]], {

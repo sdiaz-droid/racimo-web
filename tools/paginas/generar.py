@@ -686,7 +686,7 @@ def pagina(p):
 <script src="/video/{p['video']}/video.js?v=20261110" defer></script>
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
 <script src="/assets/producto.js?v=20261110" defer></script>
-<script src="/assets/consulta.js?v=20261111b" defer></script>
+<script src="/assets/consulta.js?v=20261113" defer></script>
 <script src="/assets/menu.js?v=20261105c" defer></script>{extra_js}
 </body>
 </html>

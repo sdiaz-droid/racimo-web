@@ -102,18 +102,21 @@ function hacer(cfg) {
     const capas = [];
     let cam = { x: 960, y: 500, s: 1 }, cursor = null;
     for (const [nombre, t0, shots] of tramos) {
-      for (const s of tomaActiva(T, t0, shots)) {
+      // cada toma con su propia clave (tramo + número): dos tomas seguidas sobre la misma pantalla compartían
+      // la clave s.src y en el fundido React mezclaba las capas (salto)
+      for (const [n, s] of tomaActiva(T, t0, shots).entries()) {
+        const id = nombre + n;
         if (T < s.a - 0.4 || T > s.b + 0.4) continue;
         const op = Math.min(tw(T, s.a - 0.35, s.a + 0.05, 0, 1), 1 - tw(T, s.b - 0.05, s.b + 0.3, 0, 1));
         if (op <= 0) continue;
         if (v && s.srcV) {
-          capas.push(<Telefono key={s.src + 'v'} T={T} a={s.a} b={s.b} src={s.srcV} r={s.srcVr} W={W} H={H} />);
+          capas.push(<Telefono key={id + 'v'} T={T} a={s.a} b={s.b} src={s.srcV} r={s.srcVr} W={W} H={H} />);
         } else {
           const K = s.cam.map(([t, c, cv]) => [s.a + t, c, cv]);
           const c = camAt(T, K, v);
           if (T >= s.a && T <= s.b) cam = c;
           capas.push(
-            <div key={s.src} style={{ position: 'absolute', inset: 0, opacity: op }}>
+            <div key={id} style={{ position: 'absolute', inset: 0, opacity: op }}>
               <World cam={c} W={W} H={H}>
                 <Pantalla src={s.src} />
                 {s.desliza && <Desliza T={T} a={s.a} {...s.desliza} />}
@@ -128,11 +131,11 @@ function hacer(cfg) {
         (s.pops || []).forEach((p, i) => {
           const a = s.a + p.t, b = s.a + (p.hasta ?? s.d);
           if (v) {
-            capas.push(<Pop key={s.src + 'p' + i} T={T} a={a} b={b} sx={W / 2} sy={1520 + i * 0} ox={0} oy={-40 - (i % 2) * 150} {...p} W={W} v={v} />);
+            capas.push(<Pop key={id + 'p' + i} T={T} a={a} b={b} sx={W / 2} sy={1520 + i * 0} ox={0} oy={-40 - (i % 2) * 150} {...p} W={W} v={v} />);
           } else {
             const K = s.cam.map(([t, c, cv]) => [s.a + t, c, cv]);
             const st = toStage(camAt(T, K, v), W, H, p.x, p.y);
-            capas.push(<Pop key={s.src + 'p' + i} T={T} a={a} b={b} sx={st.x} sy={st.y} {...p} W={W} v={v} />);
+            capas.push(<Pop key={id + 'p' + i} T={T} a={a} b={b} sx={st.x} sy={st.y} {...p} W={W} v={v} />);
           }
         });
       }
