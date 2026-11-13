@@ -514,7 +514,6 @@ def consulta(p):
         <input type="hidden" name="_subject" value="Consulta de precio · {e(n)} · Racimo">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="Página" value="{e(n)}">
-        <input type="text" name="_honey" class="miel" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="campo"><label for="f-nombre">Nombre y apellido</label><input id="f-nombre" name="Nombre" autocomplete="name" required></div>
         <div class="campo"><label for="f-empresa">Empresa</label><input id="f-empresa" name="Empresa" autocomplete="organization" required></div>
         <div class="campo"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
@@ -686,7 +685,7 @@ def pagina(p):
 <script src="/video/{p['video']}/video.js?v=20261110" defer></script>
 <script>window.RACIMO_VIDEO = {json.dumps(cfg, ensure_ascii=False)};</script>
 <script src="/assets/producto.js?v=20261110" defer></script>
-<script src="/assets/consulta.js?v=20261113b" defer></script>
+<script src="/assets/consulta.js?v=20261113c" defer></script>
 <script src="/assets/menu.js?v=20261105c" defer></script>{extra_js}
 </body>
 </html>

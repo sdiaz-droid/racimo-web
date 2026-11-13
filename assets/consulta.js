@@ -76,9 +76,12 @@
     history.replaceState(null, '', location.pathname + '#form');
   }
 
+  // al volver con «Atrás» Chrome puede restaurar la página a mitad de un envío: se reinicia
+  addEventListener('pageshow', e => { if (e.persisted && form.dataset.estado === 'enviando') { form.dataset.estado = ''; boton(false); callar(); } });
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    if (form.dataset.estado === 'enviando') return;
+    if (form.dataset.estado === 'enviando') { decir('enviando', 'Ya estamos enviando tu consulta, espera unos segundos…'); return; }
     form.querySelectorAll('.campo.falta').forEach(limpiarCampo);
 
     // 1 · falta algo: cada campo dice qué le falta y la línea de estado resume cuáles
@@ -99,7 +102,7 @@
     }
 
     const fd = new FormData(form);
-    if (fd.get('_honey')) return;
+    // sin campo trampa: el autocompletado de Chrome lo llenaba y el envío se cortaba en silencio (13/11)
     const datos = {};
     for (const [k, v] of fd.entries()) { if (k === '_honey' || k === '_next' || k === '_captcha') continue; datos[k] = datos[k] ? datos[k] + ', ' + v : v; }
 
